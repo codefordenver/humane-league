@@ -1,0 +1,26 @@
+{
+  "name": "humane-league",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js",
+    "client": "cd client && yarn start",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\" \"yarn watch-css\"",
+    "build-css": "node-sass-chokidar client/src/ -o client/src/",
+    "watch-css": "npm run build-css && node-sass-chokidar client/src/ -o client/src/ --watch --recursive"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "knex": "^0.14.3",
+    "pg": "^7.4.1"
+  },
+  "devDependencies": {
+    "node-sass-chokidar": "0.0.3"
+  }
+}

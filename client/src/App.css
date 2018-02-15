@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-image: url('./bg-gradient.svg');
+  background-size: cover;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -20,6 +23,18 @@
 
 .App-intro {
   font-size: large;
+}
+
+h1 {
+  margin: 0px;
+  padding-top: 20px;
+  color: white;
+}
+
+.App__logo {
+  padding-top: 50px;
+  width: 500px;
+  margin: 0px auto;
 }
 
 @keyframes App-logo-spin {

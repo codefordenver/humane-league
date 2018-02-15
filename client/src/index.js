@@ -14,5 +14,13 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_
 
 const store = createStore(rootReducer, devTools, applyMiddleware(thunk, logger));
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const appWrapper = (
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>
+);
+
+ReactDOM.render(appWrapper, document.getElementById('root'));
 registerServiceWorker();

@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'production') {
   app.use(requireHTTPS);
 }
 
-app.set('port', process.env.PORT || 9500);
+app.set('port', process.env.PORT || 5000);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -27,5 +27,5 @@ app.listen(app.get('port'));
 app.use('/', express.static(`${__dirname}/client/build`));
 
 app.get('/test', (req, res) => {
-  return res.status(200).json({sdjl:'qweqwe'})
+  return res.status(200).json({status:'Successfully hit server endpoint!'})
 })

@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import thlLogoWhite from './THL-Assets/png/THL18-horiz-logo-white.png';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      serverRes: null
+    }
+  }
   async componentWillMount() {
-    const test = await fetch('/api/v1/hello');
+    const test = await fetch('/test');
     console.log(test);
     const res = await test.json();
-    console.log(res);
+    this.setState({
+      serverRes: res.status
+    });
   }
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <img className="App__logo" src={thlLogoWhite} />
+        <h1>This response directly from server: <span style={{color: 'blue'}}>{this.state.serverRes}</span></h1>
       </div>
     );
   }

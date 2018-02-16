@@ -8,7 +8,7 @@ exports.up = function(knex, Promise) {
     table.boolean('phone_actions');
     table.boolean('admin');
     table.string('name');
-    table.string('email_address');
+    table.string('id_token');
   });
 };
 

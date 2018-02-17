@@ -3,6 +3,8 @@ import { Switch, Route, withRouter } from 'react-router';
 import './App.css';
 import thlLogoWhite from '../../THL-Assets/png/THL18-horiz-logo-white.png';
 import Welcome from '../Welcome/Welcome';
+import UserProfile from '../UserProfile/UserProfile';
+import AdminDashboard from '../AdminDashboard/AdminDashboard';
 
 class App extends Component {
   constructor() {

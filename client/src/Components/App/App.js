@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Switch, Route, withRouter } from 'react-router';
 import './App.css';
 import thlLogoWhite from '../../THL-Assets/png/THL18-horiz-logo-white.png';
 import Welcome from '../Welcome/Welcome';
+import UserProfile from '../UserProfile/UserProfile';
+import AdminDashboard from '../AdminDashboard/AdminDashboard';
 
 class App extends Component {
   constructor() {
@@ -22,12 +25,22 @@ class App extends Component {
     return (
       <div className="App">
         <header>
-          <a href='https://thehumaneleague.org/' target='_blank' className='main-site'>
-            <img className="App__logo" src={thlLogoWhite} />
+          <a 
+            className='main-site'
+            target='_blank' 
+            rel='noopener noreferrer' 
+            href='https://thehumaneleague.org/'>
+            <img 
+              className="App__logo" 
+              src={thlLogoWhite} />
           </a>
           <p>This response directly from server: <span style={{color: 'blue'}}>{this.state.serverRes}</span></p>
         </header>
-        <Welcome />
+        <Switch>
+          <Route path='/admin' component={AdminDashboard} />
+          <Route path='/profile' component={UserProfile} />
+          <Route exact path='/' component={Welcome} />
+        </Switch>
       </div>
     );
   }

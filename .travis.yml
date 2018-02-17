@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "node"
+before_install:
+  - cd client && npm install
+services:
+  - postgresql
+before_script:
+  - createdb fan_test
+  - knex migrate:latest

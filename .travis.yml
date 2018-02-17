@@ -7,4 +7,4 @@ before_script:
   - cd client && npm install
   - createdb fan_test
   - npm install knex
-  - knex migrate:latest
+  - knex migrate:latest --env test

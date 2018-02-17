@@ -20,8 +20,11 @@ class Welcome extends Component {
       // This gives you a Google Access Token. You can use it to access the Google API.
       var token = result.credential.accessToken;
       // The signed-in user info.
+      console.log('token:', token)
       var user = result.user;
       // ...
+      console.log('user:', user)
+
     }).catch(function(error) {
       // Handle Errors here.
       var errorCode = error.code;

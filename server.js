@@ -1,3 +1,5 @@
+const routes = require('./serverRoutes/');
+
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -30,4 +32,8 @@ app.use('/', express.static(`${__dirname}/client/build`));
 
 app.get('/test', (req, res) => {
   return res.status(200).json({status:'Successfully hit server endpoint!'})
-})
+});
+
+app.get('/phonetest', (request, response) => {
+  return routes.phoneRoutes.getPhoneActions(request, response, database);
+});

@@ -1,24 +1,15 @@
 .Welcome {
-  // display: flex;
-  // flex-direction: column;
-  // align-items: center;
-  // justify-content: center;
-  // width: 100%;
-  // padding: 20px 0;
   .fan-logo {
-    position: relative;
     margin: 0 auto;
     display: block;
-    transition: 1s;
+    transition: margin 1s ease;
   }
   .fan-logo.shifted {
-    margin: 0;
-    transition: 1s;
-    left: 0;
+    margin-right: 0;
+    transition: margin 1s ease;
   }
   .welcome-controls {
     text-align: center;
-    // margin: 0 auto;
     color: #fff;
     font-size: 20pt;
     text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);

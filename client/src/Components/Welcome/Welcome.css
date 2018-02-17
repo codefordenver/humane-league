@@ -1,13 +1,11 @@
 .Welcome .fan-logo {
-  position: relative;
   margin: 0 auto;
   display: block;
-  transition: 1s; }
+  transition: margin 1s ease; }
 
 .Welcome .fan-logo.shifted {
-  margin: 0;
-  transition: 1s;
-  left: 0; }
+  margin-right: 0;
+  transition: margin 1s ease; }
 
 .Welcome .welcome-controls {
   text-align: center;

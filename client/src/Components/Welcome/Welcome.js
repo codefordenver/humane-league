@@ -7,26 +7,35 @@ class Welcome extends Component {
   constructor() {
     super();
     this.state = {
-      formUp: false,
+      showForm: false,
     }
   }
 
   handleClick = () => {
-    console.log(this.state.formUp)
-    this.setState({ formUp: true })
-    console.log(this.state.formUp)
-
+    this.setState({ showForm: true });
   }
 
   render() {
-    const imgClassName = !this.state.formUp ? 'fan-logo' : 'fan-logo shifted'
+    const signInPrompt = 
+      <h1 className='welcome-controls'>
+        <span onClick={this.handleClick}>create account</span>/
+        <span onClick={this.handleClick}>sign-in</span>
+      </h1>;
+
+    const accountForm = 
+      <form className='create-account-form'>
+        <input type='text' placeholder='user-name' />
+        <button>Create Account</button>
+      </form>;
+
+    const imgClassName = !this.state.showForm ? 'fan-logo' : 'fan-logo shifted';
+    
+    const controls = !this.state.showForm ? signInPrompt : accountForm;
+
     return (
       <div className='Welcome'>
         <img className={imgClassName} src={fanLogo} alt='' />
-        <h1 className='welcome-controls'>
-          <span onClick={this.handleClick}>create account</span>/
-          <span onClick={this.handleClick}>sign-in</span>
-        </h1>
+        {controls}
       </div>
     )
   }

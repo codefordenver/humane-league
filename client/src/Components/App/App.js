@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import thlLogoWhite from '../../THL-Assets/png/THL18-horiz-logo-white.png';
+import Welcome from '../Welcome/Welcome';
 
 class App extends Component {
   constructor() {
@@ -20,8 +21,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <img className="App__logo" src={thlLogoWhite} />
-        <h1>This response directly from server: <span style={{color: 'blue'}}>{this.state.serverRes}</span></h1>
+        <header>
+          <a href='https://thehumaneleague.org/' target='_blank' className='main-site'>
+            <img className="App__logo" src={thlLogoWhite} />
+          </a>
+          <p>This response directly from server: <span style={{color: 'blue'}}>{this.state.serverRes}</span></p>
+        </header>
+        <Welcome />
       </div>
     );
   }

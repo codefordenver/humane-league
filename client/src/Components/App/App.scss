@@ -1,0 +1,18 @@
+.App {
+  background-image: url('../../assets/bg-gradient.svg');
+  background-size: cover;
+  min-height: 100vh;
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: rgba(0,0,0,0.6);
+    .App__logo {
+      width: 200px;
+    }
+    p {
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.Welcome .fan-logo {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  transition: 1s; }
+
+.Welcome .fan-logo.shifted {
+  margin: 0;
+  transition: 1s;
+  left: 0; }
+
+.Welcome .welcome-controls {
+  text-align: center;
+  color: #fff;
+  font-size: 20pt;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
+  .Welcome .welcome-controls span {
+    margin: 0 10px; }
+    .Welcome .welcome-controls span:hover {
+      cursor: pointer; }

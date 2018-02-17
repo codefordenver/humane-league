@@ -4,7 +4,7 @@ node_js:
 services:
   - postgresql
 before_script:
-   - cd client && npm install
+  - cd client && npm install
   - createdb fan_test
   - npm install knex
   - knex migrate:latest

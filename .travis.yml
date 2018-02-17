@@ -7,4 +7,5 @@ services:
   - postgresql
 before_script:
   - createdb fan_test
+  - npm install -g knex
   - knex migrate:latest

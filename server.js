@@ -23,7 +23,7 @@ const config = require('./knexfile')[environment];
 const database = require('knex')(config);
 
 app.listen(app.get('port'), () => {
-  console.log(`FAN server running on ${app.get('port')} in ENV ${process.env.NODE_ENV}.`);
+  console.log(`FAN server running on ${app.get('port')} in ENV ${environment}.`);
 });
 
 app.use('/', express.static(`${__dirname}/client/build`));

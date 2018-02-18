@@ -14,12 +14,12 @@ class App extends Component {
     }
   }
   async componentWillMount() {
-    const test = await fetch('/test');
-    console.log(test);
-    const res = await test.json();
-    this.setState({
-      serverRes: res.status
-    });
+    // const test = await fetch('/test');
+    // console.log(test);
+    // const res = await test.json();
+    // this.setState({
+    //   serverRes: res.status
+    // });
   }
   render() {
     return (

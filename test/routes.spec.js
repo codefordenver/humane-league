@@ -88,4 +88,67 @@ describe('Server routes', () => {
       });
     });
   });
+
+  describe('patch one item routes', () => {
+    const contentRoutes = [
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1',  expectedProps: props.contents     },
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1', expectedProps: props.contents     },
+      { table: 'phone_contents',    route: '/api/v1/phone_contents/1',    expectedProps: props.contents     }, 
+      { table: 'email_contents',    route: '/api/v1/email_contents/1',    expectedProps: props.contents     }, 
+    ];
+
+    const actionRoutes = [
+      { table: 'email_actions',     route: '/api/v1/email_actions/1',     expectedProps: props.emailAction  }, 
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1',  expectedProps: props.socialAction },
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1',   expectedProps: props.socialAction }, 
+      { table: 'phone_actions',     route: '/api/v1/phone_actions/1',     expectedProps: props.phoneAction  }, 
+    ];
+
+    const userRoutes = [{ table: 'users', route: '/api/v1/users/1', expectedProps: props.user}];
+    const actionLogRoutes = [{ table: 'action_log', route: '/api/v1/actions/1', expectedProps: props.action}];  
+
+    contentRoutes.map( route => {
+      return it(`Should patch the item with the id 1 from the ${route.table} table`, () => {
+        return chai.request(server)
+          .patch(route.route)
+          .send({ content: 'updated content from patch test.' })
+          .then(response => {
+            response.should.have.status(204);
+          });
+      });
+    });
+
+    actionRoutes.map( route => {
+      return it(`Should patch the item with the id 1 from the ${route.table} table`, () => {
+        return chai.request(server)
+          .patch(route.route)
+          .send({ description: 'updated description from patch test.' })
+          .then(response => {
+            response.should.have.status(204);
+          });
+      });
+    });
+
+    userRoutes.map( route => {
+      return it(`Should patch the item with the id 1 from the ${route.table} table`, () => {
+        return chai.request(server)
+          .patch(route.route)
+          .send({ twitter_actions: false })
+          .then(response => {
+            response.should.have.status(204);
+          });
+      });
+    });
+
+    actionLogRoutes.map( route => {
+      return it(`Should patch the item with the id 1 from the ${route.table} table`, () => {
+        return chai.request(server)
+          .patch(route.route)
+          .send({ description: 'updated description from patch test.' })
+          .then(response => {
+            response.should.have.status(204);
+          });
+      });
+    });
+  });
 });

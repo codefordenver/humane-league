@@ -127,8 +127,5 @@ exports.seed = function(knex, Promise) {
           { user_id: 1, action_id: 1, action_type: 'twitter_action', description: 'test action'}
         ])
       })
-      .then(() => {
-        console.log('seeded data');
-      })
     });
 };

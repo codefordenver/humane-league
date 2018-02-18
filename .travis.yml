@@ -8,3 +8,5 @@ before_script:
   - createdb fan_test
   - npm install knex
   - knex migrate:latest --env test
+  - npm test
+  - cd ..

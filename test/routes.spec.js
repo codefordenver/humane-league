@@ -87,6 +87,34 @@ describe('Server routes', () => {
           });
       });
     });
+
+    const badRoutes = [
+      { table: 'action_log',        route: '/api/v1/actions/1000000',           }, 
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1000000',   }, 
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1000000',  },
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1000000',  },
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1000000', },
+      { table: 'phone_actions',     route: '/api/v1/phone_actions/1000000',     }, 
+      { table: 'phone_contents',    route: '/api/v1/phone_contents/1000000',    }, 
+      { table: 'email_actions',     route: '/api/v1/email_actions/1000000',     }, 
+      { table: 'email_contents',    route: '/api/v1/email_contents/1000000',    }, 
+      { table: 'users',             route: '/api/v1/users/1000000',             }
+    ];
+
+    badRoutes.map( route => {
+      return it(`Should return a 404 given an item ID that does not exist in the ${route.table} table`, () => {
+        return chai.request(server)
+          .get(route.route)
+          .then(() => {
+
+          })
+          .catch(err => {
+            err.response.should.have.status(404);
+            err.response.body.should.have.property('error'); 
+            err.response.body.error.should.match(RegExp(route.table)); 
+          });
+      });
+    });
   });
 
   describe('patch one item routes', () => {

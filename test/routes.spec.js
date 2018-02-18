@@ -61,6 +61,7 @@ describe('Server routes', () => {
   });
 
   describe('get one item routes', () => {
+
     const routes = [
       { table: 'action_log',        route: '/api/v1/actions/1',           expectedProps: props.action         }, 
       { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1',   expectedProps: props.socialAction         }, 
@@ -115,6 +116,36 @@ describe('Server routes', () => {
           });
       });
     });
+  });
+
+
+  describe('post new item routes', () => {
+
+    const body = {
+      action_log: {},
+      twitter_actions: {},
+      twitter_contents: {},
+      facebook_actions: {},
+      facebook_contents: {},
+      phone_actions: {},
+      phone_contents: {},
+      email_actions: {},
+      email_contents: {},
+      users: {}
+    };
+
+    const routes = [
+      { table: 'action_log',        route: '/api/v1/actions',           requestBody: body.action_log,        length: 1}, 
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions',   requestBody: body.twitter_actions,   length: 1}, 
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents',  requestBody: body.twitter_contents,  length: 3}, 
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions',  requestBody: body.facebook_actions,  length: 1},
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents', requestBody: body.facebook_contents, length: 3},
+      { table: 'phone_actions',     route: '/api/v1/phone_actions',     requestBody: body.phone_actions,     length: 1}, 
+      { table: 'phone_contents',    route: '/api/v1/phone_contents',    requestBody: body.phone_contents,    length: 3}, 
+      { table: 'email_actions',     route: '/api/v1/email_actions',     requestBody: body.email_actions,     length: 1}, 
+      { table: 'email_contents',    route: '/api/v1/email_contents',    requestBody: body.email_contents,    length: 3}, 
+      { table: 'users',             route: '/api/v1/users',             requestBody: body.users,             length: 3}
+    ];
   });
 
   describe('patch one item routes', () => {

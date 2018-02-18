@@ -1,5 +1,4 @@
 const getAllHelper = (request, response, database, table) => {
-  console.log('getall');
   return database(table).select()
     .then(results => {
       return response.status(200).json({ results });

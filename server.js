@@ -81,3 +81,4 @@ endpoints.map( endpoint => {
   });
 });
 
+module.exports = app;

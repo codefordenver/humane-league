@@ -10,3 +10,9 @@ before_script:
   - knex migrate:latest --env test
   - npm test
   - cd ..
+
+deploy:
+  provider: heroku
+  api_key:
+    secure: "4b9ee583-8164-4306-aa1e-81ff86bd8584"
+  app: humaneleague-fan

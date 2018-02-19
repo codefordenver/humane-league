@@ -4,3 +4,8 @@ export const exampleAction = payload => {
     payload
   };
 };
+
+export const updateUser = payload => ({
+  type: 'UPDATE_USER',
+  payload
+});

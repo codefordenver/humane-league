@@ -118,65 +118,70 @@ describe('Server routes', () => {
   });
 
   describe('patch one item routes', () => {
-    const contentRoutes = [
-      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1',  expectedProps: props.contents     },
-      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1', expectedProps: props.contents     },
-      { table: 'phone_contents',    route: '/api/v1/phone_contents/1',    expectedProps: props.contents     }, 
-      { table: 'email_contents',    route: '/api/v1/email_contents/1',    expectedProps: props.contents     }, 
-    ];
+    const contentUpdate = { content: 'updated content from patch test.' };
+    const actionUpdate = { description: 'updated description from patch test.' };
+    const userUpdate = { twitter_actions: false };
 
-    const actionRoutes = [
-      { table: 'email_actions',     route: '/api/v1/email_actions/1',     expectedProps: props.emailAction  }, 
-      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1',  expectedProps: props.socialAction },
-      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1',   expectedProps: props.socialAction }, 
-      { table: 'phone_actions',     route: '/api/v1/phone_actions/1',     expectedProps: props.phoneAction  }, 
-    ];
+    const routes = [
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1',  body: contentUpdate },
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1', body: contentUpdate },
+      { table: 'phone_contents',    route: '/api/v1/phone_contents/1',    body: contentUpdate }, 
+      { table: 'email_contents',    route: '/api/v1/email_contents/1',    body: contentUpdate },
+      { table: 'email_actions',     route: '/api/v1/email_actions/1',     body: actionUpdate  }, 
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1',  body: actionUpdate  },
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1',   body: actionUpdate  }, 
+      { table: 'phone_actions',     route: '/api/v1/phone_actions/1',     body: actionUpdate  }, 
+      { table: 'action_log',        route: '/api/v1/actions/1',           body: actionUpdate  },
+      { table: 'users',             route: '/api/v1/users/1',             body: userUpdate    }
+    ];  
 
-    const userRoutes = [{ table: 'users', route: '/api/v1/users/1', expectedProps: props.user}];
-    const actionLogRoutes = [{ table: 'action_log', route: '/api/v1/actions/1', expectedProps: props.action}];  
-
-    contentRoutes.map( route => {
+    routes.map( route => {
       return it(`Should patch the item with the id 1 from the ${route.table} table`, () => {
         return chai.request(server)
           .patch(route.route)
-          .send({ content: 'updated content from patch test.' })
+          .send(route.body)
           .then(response => {
             response.should.have.status(204);
           });
       });
-    });
+    });  
 
-    actionRoutes.map( route => {
-      return it(`Should patch the item with the id 1 from the ${route.table} table`, () => {
+    const badUpdate = { badProp: 'should not update' };
+    const badRoutes = [
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1',  body: badUpdate },
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1', body: badUpdate },
+      { table: 'phone_contents',    route: '/api/v1/phone_contents/1',    body: badUpdate }, 
+      { table: 'email_contents',    route: '/api/v1/email_contents/1',    body: badUpdate },
+      { table: 'email_actions',     route: '/api/v1/email_actions/1',     body: badUpdate }, 
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1',  body: badUpdate },
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1',   body: badUpdate }, 
+      { table: 'phone_actions',     route: '/api/v1/phone_actions/1',     body: badUpdate }, 
+      { table: 'action_log',        route: '/api/v1/actions/1',           body: badUpdate },
+      { table: 'users',             route: '/api/v1/users/1',             body: badUpdate }
+    ];  
+    
+
+    badRoutes.map( route => {
+      return it(`Should not update an item with a non-existent prop from the ${route.table} table`, () => {
         return chai.request(server)
           .patch(route.route)
-          .send({ description: 'updated description from patch test.' })
-          .then(response => {
-            response.should.have.status(204);
-          });
+          .send(route.body)
+          .then(() => {
+            
+          })
+          .catch(err => {
+            err.response.should.have.status(500);
+            err.response.should.be.json;
+            err.response.body.should.have.property('error'); 
+            err.response.body.error.should.equal(`Error updating entry 1 in ${route.table}`)
+          })
       });
     });
+    
+    
 
-    userRoutes.map( route => {
-      return it(`Should patch the item with the id 1 from the ${route.table} table`, () => {
-        return chai.request(server)
-          .patch(route.route)
-          .send({ twitter_actions: false })
-          .then(response => {
-            response.should.have.status(204);
-          });
-      });
-    });
+      
 
-    actionLogRoutes.map( route => {
-      return it(`Should patch the item with the id 1 from the ${route.table} table`, () => {
-        return chai.request(server)
-          .patch(route.route)
-          .send({ description: 'updated description from patch test.' })
-          .then(response => {
-            response.should.have.status(204);
-          });
-      });
-    });
+    
   });
 });

@@ -75,9 +75,9 @@ endpoints.map( endpoint => {
 });
 
 endpoints.map( endpoint => {
-  const {table, one} = endpoint;
+  const {table, one, reqParams} = endpoint;
   return app.patch(one, (req, res) => {
-    return routes.patchHelper(req, res, database, table);
+    return routes.patchHelper(req, res, database, table, reqParams);
   });
 });
 

@@ -122,16 +122,42 @@ describe('Server routes', () => {
   describe('post new item routes', () => {
 
     const body = {
-      action_log: {},
-      twitter_actions: {},
-      twitter_contents: {},
-      facebook_actions: {},
-      facebook_contents: {},
-      phone_actions: {},
-      phone_contents: {},
-      email_actions: {},
-      email_contents: {},
-      users: {}
+      action_log: { user_id: 1, action_type: 'twitter_actions', action_id: 1, description: 'Posting new action in the action log' },
+      twitter_actions: { enabled: true, title: 'New Twitter Action', description: 'Posting new Twitter action', target: 'http://twitter.com' },
+      twitter_contents: { action_id: '1', content: 'Extra content for Twitter action' },
+      facebook_actions: { enabled: true, title: 'New Facebook Action', description: 'Posting new Facebook action', target: 'http://facebook.com' },
+      facebook_contents: { action_id: '1', content: 'Extra content for Facebook action' },
+      phone_actions: { enabled: true, title: 'New Phone Action', description: 'Posting new Phone action', name: 'Katie', phone_number: '405429430' },
+      phone_contents: { action_id: '1', content: 'Extra content for Phone action' },
+      email_actions: { enabled: true, title: 'New Email Action', description: 'Posting new Email action', subject: 'Subject', to: 'katie.e.scruggs@gmail.com' },
+      email_contents: { action_id: '1', content: 'Extra content for Email action' },
+      users: { facebook_actions: true, twitter_actions: true, email_actions: true, phone_actions: true, admin: true, name: 'Thomas' }
+    };
+
+    const badBody = {
+      action_log: { action_type: 'twitter_actions', action_id: 1, description: 'Posting new action in the action log' },
+      twitter_actions: { enabled: true, title: 'New Twitter Action', target: 'http://twitter.com' },
+      twitter_contents: { content: 'Extra content for Twitter action' },
+      facebook_actions: { enabled: true, description: 'Posting new Facebook action', target: 'http://facebook.com' },
+      facebook_contents: { action_id: '1' },
+      phone_actions: { enabled: true, title: 'New Phone Action', description: 'Posting new Phone action', phone_number: '405429430' },
+      phone_contents: { content: 'Extra content for Phone action' },
+      email_actions: { title: 'New Email Action', description: 'Posting new Email action', subject: 'Subject', to: 'katie.e.scruggs@gmail.com' },
+      email_contents: { action_id: '1' },
+      users: { facebook_actions: true, twitter_actions: true, email_actions: true, phone_actions: true, admin: true }
+    };
+
+    const missing = {
+      action_log: 'user_id',
+      twitter_actions: 'description',
+      twitter_contents: 'action_id',
+      facebook_actions: 'title',
+      facebook_contents: 'content',
+      phone_actions: 'name',
+      phone_contents: 'action_id',
+      email_actions: 'enabled',
+      email_contents: 'content',
+      users: 'name'
     };
 
     const routes = [
@@ -146,6 +172,38 @@ describe('Server routes', () => {
       { table: 'email_contents',    route: '/api/v1/email_contents',    requestBody: body.email_contents,    length: 3}, 
       { table: 'users',             route: '/api/v1/users',             requestBody: body.users,             length: 3}
     ];
+
+    routes.map( route => {
+      return it(`Should post a new item to the ${route.table} table`, () => {
+        return chai.request(server)
+          .post(route.route)
+          .send(route.requestBody)  
+          .then(response => {
+            response.should.have.status(201);
+            response.should.be.json;
+            response.body.should.be.a('object');
+            response.body.should.have.property('id');
+          })
+          .catch(error => { throw error });
+      });
+    });
+
+    routes.map( route => {
+      return it(`Should provide error message if required parameter is missing`, () => {
+        return chai.request(server)
+          .post(route.route)
+          .send(badBody[route.table])
+          .then(() => {
+
+          })
+          .catch(error => {
+            error.response.should.have.status(422);
+            error.response.should.be.json;
+            error.response.body.should.have.property('error');
+            error.response.body.error.should.equal(`You are missing the required parameter ${missing[route.table]}.`);
+          })
+      });
+    });
   });
 
   describe('patch one item routes', () => {

@@ -8,14 +8,20 @@ class AdminDashboard extends Component {
 
   render() {
     return (
-      <div>
-        <h1>DASHBOARD</h1>
-        <section className='main-dashoard'>
-          <button className='admin-btn create-new-action'>CREATE NEW ACTION</button>
-          <button className='admin-btn enable-disable'>ENABLE/DISABLE</button>
-          <button className='admin-btn add-content'>ADD ACTION CONTENT</button>
-          <button className='admin-btn action-data'>ACTION DATA</button>
-          <button className='admin-btn user-feedback'>VIEW USER FEEDBACK</button>
+      <div className='AdminDashboard'>
+        <h1 className='admin-greeting'>DASHBOARD</h1>
+        <section className='main-dashboard'>
+          <div className='action-management'>
+            <h2>MANAGE ACTIONS</h2>
+            <button className='admin-btn create-new-action'>CREATE NEW ACTION</button>
+            <button className='admin-btn enable-disable'>ENABLE/DISABLE</button>
+            <button className='admin-btn add-content'>ADD ACTION CONTENT</button>
+          </div>
+          <div className='data-management'>
+            <h2>ANALYTICS</h2>
+            <button className='admin-btn action-log'>ACTION LOG</button>
+            <button className='admin-btn user-feedback'>USER FEEDBACK</button>
+          </div>
         </section>
       </div>
     )

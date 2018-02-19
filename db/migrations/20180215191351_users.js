@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
     table.boolean('admin');
     table.string('name');
     table.string('id_token');
+    table.string('email');
   });
 };
 

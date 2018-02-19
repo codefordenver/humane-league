@@ -81,4 +81,49 @@ endpoints.map( endpoint => {
   });
 });
 
+app.get('/api/v1/authenticate', async (request, response) => {
+  try {
+    const user = await findUser(request.query.token);
+
+    if (!user) {
+      return handleNewUser(request, response);
+    }
+
+    return response.status(200).json({ user });
+  } catch(err) {
+    return response.status(500).json({ error: `Error retrieving user: ${err}.`});
+  }
+});
+
+const findUser = (token) => {
+  return database('users').where('id_token', token).select()
+    .then(users => {
+      if (users.length) {
+        return users[0];
+      }
+    });
+};
+
+const handleNewUser = (request, response) => {
+  const { token, email, name } = request.query;
+  const user = { 
+    id_token: token, 
+    email, 
+    name, 
+    admin: false, 
+    twitter_actions: false, 
+    facebook_actions: false, 
+    email_actions: false, 
+    phone_actions: false
+  };
+
+  return database('users').returning(['id', 'twitter_actions', 'facebook_actions', 'email_actions', 'phone_actions', 'admin', 'name', 'id_token']).insert(user)
+    .then(newUser => {
+      return response.status(200).json({user: newUser[0]});
+    })
+    .catch(err => {
+      return response.status(500).json({ error: `Error adding new user - ${err}.` });
+    });
+};
+
 module.exports = app;

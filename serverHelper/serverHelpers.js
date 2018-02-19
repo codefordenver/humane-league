@@ -42,10 +42,6 @@ const postHelper = (request, response, database, table, reqParams) => {
 const patchHelper = async (request, response, database, table, reqParams) => {
   const { id } = request.params;
 
-  if (!request.body) {
-
-  }
-
   return database(table).where('id', id).update(request.body, 'id')
     .then(id => {
       if (!id) {

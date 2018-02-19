@@ -36,6 +36,7 @@ class App extends Component {
           </a>
           <p>This response directly from server: <span style={{color: 'blue'}}>{this.state.serverRes}</span></p>
         </header>
+        
         <Switch>
           <Route path='/admin' component={AdminDashboard} />
           <Route path='/profile' component={UserProfile} />

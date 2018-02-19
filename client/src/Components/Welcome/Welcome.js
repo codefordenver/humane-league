@@ -2,66 +2,83 @@ import React, { Component } from 'react';
 import fanLogo from '../../assets/fan-logo.png';
 import './Welcome.css';
 import firebase from '../../firebase';
-
+import { connect } from 'react-redux';
+import * as actions from '../../Actions/';
+import { signInUser } from '../../utils/apiCalls';
 
 class Welcome extends Component {
   constructor() {
     super();
     this.state = {
       showForm: false,
+      errorMessage: null
     }
   }
 
-  handleClick = () => {
+  handleClick = (prov) => {
     this.setState({ showForm: true });
-    const provider = new firebase.auth.GoogleAuthProvider();
 
-    firebase.auth().signInWithPopup(provider).then(function(result) {
+    const providers = {
+      facebook: new firebase.auth.FacebookAuthProvider(), 
+      google: new firebase.auth.GoogleAuthProvider(), 
+      email: new firebase.auth.EmailAuthProvider()
+    };
+    // const provider = new firebase.auth.GoogleAuthProvider();
+
+    firebase.auth().signInWithPopup(providers[prov]).then( async result => {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
-      // The signed-in user info.
-      console.log('token:', token)
-      var user = result.user;
-      // ...
-      console.log('user:', user)
+      const token = result.credential.idToken;
+      const user = result.user;
 
-    }).catch(function(error) {
+      const { displayName, email, uid } = user;
+// 
+      const dbUser = await signInUser(uid, displayName, email);
+      this.props.validateUser(dbUser);
+
+    }).catch(error => {
       // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      // The email of the user's account used.
-      var email = error.email;
-      // The firebase.auth.AuthCredential type that was used.
-      var credential = error.credential;
-      // ...
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      this.setState({ 
+        errorMessage: <h3>{errorMessage}</h3>
+      });
+
+      const email = error.email;
+      const credential = error.credential;
+
+      setTimeout(() => {
+        this.setState({
+          errorMessage: null
+        });
+      }, 5000);
     });
   }
 
   render() {
     const signInPrompt = 
       <h1 className='welcome-controls'>
-        <span onClick={this.handleClick}>create account</span>/
-        <span onClick={this.handleClick}>sign-in</span>
+        <button onClick={() => this.handleClick('google')}>Sign In With Google</button>
+        <button onClick={() => this.handleClick('facebook')}>Sign In With Facebook</button>
+        <button onClick={() => this.handleClick('email')}>Sign In With Email</button>
       </h1>;
-
-    const accountForm = 
-      <form className='create-account-form'>
-        <input className='create-account-user-input' type='text' placeholder='user-name' />
-        <button className='create-account-submit' >Create Account</button>
-      </form>;
 
     const imgClassName = !this.state.showForm ? 'fan-logo' : 'fan-logo shifted';
     const welcomeClassName = !this.state.showForm ? 'Welcome' : 'Welcome shifted';
 
-    const controls = !this.state.showForm ? signInPrompt : accountForm;
-
     return (
       <div className={welcomeClassName}>
         <img className={imgClassName} src={fanLogo} alt='' />
-        {controls}
+        {signInPrompt}
+        {this.state.errorMessage}
       </div>
     )
   }
 }
 
-export default Welcome;
+const mapDispatchToProps = dispatch => ({
+  validateUser: user => dispatch(actions.updateUser(user))
+});
+
+
+
+export default connect(null, mapDispatchToProps)(Welcome);

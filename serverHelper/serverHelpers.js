@@ -39,13 +39,14 @@ const postHelper = (request, response, database, table, reqParams) => {
     });
 };
 
-const patchHelper = async (request, response, database, table) => {
+const patchHelper = async (request, response, database, table, reqParams) => {
   const { id } = request.params;
 
-  return database(table).where('id', id).update(request.body)
-    .then(item => {
-      if (!item) {
-        return response.status(404).json({ error: `No entry found with ID ${id} in ${table}.` });
+  return database(table).where('id', id).update(request.body, 'id')
+    .then(id => {
+      if (!id) {
+        console.log("nope")
+        return response.status(422).json({ error: `No entry found with ID ${id} in ${table}.` });
       }
       return response.sendStatus(204);
     })

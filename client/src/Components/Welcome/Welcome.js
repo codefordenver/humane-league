@@ -41,7 +41,7 @@ class Welcome extends Component {
     const signInPrompt = 
       <h1 className='welcome-controls'>
         <span onClick={this.handleClick}>create account</span>/
-        <span onClick={this.handleClick}>TEST</span>
+        <span onClick={this.handleClick}>TESTING</span>
       </h1>;
 
     const accountForm = 

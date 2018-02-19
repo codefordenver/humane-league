@@ -9,11 +9,22 @@
   .Welcome .welcome-controls {
     color: #fff;
     font-size: 20pt;
-    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
-    .Welcome .welcome-controls span {
-      margin: 0 10px; }
-      .Welcome .welcome-controls span:hover {
-        cursor: pointer; }
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px; }
+    .Welcome .welcome-controls button {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      border: none;
+      transition: 0.3s; }
+      .Welcome .welcome-controls button:hover {
+        color: white;
+        background-color: #323232;
+        transform: rotate(-5deg); }
   .Welcome .create-account-form {
     display: flex;
     flex-direction: column;

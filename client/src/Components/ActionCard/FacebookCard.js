@@ -13,7 +13,9 @@ const FacebookCard = ({ type, action }) => {
       <div className="action-card-main">
         <h3>{title}</h3>
         <p>{description}</p>
-        <a target="_blank" href={target}>Click this link to take action!</a> 
+        <a target="_blank" href={target}>
+          <button>CLICK TO COMMENT</button>
+        </a> 
       </div>
     </div>
   );

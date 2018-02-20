@@ -38,12 +38,18 @@
 
 .facebook-card {
   border-color: #3B5998; }
+  .facebook-card button {
+    background-color: #3B5998; }
 
 .phone-card {
   border-color: #3cba54; }
+  .phone-card button {
+    background-color: #3cba54; }
 
 .email-card {
   border-color: #db3236; }
+  .email-card button {
+    background-color: #db3236; }
   .email-card .email-template p {
     align-self: flex-start;
     margin: 5px; }

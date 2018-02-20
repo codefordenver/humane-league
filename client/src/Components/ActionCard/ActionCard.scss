@@ -52,14 +52,25 @@
 
 .facebook-card {
   border-color: #3B5998;
+  button {
+    background-color: #3B5998;
+  }
 }
 
 .phone-card {
   border-color: #3cba54;
+  button {
+    background-color: #3cba54;
+  }
 }
 
 .email-card {
   border-color: #db3236;
+
+  button {
+    background-color: #db3236;
+  }
+
   .email-template p {
     align-self: flex-start;
     margin: 5px;

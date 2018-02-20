@@ -5,7 +5,7 @@ const EmailCard = ({ type, action }) => {
   const { title, description, to, cc, bcc, subject } = action;
 
   return (
-    <div className={`ActionCard ${type}-card`}>
+    <div className="ActionCard email-card">
       <div className="action-logo-holder">
         <img className="action-logo" src={emailLogo} alt="Email Symbol"/>
       </div>

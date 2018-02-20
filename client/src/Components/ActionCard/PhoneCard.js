@@ -2,11 +2,11 @@ import React from 'react';
 import phoneLogo from '../../assets/phone.png';
 
 
-const PhoneCard = ({ type, action }) => {
+const PhoneCard = ({ action }) => {
   const { title, description, phone_number } = action;
 
   return (
-    <div className={`ActionCard ${type}-card`}>
+    <div className="ActionCard phone-card">
       <div className="action-logo-holder">
         <img className="action-logo" src={phoneLogo} alt="Phone Symbol"/>
       </div>
@@ -14,7 +14,7 @@ const PhoneCard = ({ type, action }) => {
         <h3>{title}</h3>
         <p>{description}</p>
         <a href={`tel:${phone_number}`}>
-          <button>CALL {phone_number}</button>
+          <button>CLICK TO CALL {phone_number}</button>
         </a>
       </div> 
     </div>

@@ -6,7 +6,7 @@ const FacebookCard = ({ type, action }) => {
   const { title, description, target } = action;
 
   return (
-    <div className={`ActionCard ${type}-card`}>
+    <div className="ActionCard facebook-card">
       <div className="action-logo-holder">
         <img className="action-logo" src={facebookLogo} alt="Facebook Symbol"/>
       </div>

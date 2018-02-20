@@ -1,8 +1,11 @@
 import React from 'react';
 
-const ActionCard = () => {
+const ActionCard = ({ type, action }) => {
   return (
-    <div>I am an ActionCard</div>
+    <div className={`action-card ${type}`}>
+      <h3>{action.title}</h3>
+      <p>{action.description}</p>
+    </div>
   );
 }
 

@@ -8,8 +8,7 @@ const UserProfile = () => {
       <h1>Welcome, Katie</h1>
       <ActionContainer/>
     </div>
-
-  )
+  );
   
 }
 

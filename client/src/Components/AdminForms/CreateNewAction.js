@@ -16,7 +16,6 @@ class CreateNewAction extends Component {
   }
 
   render() {
-
     const socialMediaTarget = {
       targetUrl: <input type='text' placeholder='Target Url' />
     }  
@@ -36,9 +35,8 @@ class CreateNewAction extends Component {
       twitter: socialMediaTarget,
       email: emailTarget,
       phone: phoneTarget
-    };
+    }
 
-            {form[this.state.form]}
     return (
       <div className='create-new-action-container'>
         <h1>CREATE A NEW ACTION</h1>
@@ -67,6 +65,7 @@ class CreateNewAction extends Component {
 
             <div>enabledToggle</div>
             <input type='text' placeholder='Action Content' />
+            <button>CREATE THIS ACTION</button>
           </form>
         </div>
       </div>

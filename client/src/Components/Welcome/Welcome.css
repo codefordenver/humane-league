@@ -1,15 +1,10 @@
 .Welcome {
-  background-image: url("../../assets/bg-gradient.svg");
-  background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   align-items: center;
   justify-content: space-around;
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  z-index: -1; }
+  width: 100%; }
   .Welcome .fan-logo.shifted {
     align-self: flex-end; }
   .Welcome .welcome-controls {

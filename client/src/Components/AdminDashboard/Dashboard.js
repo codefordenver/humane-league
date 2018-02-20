@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom'
 // import './Dashboard.css';
 
 const Dashboard = () => {
@@ -11,8 +12,11 @@ const Dashboard = () => {
     <section className='main-dashboard'>
       <div className='dashboard-section'>
         <h2>MANAGE ACTIONS</h2>
-        <button className='admin-btn create-new-action'
-          onClick={handleClick}>CREATE NEW ACTION</button>
+        <NavLink 
+          to='/admin/create' 
+          className='admin-btn create-new-action'>
+          CREATE NEW ACTION
+        </NavLink>
         <button className='admin-btn enable-disable'
           onClick={handleClick}>ENABLE/DISABLE</button>
         <button className='admin-btn add-content'

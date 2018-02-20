@@ -18,6 +18,9 @@
         text-align: center;
         font-size: 24pt; }
       .AdminDashboard .main-dashboard .dashboard-section .admin-btn {
+        color: #000;
+        background: #fff;
+        text-decoration: none;
         height: 70px;
         display: flex;
         align-items: center;

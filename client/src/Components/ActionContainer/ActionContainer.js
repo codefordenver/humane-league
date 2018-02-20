@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import ActionCard from './ActionCard';
+import ActionCard from '../ActionCard/ActionCard';
 import './ActionContainer.css';
-import './ActionCard.css';
+import '../ActionCard/ActionCard.css';
 
 class ActionContainer extends Component {
   constructor() {

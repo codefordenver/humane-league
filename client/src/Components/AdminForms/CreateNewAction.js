@@ -16,6 +16,13 @@ class CreateNewAction extends Component {
     this.setState({ form });
   }
 
+  handleSubmit = () => {
+    console.log('submit new action')
+    //redux action to send action to correct table
+    //redux action to send conent to content table
+    //feedback that action was created
+  }
+
   render() {
     const socialMediaTarget = {
       targetUrl: <input type='text' placeholder='Target Url' />
@@ -40,7 +47,7 @@ class CreateNewAction extends Component {
 
     return (
       <div className='create-new-action-container'>
-        <h1>CREATE A NEW ACTION</h1>
+        <h1>CREATE A NEW <span>{this.state.form.toUpperCase()}</span> ACTION</h1>
         <section className='select-action-container'>
           <label htmlFor='action-types'>Select Action Type:
             <select onChange={() => this.handleChange()} ref='actionTypes' name='action-types' id='action-types'>
@@ -51,7 +58,6 @@ class CreateNewAction extends Component {
             </select>
           </label>
           <section className='create-action-form'>
-            <h2>{this.state.form.toUpperCase()}</h2>
             <form action='create-new-action-form'>
               <input type='text' placeholder='Action Title' />
               <input type='text' placeholder='Action Description' />
@@ -65,7 +71,7 @@ class CreateNewAction extends Component {
               {form[this.state.form].name}
               {form[this.state.form].position}
               {form[this.state.form].phoneNumber}
-              <input type='text' placeholder='Action Content' />
+              <textarea placeholder='Action Content'></textarea>
 
               <span id='toggle'>
                 <input
@@ -78,7 +84,7 @@ class CreateNewAction extends Component {
                   data-off='disabled'>
                 </label>
               </span>    
-              <button>CREATE THIS ACTION</button>
+              <button onClick={this.submitForm}>CREATE THIS ACTION</button>
             </form>
           </section>
         </section>

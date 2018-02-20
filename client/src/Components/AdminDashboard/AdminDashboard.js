@@ -1,18 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Switch, Route } from 'react-router';
+import { NavLink } from 'react-router-dom';
+import Dashboard from './Dashboard';
+import CreateNewAction from '../AdminForms/CreateNewAction';
+import UpdateAction from '../AdminForms/UpdateAction';
+import AddContent from '../AdminForms/AddContent';
+import ActionLog from '../AdminForms/ActionLog';
+import UserFeedback from '../AdminForms/UserFeedback';
+import './AdminDashboard.css';
 
-class AdminDashboard extends Component {
-  constructor() {
-    super();
-    this.state = {
-      showForm: false,
-    }
-  }
-
-  render() {
-    return (
-      <h1>I am a AdminDashboard</h1>
-    )
-  }
+const AdminDashboard = () => {
+  return (
+    <div className='AdminDashboard'>
+      <h1 className='admin-greeting'>ADMIN DASHBOARD</h1>
+      <Switch>
+        <Route exact path='/admin' component={Dashboard} />
+        <Route path='/admin/create' component={CreateNewAction} />
+        <Route path='/admin/update' component={UpdateAction} />
+        <Route path='/admin/addcontent' component={AddContent} />
+        <Route path='/admin/log' component={ActionLog} />
+        <Route path='/admin/feedback' component={UserFeedback} />
+      </Switch>
+      <NavLink className='admin-btn' to='/admin'>BACK TO DASHBOARD</NavLink>
+    </div>
+  )
 }
 
 export default AdminDashboard;

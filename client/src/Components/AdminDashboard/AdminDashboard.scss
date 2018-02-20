@@ -1,0 +1,43 @@
+.AdminDashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .admin-greeting {
+    color: #fff;
+    font-size: 30pt;
+  }
+  .main-dashboard {
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+    .dashboard-section {
+      display: flex;
+      flex-direction: column;
+      width: 400px;
+      margin: 10px;
+      h2 {
+        text-align: center;
+        font-size: 24pt;
+      }
+      .admin-btn {
+        color: #000;
+        background: #fff;
+        text-decoration: none;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        border: none;
+        transition: 0.3s;
+        font-size: 20pt;
+        margin: 10px;
+        &:hover {
+          color: white;
+          background-color: rgb(50, 50, 50);
+          transform: rotate(-5deg);
+        }
+      }
+    }
+  }
+}

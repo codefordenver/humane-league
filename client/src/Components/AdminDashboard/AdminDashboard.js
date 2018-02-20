@@ -1,7 +1,12 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
+import { NavLink } from 'react-router-dom';
 import Dashboard from './Dashboard';
 import CreateNewAction from '../AdminForms/CreateNewAction';
+import UpdateAction from '../AdminForms/UpdateAction';
+import AddContent from '../AdminForms/AddContent';
+import ActionLog from '../AdminForms/ActionLog';
+import UserFeedback from '../AdminForms/UserFeedback';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -16,6 +21,7 @@ const AdminDashboard = () => {
         <Route path='/admin/log' component={ActionLog} />
         <Route path='/admin/feedback' component={UserFeedback} />
       </Switch>
+      <NavLink className='admin-btn' to='/admin'>BACK TO DASHBOARD</NavLink>
     </div>
   )
 }

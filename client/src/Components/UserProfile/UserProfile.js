@@ -1,9 +1,14 @@
 import React from 'react';
+import ActionContainer from './ActionContainer';
 
 const UserProfile = () => {
 
   return (
-    <h1>Welcome, Katie</h1>
+    <div>
+      <h1>Welcome, Katie</h1>
+      <ActionContainer/>
+    </div>
+
   )
   
 }

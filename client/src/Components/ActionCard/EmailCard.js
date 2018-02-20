@@ -17,7 +17,9 @@ const EmailCard = ({ type, action }) => {
           <p><strong>Subject:</strong> {subject}</p>
           <p><strong>Body:</strong> {to}</p>
         </div>
-        <a target="_blank" href={`mailto:${to}`}>Click here to email!</a> 
+        <a target="_blank" href={`mailto:${to}`}>
+          <button>CLICK TO SEND THE EMAIL</button>
+        </a> 
       </div>
     </div>
   );

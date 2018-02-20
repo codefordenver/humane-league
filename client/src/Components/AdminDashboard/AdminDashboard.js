@@ -1,32 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Switch, Route } from 'react-router';
+import Dashboard from './Dashboard';
+import CreateNewAction from '../AdminForms/CreateNewAction';
 import './AdminDashboard.css';
 
-class AdminDashboard extends Component {
-  constructor() {
-    super();
-   
-  }
+const AdminDashboard = () => {
+  // const handleClick = (event) => {
+  //   console.log('click')
+  //   console.log(event.target);
+  // }
 
-  render() {
-    return (
-      <div className='AdminDashboard'>
-        <h1 className='admin-greeting'>ADMIN DASHBOARD</h1>
-        <section className='main-dashboard'>
-          <div className='dashboard-section'>
-            <h2>MANAGE ACTIONS</h2>
-            <button className='admin-btn create-new-action'>CREATE NEW ACTION</button>
-            <button className='admin-btn enable-disable'>ENABLE/DISABLE</button>
-            <button className='admin-btn add-content'>ADD ACTION CONTENT</button>
-          </div>
-          <div className='dashboard-section'>
-            <h2>ANALYTICS</h2>
-            <button className='admin-btn action-log'>ACTION LOG</button>
-            <button className='admin-btn user-feedback'>USER FEEDBACK</button>
-          </div>
-        </section>
-      </div>
-    )
-  }
+  return (
+    <div className='AdminDashboard'>
+      <h1 className='admin-greeting'>ADMIN DASHBOARD</h1>
+      <Switch>
+        <Route exact path='/admin' component={Dashboard} />
+        <Route path='/admin/create' component={CreateNewAction} />
+      </Switch>
+    </div>
+  )
 }
 
 export default AdminDashboard;

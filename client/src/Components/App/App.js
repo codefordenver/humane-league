@@ -4,6 +4,7 @@ import './App.css';
 import Header from '../Header/Header';
 import Welcome from '../Welcome/Welcome';
 import UserActions from '../UserActions/UserActions';
+import UserProfile from '../UserProfile/UserProfile';
 import AdminDashboard from '../AdminDashboard/AdminDashboard';
 
 class App extends Component {

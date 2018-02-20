@@ -1,6 +1,6 @@
 import React from 'react';
 import ActionContainer from '../ActionContainer/ActionContainer';
-import './UserProfile.css';
+import './UserActions.css';
 
 const UserProfile = () => {
 

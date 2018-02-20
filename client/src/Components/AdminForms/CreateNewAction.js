@@ -65,23 +65,19 @@ class CreateNewAction extends Component {
               {form[this.state.form].name}
               {form[this.state.form].position}
               {form[this.state.form].phoneNumber}
-
-              <div className='enable-toggle'>
-                <span 
-                  id='toggle'>
-                  <input
-                    ref={input => this.checkbox = input} 
-                    type='checkbox' 
-                    checked={this.state.enabled}
-                    onChange={() => this.setState({ enabled: !this.state.enabled })}
-                  />
-                  <label 
-                    data-on='enabled' 
-                    data-off='disabled'>
-                  </label>
-                </span>
-              </div>    
               <input type='text' placeholder='Action Content' />
+
+              <span id='toggle'>
+                <input
+                  ref={input => this.checkbox = input} 
+                  type='checkbox' 
+                  checked={this.state.enabled}
+                  onChange={() => this.setState({ enabled: !this.state.enabled })} />
+                <label 
+                  data-on='enabled' 
+                  data-off='disabled'>
+                </label>
+              </span>    
               <button>CREATE THIS ACTION</button>
             </form>
           </section>

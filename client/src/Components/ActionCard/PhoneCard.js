@@ -3,7 +3,7 @@ import phoneLogo from '../../assets/phone.png';
 
 
 const PhoneCard = ({ type, action }) => {
-  const { title, description, target } = action;
+  const { title, description, phone_number } = action;
 
   return (
     <div className={`ActionCard ${type}-card`}>
@@ -13,7 +13,9 @@ const PhoneCard = ({ type, action }) => {
       <div className="action-card-main">
         <h3>{title}</h3>
         <p>{description}</p>
-        <a target="_blank" href={target}>Click this link to take action!</a>
+        <a href={`tel:${phone_number}`}>
+          <button>CALL {phone_number}</button>
+        </a>
       </div> 
     </div>
   );

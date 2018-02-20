@@ -3,7 +3,7 @@ import { Switch, Route, withRouter } from 'react-router';
 import './App.css';
 import Header from '../Header/Header';
 import Welcome from '../Welcome/Welcome';
-import UserProfile from '../UserProfile/UserProfile';
+import UserActions from '../UserActions/UserActions';
 import AdminDashboard from '../AdminDashboard/AdminDashboard';
 
 class App extends Component {
@@ -27,7 +27,8 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path='/admin' component={AdminDashboard} />
-          <Route path='/home' component={UserProfile} />
+          <Route path='/home' component={UserActions} />
+          <Route path='/profile' component={UserProfile} />
           <Route exact path='/' component={Welcome} />
         </Switch>
       </div>

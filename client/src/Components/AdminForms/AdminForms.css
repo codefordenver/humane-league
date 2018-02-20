@@ -1,0 +1,5 @@
+.create-new-action {
+  display: flex;
+  flex-direction: column; }
+  .create-new-action h1 {
+    color: magenta; }

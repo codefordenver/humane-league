@@ -1,12 +1,23 @@
 .ActionCard {
-  align-items: center;
   border: 7.5px solid #000;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 10px;
   padding: 5px;
-  width: 500px; }
+  width: 75%; }
+  .ActionCard .action-card-main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 85%; }
+  .ActionCard .action-logo-holder {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 15%; }
+    .ActionCard .action-logo-holder .action-logo {
+      height: 70px;
+      width: 70px; }
 
 .twitter-card {
   border-color: #00aced; }
@@ -19,3 +30,6 @@
 
 .email-card {
   border-color: #db3236; }
+  .email-card .email-template p {
+    align-self: flex-start;
+    margin: 5px; }

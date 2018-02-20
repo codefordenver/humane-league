@@ -1,0 +1,20 @@
+.ActionCard {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 10px;
+  padding: 5px;
+  width: 500px; }
+
+.twitter-card {
+  background-color: aliceblue; }
+
+.facebook-card {
+  background-color: blue; }
+
+.phone-card {
+  background-color: green; }
+
+.email-card {
+  background-color: orange; }

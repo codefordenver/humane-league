@@ -12,13 +12,13 @@ class AdminDashboard extends Component {
       <div className='AdminDashboard'>
         <h1 className='admin-greeting'>ADMIN DASHBOARD</h1>
         <section className='main-dashboard'>
-          <div className='dashboard-section action-management'>
+          <div className='dashboard-section'>
             <h2>MANAGE ACTIONS</h2>
             <button className='admin-btn create-new-action'>CREATE NEW ACTION</button>
             <button className='admin-btn enable-disable'>ENABLE/DISABLE</button>
             <button className='admin-btn add-content'>ADD ACTION CONTENT</button>
           </div>
-          <div className='dashboard-section data-management'>
+          <div className='dashboard-section'>
             <h2>ANALYTICS</h2>
             <button className='admin-btn action-log'>ACTION LOG</button>
             <button className='admin-btn user-feedback'>USER FEEDBACK</button>

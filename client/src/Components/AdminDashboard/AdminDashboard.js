@@ -5,17 +5,16 @@ import CreateNewAction from '../AdminForms/CreateNewAction';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
-  // const handleClick = (event) => {
-  //   console.log('click')
-  //   console.log(event.target);
-  // }
-
   return (
     <div className='AdminDashboard'>
       <h1 className='admin-greeting'>ADMIN DASHBOARD</h1>
       <Switch>
         <Route exact path='/admin' component={Dashboard} />
         <Route path='/admin/create' component={CreateNewAction} />
+        <Route path='/admin/update' component={UpdateAction} />
+        <Route path='/admin/addcontent' component={AddContent} />
+        <Route path='/admin/log' component={ActionLog} />
+        <Route path='/admin/feedback' component={UserFeedback} />
       </Switch>
     </div>
   )

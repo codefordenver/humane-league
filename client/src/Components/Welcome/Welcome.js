@@ -12,7 +12,7 @@ class Welcome extends Component {
     this.state = {
       showForm: false,
       errorMessage: null
-    }
+    };
   }
 
   handleClick = (prov) => {
@@ -34,6 +34,7 @@ class Welcome extends Component {
 // 
       const dbUser = await signInUser(uid, displayName, email);
       this.props.validateUser(dbUser);
+      this.props.history.push('/home');
 
     }).catch(error => {
       // Handle Errors here.
@@ -56,19 +57,31 @@ class Welcome extends Component {
 
   render() {
     const signInPrompt = 
-      <h1 className='welcome-controls'>
+      <div className='welcome-controls'>
         <button onClick={() => this.handleClick('google')}>Sign In With Google</button>
         <button onClick={() => this.handleClick('facebook')}>Sign In With Facebook</button>
         <button onClick={() => this.handleClick('email')}>Sign In With Email</button>
-      </h1>;
+      </div>;
+
+    const hiddenButtons = this.state.showForm ? '' : 'hidden';
+    const primaryButton = this.state.showForm ? 'none' : 'primary';
+    
+    const expandOptions = 
+    <div className='welcome-controls'>
+      <button className={primaryButton} onClick={() => this.setState({showForm: true})}>Sign In</button>
+      <button className={hiddenButtons} onClick={() => this.handleClick('google')}>Sign In With Google</button>
+      <button className={hiddenButtons} onClick={() => this.handleClick('facebook')}>Sign In With Facebook</button>
+      <button className={hiddenButtons} onClick={() => this.handleClick('email')}>Sign In With Email</button>
+    </div>
+    
 
     const imgClassName = !this.state.showForm ? 'fan-logo' : 'fan-logo shifted';
     const welcomeClassName = !this.state.showForm ? 'Welcome' : 'Welcome shifted';
-
+    console.log(this.state.showForm);
     return (
-      <div className={welcomeClassName}>
-        <img className={imgClassName} src={fanLogo} alt='' />
-        {signInPrompt}
+      <div className='Welcome shifted'>
+        <img className='fan-logo shifted' src={fanLogo} alt='' />
+        {expandOptions}
         {this.state.errorMessage}
       </div>
     )

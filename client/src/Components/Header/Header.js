@@ -1,5 +1,6 @@
 import React from 'react';
 import thlLogoWhite from '../../THL-Assets/png/THL18-horiz-logo-white.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -15,7 +16,7 @@ const Header = () => {
       </a>
       <nav>
         <p className="welcome">Welcome, Katie</p>
-        <p className="settings-btn nav-btn">Settings</p>
+        <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link>
         <p className="login-logout-btn nav-btn">Logout</p>
       </nav>
     </header>

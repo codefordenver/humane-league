@@ -1,11 +1,11 @@
 import React from 'react';
 import twitterLogo from '../../assets/twitter.png';
 
-const TwitterCard = ({ type, action }) => {
+const TwitterCard = ({ action }) => {
   const { title, description, target } = action;
 
   return (
-    <div className={`ActionCard ${type}-card`}>
+    <div className="ActionCard twitter-card">
       <div className="action-logo-holder">
         <img className="action-logo" src={twitterLogo} alt="Twitter Symbol"/>
       </div>

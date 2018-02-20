@@ -2,11 +2,11 @@ import React from 'react';
 import phoneLogo from '../../assets/phone.png';
 
 
-const PhoneCard = ({ type, action }) => {
+const PhoneCard = ({ action }) => {
   const { title, description, phone_number } = action;
 
   return (
-    <div className={`ActionCard ${type}-card`}>
+    <div className="ActionCard phone-card">
       <div className="action-logo-holder">
         <img className="action-logo" src={phoneLogo} alt="Phone Symbol"/>
       </div>

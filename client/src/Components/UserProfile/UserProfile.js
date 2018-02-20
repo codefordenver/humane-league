@@ -1,18 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class UserProfile extends Component {
-  constructor() {
-    super();
-    this.state = {
-      showForm: false,
-    }
-  }
+const UserProfile = () => {
 
-  render() {
-    return (
-      <h1>I am a UserProfile</h1>
-    )
-  }
+  return (
+    <h1>Welcome, Katie</h1>
+  )
+  
 }
 
 export default UserProfile;

@@ -5,6 +5,7 @@
   .admin-greeting {
     color: #fff;
     font-size: 30pt;
+    margin-bottom: 75px;
   }
   .main-dashboard {
     display: flex;
@@ -16,8 +17,9 @@
       width: 400px;
       margin: 10px;
       h2 {
-        text-align: center;
+        color: #999;
         font-size: 24pt;
+        text-align: center;
       }
       .admin-btn {
         background: #1CB841;

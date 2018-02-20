@@ -4,7 +4,8 @@
   align-items: center; }
   .AdminDashboard .admin-greeting {
     color: #fff;
-    font-size: 30pt; }
+    font-size: 30pt;
+    margin-bottom: 75px; }
   .AdminDashboard .main-dashboard {
     display: flex;
     justify-content: space-between;
@@ -15,8 +16,9 @@
       width: 400px;
       margin: 10px; }
       .AdminDashboard .main-dashboard .dashboard-section h2 {
-        text-align: center;
-        font-size: 24pt; }
+        color: #999;
+        font-size: 24pt;
+        text-align: center; }
       .AdminDashboard .main-dashboard .dashboard-section .admin-btn {
         background: #1CB841;
         border: none;

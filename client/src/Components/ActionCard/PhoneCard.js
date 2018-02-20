@@ -14,7 +14,7 @@ const PhoneCard = ({ type, action }) => {
         <h3>{title}</h3>
         <p>{description}</p>
         <a href={`tel:${phone_number}`}>
-          <button>CALL {phone_number}</button>
+          <button>CLICK TO CALL {phone_number}</button>
         </a>
       </div> 
     </div>

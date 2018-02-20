@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import ActionCard from '../ActionCard/ActionCard';
+import TwitterCard from '../ActionCard/TwitterCard';
+import FacebookCard from '../ActionCard/TwitterCard';
+import EmailCard from '../ActionCard/TwitterCard';
+import PhoneCard from '../ActionCard/TwitterCard';
 import './ActionContainer.css';
 import '../ActionCard/ActionCard.css';
 
@@ -37,10 +40,10 @@ class ActionContainer extends Component {
   };
 
   render() {
-    const twitterCards = this.state.twitter.map(action => <ActionCard type="twitter" action={action}/>);
-    const facebookCards = this.state.facebook.map(action => <ActionCard type="facebook" action={action}/>);
-    const emailCards = this.state.email.map(action => <ActionCard type="email" action={action}/>);
-    const phoneCards = this.state.phone.map(action => <ActionCard type="phone" action={action}/>);
+    const twitterCards = this.state.twitter.map(action => <TwitterCard type="twitter" action={action}/>);
+    const facebookCards = this.state.facebook.map(action => <FacebookCard type="facebook" action={action}/>);
+    const emailCards = this.state.email.map(action => <EmailCard type="email" action={action}/>);
+    const phoneCards = this.state.phone.map(action => <PhoneCard type="phone" action={action}/>);
 
     return (
       <div className="ActionContainer">

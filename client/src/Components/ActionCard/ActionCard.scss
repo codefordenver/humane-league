@@ -1,5 +1,6 @@
 .ActionCard {
   align-items: center;
+  border: 7.5px solid #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,17 +10,17 @@
 }
 
 .twitter-card {
-  background-color: #00aced;
+  border-color: #00aced;
 }
 
 .facebook-card {
-  background-color: #3B5998;
+  border-color: #3B5998;
 }
 
 .phone-card {
-  background-color: #c71610;
+  border-color: #3cba54;
 }
 
 .email-card {
-  background-color: #08851b;
+  border-color: #db3236;
 }

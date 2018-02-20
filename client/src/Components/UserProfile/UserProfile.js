@@ -1,11 +1,12 @@
 import React from 'react';
 import ActionContainer from './ActionContainer';
+import './UserProfile.css';
 
 const UserProfile = () => {
 
   return (
-    <div>
-      <h1>Welcome, Katie</h1>
+    <div className="UserProfile">
+      <h1 className="user-welcome">Welcome, Katie</h1>
       <ActionContainer/>
     </div>
   );

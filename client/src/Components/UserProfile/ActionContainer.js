@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ActionCard from './ActionCard';
+import './ActionContainer.css';
+import './ActionCard.css';
 
 class ActionContainer extends Component {
   constructor() {
@@ -41,7 +43,7 @@ class ActionContainer extends Component {
     const phoneCards = this.state.phone.map(action => <ActionCard type="phone" action={action}/>);
 
     return (
-      <div>
+      <div className="ActionContainer">
         <h2>Current Actions</h2>
         {twitterCards}
         {facebookCards}

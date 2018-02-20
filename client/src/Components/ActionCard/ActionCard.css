@@ -1,20 +1,55 @@
 .ActionCard {
-  align-items: center;
+  border: 7.5px solid #000;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 10px;
   padding: 5px;
-  width: 500px; }
+  width: 75%; }
+  .ActionCard .action-card-main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 85%; }
+    .ActionCard .action-card-main h3 {
+      font-size: 24px;
+      margin: 15px; }
+    .ActionCard .action-card-main p {
+      margin: 5px; }
+    .ActionCard .action-card-main button {
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 15px 0;
+      padding: 15px; }
+  .ActionCard .action-logo-holder {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 15%; }
+    .ActionCard .action-logo-holder .action-logo {
+      height: 70px;
+      width: 70px; }
 
 .twitter-card {
-  background-color: aliceblue; }
+  border-color: #00aced; }
+  .twitter-card button {
+    background-color: #00aced; }
 
 .facebook-card {
-  background-color: blue; }
+  border-color: #3B5998; }
+  .facebook-card button {
+    background-color: #3B5998; }
 
 .phone-card {
-  background-color: green; }
+  border-color: #3cba54; }
+  .phone-card button {
+    background-color: #3cba54; }
 
 .email-card {
-  background-color: orange; }
+  border-color: #db3236; }
+  .email-card button {
+    background-color: #db3236; }
+  .email-card .email-template p {
+    align-self: flex-start;
+    margin: 5px; }

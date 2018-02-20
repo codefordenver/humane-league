@@ -38,7 +38,7 @@ class App extends Component {
         </header>
         <Switch>
           <Route path='/admin' component={AdminDashboard} />
-          <Route path='/profile' component={UserProfile} />
+          <Route path='/home' component={UserProfile} />
           <Route exact path='/' component={Welcome} />
         </Switch>
       </div>

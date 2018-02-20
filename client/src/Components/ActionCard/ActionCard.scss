@@ -1,0 +1,78 @@
+.ActionCard {
+  border: 7.5px solid #000;
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px;
+  padding: 5px;
+  width: 75%;
+  
+  .action-card-main {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+
+    h3 {
+      font-size: 24px;
+      margin: 15px;
+    }
+
+    p {
+      margin: 5px;
+    }
+
+    button {
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 15px 0;
+      padding: 15px;
+    }
+  }
+
+  .action-logo-holder {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 15%;
+    .action-logo {
+      height: 70px;
+      width: 70px;
+    }
+  }
+}
+
+.twitter-card {
+  border-color: #00aced;
+  button {
+    background-color: #00aced;
+  }
+}
+
+.facebook-card {
+  border-color: #3B5998;
+  button {
+    background-color: #3B5998;
+  }
+}
+
+.phone-card {
+  border-color: #3cba54;
+  button {
+    background-color: #3cba54;
+  }
+}
+
+.email-card {
+  border-color: #db3236;
+
+  button {
+    background-color: #db3236;
+  }
+
+  .email-template p {
+    align-self: flex-start;
+    margin: 5px;
+  }
+}

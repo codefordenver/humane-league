@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
+import ActionContainer from '../ActionContainer/ActionContainer';
+import './UserProfile.css';
 
-class UserProfile extends Component {
-  constructor() {
-    super();
-    this.state = {
-      showForm: false,
-    }
-  }
+const UserProfile = () => {
 
-  render() {
-    return (
-      <h1>I am a UserProfile</h1>
-    )
-  }
+  return (
+    <div className="UserProfile">
+      <ActionContainer/>
+    </div>
+  );
+  
 }
 
 export default UserProfile;

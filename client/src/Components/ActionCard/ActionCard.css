@@ -10,6 +10,18 @@
     display: flex;
     flex-direction: column;
     width: 85%; }
+    .ActionCard .action-card-main h3 {
+      font-size: 24px;
+      margin: 15px; }
+    .ActionCard .action-card-main p {
+      margin: 5px; }
+    .ActionCard .action-card-main button {
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 15px 0;
+      padding: 15px; }
   .ActionCard .action-logo-holder {
     align-items: center;
     display: flex;
@@ -21,6 +33,8 @@
 
 .twitter-card {
   border-color: #00aced; }
+  .twitter-card button {
+    background-color: #00aced; }
 
 .facebook-card {
   border-color: #3B5998; }

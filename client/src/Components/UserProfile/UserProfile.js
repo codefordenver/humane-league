@@ -6,7 +6,6 @@ const UserProfile = () => {
 
   return (
     <div className="UserProfile">
-      <h1 className="user-welcome">Welcome, Katie</h1>
       <ActionContainer/>
     </div>
   );

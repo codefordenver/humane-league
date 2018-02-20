@@ -47,7 +47,7 @@ class ActionContainer extends Component {
 
     return (
       <div className="ActionContainer">
-        <h2>Current Actions</h2>
+        <h1>FAN ACTION ALERTS</h1>
         {twitterCards}
         {facebookCards}
         {emailCards}

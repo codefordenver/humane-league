@@ -13,7 +13,7 @@ const Header = () => {
               className="App__logo" 
               src={thlLogoWhite} />
           </a>
-          <p>This</p>
+          <p>Welcome, Katie</p>
     </header>
   );
 }

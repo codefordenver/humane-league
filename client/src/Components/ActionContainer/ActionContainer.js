@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import TwitterCard from '../ActionCard/TwitterCard';
-import FacebookCard from '../ActionCard/TwitterCard';
-import EmailCard from '../ActionCard/TwitterCard';
-import PhoneCard from '../ActionCard/TwitterCard';
+import FacebookCard from '../ActionCard/FacebookCard';
+import EmailCard from '../ActionCard/EmailCard';
+import PhoneCard from '../ActionCard/PhoneCard';
 import './ActionContainer.css';
 import '../ActionCard/ActionCard.css';
 

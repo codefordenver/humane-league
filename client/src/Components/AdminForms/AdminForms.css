@@ -72,6 +72,7 @@
             opacity: 0;
             position: absolute;
             z-index: 2;
+            margin: 0;
             width: 100%;
             height: 100%; }
           .create-new-action-container .select-action-container .create-action-form form #toggle label {

@@ -8,6 +8,49 @@ class CreateNewAction extends Component {
       form: 'facebook',
       enabled: true
     }
+
+    this.submit = {
+      facebook: this.facebookSubmit,
+      twitter: this.twitterSubmit,
+      email: this.emailSubmit,
+      phone: this.phoneSubmit,
+    }
+  }
+
+  facebookSubmit = (actionContent) => {
+    console.log('facebook', actionContent);
+    const title = this.refs.actionTitle.value;
+    const description = this.refs.actionDescription.value;
+    const target = this.refs.targetUrl.value;
+
+  }
+
+  twitterSubmit = (actionContent) => {
+    console.log('twitter', actionContent);
+    const title = this.refs.actionTitle.value;
+    const description = this.refs.actionDescription.value;
+    const target = this.refs.targetUrl.value;
+
+  }
+
+  emailSubmit = (actionContent) => {
+    console.log('email', actionContent);
+    const title = this.refs.actionTitle.value;
+    const description = this.refs.actionDescription.value;
+    const to = this.refs.emailTo.value;
+    const cc = this.refs.emailCC.value;
+    const bcc = this.refs.emailBCC.value;
+    const subject = this.refs.emailSubject.value;
+
+  }
+
+  phoneSubmit = (actionContent) => {
+    console.log('phone', actionContent);
+    const title = this.refs.actionTitle.value;
+    const description = this.refs.actionDescription.value;
+    const name = this.refs.phoneName.value;
+    const position = this.refs.phonePosition.value;
+    const number = this.refs.phoneNumber.value;
   }
 
   handleChange = () => {
@@ -16,27 +59,30 @@ class CreateNewAction extends Component {
     this.setState({ form });
   }
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
     console.log('submit new action')
-    //redux action to send action to correct table
-    //redux action to send conent to content table
+    const actionContent = this.refs.actionContent.value;
+
+    this.submit[this.state.form](actionContent);
+
     //feedback that action was created
   }
 
   render() {
     const socialMediaTarget = {
-      targetUrl: <input type='text' placeholder='Target Url' />
+      targetUrl: <input type='text' ref='targetUrl' placeholder='Target Url' />
     }  
     const emailTarget = {
-      to: <input type='text' placeholder='Target Email Address' />,
-      cc: <input type='text' placeholder='CCs' />,
-      bcc: <input type='text' placeholder='BCCs' />,
-      subject: <input type='text' placeholder='Email Subject' />,
+      to: <input type='text' ref='emailTo' placeholder='Target Email Address' />,
+      cc: <input type='text' ref='emailCC' placeholder='CCs' />,
+      bcc: <input type='text' ref='emailBCC' placeholder='BCCs' />,
+      subject: <input type='text' ref='emailSubject' placeholder='Email Subject' />,
     }
     const phoneTarget = {
-      name: <input type='text' placeholder='Target Name' />,
-      position: <input type='text' placeholder='Target Position' />,
-      phoneNumber: <input type='text' placeholder='Target Phone Number' />
+      name: <input type='text' ref='phoneName' placeholder='Target Name' />,
+      position: <input type='text' ref='phonePosition' placeholder='Target Position' />,
+      phoneNumber: <input type='text' ref='phoneNumber' placeholder='Target Phone Number' />
     }
     const form = {
       facebook: socialMediaTarget,
@@ -59,8 +105,8 @@ class CreateNewAction extends Component {
           </label>
           <section className='create-action-form'>
             <form action='create-new-action-form'>
-              <input type='text' placeholder='Action Title' />
-              <input type='text' placeholder='Action Description' />
+              <input type='text' ref='actionTitle' placeholder='Action Title' />
+              <input type='text' ref='actionDescription' placeholder='Action Description' />
               {form[this.state.form].targetUrl}
 
               {form[this.state.form].to}
@@ -71,11 +117,11 @@ class CreateNewAction extends Component {
               {form[this.state.form].name}
               {form[this.state.form].position}
               {form[this.state.form].phoneNumber}
-              <textarea placeholder='Action Content'></textarea>
+              <textarea ref='actionContent' placeholder='Action Content'></textarea>
 
               <span id='toggle'>
                 <input
-                  ref={input => this.checkbox = input} 
+                  ref='enableToggle' 
                   type='checkbox' 
                   checked={this.state.enabled}
                   onChange={() => this.setState({ enabled: !this.state.enabled })} />
@@ -84,7 +130,7 @@ class CreateNewAction extends Component {
                   data-off='disabled'>
                 </label>
               </span>    
-              <button onClick={this.submitForm}>CREATE THIS ACTION</button>
+              <button onClick={this.handleSubmit}>CREATE THIS ACTION</button>
             </form>
           </section>
         </section>

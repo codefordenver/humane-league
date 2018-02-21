@@ -2,14 +2,14 @@ import React from 'react';
 import ActionContainer from '../ActionContainer/ActionContainer';
 import './UserActions.css';
 
-const UserProfile = () => {
+const UserActions = () => {
 
   return (
-    <div className="UserProfile">
+    <div className="UserActions">
       <ActionContainer/>
     </div>
   );
   
 }
 
-export default UserProfile;
+export default UserActions;

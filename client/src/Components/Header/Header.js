@@ -1,5 +1,6 @@
 import React from 'react';
 import thlLogoWhite from '../../THL-Assets/png/THL18-horiz-logo-white.png';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions/';
 

@@ -30,6 +30,7 @@
       .UserProfile .user-preferences .user-preferences-form button {
         background-color: #6CC24A;
         border: none;
+        border-radius: 2px;
         color: white;
         margin: 20px 0;
         padding: 10px; }

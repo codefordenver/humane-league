@@ -6,8 +6,6 @@ class UserProfile extends Component {
   constructor () {
     super();
     this.state = {
-      id: 0,
-      name: '',
       twitter_actions: null,
       facebook_actions: null,
       email_actions: null,
@@ -16,8 +14,8 @@ class UserProfile extends Component {
   }
 
   componentDidMount () {
-    const { id, name, twitter_actions, facebook_actions, email_actions, phone_actions } = this.props.user;
-    this.setState({ id, name, twitter_actions, facebook_actions, email_actions, phone_actions });
+    const { twitter_actions, facebook_actions, email_actions, phone_actions } = this.props.user;
+    this.setState({ twitter_actions, facebook_actions, email_actions, phone_actions });
   }
 
   changeClick = (event) => {
@@ -26,20 +24,19 @@ class UserProfile extends Component {
 
   patchPreferences = async (event) => {
     event.preventDefault();
-    const { twitter_actions, facebook_actions, email_actions, phone_actions } = this.state;
-    const preferencePath = await fetch(`/api/v1/users/${this.state.id}`, {
+    const preferencePath = await fetch(`/api/v1/users/${this.props.user.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ twitter_actions, facebook_actions, email_actions, phone_actions })
+      body: JSON.stringify({ ...this.state })
     });
   };
 
   render () {
     return (
       <div className="UserProfile">
-        <h1>{`Profile for ${this.state.name}`}</h1>
+        <h1>{`Profile for ${this.props.user.name}`}</h1>
         
         <div className="user-achievements">
           <h2>User Achievements</h2>

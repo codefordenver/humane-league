@@ -32,5 +32,6 @@
         border: none;
         border-radius: 2px;
         color: white;
+        cursor: pointer;
         margin: 20px 0;
         padding: 10px; }

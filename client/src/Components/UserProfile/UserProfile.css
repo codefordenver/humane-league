@@ -5,7 +5,7 @@
   .UserProfile .user-achievements,
   .UserProfile .user-preferences {
     align-items: center;
-    background-color: #F5F5F5;
+    background-color: #FFF;
     display: flex;
     flex-direction: column;
     margin: 20px 0;

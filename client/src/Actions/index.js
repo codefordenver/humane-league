@@ -1,11 +1,13 @@
-export const exampleAction = payload => {
-  return {
-    type: 'ACTION_TYPE',
-    payload
-  };
-};
+export const exampleAction = payload => ({
+  type: 'ACTION_TYPE',
+  payload
+});
 
 export const updateUser = payload => ({
   type: 'UPDATE_USER',
-  payload
+  payload: payload.user
+});
+
+export const logout = () => ({
+  type: 'LOGOUT_USER'
 });

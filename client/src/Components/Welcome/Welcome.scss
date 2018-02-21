@@ -1,19 +1,15 @@
 .Welcome {
-  background-image: url('../../assets/bg-gradient.svg');
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  height: 100%;
   align-items: center;
   justify-content: space-around;
-  position: absolute;
-  top: 0;
-  width: 100vw;
-  z-index: -1;
+  width: 100%;
   .fan-logo {
     // margin: 0 auto;
     // display: block;
     // transition: margin 1s ease;
+    width: 100%;
   }
   .fan-logo.shifted {
     // margin-right: 0;
@@ -25,20 +21,38 @@
     font-size: 20pt;
     text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+    grid-template-columns: 1fr;
     grid-gap: 20px;
+    padding: 0px 80px;
+    justify-items: center;
     button {
       height: 70px;
       display: flex;
+      width: 250px;
       align-items: center;
       justify-content: center;
-      border-radius: 10px;
+      border-radius: 5px;
       border: none;
+      background: #1CB841;
       transition: 0.3s;
+      font-size: 20px;
+      padding: 10px;
+      &.primary {
+        z-index: 5;
+      }
+      &.none {
+        display: none;
+      }
+      &.hidden {
+        position: absolute;
+        width: 150px;
+        margin-left: 90px;
+        overflow: hidden;
+      }
       &:hover {
         color: white;
         background-color: rgb(50, 50, 50);
-        transform: rotate(-5deg);
       }
     }
   }

@@ -6,8 +6,9 @@
 
 .App {
   min-height: 100vh;
-  background-image: url("../../gradient.svg");
-  background-size: cover;
+  /*  background-image: url('../../gradient.svg');
+  background-size: cover;*/
+  background-color: #D5D5D5;
   padding-top: 80px; }
   .App header {
     display: flex;

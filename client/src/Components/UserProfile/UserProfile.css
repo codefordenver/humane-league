@@ -1,0 +1,30 @@
+.UserProfile {
+  align-items: center;
+  display: flex;
+  flex-direction: column; }
+  .UserProfile .user-achievements,
+  .UserProfile .user-preferences {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 25px; }
+    .UserProfile .user-achievements .user-preferences-form,
+    .UserProfile .user-preferences .user-preferences-form {
+      display: flex;
+      flex-direction: column;
+      font-size: 20px;
+      width: 200px; }
+      .UserProfile .user-achievements .user-preferences-form label,
+      .UserProfile .user-preferences .user-preferences-form label {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        margin: 5px 0; }
+      .UserProfile .user-achievements .user-preferences-form button,
+      .UserProfile .user-preferences .user-preferences-form button {
+        background-color: #6CC24A;
+        border: none;
+        color: white;
+        margin: 20px 0;
+        padding: 10px; }

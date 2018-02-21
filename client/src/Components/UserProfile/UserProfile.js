@@ -1,4 +1,5 @@
 import React from 'react';
+import './UserProfile.css';
 
 const UserProfile = () => {
   return (
@@ -14,19 +15,19 @@ const UserProfile = () => {
 
         <form className="user-preferences-form">
           <label> Twitter Actions
-            <input type="checkbox" value="twitter"/>
+            <input className="checkbox" type="checkbox" value="twitter"/>
           </label>
           <label> Facebook Actions
-            <input type="checkbox" value="facebook"/>
+            <input className="checkbox" type="checkbox" value="facebook"/>
           </label>
           <label> Email Actions
-            <input type="checkbox" value="email"/>
+            <input className="checkbox" type="checkbox" value="email"/>
           </label>
           <label> Phone Actions
-            <input type="checkbox" value="phone"/>
+            <input className="checkbox" type="checkbox" value="phone"/>
           </label>
           
-          <button>SAVE PREFERENCES</button>
+          <button>SAVE</button>
         </form>
 
       </div>

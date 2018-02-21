@@ -31,8 +31,9 @@ class Welcome extends Component {
       const user = result.user;
 
       const { displayName, email, uid } = user;
-// 
+
       const dbUser = await signInUser(uid, displayName, email);
+
       this.props.validateUser(dbUser);
       this.props.history.push('/home');
 
@@ -77,12 +78,15 @@ class Welcome extends Component {
 
     const imgClassName = !this.state.showForm ? 'fan-logo' : 'fan-logo shifted';
     const welcomeClassName = !this.state.showForm ? 'Welcome' : 'Welcome shifted';
-    console.log(this.state.showForm);
+
     return (
       <div className='Welcome shifted'>
         <img className='fan-logo shifted' src={fanLogo} alt='' />
-        {expandOptions}
-        {this.state.errorMessage}
+        <div>
+          <p className="welcome-description">Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!</p>
+          {expandOptions}
+          {this.state.errorMessage}
+        </div>
       </div>
     )
   }

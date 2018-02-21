@@ -5,10 +5,15 @@
   .UserProfile .user-achievements,
   .UserProfile .user-preferences {
     align-items: center;
-    background-color: white;
+    background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
-    padding: 25px; }
+    margin: 20px 0;
+    padding: 25px;
+    width: 75%; }
+    .UserProfile .user-achievements h2,
+    .UserProfile .user-preferences h2 {
+      margin: 20px; }
     .UserProfile .user-achievements .user-preferences-form,
     .UserProfile .user-preferences .user-preferences-form {
       display: flex;

@@ -1,0 +1,99 @@
+.create-new-action-container {
+  display: flex;
+  flex-direction: column; }
+  .create-new-action-container h1 {
+    color: #999;
+    font-size: 24pt;
+    text-align: center;
+    margin: 20px; }
+    .create-new-action-container h1 span {
+      font-size: 28pt;
+      margin: 0 5px; }
+  .create-new-action-container .select-action-container {
+    display: flex;
+    margin: 20px; }
+    .create-new-action-container .select-action-container label {
+      font-size: 20pt;
+      text-align: center; }
+    .create-new-action-container .select-action-container select,
+    .create-new-action-container .select-action-container option {
+      border: none;
+      border-radius: 5px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+      font-size: 20pt;
+      height: 40px;
+      padding: 5px;
+      margin: 20px; }
+    .create-new-action-container .select-action-container .create-action-form {
+      width: 600px;
+      margin: 10px; }
+      .create-new-action-container .select-action-container .create-action-form form {
+        display: flex;
+        flex-direction: column; }
+        .create-new-action-container .select-action-container .create-action-form form input,
+        .create-new-action-container .select-action-container .create-action-form form textarea,
+        .create-new-action-container .select-action-container .create-action-form form button {
+          border: none;
+          border-radius: 5px;
+          box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+          font-size: 20pt;
+          height: 40px;
+          padding: 5px;
+          margin: 10px; }
+        .create-new-action-container .select-action-container .create-action-form form textarea {
+          height: 100px; }
+        .create-new-action-container .select-action-container .create-action-form form button {
+          background: #1CB841;
+          color: #000;
+          cursor: pointer;
+          text-decoration: none;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: 0.3s; }
+          .create-new-action-container .select-action-container .create-action-form form button:hover {
+            color: white;
+            background: #009639;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6); }
+        .create-new-action-container .select-action-container .create-action-form form #toggle {
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+          text-align: left;
+          align-self: center;
+          display: inline-block;
+          position: relative;
+          margin: 10px;
+          width: 200px; }
+          .create-new-action-container .select-action-container .create-action-form form #toggle input {
+            cursor: pointer;
+            opacity: 0;
+            position: absolute;
+            z-index: 2;
+            margin: 0;
+            width: 100%;
+            height: 100%; }
+          .create-new-action-container .select-action-container .create-action-form form #toggle label {
+            background-color: #333;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            font-size: 12pt;
+            font-weight: bold;
+            text-align: center;
+            display: inline-block;
+            padding: 5px 10px;
+            width: 100px;
+            -webkit-transition: margin-left 0.2s ease-in-out;
+            -moz-transition: margin-left 0.2s ease-in-out;
+            transition: margin-left 0.2s ease-in-out; }
+            .create-new-action-container .select-action-container .create-action-form form #toggle label:before {
+              content: attr(data-off); }
+          .create-new-action-container .select-action-container .create-action-form form #toggle input:checked + label:before {
+            content: attr(data-on); }
+          .create-new-action-container .select-action-container .create-action-form form #toggle input:checked + label {
+            background: #1CB841;
+            color: #000;
+            margin-left: 100px; }

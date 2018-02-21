@@ -4,7 +4,8 @@
   align-items: center; }
   .AdminDashboard .admin-greeting {
     color: #fff;
-    font-size: 30pt; }
+    font-size: 30pt;
+    margin-bottom: 40px; }
   .AdminDashboard .main-dashboard {
     display: flex;
     justify-content: space-between;
@@ -15,22 +16,24 @@
       width: 400px;
       margin: 10px; }
       .AdminDashboard .main-dashboard .dashboard-section h2 {
-        text-align: center;
-        font-size: 24pt; }
+        color: #999;
+        font-size: 24pt;
+        text-align: center; }
       .AdminDashboard .main-dashboard .dashboard-section .admin-btn {
+        background: #1CB841;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
         color: #000;
-        background: #fff;
+        font-size: 20pt;
         text-decoration: none;
-        height: 70px;
         display: flex;
         align-items: center;
         justify-content: center;
-        border-radius: 10px;
-        border: none;
-        transition: 0.3s;
-        font-size: 20pt;
-        margin: 10px; }
+        height: 70px;
+        margin: 10px;
+        transition: 0.3s; }
         .AdminDashboard .main-dashboard .dashboard-section .admin-btn:hover {
           color: white;
-          background-color: #323232;
-          transform: rotate(-5deg); }
+          background: #009639;
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6); }

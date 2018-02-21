@@ -7,7 +7,7 @@ import * as actions from '../../Actions/';
 const Header = (props) => {
   const userInfo = props.User.name ? <p className="welcome">Welcome, {props.User.name}</p> : null;
   const logoutButton = props.User.name ? <p onClick={props.logout} className="login-logout-btn nav-btn">Logout</p> : null;
-  const settings = props.User.name ? <p className="settings-btn nav-btn">Settings</p> : null;
+  const settings = props.User.name ? <Link to="/profile"><p className="settings-btn nav-btn">Settings</p></Link> : null;
   
   return (
     <header>

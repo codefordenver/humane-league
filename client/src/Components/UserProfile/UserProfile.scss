@@ -6,10 +6,16 @@
   .user-achievements,
   .user-preferences {
     align-items: center;
-    background-color: white;
+    background-color: #F5F5F5;
     display: flex;
     flex-direction: column;
+    margin: 20px 0;
     padding: 25px;
+    width: 75%;
+
+    h2 {
+      margin: 20px;
+    }
 
     .user-preferences-form {
       display: flex;
@@ -27,7 +33,9 @@
       button {
         background-color: #6CC24A;
         border: none;
+        border-radius: 2px;
         color: white;
+        cursor: pointer;
         margin: 20px 0;
         padding: 10px;
       }

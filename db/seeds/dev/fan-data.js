@@ -16,18 +16,10 @@ exports.seed = function(knex, Promise) {
       // Inserts seed entries
       return knex('twitter_actions').insert({
         enabled: true, 
-        title: 'Tweet Action Title', 
-        description: 'Tweet Action Description', 
-        target: 'https://twitter.com/katieescruggs'
-      }, 'id')
-
-        .then(twitterActionId => {
-          return knex('twitter_contents').insert([
-            { action_id: twitterActionId[0], content: 'Twitter Content 1' },
-            { action_id: twitterActionId[0], content: 'Twitter Content 2' },
-            { action_id: twitterActionId[0], content: 'Twitter Content 3' }
-          ])
-        })
+        title: 'Tweet at Carl\'s Jr.', 
+        description: 'Please re-tweet THL\'s post about Carl\'s Jr\'s attempts to shut down our protest!', 
+        target: 'https://twitter.com/TheHumaneLeague/status/963452807389958144'
+      })
 
       .then(() => {
         return knex('facebook_actions').insert({
@@ -49,19 +41,15 @@ exports.seed = function(knex, Promise) {
       .then(() => {
         return knex('email_actions').insert({
           enabled: true, 
-          title: 'Email Action Title', 
-          description: 'Email Action Description', 
-          to: 'katie.e.scruggs@gmail.com',
-          cc: 'julabi@gmail.com',
-          bcc: 'lairdthomasr@gmail.com',
-          subject: 'Email Subject'
+          title: 'Email Carl\'s Jr. Leadership', 
+          description: 'Share The Humane League\'s latest blog post about the NYC protest with Carl\'s Jr.', 
+          to: 'PKrieg@ckr.com',
+          subject: 'Attention Required'
         }, 'id')
 
           .then(emailActionId => {
             return knex('email_contents').insert([
-              { action_id: emailActionId[0], content: 'Email Content 1' },
-              { action_id: emailActionId[0], content: 'Email Content 2' },
-              { action_id: emailActionId[0], content: 'Email Content 3' }
+              { action_id: emailActionId[0], content: 'Mr. Krieg,\n Have you seen this yet? It’s very upsetting and disappointing that Carl’s Jr. not only refuses to address the animal abuse in its supply chain but also actively tries to silence consumers who are urging the company to take action. Please do better. http://blog.thehumaneleague.org/carls-jr-animal-cruelty-scandal' }
             ])
           })
       })

@@ -15,13 +15,6 @@ class Welcome extends Component {
     };
   }
 
-  componentDidMount() {
-    let currentUser = JSON.parse(localStorage.getItem('THL-FAN-USER'));
-    if (currentUser) {
-      this.props.validateUser(currentUser);
-    }
-  }
-
   handleClick = (prov) => {
     this.setState({ showForm: true });
 
@@ -42,7 +35,7 @@ class Welcome extends Component {
       const dbUser = await signInUser(uid, displayName, email);
 
       this.props.validateUser(dbUser);
-      localStorage.setItem('THL-FAN-USER', JSON.stringify(dbUser.user));
+      localStorage.setItem('THL-FAN-USER', JSON.stringify(dbUser));
       this.props.history.push('/home');
 
     }).catch(error => {

@@ -15,6 +15,13 @@ class Welcome extends Component {
     };
   }
 
+  componentDidMount() {
+    let currentUser = JSON.parse(localStorage.getItem('THL-FAN-USER'));
+    if (currentUser) {
+      this.props.validateUser(currentUser);
+    }
+  }
+
   handleClick = (prov) => {
     this.setState({ showForm: true });
 

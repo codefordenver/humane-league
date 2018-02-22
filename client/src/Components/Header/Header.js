@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions/';
 
-const Header = (props) => {
-  const userInfo = props.User.name ? <p className="welcome">Welcome, {props.User.name}</p> : null;
-  const actions = props.User.name ? <Link to="/home"><p className="nav-btn">Actions</p></Link> : null;
-  const profile = props.User.name ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : null;
-  const logoutButton = props.User.name 
-    ? <p onClick={props.logout} className="login-logout-btn nav-btn">Logout</p> 
-    : <p onClick={props.logout} className="login-logout-btn nav-btn">Login</p>;
+const Header = ({ User, logout }) => {
+  const userInfo = User.name ? <p className="welcome">Welcome, {User.name}</p> : null;
+  const actions = (User.name && !User.admin) ? <Link to="/home"><p className="nav-btn">Actions</p></Link> : null;
+  const profile = (User.name && !User.admin) ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : null;
+  const logoutButton = User.name 
+    ? <p onClick={logout} className="login-logout-btn nav-btn">Logout</p> 
+    : <p onClick={logout} className="login-logout-btn nav-btn">Login</p>;
   
   return (
     <header>

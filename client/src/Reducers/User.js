@@ -3,6 +3,7 @@ const User = (store = {}, action) => {
     case 'UPDATE_USER':
       return action.payload;
     case 'LOGOUT_USER':
+      localStorage.removeItem('THL-FAN-USER');
       return {};
     default:
       return store;

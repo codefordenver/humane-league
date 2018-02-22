@@ -7,7 +7,9 @@ import * as actions from '../../Actions/';
 const Header = (props) => {
   const userInfo = props.User.name ? <p className="welcome">Welcome, {props.User.name}</p> : null;
   const profile = props.User.name ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : null;
-  const logoutButton = props.User.name ? <p onClick={props.logout} className="login-logout-btn nav-btn">Logout</p> : null;
+  const logoutButton = props.User.name 
+    ? <p onClick={props.logout} className="login-logout-btn nav-btn">Logout</p> 
+    : <p onClick={props.logout} className="login-logout-btn nav-btn">Login</p>;
   
   return (
     <header>

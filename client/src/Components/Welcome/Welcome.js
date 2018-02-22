@@ -35,6 +35,7 @@ class Welcome extends Component {
       const dbUser = await signInUser(uid, displayName, email);
 
       this.props.validateUser(dbUser);
+      localStorage.setItem('THL-FAN-USER', JSON.stringify(dbUser.user));
       this.props.history.push('/home');
 
     }).catch(error => {

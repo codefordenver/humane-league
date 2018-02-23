@@ -29,16 +29,16 @@ describe('Server routes', () => {
   });
   describe('get all items routes', () => {
     const routes = [
-      { table: 'action_log',        route: '/api/v1/actions',           expectedProps: props.action,       length: 1}, 
-      { table: 'twitter_actions',   route: '/api/v1/twitter_actions',   expectedProps: props.socialAction, length: 1}, 
-      { table: 'twitter_contents',  route: '/api/v1/twitter_contents',  expectedProps: props.contents,     length: 3}, 
-      { table: 'facebook_actions',  route: '/api/v1/facebook_actions',  expectedProps: props.socialAction, length: 1},
-      { table: 'facebook_contents', route: '/api/v1/facebook_contents', expectedProps: props.contents,     length: 3},
-      { table: 'phone_actions',     route: '/api/v1/phone_actions',     expectedProps: props.phoneAction,  length: 1}, 
-      { table: 'phone_contents',    route: '/api/v1/phone_contents',    expectedProps: props.contents,     length: 3}, 
-      { table: 'email_actions',     route: '/api/v1/email_actions',     expectedProps: props.emailAction,  length: 1}, 
-      { table: 'email_contents',    route: '/api/v1/email_contents',    expectedProps: props.contents,     length: 3}, 
-      { table: 'users',             route: '/api/v1/users',             expectedProps: props.user,         length: 3}
+      { table: 'action_log',        route: '/api/v1/actions/?token=testtoken',           expectedProps: props.action,       length: 1}, 
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/?token=testtoken',   expectedProps: props.socialAction, length: 1}, 
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/?token=testtoken',  expectedProps: props.contents,     length: 3}, 
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/?token=testtoken',  expectedProps: props.socialAction, length: 1},
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents/?token=testtoken', expectedProps: props.contents,     length: 3},
+      { table: 'phone_actions',     route: '/api/v1/phone_actions/?token=testtoken',     expectedProps: props.phoneAction,  length: 1}, 
+      { table: 'phone_contents',    route: '/api/v1/phone_contents/?token=testtoken',    expectedProps: props.contents,     length: 3}, 
+      { table: 'email_actions',     route: '/api/v1/email_actions/?token=testtoken',     expectedProps: props.emailAction,  length: 1}, 
+      { table: 'email_contents',    route: '/api/v1/email_contents/?token=testtoken',    expectedProps: props.contents,     length: 3}, 
+      { table: 'users',             route: '/api/v1/users/?token=testtoken',             expectedProps: props.user,         length: 3}
     ];
 
     routes.map( route => {
@@ -63,16 +63,16 @@ describe('Server routes', () => {
   describe('get one item routes', () => {
 
     const routes = [
-      { table: 'action_log',        route: '/api/v1/actions/1',           expectedProps: props.action         }, 
-      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1',   expectedProps: props.socialAction         }, 
-      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1',  expectedProps: props.contents         },
-      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1',  expectedProps: props.socialAction         },
-      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1', expectedProps: props.contents         },
-      { table: 'phone_actions',     route: '/api/v1/phone_actions/1',     expectedProps: props.phoneAction         }, 
-      { table: 'phone_contents',    route: '/api/v1/phone_contents/1',    expectedProps: props.contents         }, 
-      { table: 'email_actions',     route: '/api/v1/email_actions/1',     expectedProps: props.emailAction         }, 
-      { table: 'email_contents',    route: '/api/v1/email_contents/1',    expectedProps: props.contents         }, 
-      { table: 'users',             route: '/api/v1/users/1',             expectedProps: props.user         }
+      { table: 'action_log',        route: '/api/v1/actions/1?token=testtoken',           expectedProps: props.action         }, 
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1?token=testtoken',   expectedProps: props.socialAction         }, 
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1?token=testtoken',  expectedProps: props.contents         },
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1?token=testtoken',  expectedProps: props.socialAction         },
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1?token=testtoken', expectedProps: props.contents         },
+      { table: 'phone_actions',     route: '/api/v1/phone_actions/1?token=testtoken',     expectedProps: props.phoneAction         }, 
+      { table: 'phone_contents',    route: '/api/v1/phone_contents/1?token=testtoken',    expectedProps: props.contents         }, 
+      { table: 'email_actions',     route: '/api/v1/email_actions/1?token=testtoken',     expectedProps: props.emailAction         }, 
+      { table: 'email_contents',    route: '/api/v1/email_contents/1?token=testtoken',    expectedProps: props.contents         }, 
+      { table: 'users',             route: '/api/v1/users/1?token=testtoken',             expectedProps: props.user         }
     ];
 
     routes.map( route => {
@@ -90,16 +90,16 @@ describe('Server routes', () => {
     });
 
     const badRoutes = [
-      { table: 'action_log',        route: '/api/v1/actions/1000000',           }, 
-      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1000000',   }, 
-      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1000000',  },
-      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1000000',  },
-      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1000000', },
-      { table: 'phone_actions',     route: '/api/v1/phone_actions/1000000',     }, 
-      { table: 'phone_contents',    route: '/api/v1/phone_contents/1000000',    }, 
-      { table: 'email_actions',     route: '/api/v1/email_actions/1000000',     }, 
-      { table: 'email_contents',    route: '/api/v1/email_contents/1000000',    }, 
-      { table: 'users',             route: '/api/v1/users/1000000',             }
+      { table: 'action_log',        route: '/api/v1/actions/1000000?token=testtoken',           }, 
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1000000?token=testtoken',   }, 
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1000000?token=testtoken',  },
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1000000?token=testtoken',  },
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1000000?token=testtoken', },
+      { table: 'phone_actions',     route: '/api/v1/phone_actions/1000000?token=testtoken',     }, 
+      { table: 'phone_contents',    route: '/api/v1/phone_contents/1000000?token=testtoken',    }, 
+      { table: 'email_actions',     route: '/api/v1/email_actions/1000000?token=testtoken',     }, 
+      { table: 'email_contents',    route: '/api/v1/email_contents/1000000?token=testtoken',    }, 
+      { table: 'users',             route: '/api/v1/users/1000000?token=testtoken',             }
     ];
 
     badRoutes.map( route => {
@@ -161,16 +161,16 @@ describe('Server routes', () => {
     };
 
     const routes = [
-      { table: 'action_log',        route: '/api/v1/actions',           requestBody: body.action_log,        length: 1}, 
-      { table: 'twitter_actions',   route: '/api/v1/twitter_actions',   requestBody: body.twitter_actions,   length: 1}, 
-      { table: 'twitter_contents',  route: '/api/v1/twitter_contents',  requestBody: body.twitter_contents,  length: 3}, 
-      { table: 'facebook_actions',  route: '/api/v1/facebook_actions',  requestBody: body.facebook_actions,  length: 1},
-      { table: 'facebook_contents', route: '/api/v1/facebook_contents', requestBody: body.facebook_contents, length: 3},
-      { table: 'phone_actions',     route: '/api/v1/phone_actions',     requestBody: body.phone_actions,     length: 1}, 
-      { table: 'phone_contents',    route: '/api/v1/phone_contents',    requestBody: body.phone_contents,    length: 3}, 
-      { table: 'email_actions',     route: '/api/v1/email_actions',     requestBody: body.email_actions,     length: 1}, 
-      { table: 'email_contents',    route: '/api/v1/email_contents',    requestBody: body.email_contents,    length: 3}, 
-      { table: 'users',             route: '/api/v1/users',             requestBody: body.users,             length: 3}
+      { table: 'action_log',        route: '/api/v1/actions?token=testtoken',           requestBody: body.action_log,        length: 1}, 
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions?token=testtoken',   requestBody: body.twitter_actions,   length: 1}, 
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents?token=testtoken',  requestBody: body.twitter_contents,  length: 3}, 
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions?token=testtoken',  requestBody: body.facebook_actions,  length: 1},
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents?token=testtoken', requestBody: body.facebook_contents, length: 3},
+      { table: 'phone_actions',     route: '/api/v1/phone_actions?token=testtoken',     requestBody: body.phone_actions,     length: 1}, 
+      { table: 'phone_contents',    route: '/api/v1/phone_contents?token=testtoken',    requestBody: body.phone_contents,    length: 3}, 
+      { table: 'email_actions',     route: '/api/v1/email_actions?token=testtoken',     requestBody: body.email_actions,     length: 1}, 
+      { table: 'email_contents',    route: '/api/v1/email_contents?token=testtoken',    requestBody: body.email_contents,    length: 3}, 
+      { table: 'users',             route: '/api/v1/users?token=testtoken',             requestBody: body.users,             length: 3}
     ];
 
     routes.map( route => {
@@ -212,16 +212,16 @@ describe('Server routes', () => {
     const userUpdate = { twitter_actions: false };
 
     const routes = [
-      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1',  body: contentUpdate },
-      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1', body: contentUpdate },
-      { table: 'phone_contents',    route: '/api/v1/phone_contents/1',    body: contentUpdate }, 
-      { table: 'email_contents',    route: '/api/v1/email_contents/1',    body: contentUpdate },
-      { table: 'email_actions',     route: '/api/v1/email_actions/1',     body: actionUpdate  }, 
-      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1',  body: actionUpdate  },
-      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1',   body: actionUpdate  }, 
-      { table: 'phone_actions',     route: '/api/v1/phone_actions/1',     body: actionUpdate  }, 
-      { table: 'action_log',        route: '/api/v1/actions/1',           body: actionUpdate  },
-      { table: 'users',             route: '/api/v1/users/1',             body: userUpdate    }
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1?token=testtoken',  body: contentUpdate },
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1?token=testtoken', body: contentUpdate },
+      { table: 'phone_contents',    route: '/api/v1/phone_contents/1?token=testtoken',    body: contentUpdate }, 
+      { table: 'email_contents',    route: '/api/v1/email_contents/1?token=testtoken',    body: contentUpdate },
+      { table: 'email_actions',     route: '/api/v1/email_actions/1?token=testtoken',     body: actionUpdate  }, 
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1?token=testtoken',  body: actionUpdate  },
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1?token=testtoken',   body: actionUpdate  }, 
+      { table: 'phone_actions',     route: '/api/v1/phone_actions/1?token=testtoken',     body: actionUpdate  }, 
+      { table: 'action_log',        route: '/api/v1/actions/1?token=testtoken',           body: actionUpdate  },
+      { table: 'users',             route: '/api/v1/users/1?token=testtoken',             body: userUpdate    }
     ];  
 
     routes.map( route => {
@@ -237,16 +237,16 @@ describe('Server routes', () => {
 
     const badUpdate = { badProp: 'should not update' };
     const badRoutes = [
-      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1',  body: badUpdate },
-      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1', body: badUpdate },
-      { table: 'phone_contents',    route: '/api/v1/phone_contents/1',    body: badUpdate }, 
-      { table: 'email_contents',    route: '/api/v1/email_contents/1',    body: badUpdate },
-      { table: 'email_actions',     route: '/api/v1/email_actions/1',     body: badUpdate }, 
-      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1',  body: badUpdate },
-      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1',   body: badUpdate }, 
-      { table: 'phone_actions',     route: '/api/v1/phone_actions/1',     body: badUpdate }, 
-      { table: 'action_log',        route: '/api/v1/actions/1',           body: badUpdate },
-      { table: 'users',             route: '/api/v1/users/1',             body: badUpdate }
+      { table: 'twitter_contents',  route: '/api/v1/twitter_contents/1?token=testtoken',  body: badUpdate },
+      { table: 'facebook_contents', route: '/api/v1/facebook_contents/1?token=testtoken', body: badUpdate },
+      { table: 'phone_contents',    route: '/api/v1/phone_contents/1?token=testtoken',    body: badUpdate }, 
+      { table: 'email_contents',    route: '/api/v1/email_contents/1?token=testtoken',    body: badUpdate },
+      { table: 'email_actions',     route: '/api/v1/email_actions/1?token=testtoken',     body: badUpdate }, 
+      { table: 'facebook_actions',  route: '/api/v1/facebook_actions/1?token=testtoken',  body: badUpdate },
+      { table: 'twitter_actions',   route: '/api/v1/twitter_actions/1?token=testtoken',   body: badUpdate }, 
+      { table: 'phone_actions',     route: '/api/v1/phone_actions/1?token=testtoken',     body: badUpdate }, 
+      { table: 'action_log',        route: '/api/v1/actions/1?token=testtoken',           body: badUpdate },
+      { table: 'users',             route: '/api/v1/users/1?token=testtoken',             body: badUpdate }
     ];  
     
 
@@ -266,8 +266,6 @@ describe('Server routes', () => {
           })
       });
     });
-    
-    
 
       
 

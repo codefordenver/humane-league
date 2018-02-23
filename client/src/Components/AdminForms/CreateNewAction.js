@@ -15,16 +15,41 @@ class CreateNewAction extends Component {
       email: this.emailSubmit,
       phone: this.phoneSubmit,
     }
+
   }
 
-  facebookSubmit = (actionContent) => {
-    const title = this.refs.actionTitle.value;
-    const description = this.refs.actionDescription.value;
-    const target = this.refs.targetUrl.value;
+  createAction = (type) => {
+    const baseAction = {
+      title: this.refs.actionTitle.value,
+      description: this.refs.actionDescription.value
+    };
 
-    const action = { title, description, target };
+    if (type === 'social') {
+      const target = this.refs.targetUrl.value;
+      return Object.assign(baseAction, { target });
+    } else if (type === 'email') {
+      const email = {
+        to: this.refs.emailTo.value,
+        cc: this.refs.emailCC.value,
+        bcc: this.refs.emailBCC.value,
+        subject: this.refs.emailSubject.value
+      };
+      return Object.assign(baseAction, ...email);
+    } else if (type === 'phone') {
+      const phone = {
+        name: this.refs.phoneName.value,
+        position: this.refs.phonePosition.value,
+        number: this.refs.phoneNumber.value
+      };
+      return Object.assign(baseAction, ...phone);
+    }
+  }
 
-    const actionPost = fetch('/api/v1/facebook_actions', {
+  facebookSubmit = async (actionContent) => {
+    const action = Object.assign(this.createAction('social'), { enabled: this.state.enabled });
+    console.log(action);
+
+    const actionPost = await fetch('/api/v1/facebook_actions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -32,37 +57,36 @@ class CreateNewAction extends Component {
       body: JSON.stringify(action)
     });
 
-    const result = await actionPost.json();
-    console.log(result);
+    const actionID = await actionPost.json();
+    
+    if (actionID) {
+      const contentPost = await fetch('/api/v1/facebook_contents', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ action_id: actionID, content: actionContent })
+      });
+
+      const result = await contentPost.json();
+      console.log(result);
+    }
 
   }
 
   twitterSubmit = (actionContent) => {
-    console.log('twitter', actionContent);
-    const title = this.refs.actionTitle.value;
-    const description = this.refs.actionDescription.value;
-    const target = this.refs.targetUrl.value;
-
+    const action = Object.assign(this.createAction('social'), { enabled: this.state.enabled });
+    console.log(action);
   }
 
   emailSubmit = (actionContent) => {
-    console.log('email', actionContent);
-    const title = this.refs.actionTitle.value;
-    const description = this.refs.actionDescription.value;
-    const to = this.refs.emailTo.value;
-    const cc = this.refs.emailCC.value;
-    const bcc = this.refs.emailBCC.value;
-    const subject = this.refs.emailSubject.value;
-
+    const action = Object.assign(this.createAction('email'), { enabled: this.state.enabled });
+    console.log(action);
   }
 
   phoneSubmit = (actionContent) => {
-    console.log('phone', actionContent);
-    const title = this.refs.actionTitle.value;
-    const description = this.refs.actionDescription.value;
-    const name = this.refs.phoneName.value;
-    const position = this.refs.phonePosition.value;
-    const number = this.refs.phoneNumber.value;
+    const action = Object.assign(this.createAction('phone'), { enabled: this.state.enabled });
+    console.log(action);
   }
 
   handleChange = () => {
@@ -73,7 +97,6 @@ class CreateNewAction extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    console.log('submit new action')
     const actionContent = this.refs.actionContent.value;
 
     this.submit[this.state.form](actionContent);

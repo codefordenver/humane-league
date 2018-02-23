@@ -45,11 +45,8 @@ class CreateNewAction extends Component {
     }
   }
 
-  facebookSubmit = async (actionContent) => {
-    const action = Object.assign(this.createAction('social'), { enabled: this.state.enabled });
-    console.log(action);
-
-    const actionPost = await fetch('/api/v1/facebook_actions', {
+  actionPost = async (action, content, type) => {
+    const actionPost = await fetch(`/api/v1/${type}_actions`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -58,35 +55,48 @@ class CreateNewAction extends Component {
     });
 
     const actionID = await actionPost.json();
-    
+    console.log(actionID);
+
     if (actionID) {
-      const contentPost = await fetch('/api/v1/facebook_contents', {
+      const contentPost = await fetch(`/api/v1/${type}_contents`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ action_id: actionID, content: actionContent })
+        body: JSON.stringify({ action_id: actionID, content })
       });
 
       const result = await contentPost.json();
       console.log(result);
     }
+  }
 
+  facebookSubmit = async (actionContent) => {
+    const action = Object.assign(this.createAction('social'), { enabled: this.state.enabled });
+    console.log(action);
+
+    this.actionPost(action, actionContent, 'facebook');
   }
 
   twitterSubmit = (actionContent) => {
     const action = Object.assign(this.createAction('social'), { enabled: this.state.enabled });
     console.log(action);
+
+    this.actionPost(action, actionContent, 'twitter');
   }
 
   emailSubmit = (actionContent) => {
     const action = Object.assign(this.createAction('email'), { enabled: this.state.enabled });
     console.log(action);
+
+    this.actionPost(action, actionContent, 'email');
   }
 
   phoneSubmit = (actionContent) => {
     const action = Object.assign(this.createAction('phone'), { enabled: this.state.enabled });
     console.log(action);
+
+    this.actionPost(action, actionContent, 'phone');
   }
 
   handleChange = () => {

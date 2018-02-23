@@ -26,7 +26,7 @@ class CreateNewAction extends Component {
 
     if (type === 'social') {
       const target = this.refs.targetUrl.value;
-      return Object.assign(baseAction, { target });
+      return Object.assign({}, baseAction, { target });
     } else if (type === 'email') {
       const email = {
         to: this.refs.emailTo.value,
@@ -34,14 +34,14 @@ class CreateNewAction extends Component {
         bcc: this.refs.emailBCC.value,
         subject: this.refs.emailSubject.value
       };
-      return Object.assign(baseAction, ...email);
+      return Object.assign({}, baseAction, email);
     } else if (type === 'phone') {
       const phone = {
         name: this.refs.phoneName.value,
         position: this.refs.phonePosition.value,
         number: this.refs.phoneNumber.value
       };
-      return Object.assign(baseAction, ...phone);
+      return Object.assign({}, baseAction, phone);
     }
   }
 

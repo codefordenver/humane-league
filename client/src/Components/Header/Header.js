@@ -4,11 +4,19 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions/';
 
-const Header = (props) => {
-  const userInfo = props.User.name ? <p className="welcome">Welcome, {props.User.name}</p> : null;
-  const logoutButton = props.User.name ? <p onClick={props.logout} className="login-logout-btn nav-btn">Logout</p> : null;
-  const settings = props.User.name ? <Link to="/profile"><p className="settings-btn nav-btn">Settings</p></Link> : null;
+const Header = ({ User, logout, validateUser }) => {
+  let currentUser = JSON.parse(localStorage.getItem('THL-FAN-USER'));
+  if (Object.keys(User).length === 0 && currentUser) {
+    validateUser(currentUser);
+  }
   
+  const userInfo = User.name ? <p className="welcome">Welcome, {User.name}</p> : null;
+  const actions = (User.name && !User.admin) ? <Link to="/home"><p className="nav-btn">Actions</p></Link> : null;
+  const profile = (User.name && !User.admin) ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : null;
+  const logoutButton = User.name 
+    ? <Link to="/"><p onClick={logout} className="login-logout-btn nav-btn">Logout</p></Link> 
+    : <Link to="/"><p onClick={logout} className="login-logout-btn nav-btn">Login</p></Link>;
+
   return (
     <header>
       <a 
@@ -22,7 +30,8 @@ const Header = (props) => {
       </a>
       <nav>
         {userInfo}
-        {settings}
+        {actions}
+        {profile}
         {logoutButton}
       </nav>
     </header>
@@ -34,7 +43,8 @@ const mapStateToProps = store => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(actions.logout())
+  logout: () => dispatch(actions.logout()),
+  validateUser: user => dispatch(actions.updateUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

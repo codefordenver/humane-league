@@ -5,11 +5,13 @@ import EmailCard from '../ActionCard/EmailCard';
 import PhoneCard from '../ActionCard/PhoneCard';
 import './ActionContainer.css';
 import '../ActionCard/ActionCard.css';
+import { connect } from 'react-redux';
 
 class ActionContainer extends Component {
   constructor() {
     super();
     this.state = {
+      userPreferences: {},
       twitter: [],
       facebook: [],
       email: [],
@@ -17,24 +19,37 @@ class ActionContainer extends Component {
     }
   }
   async componentDidMount() {
+    const { twitter_actions, facebook_actions, email_actions, phone_actions} = this.props.user;
+    await this.setState({ userPreferences: { twitter_actions, facebook_actions, email_actions, phone_actions} });
 
-    const twitterFetch = await fetch('/api/v1/twitter_actions');
-    const twitterActions = await twitterFetch.json();
-    const twitter = twitterActions.results;
+    let twitter = [];
+    let facebook = [];
+    let email = [];
+    let phone = [];
 
-    const facebookFetch = await fetch('/api/v1/facebook_actions');
-    const facebookActions = await facebookFetch.json();
-    const facebook = facebookActions.results;
+    if (this.state.userPreferences.twitter_actions) {
+      const twitterFetch = await fetch('/api/v1/twitter_actions');
+      const twitterActions = await twitterFetch.json();
+      twitter = twitterActions.results;
+    }
 
-    
-    const emailFetch = await fetch('/api/v1/email_actions');
-    const emailActions = await emailFetch.json();
-    const email = emailActions.results;
+    if (this.state.userPreferences.facebook_actions) {
+      const facebookFetch = await fetch('/api/v1/facebook_actions');
+      const facebookActions = await facebookFetch.json();
+      facebook = facebookActions.results;
+    }
 
+    if (this.state.userPreferences.email_actions) {
+      const emailFetch = await fetch('/api/v1/email_actions');
+      const emailActions = await emailFetch.json();
+      email = emailActions.results;
+    }
 
-    const phoneFetch = await fetch('/api/v1/phone_actions');
-    const phoneActions = await phoneFetch.json();
-    const phone = phoneActions.results;
+    if (this.state.userPreferences.phone_actions) {
+      const phoneFetch = await fetch('/api/v1/phone_actions');
+      const phoneActions = await phoneFetch.json();
+      phone = phoneActions.results;
+    }
 
     await this.setState({ twitter, facebook, email, phone });
   };
@@ -57,4 +72,8 @@ class ActionContainer extends Component {
   }
 }
 
-export default ActionContainer;
+const mapStateToProps = store => ({
+  user: store.User
+});
+
+export default connect(mapStateToProps, null)(ActionContainer);

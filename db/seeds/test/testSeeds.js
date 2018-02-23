@@ -119,13 +119,14 @@ exports.seed = function(knex, Promise) {
         return knex('users').insert([
           { twitter_actions: true, facebook_actions: true, email_actions: true, phone_actions: true, admin: true, name: 'Katie Scruggs'},
           { twitter_actions: true, facebook_actions: true, email_actions: true, phone_actions: false, admin: false, name: 'Julie Hawkins'},
-          { twitter_actions: true, facebook_actions: true, email_actions: true, phone_actions: true, admin: true, name: 'Thomas Laird'}
+          { twitter_actions: true, facebook_actions: true, email_actions: true, phone_actions: true, admin: true, super_admin: true, id_token: 'testtoken', name: 'Thomas Laird'},
+
         ])
       })
       .then(() => {
         return knex('action_log').insert([
           { user_id: 1, action_id: 1, action_type: 'twitter_action', description: 'test action'}
-        ])
-      })
+        ]);
+      });
     });
 };

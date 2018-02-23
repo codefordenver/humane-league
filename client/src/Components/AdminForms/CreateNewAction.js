@@ -18,10 +18,22 @@ class CreateNewAction extends Component {
   }
 
   facebookSubmit = (actionContent) => {
-    console.log('facebook', actionContent);
     const title = this.refs.actionTitle.value;
     const description = this.refs.actionDescription.value;
     const target = this.refs.targetUrl.value;
+
+    const action = { title, description, target };
+
+    const actionPost = fetch('/api/v1/facebook_actions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(action)
+    });
+
+    const result = await actionPost.json();
+    console.log(result);
 
   }
 

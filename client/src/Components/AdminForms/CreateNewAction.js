@@ -7,7 +7,7 @@ class CreateNewAction extends Component {
     super();
     this.state = {
       form: 'facebook',
-      enabled: true
+      actionEnabled: true
     }
 
     this.submit = {
@@ -27,7 +27,7 @@ class CreateNewAction extends Component {
 
     if (type === 'social') {
       const target = this.targetUrl.value;
-      return Object.assign({}, baseAction, { target });
+      return Object.assign({ enabled: this.state.actionEnabled }, baseAction, { target });
     } else if (type === 'email') {
       const email = {
         to: this.emailTo.value,
@@ -35,14 +35,14 @@ class CreateNewAction extends Component {
         bcc: this.emailBCC.value,
         subject: this.emailSubject.value
       };
-      return Object.assign({}, baseAction, email);
+      return Object.assign({ enabled: this.state.actionEnabled }, baseAction, email);
     } else if (type === 'phone') {
       const phone = {
         name: this.phoneName.value,
         position: this.phonePosition.value,
-        number: this.phoneNumber.value
+        phone_number: this.phoneNumber.value
       };
-      return Object.assign({}, baseAction, phone);
+      return Object.assign({ enabled: this.state.actionEnabled }, baseAction, phone);
     }
   }
 
@@ -74,28 +74,28 @@ class CreateNewAction extends Component {
   }
 
   facebookSubmit = async (actionContent) => {
-    const action = Object.assign(this.createAction('social'), { enabled: this.state.enabled });
+    const action = this.createAction('social');
     console.log(action);
 
     this.actionPost(action, actionContent, 'facebook');
   }
 
   twitterSubmit = (actionContent) => {
-    const action = Object.assign(this.createAction('social'), { enabled: this.state.enabled });
+    const action = this.createAction('social');
     console.log(action);
 
     this.actionPost(action, actionContent, 'twitter');
   }
 
   emailSubmit = (actionContent) => {
-    const action = Object.assign(this.createAction('email'), { enabled: this.state.enabled });
+    const action = this.createAction('email');
     console.log(action);
 
     this.actionPost(action, actionContent, 'email');
   }
 
   phoneSubmit = (actionContent) => {
-    const action = Object.assign(this.createAction('phone'), { enabled: this.state.enabled });
+    const action = this.createAction('phone');
     console.log(action);
 
     this.actionPost(action, actionContent, 'phone');
@@ -170,8 +170,8 @@ class CreateNewAction extends Component {
                 <input
                   // ref={(elem) => {this.enableToggle = elem}} 
                   type='checkbox' 
-                  checked={this.state.enabled}
-                  onChange={() => this.setState({ enabled: !this.state.enabled })} />
+                  checked={this.state.actionEnabled}
+                  onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} />
                 <label 
                   data-on='enabled' 
                   data-off='disabled'>

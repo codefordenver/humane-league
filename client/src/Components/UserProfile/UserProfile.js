@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './UserProfile.css';
 import { connect } from 'react-redux';
+import * as actions from '../../Actions';
 
 class UserProfile extends Component {
   constructor () {
@@ -24,14 +25,26 @@ class UserProfile extends Component {
 
   patchPreferences = async (event) => {
     event.preventDefault();
-    const preferencePath = await fetch(`/api/v1/users/${this.props.user.id}`, {
+    const preferencePath = await fetch(`/api/v1/users/${this.props.user.id}?token=${this.props.user.id_token}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ ...this.state })
     });
+
+    if (preferencePath.status === 204) {
+      this.updateLocal();
+      this.props.updatePrefs(this.state);
+    }
   };
+
+  updateLocal = () => {
+    const { user } = JSON.parse(localStorage.getItem('THL-FAN-USER'));
+    const updatedUser = Object.assign({}, user, {...this.state});
+
+    localStorage.setItem('THL-FAN-USER', JSON.stringify({ user: updatedUser }));
+  }
 
   render () {
     return (
@@ -72,4 +85,8 @@ const mapStateToProps = store => ({
   user: store.User
 });
 
-export default connect(mapStateToProps, null)(UserProfile);
+const mapDispatchToProps = dispatch => ({
+  updatePrefs: newPrefs => dispatch(actions.updatePrefs(newPrefs))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile);

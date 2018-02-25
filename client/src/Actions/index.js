@@ -11,3 +11,9 @@ export const updateUser = payload => ({
 export const logout = () => ({
   type: 'LOGOUT_USER'
 });
+
+export const updatePrefs = payload => ({
+  type: 'UPDATE_PREFS',
+  newPrefs: payload
+});
+

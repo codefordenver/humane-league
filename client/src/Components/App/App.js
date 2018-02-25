@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, withRouter } from 'react-router';
+import { Switch, Route } from 'react-router';
 import './App.css';
 import Header from '../Header/Header';
 import Welcome from '../Welcome/Welcome';
@@ -14,14 +14,7 @@ class App extends Component {
       serverRes: null
     }
   }
-  async componentWillMount() {
-    // const test = await fetch('/test');
-    // console.log(test);
-    // const res = await test.json();
-    // this.setState({
-    //   serverRes: res.status
-    // });
-  }
+
   render() {
     return (
       <div className="App">

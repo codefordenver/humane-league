@@ -1,8 +1,8 @@
 import React from 'react';
 import phoneLogo from '../../assets/phone.png';
+import logAction from '../../utils/logAction';
 
-
-const PhoneCard = ({ action }) => {
+const PhoneCard = ({ action, user }) => {
   const { title, description, phone_number } = action;
 
   return (
@@ -14,7 +14,7 @@ const PhoneCard = ({ action }) => {
         <h3>{title}</h3>
         <p>{description}</p>
         <a href={`tel:${phone_number}`}>
-          <button>CLICK TO CALL {phone_number}</button>
+          <button onClick={() => logAction('phone_actions', user, action)}>CLICK TO CALL {phone_number}</button>
         </a>
       </div> 
     </div>

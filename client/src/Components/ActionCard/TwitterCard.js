@@ -1,7 +1,8 @@
 import React from 'react';
 import twitterLogo from '../../assets/twitter.png';
+import logAction from '../../utils/logAction';
 
-const TwitterCard = ({ action }) => {
+const TwitterCard = ({ action, user }) => {
   const { title, description, target } = action;
 
   return (
@@ -13,7 +14,7 @@ const TwitterCard = ({ action }) => {
         <h3>{title}</h3>
         <p>{description}</p>
         <a target="_blank" href={target}>
-          <button>CLICK TO RE-TWEET</button>
+          <button onClick={() => logAction('twitter_actions', user, action)}>CLICK TO RE-TWEET</button>
         </a> 
       </div>
     </div>

@@ -85,23 +85,20 @@ class CreateNewAction extends Component {
 
   handleChange = () => {
     const form = this.actionTypes.value;
-
+    
     this.setState({ form });
   }
 
 
   handleSubmit = async (event) => {
     event.preventDefault();
-    console.log('in')
     const type = (this.state.form === 'facebook' || this.state.form === 'twitter')
       ? 'social'
       :  this.state.form;
-
     const action = this.createAction(type);
     const actionContent = this.actionContent.value;
-
     const postResult = await this.actionPost(action, actionContent, this.state.form);
-    console.log(postResult)
+
     if (postResult.id) {
       this.resetForm(type);
       this.setState({ success: 'ACTION CREATED!' });
@@ -109,7 +106,6 @@ class CreateNewAction extends Component {
         this.setState({ success: false });
       }, 5000);
     }
-    //feedback that action was created
   }
 
   resetForm = (type) => {

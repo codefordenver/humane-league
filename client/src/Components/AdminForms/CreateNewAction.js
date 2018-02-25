@@ -9,14 +9,6 @@ class CreateNewAction extends Component {
       form: 'facebook',
       actionEnabled: true
     }
-
-    // this.submit = {
-    //   facebook: this.facebookSubmit,
-    //   twitter: this.twitterSubmit,
-    //   email: this.emailSubmit,
-    //   phone: this.phoneSubmit,
-    // }
-
   }
 
   createAction = (type) => {
@@ -62,8 +54,7 @@ class CreateNewAction extends Component {
     });
     const actionID = await actionPost.json();
     
-    console.log(actionID);
-    if (actionID) {
+    if (actionID.id) {
       const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
         method: 'POST',
         headers: {
@@ -71,38 +62,18 @@ class CreateNewAction extends Component {
         },
         body: JSON.stringify({ action_id: actionID.id, content })
       });
-      const result = await contentPost.json();
-      console.log(result);
+      const contentID = await contentPost.json();
+      
+      if(contentID.error) {
+        this.setState({ error: `Could not create action content: ${contentID.error}`})
+      } else if(contentID.id) {
+        return contentID
+      }
+
+    } else if (actionID.error) {
+      this.setState({ error: `Could not create action: ${actionID.error}`})
     }
   }
-
-  // facebookSubmit = async (actionContent) => {
-  //   const action = this.createAction('social');
-  //   console.log(action);
-
-  //   this.actionPost(action, actionContent, 'facebook');
-  // }
-
-  // twitterSubmit = (actionContent) => {
-  //   const action = this.createAction('social');
-  //   console.log(action);
-
-  //   this.actionPost(action, actionContent, 'twitter');
-  // }
-
-  // emailSubmit = (actionContent) => {
-  //   const action = this.createAction('email');
-  //   console.log(action);
-
-  //   this.actionPost(action, actionContent, 'email');
-  // }
-
-  // phoneSubmit = (actionContent) => {
-  //   const action = this.createAction('phone');
-  //   console.log(action);
-
-  //   this.actionPost(action, actionContent, 'phone');
-  // }
 
   handleChange = () => {
     const form = this.actionTypes.value;
@@ -110,21 +81,43 @@ class CreateNewAction extends Component {
     this.setState({ form });
   }
 
+
   handleSubmit = (event) => {
     event.preventDefault();
-    let type;
-    if (this.state.form === 'facebook' || this.state.form === 'twitter') {
-      type = 'social';
-    } else {
-      type = this.state.form;
-    }
+    const type = (this.state.form === 'facebook' || this.state.form === 'twitter')
+      ? 'social'
+      :  this.state.form;
+
     const action = this.createAction(type);
     const actionContent = this.actionContent.value;
 
-    this.actionPost(action, actionContent, this.state.form);
-    // this.submit[this.state.form](type, action, actionContent);
+    const postResult = this.actionPost(action, actionContent, this.state.form);
 
+    if (postResult) {
+      this.resetForm(type);
+    }
     //feedback that action was created
+  }
+
+  resetForm = (type) => {
+    this.actionTitle.value = '';
+    this.actionDescription.value = '';
+    this.actionContent.value = '';
+
+    if (type === 'social') {
+      this.targetUrl.value = '';
+    } else if (type === 'email') {
+      this.emailTo.value = '';
+      this.emailCC.value = '';
+      this.emailBCC.value = '';
+      this.emailSubject.value = '';
+    } else if (type === 'phone') {
+      this.phoneName.value = '';
+      this.phonePosition.value = '';
+      this.phoneNumber.value = '';
+    }
+
+    this.setState({ actionEnabled: true });
   }
 
   render() {
@@ -152,6 +145,10 @@ class CreateNewAction extends Component {
     return (
       <div className='create-new-action-container'>
         <h1>CREATE A NEW <span>{this.state.form.toUpperCase()}</span> ACTION</h1>
+        {
+          this.state.error && 
+          <h2 className='error-msg'>{this.state.error}</h2>
+        }
         <section className='select-action-container'>
           <label htmlFor='action-types'>Select Action Type:
             <select onChange={() => this.handleChange()} ref={(elem) => {this.actionTypes = elem}} name='action-types' id='action-types'>

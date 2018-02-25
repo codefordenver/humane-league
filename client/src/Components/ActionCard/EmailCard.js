@@ -1,7 +1,8 @@
 import React from 'react';
 import emailLogo from '../../assets/email.png';
+import logAction from '../../utils/logAction';
 
-const EmailCard = ({ type, action }) => {
+const EmailCard = ({ action, user }) => {
   const { title, description, to, cc, bcc, subject } = action;
 
   return (
@@ -18,7 +19,7 @@ const EmailCard = ({ type, action }) => {
           <p><strong>Body:</strong> {to}</p>
         </div>
         <a target="_blank" href={`mailto:${to}`}>
-          <button>CLICK TO SEND THE EMAIL</button>
+          <button onClick={() => logAction('email_actions', user, action)}>CLICK TO SEND THE EMAIL</button>
         </a> 
       </div>
     </div>

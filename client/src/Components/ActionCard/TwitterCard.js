@@ -1,28 +1,9 @@
 import React from 'react';
 import twitterLogo from '../../assets/twitter.png';
+import logAction from '../../utils/logAction';
 
 const TwitterCard = ({ action, user }) => {
   const { title, description, target } = action;
-  console.log(action)
-
-  const logAction = async (actionType) => {
-    const actionLogPost = await fetch(`/api/v1/actions?token=${user.id_token}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        user_id: user.id,
-        action_id: action.id,
-        action_type: actionType,
-        action_title: title,
-        description
-      })
-    });
-
-    const actionLog = await actionLogPost.json();
-    console.log(actionLog);
-  }
 
   return (
     <div className="ActionCard twitter-card">
@@ -33,7 +14,7 @@ const TwitterCard = ({ action, user }) => {
         <h3>{title}</h3>
         <p>{description}</p>
         <a target="_blank" href={target}>
-          <button onClick={() => logAction('twitter_actions')}>CLICK TO RE-TWEET</button>
+          <button onClick={() => logAction('twitter_actions', user, action)}>CLICK TO RE-TWEET</button>
         </a> 
       </div>
     </div>

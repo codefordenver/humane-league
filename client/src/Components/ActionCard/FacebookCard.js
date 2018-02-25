@@ -1,8 +1,8 @@
 import React from 'react';
 import facebookLogo from '../../assets/facebook.png';
+import logAction from '../../utils/logAction';
 
-
-const FacebookCard = ({ type, action }) => {
+const FacebookCard = ({ action, user }) => {
   const { title, description, target } = action;
 
   return (
@@ -14,7 +14,7 @@ const FacebookCard = ({ type, action }) => {
         <h3>{title}</h3>
         <p>{description}</p>
         <a target="_blank" href={target}>
-          <button>CLICK TO COMMENT</button>
+          <button onClick={() => logAction('facebook_actions', user, action)}>CLICK TO COMMENT</button>
         </a> 
       </div>
     </div>

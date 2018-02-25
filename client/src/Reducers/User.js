@@ -5,6 +5,8 @@ const User = (store = {}, action) => {
     case 'LOGOUT_USER':
       localStorage.removeItem('THL-FAN-USER');
       return {};
+    case 'UPDATE_PREFS':
+      return Object.assign({}, store, action.newPrefs);
     default:
       return store;
   }

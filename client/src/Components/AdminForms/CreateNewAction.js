@@ -46,7 +46,7 @@ class CreateNewAction extends Component {
   }
 
   actionPost = async (action, content, type) => {
-    const actionPost = await fetch(`/api/v1/${type}_actions`, {
+    const actionPost = await fetch(`/api/v1/${type}_actions?token=${token}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ class CreateNewAction extends Component {
     console.log(actionID);
 
     if (actionID) {
-      const contentPost = await fetch(`/api/v1/${type}_contents`, {
+      const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

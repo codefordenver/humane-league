@@ -6,6 +6,7 @@ class UserProfile extends Component {
   constructor () {
     super();
     this.state = {
+      actionCount: null,
       twitter_actions: null,
       facebook_actions: null,
       email_actions: null,
@@ -13,7 +14,13 @@ class UserProfile extends Component {
     };
   }
 
-  componentDidMount () {
+  async componentDidMount () {
+    const actionLogFetch = await fetch('/api/v1/actions');
+    const actionLog = await actionLogFetch.json();
+
+    const userActions = actionLog.results.filter(action => action.user_id === this.props.user.id);
+    this.setState({ actionCount: userActions.length });
+
     const { twitter_actions, facebook_actions, email_actions, phone_actions } = this.props.user;
     this.setState({ twitter_actions, facebook_actions, email_actions, phone_actions });
   }
@@ -40,6 +47,7 @@ class UserProfile extends Component {
         
         <div className="user-achievements">
           <h2>User Achievements</h2>
+          <p>{`You have completed ${this.state.actionCount} actions! Great job!`}</p>
         </div>
         
         <div className="user-preferences">

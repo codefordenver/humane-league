@@ -15,7 +15,7 @@ const TwitterCard = ({ action, user }) => {
         user_id: user.id,
         action_id: action.id,
         action_type: actionType,
-        title,
+        action_title: title,
         description
       })
     });

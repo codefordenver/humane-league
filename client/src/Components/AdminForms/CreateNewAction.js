@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './AdminForms.css';
 
 class CreateNewAction extends Component {
@@ -46,6 +47,7 @@ class CreateNewAction extends Component {
   }
 
   actionPost = async (action, content, type) => {
+    const token = this.props.user.id_token;
     const actionPost = await fetch(`/api/v1/${type}_actions?token=${token}`, {
       method: 'POST',
       headers: {
@@ -184,4 +186,8 @@ class CreateNewAction extends Component {
   }
 }
 
-export default CreateNewAction;
+const mapStateToProps = store => ({
+  user: store.User
+});
+
+export default connect(mapStateToProps, null)(CreateNewAction);

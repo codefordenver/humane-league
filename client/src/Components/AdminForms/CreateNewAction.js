@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './AdminForms.css';
 
 class CreateNewAction extends Component {
@@ -6,128 +7,142 @@ class CreateNewAction extends Component {
     super();
     this.state = {
       form: 'facebook',
-      enabled: true
+      actionEnabled: true,
+      error: false,
+      success: false
     }
-
-    this.submit = {
-      facebook: this.facebookSubmit,
-      twitter: this.twitterSubmit,
-      email: this.emailSubmit,
-      phone: this.phoneSubmit,
-    }
-
   }
 
   createAction = (type) => {
     const baseAction = {
-      title: this.refs.actionTitle.value,
-      description: this.refs.actionDescription.value
+      title: this.actionTitle.value,
+      description: this.actionDescription.value
     };
 
     if (type === 'social') {
-      const target = this.refs.targetUrl.value;
-      return Object.assign({}, baseAction, { target });
-    } else if (type === 'email') {
+      const target = this.targetUrl.value;
+
+      return Object.assign({ enabled: this.state.actionEnabled }, baseAction, { target });
+    } 
+    else if (type === 'email') {
       const email = {
-        to: this.refs.emailTo.value,
-        cc: this.refs.emailCC.value,
-        bcc: this.refs.emailBCC.value,
-        subject: this.refs.emailSubject.value
+        to: this.emailTo.value,
+        cc: this.emailCC.value,
+        bcc: this.emailBCC.value,
+        subject: this.emailSubject.value
       };
-      return Object.assign({}, baseAction, email);
-    } else if (type === 'phone') {
+
+      return Object.assign({ enabled: this.state.actionEnabled }, baseAction, email);
+    } 
+    else if (type === 'phone') {
       const phone = {
-        name: this.refs.phoneName.value,
-        position: this.refs.phonePosition.value,
-        number: this.refs.phoneNumber.value
+        name: this.phoneName.value,
+        position: this.phonePosition.value,
+        phone_number: this.phoneNumber.value
       };
-      return Object.assign({}, baseAction, phone);
+
+      return Object.assign({ enabled: this.state.actionEnabled }, baseAction, phone);
     }
   }
 
   actionPost = async (action, content, type) => {
-    const actionPost = await fetch(`/api/v1/${type}_actions`, {
+    const token = this.props.user.id_token;
+    const actionPost = await fetch(`/api/v1/${type}_actions?token=${token}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(action)
     });
-
     const actionID = await actionPost.json();
-    console.log(actionID);
 
-    if (actionID) {
-      const contentPost = await fetch(`/api/v1/${type}_contents`, {
+    if (actionID.id) {
+      const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ action_id: actionID, content })
+        body: JSON.stringify({ action_id: actionID.id, content })
       });
+      const contentID = await contentPost.json();
+      
+      if(contentID.error) {
+        this.setState({ error: `Could not create action content: ${contentID.error}`});
+        setTimeout(() => {
+        this.setState({ error: false });
+      }, 5000);
+      } else if(contentID.id) {
+        return contentID
+      }
 
-      const result = await contentPost.json();
-      console.log(result);
+    } else if (actionID.error) {
+      this.setState({ error: `Could not create action: ${actionID.error}`});
+      setTimeout(() => {
+        this.setState({ error: false });
+      }, 5000);
     }
   }
 
-  facebookSubmit = async (actionContent) => {
-    const action = Object.assign(this.createAction('social'), { enabled: this.state.enabled });
-    console.log(action);
-
-    this.actionPost(action, actionContent, 'facebook');
-  }
-
-  twitterSubmit = (actionContent) => {
-    const action = Object.assign(this.createAction('social'), { enabled: this.state.enabled });
-    console.log(action);
-
-    this.actionPost(action, actionContent, 'twitter');
-  }
-
-  emailSubmit = (actionContent) => {
-    const action = Object.assign(this.createAction('email'), { enabled: this.state.enabled });
-    console.log(action);
-
-    this.actionPost(action, actionContent, 'email');
-  }
-
-  phoneSubmit = (actionContent) => {
-    const action = Object.assign(this.createAction('phone'), { enabled: this.state.enabled });
-    console.log(action);
-
-    this.actionPost(action, actionContent, 'phone');
-  }
-
   handleChange = () => {
-    const form = this.refs.actionTypes.value;
-
+    const form = this.actionTypes.value;
+    
     this.setState({ form });
   }
 
-  handleSubmit = (event) => {
+
+  handleSubmit = async (event) => {
     event.preventDefault();
-    const actionContent = this.refs.actionContent.value;
+    const type = (this.state.form === 'facebook' || this.state.form === 'twitter')
+      ? 'social'
+      :  this.state.form;
+    const action = this.createAction(type);
+    const actionContent = this.actionContent.value;
+    const postResult = await this.actionPost(action, actionContent, this.state.form);
 
-    this.submit[this.state.form](actionContent);
+    if (postResult.id) {
+      this.resetForm(type);
+      this.setState({ success: 'ACTION CREATED!' });
+      setTimeout(() => {
+        this.setState({ success: false });
+      }, 5000);
+    }
+  }
 
-    //feedback that action was created
+  resetForm = (type) => {
+    this.actionTitle.value = '';
+    this.actionDescription.value = '';
+    this.actionContent.value = '';
+
+    if (type === 'social') {
+      this.targetUrl.value = '';
+    } else if (type === 'email') {
+      this.emailTo.value = '';
+      this.emailCC.value = '';
+      this.emailBCC.value = '';
+      this.emailSubject.value = '';
+    } else if (type === 'phone') {
+      this.phoneName.value = '';
+      this.phonePosition.value = '';
+      this.phoneNumber.value = '';
+    }
+
+    this.setState({ actionEnabled: true });
   }
 
   render() {
     const socialMediaTarget = {
-      targetUrl: <input type='text' ref='targetUrl' placeholder='Target Url' />
+      targetUrl: <input type='text' ref={(elem) => {this.targetUrl = elem}} placeholder='Target Url' />
     }  
     const emailTarget = {
-      to: <input type='text' ref='emailTo' placeholder='Target Email Address' />,
-      cc: <input type='text' ref='emailCC' placeholder='CCs' />,
-      bcc: <input type='text' ref='emailBCC' placeholder='BCCs' />,
-      subject: <input type='text' ref='emailSubject' placeholder='Email Subject' />,
+      to: <input type='text' ref={(elem) => {this.emailTo = elem}} placeholder='Target Email Address' />,
+      cc: <input type='text' ref={(elem) => {this.emailCC = elem}} placeholder='CCs' />,
+      bcc: <input type='text' ref={(elem) => {this.emailBCC = elem}} placeholder='BCCs' />,
+      subject: <input type='text' ref={(elem) => {this.emailSubject = elem}} placeholder='Email Subject' />,
     }
     const phoneTarget = {
-      name: <input type='text' ref='phoneName' placeholder='Target Name' />,
-      position: <input type='text' ref='phonePosition' placeholder='Target Position' />,
-      phoneNumber: <input type='text' ref='phoneNumber' placeholder='Target Phone Number' />
+      name: <input type='text' ref={(elem) => {this.phoneName = elem}} placeholder='Target Name' />,
+      position: <input type='text' ref={(elem) => {this.phonePosition = elem}} placeholder='Target Position' />,
+      phoneNumber: <input type='text' ref={(elem) => {this.phoneNumber = elem}} placeholder='Target Phone Number' />
     }
     const form = {
       facebook: socialMediaTarget,
@@ -141,17 +156,25 @@ class CreateNewAction extends Component {
         <h1>CREATE A NEW <span>{this.state.form.toUpperCase()}</span> ACTION</h1>
         <section className='select-action-container'>
           <label htmlFor='action-types'>Select Action Type:
-            <select onChange={() => this.handleChange()} ref='actionTypes' name='action-types' id='action-types'>
+            <select onChange={() => this.handleChange()} ref={(elem) => {this.actionTypes = elem}} name='action-types' id='action-types'>
               <option value='facebook'>Facebook</option>
               <option value='twitter'>Twitter</option>
               <option value='email'>Email</option>
               <option value='phone'>Phone</option>
             </select>
+            {
+              this.state.error && 
+              <h1>{this.state.error}</h1>
+            }
+            {
+              this.state.success &&
+              <h1>{this.state.success}</h1>
+            }
           </label>
           <section className='create-action-form'>
             <form action='create-new-action-form'>
-              <input type='text' ref='actionTitle' placeholder='Action Title' />
-              <input type='text' ref='actionDescription' placeholder='Action Description' />
+              <input type='text' ref={(elem) => {this.actionTitle = elem}} placeholder='Action Title' />
+              <input type='text' ref={(elem) => {this.actionDescription = elem}} placeholder='Action Description' />
               {form[this.state.form].targetUrl}
 
               {form[this.state.form].to}
@@ -162,14 +185,13 @@ class CreateNewAction extends Component {
               {form[this.state.form].name}
               {form[this.state.form].position}
               {form[this.state.form].phoneNumber}
-              <textarea ref='actionContent' placeholder='Action Content'></textarea>
+              <textarea ref={(elem) => {this.actionContent = elem}} placeholder='Action Content'></textarea>
 
               <span id='toggle'>
                 <input
-                  ref='enableToggle' 
                   type='checkbox' 
-                  checked={this.state.enabled}
-                  onChange={() => this.setState({ enabled: !this.state.enabled })} />
+                  checked={this.state.actionEnabled}
+                  onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} />
                 <label 
                   data-on='enabled' 
                   data-off='disabled'>
@@ -184,4 +206,8 @@ class CreateNewAction extends Component {
   }
 }
 
-export default CreateNewAction;
+const mapStateToProps = store => ({
+  user: store.User
+});
+
+export default connect(mapStateToProps, null)(CreateNewAction);

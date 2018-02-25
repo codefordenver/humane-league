@@ -7,7 +7,9 @@ class CreateNewAction extends Component {
     super();
     this.state = {
       form: 'facebook',
-      actionEnabled: true
+      actionEnabled: true,
+      error: false,
+      success: false
     }
   }
 
@@ -53,7 +55,7 @@ class CreateNewAction extends Component {
       body: JSON.stringify(action)
     });
     const actionID = await actionPost.json();
-    
+
     if (actionID.id) {
       const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
         method: 'POST',
@@ -65,13 +67,19 @@ class CreateNewAction extends Component {
       const contentID = await contentPost.json();
       
       if(contentID.error) {
-        this.setState({ error: `Could not create action content: ${contentID.error}`})
+        this.setState({ error: `Could not create action content: ${contentID.error}`});
+        setTimeout(() => {
+        this.setState({ error: false });
+      }, 5000);
       } else if(contentID.id) {
         return contentID
       }
 
     } else if (actionID.error) {
-      this.setState({ error: `Could not create action: ${actionID.error}`})
+      this.setState({ error: `Could not create action: ${actionID.error}`});
+      setTimeout(() => {
+        this.setState({ error: false });
+      }, 5000);
     }
   }
 
@@ -93,8 +101,12 @@ class CreateNewAction extends Component {
 
     const postResult = this.actionPost(action, actionContent, this.state.form);
 
-    if (postResult) {
+    if (postResult.id) {
       this.resetForm(type);
+      this.setState({ success: 'ACTION CREATED!' });
+      setTimeout(() => {
+        this.setState({ success: false });
+      }, 5000);
     }
     //feedback that action was created
   }
@@ -145,10 +157,6 @@ class CreateNewAction extends Component {
     return (
       <div className='create-new-action-container'>
         <h1>CREATE A NEW <span>{this.state.form.toUpperCase()}</span> ACTION</h1>
-        {
-          this.state.error && 
-          <h2 className='error-msg'>{this.state.error}</h2>
-        }
         <section className='select-action-container'>
           <label htmlFor='action-types'>Select Action Type:
             <select onChange={() => this.handleChange()} ref={(elem) => {this.actionTypes = elem}} name='action-types' id='action-types'>
@@ -157,6 +165,14 @@ class CreateNewAction extends Component {
               <option value='email'>Email</option>
               <option value='phone'>Phone</option>
             </select>
+            {
+              this.state.error && 
+              <h1>{this.state.error}</h1>
+            }
+            {
+              this.state.success &&
+              <h1>{this.state.success}</h1>
+            }
           </label>
           <section className='create-action-form'>
             <form action='create-new-action-form'>
@@ -176,7 +192,6 @@ class CreateNewAction extends Component {
 
               <span id='toggle'>
                 <input
-                  // ref={(elem) => {this.enableToggle = elem}} 
                   type='checkbox' 
                   checked={this.state.actionEnabled}
                   onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} />

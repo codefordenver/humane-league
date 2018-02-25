@@ -65,7 +65,7 @@ class CreateNewAction extends Component {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ action_id: actionID, content })
+        body: JSON.stringify({ action_id: actionID.id, content })
       });
 
       const result = await contentPost.json();

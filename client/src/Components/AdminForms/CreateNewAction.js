@@ -10,12 +10,12 @@ class CreateNewAction extends Component {
       actionEnabled: true
     }
 
-    this.submit = {
-      facebook: this.facebookSubmit,
-      twitter: this.twitterSubmit,
-      email: this.emailSubmit,
-      phone: this.phoneSubmit,
-    }
+    // this.submit = {
+    //   facebook: this.facebookSubmit,
+    //   twitter: this.twitterSubmit,
+    //   email: this.emailSubmit,
+    //   phone: this.phoneSubmit,
+    // }
 
   }
 
@@ -27,21 +27,26 @@ class CreateNewAction extends Component {
 
     if (type === 'social') {
       const target = this.targetUrl.value;
+
       return Object.assign({ enabled: this.state.actionEnabled }, baseAction, { target });
-    } else if (type === 'email') {
+    } 
+    else if (type === 'email') {
       const email = {
         to: this.emailTo.value,
         cc: this.emailCC.value,
         bcc: this.emailBCC.value,
         subject: this.emailSubject.value
       };
+
       return Object.assign({ enabled: this.state.actionEnabled }, baseAction, email);
-    } else if (type === 'phone') {
+    } 
+    else if (type === 'phone') {
       const phone = {
         name: this.phoneName.value,
         position: this.phonePosition.value,
         phone_number: this.phoneNumber.value
       };
+
       return Object.assign({ enabled: this.state.actionEnabled }, baseAction, phone);
     }
   }
@@ -55,10 +60,9 @@ class CreateNewAction extends Component {
       },
       body: JSON.stringify(action)
     });
-
     const actionID = await actionPost.json();
+    
     console.log(actionID);
-
     if (actionID) {
       const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
         method: 'POST',
@@ -67,39 +71,38 @@ class CreateNewAction extends Component {
         },
         body: JSON.stringify({ action_id: actionID.id, content })
       });
-
       const result = await contentPost.json();
       console.log(result);
     }
   }
 
-  facebookSubmit = async (actionContent) => {
-    const action = this.createAction('social');
-    console.log(action);
+  // facebookSubmit = async (actionContent) => {
+  //   const action = this.createAction('social');
+  //   console.log(action);
 
-    this.actionPost(action, actionContent, 'facebook');
-  }
+  //   this.actionPost(action, actionContent, 'facebook');
+  // }
 
-  twitterSubmit = (actionContent) => {
-    const action = this.createAction('social');
-    console.log(action);
+  // twitterSubmit = (actionContent) => {
+  //   const action = this.createAction('social');
+  //   console.log(action);
 
-    this.actionPost(action, actionContent, 'twitter');
-  }
+  //   this.actionPost(action, actionContent, 'twitter');
+  // }
 
-  emailSubmit = (actionContent) => {
-    const action = this.createAction('email');
-    console.log(action);
+  // emailSubmit = (actionContent) => {
+  //   const action = this.createAction('email');
+  //   console.log(action);
 
-    this.actionPost(action, actionContent, 'email');
-  }
+  //   this.actionPost(action, actionContent, 'email');
+  // }
 
-  phoneSubmit = (actionContent) => {
-    const action = this.createAction('phone');
-    console.log(action);
+  // phoneSubmit = (actionContent) => {
+  //   const action = this.createAction('phone');
+  //   console.log(action);
 
-    this.actionPost(action, actionContent, 'phone');
-  }
+  //   this.actionPost(action, actionContent, 'phone');
+  // }
 
   handleChange = () => {
     const form = this.actionTypes.value;
@@ -109,9 +112,17 @@ class CreateNewAction extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    let type;
+    if (this.state.form === 'facebook' || this.state.form === 'twitter') {
+      type = 'social';
+    } else {
+      type = this.state.form;
+    }
+    const action = this.createAction(type);
     const actionContent = this.actionContent.value;
 
-    this.submit[this.state.form](actionContent);
+    this.actionPost(action, actionContent, this.state.form);
+    // this.submit[this.state.form](type, action, actionContent);
 
     //feedback that action was created
   }

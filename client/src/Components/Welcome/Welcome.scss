@@ -5,6 +5,26 @@
   align-items: center;
   justify-content: space-around;
   width: 100%;
+  a {
+    height: 70px;
+    display: flex;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    border: none;
+    background: #1CB841;
+    color: white;
+    cursor: pointer;
+    margin: 0px auto;
+    transition: 0.3s;
+    font-size: 20px;
+    padding: 10px;
+    &:hover {
+      color: white;
+      background-color: rgb(50, 50, 50);
+    }
+  }
   .fan-logo {
     // margin: 0 auto;
     // display: block;

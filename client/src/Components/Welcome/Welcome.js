@@ -5,6 +5,7 @@ import firebase from '../../firebase';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions/';
 import { signInUser } from '../../utils/apiCalls';
+import { Link } from 'react-router-dom';
 
 class Welcome extends Component {
   constructor() {
@@ -75,17 +76,15 @@ class Welcome extends Component {
       <button className={hiddenButtons} onClick={() => this.handleClick('facebook')}>Sign In With Facebook</button>
       <button className={hiddenButtons} onClick={() => this.handleClick('email')}>Sign In With Email</button>
     </div>
-    
 
-    const imgClassName = !this.state.showForm ? 'fan-logo' : 'fan-logo shifted';
-    const welcomeClassName = !this.state.showForm ? 'Welcome' : 'Welcome shifted';
+    const conditionalInfo = this.props.User.name ? <Link to="/home">Dashboard</Link> : expandOptions;
 
     return (
       <div className='Welcome shifted'>
         <img className='fan-logo shifted' src={fanLogo} alt='' />
         <div>
           <p className="welcome-description">Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!</p>
-          {expandOptions}
+          {conditionalInfo}
           {this.state.errorMessage}
         </div>
       </div>
@@ -93,10 +92,14 @@ class Welcome extends Component {
   }
 }
 
+const mapStateToProps = store => ({
+  User: store.User
+});
+
 const mapDispatchToProps = dispatch => ({
   validateUser: user => dispatch(actions.updateUser(user))
 });
 
 
 
-export default connect(null, mapDispatchToProps)(Welcome);
+export default connect(mapStateToProps, mapDispatchToProps)(Welcome);

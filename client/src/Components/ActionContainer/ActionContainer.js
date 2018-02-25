@@ -55,7 +55,7 @@ class ActionContainer extends Component {
   };
 
   render() {
-    const twitterCards = this.state.twitter.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action}/>);
+    const twitterCards = this.state.twitter.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action} userToken={this.props.user}/>);
     const facebookCards = this.state.facebook.map((action, i) => <FacebookCard key={`facebook-${i}`} action={action}/>);
     const emailCards = this.state.email.map((action, i) => <EmailCard key={`email-${i}`} action={action}/>);
     const phoneCards = this.state.phone.map((action, i) => <PhoneCard key={`phone-${i}`} action={action}/>);

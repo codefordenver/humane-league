@@ -46,6 +46,7 @@ class CreateNewAction extends Component {
   }
 
   actionPost = async (action, content, type) => {
+    console.log(action)
     const token = this.props.user.id_token;
     const actionPost = await fetch(`/api/v1/${type}_actions?token=${token}`, {
       method: 'POST',
@@ -99,7 +100,7 @@ class CreateNewAction extends Component {
     const actionContent = this.actionContent.value;
     const postResult = await this.actionPost(action, actionContent, this.state.form);
 
-    if (postResult.id) {
+    if (postResult) {
       this.resetForm(type);
       this.setState({ success: 'ACTION CREATED!' });
       setTimeout(() => {
@@ -130,6 +131,7 @@ class CreateNewAction extends Component {
   }
 
   render() {
+    console.log(this.state)
     const socialMediaTarget = {
       targetUrl: <input type='text' ref={(elem) => {this.targetUrl = elem}} placeholder='Target Url' />
     }  
@@ -186,6 +188,7 @@ class CreateNewAction extends Component {
               {form[this.state.form].position}
               {form[this.state.form].phoneNumber}
               <textarea ref={(elem) => {this.actionContent = elem}} placeholder='Action Content'></textarea>
+              <button className='add-text-area'>+add more action bodies</button>
 
               <span id='toggle'>
                 <input

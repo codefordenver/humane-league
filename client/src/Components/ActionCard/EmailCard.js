@@ -18,7 +18,7 @@ const EmailCard = ({ action, user }) => {
           <p><strong>Subject:</strong> {subject}</p>
           <p><strong>Body:</strong> {to}</p>
         </div>
-        <a target="_blank" href={`mailto:${to}`}>
+        <a href={`mailto:${to}?subject=${subject}`}>
           <button onClick={() => logAction('email_actions', user, action)}>CLICK TO SEND THE EMAIL</button>
         </a> 
       </div>

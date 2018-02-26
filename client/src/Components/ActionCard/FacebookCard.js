@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import facebookLogo from '../../assets/facebook.png';
 import logAction from '../../utils/logAction';
 

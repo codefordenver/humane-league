@@ -25,10 +25,10 @@ class TwitterCard extends Component {
     const { title, description, target } = this.props.action;
     const expanded = this.state.actionBody !== null;
 
-    const buttonText = expanded ? 'TWEET NOW' : 'CLICK TO TWEET';
+    const buttonText = expanded ? 'GO' : 'TWEET';
     const buttonOnClick = expanded ? logAction('twitter_actions', this.props.user, this.props.action) : this.setActionBody;
     const targetLink = expanded ? target : null;
-    const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>Cancel</button>: null;
+    const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const textArea = expanded ? <textarea onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
 
     return (

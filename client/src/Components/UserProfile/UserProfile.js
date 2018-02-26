@@ -99,6 +99,8 @@ class UserProfile extends Component {
             <label> Email: 
               <input className="text-input" onChange={(e) => this.setState({emailAddress: e.target.value})} value={this.state.emailAddress} />
             </label>
+
+            <button onClick={this.patchPreferences}>SAVE</button>
           </form>
         </div>
       </div>

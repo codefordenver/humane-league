@@ -8,6 +8,7 @@ class CreateNewAction extends Component {
     this.state = {
       form: 'facebook',
       actionEnabled: true,
+      actionBodies: 1,
       error: false,
       success: false
     }
@@ -90,6 +91,26 @@ class CreateNewAction extends Component {
     this.setState({ form });
   }
 
+  addTextArea = (event) => {
+    event.preventDefault();
+    let actionBodies = this.state.actionBodies;
+    actionBodies += 1;
+    this.setState({ actionBodies });
+    console.log(this.state.actionBodies)
+  }
+
+  renderTextAreas = () => {
+    const bodies = [];
+    for (let i = 1; i <= this.state.actionBodies; i++) {
+      bodies.push(i)
+    }
+
+    return bodies.map(body => {
+      return (
+        <textarea ref={(elem) => {this.actionContent = elem}} placeholder='Action Body'></textarea>
+      )
+    });
+  }
 
   handleSubmit = async (event) => {
     event.preventDefault();
@@ -131,7 +152,6 @@ class CreateNewAction extends Component {
   }
 
   render() {
-    console.log(this.state)
     const socialMediaTarget = {
       targetUrl: <input type='text' ref={(elem) => {this.targetUrl = elem}} placeholder='Target Url' />
     }  
@@ -153,6 +173,7 @@ class CreateNewAction extends Component {
       phone: phoneTarget
     }
 
+      console.log(this.state.actionBodies)
     return (
       <div className='create-new-action-container'>
         <h1>CREATE A NEW <span>{this.state.form.toUpperCase()}</span> ACTION</h1>
@@ -187,8 +208,8 @@ class CreateNewAction extends Component {
               {form[this.state.form].name}
               {form[this.state.form].position}
               {form[this.state.form].phoneNumber}
-              <textarea ref={(elem) => {this.actionContent = elem}} placeholder='Action Content'></textarea>
-              <button className='add-text-area'>+add more action bodies</button>
+              {this.renderTextAreas()}
+              <button onClick={this.addTextArea} className='add-text-area'>+ Add another body</button>
 
               <span id='toggle'>
                 <input

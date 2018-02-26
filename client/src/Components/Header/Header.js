@@ -12,7 +12,8 @@ const Header = ({ User, logout, validateUser }) => {
   
   const userInfo = User.name ? <p className="welcome">Welcome, {User.name}</p> : null;
   const actions = (User.name && !User.admin) ? <Link to="/home"><p className="nav-btn">Actions</p></Link> : <NavLink className='nav-btn' to='/home'><p>UserView</p></NavLink>;
-  const profile = (User.name && !User.admin) ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : <NavLink className='nav-btn' to='/admin'><p>Admin Dashboard</p></NavLink>;
+  const profile = User.name ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : null;
+  const adminDash = (User.name && User.admin) ? <NavLink className='nav-btn' to='/admin'><p>Admin Dashboard</p></NavLink> : null;
   const logoutButton = User.name 
     ? <Link to="/"><p onClick={logout} className="login-logout-btn nav-btn">Logout</p></Link> 
     : <Link to="/"><p onClick={logout} className="login-logout-btn nav-btn">Login</p></Link>;
@@ -32,6 +33,7 @@ const Header = ({ User, logout, validateUser }) => {
         {userInfo}
         {actions}
         {profile}
+        {adminDash}
         {logoutButton}
       </nav>
     </header>

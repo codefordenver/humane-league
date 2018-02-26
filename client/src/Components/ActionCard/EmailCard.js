@@ -8,7 +8,8 @@ class EmailCard extends Component {
   constructor () {
     super();
     this.state = {
-      actionBody: null
+      actionBody: null,
+      showContent: false
     }
     this.fetchActionBody = fetchActionBody.bind(this);
   }
@@ -26,18 +27,19 @@ class EmailCard extends Component {
     const { title, description, to, cc, bcc, subject } = this.props.action;
     const expanded = this.state.actionBody !== null;
 
-    const buttonText = expanded ? 'GO' : 'TWEET';
+    const buttonText = expanded ? 'SEND' : 'EMAIL';
     const buttonOnClick = expanded ? logAction('email_actions', this.props.user, this.props.action) : this.setActionBody;
-    const targetLink = expanded ? `mailto:${to}?subject=${subject}$body=${this.state.actionBody}` : null;
+    const targetLink = expanded ? `mailto:${to}?subject=${subject}&body=${this.state.actionBody}` : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
+    const showContentButton = expanded ? <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button> : null;
     const textArea = expanded ? <textarea onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
 
-    const emailContent = 
+    const emailContent = this.state.showContent ?
       <div className="email-template">
         <p><strong>To:</strong> {to}</p>
         <p><strong>Subject:</strong> {subject}</p>
-        <p><strong>Body:</strong> {this.state.ActionBody}</p>
-      </div>;
+      </div>
+      : null;
 
     return (
       <div className="ActionCard email-card">
@@ -48,12 +50,14 @@ class EmailCard extends Component {
           <h3>{title}</h3>
           <p>{description}</p>
           
+          {emailContent}
           {textArea}
 
           <a href={targetLink}>
-            <button onClick={ buttonOnClick }>EMAIL</button>
+            <button onClick={ buttonOnClick }>{buttonText}</button>
           </a> 
           {cancelButton}
+          {showContentButton}
         </div>
       </div>
     );

@@ -1,41 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import twitterLogo from '../../assets/twitter.png';
 import logAction from '../../utils/logAction';
+import fetchActionBody from '../../utils/fetchActionBody';
 
-class TwitterCard extends React.Component {
+class TwitterCard extends Component {
   constructor () {
     super();
     this.state = {
-      showMore: null
+      actionBody: null
     }
+    this.fetchActionBody = fetchActionBody.bind(this);
   }
 
-  fetchBodies = async (contentsTable, action) => {
-    const actionBodiesFetch = await fetch(`/api/v1/${contentsTable}`);
-    const actionBodies = await actionBodiesFetch.json();
-
-    const bodies = actionBodies.results.filter(body => body.action_id === this.props.action.id);
-    const body = bodies[Math.floor(Math.random() * bodies.length)];
-
-    console.log(body);
-
-    this.setState({ showMore: <textarea value={body.content}></textarea> }) ;
+  setActionBody = async () => {
+    const actionBody = await this.fetchActionBody('twitter_contents', this.props.action);
+    this.setState({ actionBody });
   }
 
-  //
   render() {
     const { title, description, target } = this.props.action;
-    const buttonText = this.state.showMore === null ? 'CLICK TO TWEET' : 'TWEET NOW';
+    const buttonText = this.state.actionBody === null ? 'CLICK TO TWEET' : 'TWEET NOW';
 
-    const buttonOnClick = this.state.showMore === null 
-      ? () => { this.fetchBodies('twitter_contents', this.props.action) }
+    const buttonOnClick = this.state.actionBody === null 
+      ? this.setActionBody
       : () => { logAction('twitter_actions', this.props.user, this.props.action) };
 
-    const targetLink = this.state.showMore === null ? null : target;
+    const targetLink = this.state.actionBody === null ? null : target;
 
-    const cancelButton = this.state.showMore === null 
+    const cancelButton = this.state.actionBody === null 
       ? null
-      : <button onClick={() => this.setState({ showMore: null })}>Cancel</button>;
+      : <button onClick={() => this.setState({ actionBody: null })}>Cancel</button>;
+
+    const textArea = this.state.actionBody === null ? null
+      :  <textarea onChange={(event) => this.setState({ actionBody: event.target.value })}value={this.state.actionBody}></textarea>
 
     return (
       <div className="ActionCard twitter-card">
@@ -46,7 +43,7 @@ class TwitterCard extends React.Component {
           <h3>{title}</h3>
           <p>{description}</p>
 
-          {this.state.showMore}
+          {textArea}
           <a href={targetLink} target="_blank">
             <button onClick={ buttonOnClick }>{buttonText}</button>
           </a>

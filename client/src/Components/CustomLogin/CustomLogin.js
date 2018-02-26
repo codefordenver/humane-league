@@ -13,9 +13,12 @@ class CustomLogin extends Component {
     this.state = {
       email: '',
       password: '',
+      confirmPass: '',
       name: '',
       error: null,
-      signin: true
+      signin: true,
+      passMatchStatus: null,
+      disableSubmit: true
     };
   }
 
@@ -23,11 +26,34 @@ class CustomLogin extends Component {
     const { value, name } = event.target;
     this.setState({ [name]: value });
 
-    // if (this.email.value.length >= 5 && this.password.value.length >= 5) {
-    //   this.submit.removeAttribute('disabled');
-    // } else {
-    //   this.submit.setAttribute('disabled', true);
-    // }
+    if (this.state.signin) {
+      if (this.email.value.length >= 5 && this.password.value.length >= 5) {
+        this.setState({ disableSubmit: false });
+      } else {
+        this.setState({ disableSubmit: true });
+      }
+    }
+
+    if (!this.state.signin) {
+      if (this.password.value !== this.confirmPass.value || this.email.value.length < 5 || this.password.value.length < 5) {
+        console.log('disabled');
+        this.setState({ disableSubmit: true });
+      } else {
+        console.log('enabled');
+        this.setState({ disableSubmit: false });
+      }
+
+      if (event.target.name === 'confirmPass' || event.target.name === 'password') {
+        if (this.password.value === this.confirmPass.value) {
+          this.setState({ passMatchStatus: '✅' });
+        } else {
+          this.setState({ passMatchStatus: '❌' });
+        }
+      }
+    }
+
+
+
 
   }
 
@@ -72,11 +98,17 @@ class CustomLogin extends Component {
 
   signupHandler = () => {
     const { email, password } = this.state;
+    console.log('whatup');
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(error => {
-
-      this.setState({
-        error: 'Email already in use.'
-      });
+      if (error.code === "auth/invalid-email") {
+        this.setState({
+          error: 'Invalid email.'
+        });
+      } else {
+        this.setState({
+          error: 'Email already in use.'
+        });
+      }
 
       setTimeout(() => {
         this.setState({ error: '' });
@@ -84,7 +116,7 @@ class CustomLogin extends Component {
     });
 
     firebase.auth().onAuthStateChanged(async user => {
-      console.log("auth change in signuphandler - usersigned in? ", !!user);      
+      console.log("auth change in signuphandler - usersigned in? ", !!user);  
       if (user) {
         firebase.auth().currentUser.updateProfile({displayName: this.state.name});
 
@@ -121,8 +153,9 @@ class CustomLogin extends Component {
           type="password" 
           placeholder="Password"/>
         <span>{this.state.error}</span>
-        <button ref={(button) => { this.submit = button; }} onClick={this.signinHandler}>Sign In</button>
+        <button disabled={this.state.disableSubmit} ref={(button) => { this.submit = button; }} onClick={this.signinHandler}>Sign In</button>
         <button onClick={() => {this.setState({signin: !this.state.signin})}}>Sign Up Instead</button>
+        
       </div>
       )
     } else {
@@ -153,8 +186,18 @@ class CustomLogin extends Component {
           value={this.state.password}
           type="password" 
           placeholder="Password"/>
-        <span>{this.state.error}</span>
-        <button ref={(button) => { this.submit = button; }} onClick={this.signupHandler}>Sign Up</button>
+        <label>Confirm Password:</label>
+        <div className="confirmWrapper">
+          <input 
+            ref={(input) => { this.confirmPass = input }} 
+            name="confirmPass" 
+            onChange={this.handleChange} 
+            value={this.state.confirmPass}
+            type="password" 
+            placeholder="Confirm Password" />
+          <span>{this.state.passMatchStatus}</span>        
+        </div>
+        <button disabled={this.state.disableSubmit} ref={(button) => { this.submit = button; }} onClick={this.signupHandler}>Sign Up</button>
         <button onClick={() => {this.setState({signin: !this.state.signin})}}>Sign In Instead</button>
       </div>
       )

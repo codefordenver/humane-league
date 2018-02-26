@@ -25,6 +25,9 @@ class TwitterCard extends React.Component {
   //logAction('twitter_actions', user, action)
   render() {
     const { title, description, target } = this.props.action;
+    const buttonText = this.state.showMore === null ? 'CLICK TO TWEET' : 'TWEET NOW';
+    const targetLink = this.state.showMore === null ? null : target;
+
     return (
       <div className="ActionCard twitter-card">
         <div className="action-logo-holder">
@@ -35,9 +38,9 @@ class TwitterCard extends React.Component {
           <p>{description}</p>
 
           {this.state.showMore}
-
-          <button onClick={() => this.fetchBodies('twitter_contents', this.props.action)}>CLICK TO TWEET</button>
-          
+          <a href={targetLink} target="_blank">
+            <button onClick={() => this.fetchBodies('twitter_contents', this.props.action)}>{buttonText}</button>
+          </a>
          
         </div>
       </div>

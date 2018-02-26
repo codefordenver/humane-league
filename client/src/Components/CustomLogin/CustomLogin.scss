@@ -1,0 +1,61 @@
+.CustomLogin {
+  display: grid;
+  width: 600px;
+  margin: 0px auto;
+  grid-template-columns: 80px 1fr;
+  grid-gap: 10px;
+
+  h1 {
+    grid-column: span 2;
+    text-align: center;
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    height: 50px;
+    font-size: 24px;
+    padding-left: 10px;
+    outline: none;
+  }
+
+  span {
+    min-height: 20px;
+    min-width: 100%;
+    color: red;
+    font-size: 15px;
+    grid-column: span 2;
+    text-align: center;
+  }
+
+  button,
+  a {
+    grid-column: span 2;
+    height: 70px;
+    display: flex;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    border: none;
+    background: #1CB841;
+    color: white;
+    cursor: pointer;
+    margin: 0px auto;
+    transition: 0.3s;
+    font-size: 20px;
+    padding: 10px;
+    &:hover {
+      color: white;
+      background-color: rgb(50, 50, 50);
+    }
+    &:disabled {
+      background: rgb(152, 150, 150);
+      color: black;
+    }
+  }
+  
+}

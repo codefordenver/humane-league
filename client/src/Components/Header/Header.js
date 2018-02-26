@@ -3,6 +3,7 @@ import thlLogoWhite from '../../THL-Assets/png/THL18-horiz-logo-white.png';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions/';
+import firebase from '../../firebase';
 
 const Header = ({ User, logout, validateUser }) => {
   let currentUser = JSON.parse(localStorage.getItem('THL-FAN-USER'));
@@ -14,8 +15,14 @@ const Header = ({ User, logout, validateUser }) => {
   const actions = (User.name && !User.admin) ? <Link to="/home"><p className="nav-btn">Actions</p></Link> : null;
   const profile = (User.name && !User.admin) ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : null;
   const logoutButton = User.name 
-    ? <Link to="/"><p onClick={logout} className="login-logout-btn nav-btn">Logout</p></Link> 
-    : <Link to="/"><p onClick={logout} className="login-logout-btn nav-btn">Login</p></Link>;
+    ? <Link to="/"><p 
+      onClick={() => { 
+        firebase.auth().signOut().then(() => {
+          logout();
+        })
+      }}
+      className="login-logout-btn nav-btn">Logout</p></Link> 
+    : null;
 
   return (
     <header>

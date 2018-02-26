@@ -6,6 +6,7 @@ import Welcome from '../Welcome/Welcome';
 import UserActions from '../UserActions/UserActions';
 import UserProfile from '../UserProfile/UserProfile';
 import AdminDashboard from '../AdminDashboard/AdminDashboard';
+import CustomLogin from '../CustomLogin/CustomLogin';
 
 class App extends Component {
   constructor() {
@@ -23,6 +24,7 @@ class App extends Component {
           <Route path='/admin' component={AdminDashboard} />
           <Route path='/home' component={UserActions} />
           <Route path='/profile' component={UserProfile} />
+          <Route path='/signin' component={CustomLogin} />
           <Route exact path='/' component={Welcome} />
         </Switch>
       </div>

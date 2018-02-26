@@ -22,14 +22,20 @@ class TwitterCard extends React.Component {
     this.setState({ showMore: <textarea value={body.content}></textarea> }) ;
   }
 
-  //logAction('twitter_actions', user, action)
+  //
   render() {
     const { title, description, target } = this.props.action;
     const buttonText = this.state.showMore === null ? 'CLICK TO TWEET' : 'TWEET NOW';
+
+    const buttonOnClick = this.state.showMore === null 
+      ? () => { this.fetchBodies('twitter_contents', this.props.action) }
+      : () => { logAction('twitter_actions', this.props.user, this.props.action) };
+
     const targetLink = this.state.showMore === null ? null : target;
+
     const cancelButton = this.state.showMore === null 
       ? null
-      : <button onClick={() => this.setState({ showMore: null })}>Cancel</button>
+      : <button onClick={() => this.setState({ showMore: null })}>Cancel</button>;
 
     return (
       <div className="ActionCard twitter-card">
@@ -42,7 +48,7 @@ class TwitterCard extends React.Component {
 
           {this.state.showMore}
           <a href={targetLink} target="_blank">
-            <button onClick={() => this.fetchBodies('twitter_contents', this.props.action)}>{buttonText}</button>
+            <button onClick={ buttonOnClick }>{buttonText}</button>
           </a>
           {cancelButton}
         </div>

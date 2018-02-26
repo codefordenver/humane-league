@@ -16,10 +16,10 @@
     padding-left: 10px;
     outline: none; }
   .CustomLogin span {
-    min-height: 15px;
+    min-height: 20px;
     min-width: 100%;
     color: red;
-    font-size: 12px;
+    font-size: 15px;
     grid-column: span 2;
     text-align: center; }
   .CustomLogin button,

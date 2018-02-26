@@ -27,6 +27,9 @@ class TwitterCard extends React.Component {
     const { title, description, target } = this.props.action;
     const buttonText = this.state.showMore === null ? 'CLICK TO TWEET' : 'TWEET NOW';
     const targetLink = this.state.showMore === null ? null : target;
+    const cancelButton = this.state.showMore === null 
+      ? null
+      : <button onClick={() => this.setState({ showMore: null })}>Cancel</button>
 
     return (
       <div className="ActionCard twitter-card">
@@ -41,7 +44,7 @@ class TwitterCard extends React.Component {
           <a href={targetLink} target="_blank">
             <button onClick={() => this.fetchBodies('twitter_contents', this.props.action)}>{buttonText}</button>
           </a>
-         
+          {cancelButton}
         </div>
       </div>
     );

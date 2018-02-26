@@ -7,6 +7,8 @@ class UserProfile extends Component {
   constructor () {
     super();
     this.state = {
+      fullName: '',
+      emailAddress: '',
       actionCount: null,
       twitter_actions: null,
       facebook_actions: null,
@@ -16,6 +18,9 @@ class UserProfile extends Component {
   }
 
   async componentDidMount () {
+    console.log(this.props.user);
+    this.setState({ fullName: this.props.user.name, emailAddress: this.props.user.email });
+
     const actionLogFetch = await fetch('/api/v1/actions');
     const actionLog = await actionLogFetch.json();
 
@@ -82,7 +87,19 @@ class UserProfile extends Component {
             
             <button onClick={this.patchPreferences}>SAVE</button>
           </form>
+        </div>
 
+        <div className="user-profile-edit">
+          <h2> Edit Your Profile</h2>
+
+          <form className="user-profile-form">
+            <label> Name: 
+              <input className="text-input" onChange={(e) => this.setState({fullName: e.target.value})} value={this.state.fullName} />
+            </label>
+            <label> Email: 
+              <input className="text-input" onChange={(e) => this.setState({emailAddress: e.target.value})} value={this.state.emailAddress} />
+            </label>
+          </form>
         </div>
       </div>
     );

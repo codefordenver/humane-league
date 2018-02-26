@@ -17,23 +17,29 @@ exports.seed = function(knex, Promise) {
       return knex('twitter_actions').insert({
         enabled: true, 
         title: 'Tweet at Carl\'s Jr.', 
-        description: 'Please re-tweet THL\'s post about Carl\'s Jr\'s attempts to shut down our protest!', 
-        target: 'https://twitter.com/TheHumaneLeague/status/963452807389958144'
-      })
+        description: "Let's keep the pressure on CKE's Chief Marketing Officer, Jeff Jenkins, to be a leader for the animals and address the suffering of chickens in Carl's Jr's supply chain.", 
+        target: 'https://twitter.com/jeffmjenkins'
+      }, 'id')
+
+        .then(twitterActionId => {
+          return knex('twitter_contents').insert([
+           { action_id: twitterActionId[0], content: "Please stop ignoring the suffering in your chicken supply chain. #FridayFeeling #PioneersOfCruelty http://blog.thehumaneleague.org/carls-jr-animal-cruelty-scandal"},
+           { action_id: twitterActionId[0], content: "It’s time @Carlsjr adopts the same animal welfare standards as Burger King, Subway, and Chipotle. #BoycottCarlsJr www.PioneersOfCruelty.com"},
+           { action_id: twitterActionId[0], content: "Consumers are fed up with @Carlsjr’s refusal to address the animal cruelty in its supply chain. #FridayFeeling http://blog.thehumaneleague.org/carls-jr-animal-cruelty-scandal"}
+          ])
+        })
 
       .then(() => {
         return knex('facebook_actions').insert({
           enabled: true, 
-          title: 'Facebook Action Title', 
-          description: 'Facebook Action Description', 
-          target: 'https://facebook.com/katie.reap.7'
+          title: 'MeatFree Food', 
+          description: 'Comment on The Humane League\'s facebook page with your favorite meat-free recipes!', 
+          target: 'https://www.facebook.com/thehumaneleague/'
         }, 'id')
 
           .then(facebookActionId => {
             return knex('facebook_contents').insert([
-              { action_id: facebookActionId[0], content: 'Facebook Content 1' },
-              { action_id: facebookActionId[0], content: 'Facebook Content 2' },
-              { action_id: facebookActionId[0], content: 'Facebook Content 3' }
+              { action_id: facebookActionId[0], content: 'My favorite vegan/vegetarian recipe is: ' },
             ])
           })
       })
@@ -57,7 +63,7 @@ exports.seed = function(knex, Promise) {
       .then(() => {
         return knex('phone_actions').insert({
           enabled: true, 
-          title: 'Phone Action Title', 
+          title: 'Call Carl\'s Jr. Leadership', 
           description: 'Phone Action Description', 
           name: 'Katie Scruggs',
           position: 'Troop Rallier',
@@ -66,19 +72,11 @@ exports.seed = function(knex, Promise) {
 
           .then(phoneActionId => {
             return knex('phone_contents').insert([
-              { action_id: phoneActionId[0], content: 'Phone Script 1' },
-              { action_id: phoneActionId[0], content: 'Phone Script 2' },
-              { action_id: phoneActionId[0], content: 'Phone Script 3' }
+              { action_id: phoneActionId[0], content: 'Hello, my name is Katie Scruggs, and I am calling to tell you about phone script 1.' },
+              { action_id: phoneActionId[0], content: 'Hello, my name is Katie Scruggs, and I am calling on behalf of phone script 2.' },
+              { action_id: phoneActionId[0], content: 'Phone Script 3: Hello, my name is Katie Scruggs, and ...' }
             ])
           })
-      })
-
-      .then(() => {
-        return knex('users').insert([
-          { twitter_actions: true, facebook_actions: true, email_actions: true, phone_actions: true, admin: true, name: 'Katie Scruggs'},
-          { twitter_actions: true, facebook_actions: true, email_actions: true, phone_actions: false, admin: false, name: 'Julie Hawkins'},
-          { twitter_actions: true, facebook_actions: true, email_actions: true, phone_actions: true, admin: true, name: 'Thomas Laird'}
-        ])
       })
     });
 };

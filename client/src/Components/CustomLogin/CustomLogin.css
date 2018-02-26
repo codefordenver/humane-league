@@ -2,10 +2,10 @@
   display: grid;
   width: 600px;
   margin: 0px auto;
-  grid-template-columns: 80px 1fr;
+  grid-template-columns: 80px repeat(4, 1fr);
   grid-gap: 10px; }
   .CustomLogin h1 {
-    grid-column: span 2;
+    grid-column: span 5;
     text-align: center; }
   .CustomLogin label {
     display: flex;
@@ -14,16 +14,16 @@
     height: 50px;
     font-size: 24px;
     padding-left: 10px;
-    outline: none; }
+    outline: none;
+    grid-column: span 4; }
   .CustomLogin span {
     min-height: 20px;
     min-width: 100%;
     color: red;
     font-size: 15px;
-    grid-column: span 2;
+    grid-column: span 5;
     text-align: center; }
-  .CustomLogin button,
-  .CustomLogin a {
+  .CustomLogin button {
     grid-column: span 2;
     height: 70px;
     display: flex;
@@ -39,11 +39,26 @@
     transition: 0.3s;
     font-size: 20px;
     padding: 10px; }
-    .CustomLogin button:hover,
-    .CustomLogin a:hover {
+    .CustomLogin button:nth-of-type(2) {
+      grid-column: 4 / -1; }
+    .CustomLogin button:hover {
       color: white;
       background-color: #323232; }
-    .CustomLogin button:disabled,
-    .CustomLogin a:disabled {
+    .CustomLogin button:disabled {
       background: #989696;
       color: black; }
+  .CustomLogin .confirmWrapper {
+    position: relative; }
+    .CustomLogin .confirmWrapper input {
+      width: 100%; }
+    .CustomLogin .confirmWrapper span {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+      color: black;
+      right: 0px;
+      top: 0px;
+      height: 100%;
+      min-width: 50px; }

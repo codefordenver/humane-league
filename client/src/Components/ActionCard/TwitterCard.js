@@ -17,22 +17,19 @@ class TwitterCard extends Component {
     this.setState({ actionBody });
   }
 
+  resetBody = async (newBody) => {
+    this.setState({ actionBody: newBody });
+  }
+
   render() {
     const { title, description, target } = this.props.action;
-    const buttonText = this.state.actionBody === null ? 'CLICK TO TWEET' : 'TWEET NOW';
+    const expanded = this.state.actionBody !== null;
 
-    const buttonOnClick = this.state.actionBody === null 
-      ? this.setActionBody
-      : () => { logAction('twitter_actions', this.props.user, this.props.action) };
-
-    const targetLink = this.state.actionBody === null ? null : target;
-
-    const cancelButton = this.state.actionBody === null 
-      ? null
-      : <button onClick={() => this.setState({ actionBody: null })}>Cancel</button>;
-
-    const textArea = this.state.actionBody === null ? null
-      :  <textarea onChange={(event) => this.setState({ actionBody: event.target.value })}value={this.state.actionBody}></textarea>
+    const buttonText = expanded ? 'TWEET NOW' : 'CLICK TO TWEET';
+    const buttonOnClick = expanded ? logAction('twitter_actions', this.props.user, this.props.action) : this.setActionBody;
+    const targetLink = expanded ? target : null;
+    const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>Cancel</button>: null;
+    const textArea = expanded ? <textarea onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
 
     return (
       <div className="ActionCard twitter-card">
@@ -44,6 +41,7 @@ class TwitterCard extends Component {
           <p>{description}</p>
 
           {textArea}
+
           <a href={targetLink} target="_blank">
             <button onClick={ buttonOnClick }>{buttonText}</button>
           </a>

@@ -46,7 +46,7 @@ class CreateNewAction extends Component {
     }
   }
 
-  actionPost = async (action, content, type) => {
+  actionPost = async (action, type) => {
     console.log(action)
     const token = this.props.user.id_token;
     const actionPost = await fetch(`/api/v1/${type}_actions?token=${token}`, {
@@ -59,22 +59,27 @@ class CreateNewAction extends Component {
     const actionID = await actionPost.json();
 
     if (actionID.id) {
-      const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ action_id: actionID.id, content })
-      });
-      const contentID = await contentPost.json();
-      
-      if(contentID.error) {
-        this.setState({ error: `Could not create action content: ${contentID.error}`});
-        setTimeout(() => {
-        this.setState({ error: false });
-      }, 5000);
-      } else if(contentID.id) {
-        return contentID
+      for (let i = 0; i < this.state.actionBodies; i++) {
+        let content = this[`actionContent${i}`].value;
+        console.log(content)
+
+        const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ action_id: actionID.id, content })
+        });
+        const contentID = await contentPost.json();
+        
+        if(contentID.error) {
+          this.setState({ error: `Could not create action content: ${contentID.error}`});
+          setTimeout(() => {
+          this.setState({ error: false });
+        }, 5000);
+        } else if(contentID.id) {
+          return contentID
+        }
       }
 
     } else if (actionID.error) {
@@ -95,8 +100,8 @@ class CreateNewAction extends Component {
     event.preventDefault();
     let actionBodies = this.state.actionBodies;
     actionBodies += 1;
+
     this.setState({ actionBodies });
-    console.log(this.state.actionBodies)
   }
 
   renderTextAreas = () => {
@@ -105,9 +110,9 @@ class CreateNewAction extends Component {
       bodies.push(i)
     }
 
-    return bodies.map(body => {
+    return bodies.map((body, i) => {
       return (
-        <textarea ref={(elem) => {this.actionContent = elem}} placeholder='Action Body'></textarea>
+        <textarea key={`textarea-${i}`} ref={(elem) => {this[`actionContent${i}`] = elem}} placeholder='Action Body'></textarea>
       )
     });
   }
@@ -118,8 +123,8 @@ class CreateNewAction extends Component {
       ? 'social'
       :  this.state.form;
     const action = this.createAction(type);
-    const actionContent = this.actionContent.value;
-    const postResult = await this.actionPost(action, actionContent, this.state.form);
+    // const actionContent = this.actionContent.value;
+    const postResult = await this.actionPost(action, this.state.form);
 
     if (postResult) {
       this.resetForm(type);
@@ -133,7 +138,6 @@ class CreateNewAction extends Component {
   resetForm = (type) => {
     this.actionTitle.value = '';
     this.actionDescription.value = '';
-    this.actionContent.value = '';
 
     if (type === 'social') {
       this.targetUrl.value = '';
@@ -148,10 +152,16 @@ class CreateNewAction extends Component {
       this.phoneNumber.value = '';
     }
 
+    for (let i = 0; i < this.state.actionBodies; i++) {
+      let content = this[`actionContent${i}`].value = '';
+    }
+
     this.setState({ actionEnabled: true });
   }
 
   render() {
+    console.log(this);
+
     const socialMediaTarget = {
       targetUrl: <input type='text' ref={(elem) => {this.targetUrl = elem}} placeholder='Target Url' />
     }  
@@ -173,7 +183,6 @@ class CreateNewAction extends Component {
       phone: phoneTarget
     }
 
-      console.log(this.state.actionBodies)
     return (
       <div className='create-new-action-container'>
         <h1>CREATE A NEW <span>{this.state.form.toUpperCase()}</span> ACTION</h1>

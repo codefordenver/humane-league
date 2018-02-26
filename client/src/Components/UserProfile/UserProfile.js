@@ -4,23 +4,20 @@ import { connect } from 'react-redux';
 import * as actions from '../../Actions';
 
 class UserProfile extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
-      fullName: '',
-      emailAddress: '',
-      actionCount: null,
-      twitter_actions: null,
-      facebook_actions: null,
-      email_actions: null,
-      phone_actions: null
+      name: props.user.name,
+      email: props.user.email,
+      actionCount: true,
+      twitter_actions: true,
+      facebook_actions: true,
+      email_actions: true,
+      phone_actions: true
     };
   }
 
   async componentDidMount () {
-    console.log(this.props.user);
-    this.setState({ fullName: this.props.user.name, emailAddress: this.props.user.email });
-
     const actionLogFetch = await fetch('/api/v1/actions');
     const actionLog = await actionLogFetch.json();
 
@@ -94,10 +91,10 @@ class UserProfile extends Component {
 
           <form className="user-profile-form">
             <label> Name: 
-              <input className="text-input" onChange={(e) => this.setState({fullName: e.target.value})} value={this.state.fullName} />
+              <input className="text-input" onChange={(e) => this.setState({name: e.target.value})} value={this.state.name} />
             </label>
             <label> Email: 
-              <input className="text-input" onChange={(e) => this.setState({emailAddress: e.target.value})} value={this.state.emailAddress} />
+              <input className="text-input" onChange={(e) => this.setState({email: e.target.value})} value={this.state.email} />
             </label>
 
             <button onClick={this.patchPreferences}>SAVE</button>

@@ -43,6 +43,16 @@ class CustomLogin extends Component {
           this.setState({ error: '' });
         }, 3000);
       }
+
+      if (error.code === "auth/invalid-email") {
+        this.setState({
+          error: 'Invalid email.'
+        });
+
+        setTimeout(() => {
+          this.setState({ error: '' });
+        }, 3000);
+      }
     });
 
     firebase.auth().onAuthStateChanged( async user => {
@@ -87,7 +97,7 @@ class CustomLogin extends Component {
         this.props.history.push('/home');
       }
     });
-  } 
+  }
 
   createForm = () => {
     if (this.state.signin) {

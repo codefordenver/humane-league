@@ -21,8 +21,7 @@ class Welcome extends Component {
 
     const providers = {
       facebook: new firebase.auth.FacebookAuthProvider(), 
-      google: new firebase.auth.GoogleAuthProvider(), 
-      email: new firebase.auth.EmailAuthProvider()
+      google: new firebase.auth.GoogleAuthProvider()
     };
     // const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -59,13 +58,6 @@ class Welcome extends Component {
   }
 
   render() {
-    const signInPrompt = 
-      <div className='welcome-controls'>
-        <button onClick={() => this.handleClick('google')}>Sign In With Google</button>
-        <button onClick={() => this.handleClick('facebook')}>Sign In With Facebook</button>
-        <button onClick={() => this.handleClick('email')}>Sign In With Email</button>
-      </div>;
-
     const hiddenButtons = this.state.showForm ? '' : 'hidden';
     const primaryButton = this.state.showForm ? 'none' : 'primary';
     
@@ -74,7 +66,7 @@ class Welcome extends Component {
       <button className={primaryButton} onClick={() => this.setState({showForm: true})}>Sign In</button>
       <button className={hiddenButtons} onClick={() => this.handleClick('google')}>Sign In With Google</button>
       <button className={hiddenButtons} onClick={() => this.handleClick('facebook')}>Sign In With Facebook</button>
-      <button className={hiddenButtons} onClick={() => this.handleClick('email')}>Sign In With Email</button>
+      <button className={hiddenButtons} onClick={() => this.props.history.push('/signin')}>Sign In With Email</button>
     </div>
 
     const conditionalInfo = this.props.User.name ? <Link to="/home">Dashboard</Link> : expandOptions;

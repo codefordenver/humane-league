@@ -1,0 +1,49 @@
+.CustomLogin {
+  display: grid;
+  width: 600px;
+  margin: 0px auto;
+  grid-template-columns: 80px 1fr;
+  grid-gap: 10px; }
+  .CustomLogin h1 {
+    grid-column: span 2;
+    text-align: center; }
+  .CustomLogin label {
+    display: flex;
+    align-items: center; }
+  .CustomLogin input {
+    height: 50px;
+    font-size: 24px;
+    padding-left: 10px;
+    outline: none; }
+  .CustomLogin span {
+    min-height: 15px;
+    min-width: 100%;
+    color: red;
+    font-size: 12px;
+    grid-column: span 2;
+    text-align: center; }
+  .CustomLogin button,
+  .CustomLogin a {
+    grid-column: span 2;
+    height: 70px;
+    display: flex;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    border: none;
+    background: #1CB841;
+    color: white;
+    cursor: pointer;
+    margin: 0px auto;
+    transition: 0.3s;
+    font-size: 20px;
+    padding: 10px; }
+    .CustomLogin button:hover,
+    .CustomLogin a:hover {
+      color: white;
+      background-color: #323232; }
+    .CustomLogin button:disabled,
+    .CustomLogin a:disabled {
+      background: #989696;
+      color: black; }

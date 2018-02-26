@@ -129,3 +129,21 @@
     }
   }
 }
+
+.UpdateAction {
+  label {
+    font-size: 20pt;
+    text-align: center;
+  }
+  select,
+  option {
+    border: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    font-size: 20pt;
+    height: 40px;
+    padding: 5px;
+    margin: 20px;
+  }
+}

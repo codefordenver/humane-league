@@ -83,7 +83,7 @@ const patchValidation = async (request, response, next) => {
 
   const user = await database('users').where('id_token', userToken).first().then(user => user);
 
-  if (id !== user.id && !user.super_admin) {
+  if (id != user.id && !user.super_admin) {
     return response.status(401).json({error: 'Only super admins can edit users besides themselves!'});
   }
 

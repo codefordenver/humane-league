@@ -52,12 +52,14 @@ class EmailCard extends Component {
           
           {emailContent}
           {textArea}
-
-          <a href={targetLink}>
-            <button onClick={ buttonOnClick }>{buttonText}</button>
-          </a> 
-          {cancelButton}
           {showContentButton}
+
+          <div className="button-holder">
+            {cancelButton}
+            <a href={targetLink}>
+              <button onClick={ buttonOnClick }>{buttonText}</button>
+            </a> 
+          </div>
         </div>
       </div>
     );

@@ -16,12 +16,19 @@
       margin: 15px; }
     .ActionCard .action-card-main p {
       margin: 5px; }
+    .ActionCard .action-card-main textarea {
+      justify-self: center;
+      height: 100px;
+      padding: 10px;
+      width: 90%; }
+    .ActionCard .action-card-main .button-holder {
+      display: flex; }
     .ActionCard .action-card-main button {
       border: none;
       color: white;
       cursor: pointer;
       font-weight: bold;
-      margin: 15px 0;
+      margin: 15px 5px;
       padding: 15px; }
   .ActionCard .action-logo-holder {
     align-items: center;

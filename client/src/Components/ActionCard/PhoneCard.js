@@ -45,9 +45,10 @@ class PhoneCard extends Component {
           {textArea}
 
           {userFeedback}
-
-          <button onClick={ buttonOnClick }>{ buttonText }</button>
-          {cancelButton}
+          <div className="button-holder">
+            {cancelButton}
+            <button onClick={ buttonOnClick }>{ buttonText }</button>
+          </div>
         </div> 
       </div>
     );

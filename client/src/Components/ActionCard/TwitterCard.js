@@ -42,10 +42,12 @@ class TwitterCard extends Component {
 
           {textArea}
 
-          <a href={targetLink} target="_blank">
-            <button onClick={ buttonOnClick }>{buttonText}</button>
-          </a>
-          {cancelButton}
+          <div className="button-holder">
+            {cancelButton}
+            <a href={targetLink} target="_blank">
+              <button onClick={ buttonOnClick }>{buttonText}</button>
+            </a>
+          </div>
         </div>
       </div>
     );

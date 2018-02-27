@@ -102,3 +102,59 @@
             background: #1CB841;
             color: #000;
             margin-left: 100px; }
+
+.UpdateAction label {
+  font-size: 20pt;
+  text-align: center; }
+
+.UpdateAction select,
+.UpdateAction option {
+  border: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  font-size: 20pt;
+  height: 40px;
+  padding: 5px;
+  margin: 20px; }
+
+.UpdateAction #toggle {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+  text-align: left;
+  align-self: center;
+  display: inline-block;
+  position: relative;
+  margin: 10px;
+  width: 200px; }
+  .UpdateAction #toggle input {
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+    margin: 0;
+    width: 100%;
+    height: 100%; }
+  .UpdateAction #toggle label {
+    background-color: #333;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12pt;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    padding: 5px 10px;
+    width: 100px;
+    -webkit-transition: margin-left 0.2s ease-in-out;
+    -moz-transition: margin-left 0.2s ease-in-out;
+    transition: margin-left 0.2s ease-in-out; }
+    .UpdateAction #toggle label:before {
+      content: attr(data-off); }
+  .UpdateAction #toggle input:checked + label:before {
+    content: attr(data-on); }
+  .UpdateAction #toggle input:checked + label {
+    background: #1CB841;
+    color: #000;
+    margin-left: 100px; }

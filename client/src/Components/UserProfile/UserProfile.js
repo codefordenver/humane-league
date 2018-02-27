@@ -63,15 +63,11 @@ class UserProfile extends Component {
   render () {
     return (
       <div className="UserProfile">
-        <h1>{`Profile for ${this.props.user.name}`}</h1>
-        
-        <div className="user-achievements">
-          <h2>User Achievements</h2>
-          <p>{`You have completed ${this.state.actionCount} actions! Great job!`}</p>
-        </div>
+        <h1>{`Welcome, ${this.props.user.name.split(' ')[0]}`}</h1>
+        <p className="action-count-description">{`You have completed ${this.state.actionCount} actions so far!`}</p>
         
         <div className="user-preferences">
-          <h2>Action Preferences</h2>
+          <h2>Your Preferences</h2>
 
           <form className="user-preferences-form">
             <label> Twitter Actions
@@ -92,7 +88,7 @@ class UserProfile extends Component {
         </div>
 
         <div className="user-profile-edit">
-          <h2> Edit Your Profile</h2>
+          <h2>Your Profile</h2>
 
           <form className="user-profile-form">
             <label> Name: 

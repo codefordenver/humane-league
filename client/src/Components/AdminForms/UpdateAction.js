@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { 
+  getTwitterActions, 
+  getFacebookActions, 
+  getEmailActions, 
+  getPhoneActions,
+  getCompletedActions,
+  patchAction } from '../../utils/apiCalls';
 
 // import './UpdateAction.css';
 
@@ -18,21 +25,10 @@ class UpdateAction extends Component {
   }
 
   async componentDidMount() {
-    const facebookFetch = await fetch('/api/v1/facebook_actions');
-    const facebookActions = await facebookFetch.json();
-    const facebook = facebookActions.results;
-
-    const twitterFetch = await fetch('/api/v1/twitter_actions');
-    const twitterActions = await twitterFetch.json();
-    const twitter = twitterActions.results;
-
-    const emailFetch = await fetch('/api/v1/email_actions');
-    const emailActions = await emailFetch.json();
-    const email = emailActions.results;
-
-    const phoneFetch = await fetch('/api/v1/phone_actions');
-    const phoneActions = await phoneFetch.json();
-    const phone = phoneActions.results;
+    const facebook = await getFacebookActions();
+    const twitter = await getTwitterActions();
+    const email = await getEmailActions();
+    const phone = await getPhoneActions();
 
     await this.setState({ facebook, twitter, email, phone });
   };
@@ -58,13 +54,7 @@ class UpdateAction extends Component {
     const actionId = action.id;
 
     const token = this.props.user.id_token;
-    const actionPatch = await fetch(`/api/v1/${type}_actions/${actionId}?token=${token}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(action)
-    });
+    const actionPatch = await patchAction(type, actionId, token, action);
 
     if (actionPatch.status === 204) {
       const removedAction = this.state[this.state.actionType].filter(action => action.id !== actionId);

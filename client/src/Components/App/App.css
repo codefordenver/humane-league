@@ -28,6 +28,7 @@
         margin: 0;
         padding: 20px 15px; }
       .App header nav .nav-btn {
-        cursor: pointer; }
+        cursor: pointer;
+        text-decoration: none; }
         .App header nav .nav-btn:hover {
           background-color: black; }

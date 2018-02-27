@@ -28,7 +28,7 @@ class EmailCard extends Component {
     const expanded = this.state.actionBody !== null;
 
     const buttonText = expanded ? 'SEND' : 'EMAIL';
-    const buttonOnClick = expanded ? logAction('email_actions', this.props.user, this.props.action) : this.setActionBody;
+    const buttonOnClick = expanded ? () => logAction('email_actions', this.props.user, this.props.action) : this.setActionBody;
     const targetLink = expanded ? `mailto:${to}?subject=${subject}&body=${this.state.actionBody}` : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const showContentButton = expanded ? <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button> : null;

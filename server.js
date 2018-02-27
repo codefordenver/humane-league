@@ -32,7 +32,7 @@ app.use('/', express.static(`${__dirname}/client/build`));
 
 const params = {
   content:     ['action_id', 'content'],
-  log:         ['user_id', 'action_type', 'action_id', 'description'],
+  log:         ['user_id', 'action_type', 'action_id'],
   socialMedia: ['enabled', 'title', 'description', 'target'],
   phone:       ['enabled', 'title', 'description', 'name', 'phone_number'],
   email:       ['enabled', 'title', 'description', 'subject', 'to'],

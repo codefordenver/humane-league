@@ -27,23 +27,19 @@ class TwitterCard extends Component {
 
     const buttonText = expanded ? 'GO' : 'TWEET';
     const buttonOnClick = expanded ? logAction('twitter_actions', this.props.user, this.props.action) : this.setActionBody;
-    const targetLink = expanded ? target : null;
+    const targetLink = expanded ? `https://twitter.com/intent/tweet?text=${target} ${this.state.actionBody}` : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
-    const textArea = expanded ? <textarea onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
+    const textArea = expanded ? <textarea className="body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
 
     return (
       <div className="ActionCard twitter-card">
-        <div className="action-logo-holder">
-          <img className="action-logo" src={twitterLogo} alt="Twitter Symbol"/>
-        </div>
-        <div className="action-card-main">
-          <h3>{title}</h3>
-          <p>{description}</p>
+        <h3>{title}</h3>
+        <p className="action-description">{description}</p>
+        {textArea}
 
-          {textArea}
-
+        <div className="button-holder">
           <a href={targetLink} target="_blank">
-            <button onClick={ buttonOnClick }>{buttonText}</button>
+            <button onClick={ buttonOnClick }>{buttonText}<i className="icon-twitter"></i></button>
           </a>
           {cancelButton}
         </div>

@@ -32,7 +32,7 @@ class EmailCard extends Component {
     const targetLink = expanded ? `mailto:${to}?subject=${subject}&body=${this.state.actionBody}` : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const showContentButton = expanded ? <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button> : null;
-    const textArea = expanded ? <textarea onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
+    const textArea = expanded ? <textarea className="body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
 
     const emailContent = this.state.showContent ?
       <div className="email-template">
@@ -43,21 +43,18 @@ class EmailCard extends Component {
 
     return (
       <div className="ActionCard email-card">
-        <div className="action-logo-holder">
-          <img className="action-logo" src={emailLogo} alt="Email Symbol"/>
-        </div>
-        <div className="action-card-main">
-          <h3>{title}</h3>
-          <p>{description}</p>
-          
-          {emailContent}
-          {textArea}
+        <h3>{title}</h3>
+        <p className="action-description">{description}</p>
+        
+        {showContentButton}
+        {emailContent}
+        {textArea}
 
+        <div className="button-holder">
           <a href={targetLink}>
-            <button onClick={ buttonOnClick }>{buttonText}</button>
+            <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>
           </a> 
           {cancelButton}
-          {showContentButton}
         </div>
       </div>
     );

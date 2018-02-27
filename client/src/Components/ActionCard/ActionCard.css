@@ -1,56 +1,87 @@
+@import url(../../assets/fontello-45ad5e7a/css/fan.css);
+/*#14212F*/
+/*#00aced*/
+/*#3B5998*/
+/*#3cba54*/
+/*#db3236*/
+a {
+  text-decoration: none; }
+
 .ActionCard {
+  align-items: center;
   background-color: white;
-  border: 7.5px solid #000;
+  border-radius: 2px;
   display: flex;
-  justify-content: flex-start;
-  margin: 10px;
-  padding: 5px;
-  width: 75%; }
-  .ActionCard .action-card-main {
-    align-items: center;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  width: 600px; }
+  .ActionCard h3 {
+    font-size: 32px;
+    font-weight: normal; }
+  .ActionCard .action-description {
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center; }
+  .ActionCard .body-text {
+    font-size: 18px;
+    height: 150px;
+    padding: 10px;
+    width: 80%; }
+  .ActionCard .button-holder {
+    align-self: center;
     display: flex;
-    flex-direction: column;
-    width: 85%; }
-    .ActionCard .action-card-main h3 {
-      font-size: 24px;
-      margin: 15px; }
-    .ActionCard .action-card-main p {
-      margin: 5px; }
-    .ActionCard .action-card-main button {
+    margin-top: 20px; }
+    .ActionCard .button-holder button {
       border: none;
+      border-radius: 2px;
       color: white;
-      cursor: pointer;
-      font-weight: bold;
-      margin: 15px 0;
-      padding: 15px; }
-  .ActionCard .action-logo-holder {
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    width: 15%; }
-    .ActionCard .action-logo-holder .action-logo {
-      height: 70px;
-      width: 70px; }
+      display: flex;
+      justify-content: space-between;
+      font-size: 26px;
+      margin: 0 5px;
+      padding: 20px 10px; }
+      .ActionCard .button-holder button:hover {
+        cursor: pointer; }
+      .ActionCard .button-holder button i {
+        color: inherit;
+        padding-left: 10px; }
+        .ActionCard .button-holder button i:before {
+          margin: 0; }
 
 .twitter-card {
-  border-color: #00aced; }
-  .twitter-card button {
+  border: 10px solid #00aced; }
+  .twitter-card .button-holder button {
     background-color: #00aced; }
 
 .facebook-card {
-  border-color: #3B5998; }
-  .facebook-card button {
-    background-color: #3B5998; }
-
-.phone-card {
-  border-color: #3cba54; }
-  .phone-card button {
-    background-color: #3cba54; }
+  border: 10px solid #284E92; }
+  .facebook-card .button-holder button {
+    background-color: #284E92; }
 
 .email-card {
-  border-color: #db3236; }
+  border: 10px solid #db3236; }
+  .email-card .button-holder button,
   .email-card button {
-    background-color: #db3236; }
-  .email-card .email-template p {
+    background-color: #db3236;
+    border: none;
+    border-radius: 2px;
+    color: white; }
+  .email-card .email-template {
     align-self: flex-start;
-    margin: 5px; }
+    font-size: 18px;
+    margin-bottom: 10px; }
+  .email-card .body-text {
+    width: 100%; }
+  .email-card button {
+    margin-bottom: 10px;
+    padding: 10px 5px; }
+
+.phone-card {
+  border: 10px solid #3cba54; }
+  .phone-card .button-holder button {
+    background-color: #3cba54; }
+  .phone-card .phone-number {
+    font-size: 22px; }
+  .phone-card .feedback-textarea {
+    margin-top: 10px; }

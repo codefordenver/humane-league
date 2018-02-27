@@ -1,79 +1,125 @@
+@import '../../assets/fontello-45ad5e7a/css/fan.css';
+
+/*#14212F*/
+/*#00aced*/
+/*#3B5998*/
+/*#3cba54*/
+/*#db3236*/
+a {
+  text-decoration: none;
+}
+
 .ActionCard {
+  align-items: center;
   background-color: white;
-  border: 7.5px solid #000;
+  border-radius: 2px;
   display: flex;
-  justify-content: flex-start;
-  margin: 10px;
-  padding: 5px;
-  width: 75%;
-  
-  .action-card-main {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    width: 85%;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  width: 600px;
 
-    h3 {
-      font-size: 24px;
-      margin: 15px;
-    }
-
-    p {
-      margin: 5px;
-    }
-
-    button {
-      border: none;
-      color: white;
-      cursor: pointer;
-      font-weight: bold;
-      margin: 15px 0;
-      padding: 15px;
-    }
+  h3 {
+    font-size: 32px;
+    font-weight: normal;
   }
 
-  .action-logo-holder {
-    align-items: center;
+  .action-description {
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .body-text {
+    font-size: 18px;
+    height: 150px;
+    padding: 10px;
+    width: 80%;
+  }
+
+  .button-holder {
+    align-self: center;
     display: flex;
-    justify-content: center;
-    width: 15%;
-    .action-logo {
-      height: 70px;
-      width: 70px;
+    margin-top: 20px;
+  
+    button {
+      border: none;
+      border-radius: 2px;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      font-size: 26px;
+      margin: 0 5px;
+      padding: 20px 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      i {
+        color: inherit;
+        padding-left: 10px;
+
+        &:before {
+          margin: 0;
+        }
+      }
     }
   }
 }
 
 .twitter-card {
-  border-color: #00aced;
-  button {
+  border: 10px solid #00aced;
+  .button-holder button {
     background-color: #00aced;
   }
 }
 
 .facebook-card {
-  border-color: #3B5998;
-  button {
-    background-color: #3B5998;
-  }
-}
-
-.phone-card {
-  border-color: #3cba54;
-  button {
-    background-color: #3cba54;
+  border: 10px solid #284E92;
+  .button-holder button {
+    background-color: #284E92;
   }
 }
 
 .email-card {
-  border-color: #db3236;
+  border: 10px solid #db3236;
 
+  .button-holder button,
   button {
     background-color: #db3236;
+    border: none;
+    border-radius: 2px;
+    color: white;
   }
 
-  .email-template p {
+  .email-template {
     align-self: flex-start;
-    margin: 5px;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .body-text {
+    width: 100%;
+  }
+
+  button {
+    margin-bottom: 10px;
+    padding: 10px 5px;
+  }
+}
+
+.phone-card {
+  border: 10px solid #3cba54;
+  .button-holder button {
+    background-color: #3cba54;
+  }
+
+  .phone-number {
+    font-size: 22px;
+  }
+
+  .feedback-textarea {
+    margin-top: 10px;
   }
 }

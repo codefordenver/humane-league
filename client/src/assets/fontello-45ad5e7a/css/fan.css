@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'fan';
-  src: url('../font/fan.eot?45705689');
-  src: url('../font/fan.eot?45705689#iefix') format('embedded-opentype'),
-       url('../font/fan.woff2?45705689') format('woff2'),
-       url('../font/fan.woff?45705689') format('woff'),
-       url('../font/fan.ttf?45705689') format('truetype'),
-       url('../font/fan.svg?45705689#fan') format('svg');
+  src: url('../font/fan.eot?41674780');
+  src: url('../font/fan.eot?41674780#iefix') format('embedded-opentype'),
+       url('../font/fan.woff2?41674780') format('woff2'),
+       url('../font/fan.woff?41674780') format('woff'),
+       url('../font/fan.ttf?41674780') format('truetype'),
+       url('../font/fan.svg?41674780#fan') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fan';
-    src: url('../font/fan.svg?45705689#fan') format('svg');
+    src: url('../font/fan.svg?41674780#fan') format('svg');
   }
 }
 */
@@ -58,5 +58,6 @@
 .icon-mail:before { content: '\e800'; } /* '' */
 .icon-phone:before { content: '\e801'; } /* '' */
 .icon-phone-1:before { content: '\e802'; } /* '' */
+.icon-facebook:before { content: '\f308'; } /* '' */
 .icon-twitter:before { content: '\f309'; } /* '' */
-.icon-facebook:before { content: '\f30c'; } /* '' */
+/* .icon-facebook:before { content: '\f30c'; } '' */

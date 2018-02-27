@@ -35,6 +35,12 @@
       "css": "phone-1",
       "code": 59394,
       "src": "elusive"
+    },
+    {
+      "uid": "4743b088aa95d6f3b6b990e770d3b647",
+      "css": "facebook-squared",
+      "code": 62216,
+      "src": "fontawesome"
     }
   ]
 }

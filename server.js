@@ -73,6 +73,7 @@ const validateAdmin = async (request, response, next) => {
 }
 
 const patchValidation = async (request, response, next) => {
+  console.log('patching')
   const { id } = request.params;
   const { body } = request;
   const userToken = request.query.token;

@@ -118,7 +118,7 @@
   padding: 5px;
   margin: 20px; }
 
-.UpdateAction .actions-container #toggle {
+.UpdateAction #toggle {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
@@ -128,7 +128,7 @@
   position: relative;
   margin: 10px;
   width: 200px; }
-  .UpdateAction .actions-container #toggle input {
+  .UpdateAction #toggle input {
     cursor: pointer;
     opacity: 0;
     position: absolute;
@@ -136,7 +136,7 @@
     margin: 0;
     width: 100%;
     height: 100%; }
-  .UpdateAction .actions-container #toggle label {
+  .UpdateAction #toggle label {
     background-color: #333;
     border-radius: 10px;
     color: #fff;
@@ -150,11 +150,11 @@
     -webkit-transition: margin-left 0.2s ease-in-out;
     -moz-transition: margin-left 0.2s ease-in-out;
     transition: margin-left 0.2s ease-in-out; }
-    .UpdateAction .actions-container #toggle label:before {
+    .UpdateAction #toggle label:before {
       content: attr(data-off); }
-  .UpdateAction .actions-container #toggle input:checked + label:before {
+  .UpdateAction #toggle input:checked + label:before {
     content: attr(data-on); }
-  .UpdateAction .actions-container #toggle input:checked + label {
+  .UpdateAction #toggle input:checked + label {
     background: #1CB841;
     color: #000;
     margin-left: 100px; }

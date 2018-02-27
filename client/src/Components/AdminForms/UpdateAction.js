@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
 // import './UpdateAction.css';
 
 class UpdateAction extends Component {
@@ -6,6 +8,8 @@ class UpdateAction extends Component {
     super();
     this.state = {
       actionType: 'facebook',
+      action: {},
+      showForm: false,
       facebook: [],
       twitter: [],
       email: [],
@@ -40,26 +44,37 @@ class UpdateAction extends Component {
   }
 
   handleActionClick = (event) => {
-    console.log(event.target);
-    
+    const actionId = event.target.dataset.id;
+    const action = this.state[this.state.actionType].find(action => action.id == actionId);
+    console.log(action)
+
+    this.setState({ showForm: true, actionEnabled: action.enabled, action });
   }
 
-  handleUpdate = () => {
+  submitPatch = async () => {
+    const oldAction = this.state.action;
+    const type = this.state.actionType;
 
+    const action = Object.assign({ ...oldAction }, { enabled: this.state.actionEnabled });
+
+    const token = this.props.user.id_token;
+    const actionPatch = await fetch(`/api/v1/${type}_actions/${action.id}?token=${token}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(action)
+    });
+    console.log(actionPatch);
+    // const result = await actionPatch.json();
+    // console.log(result);
   }
 
   render() {
     const actions = this.state[this.state.actionType].map((action, i) => {
       return (
         <li key={`li-${i}`} className='action'>
-          <p onClick={this.handleActionClick}>{`ACTION ${i}: ${action.title}`}</p>
-          {/*<span id='toggle'>
-            <input onChange={this.handleUpdate} checked={action.enabled} ref={(elem) => {this[`toggle${i}`] = elem}} type='checkbox'/>
-            <label 
-              data-on='enabled' 
-              data-off='disabled'>
-            </label>
-          </span>*/}
+          <p data-id={action.id} onClick={this.handleActionClick}>{`ACTION ${i}: ${action.title}`}</p>
         </li>
       )
     });
@@ -75,6 +90,19 @@ class UpdateAction extends Component {
             <option value='phone'>Phone</option>
           </select>
         </label>
+        {
+          this.state.showForm &&
+          <div className='update-form'>   
+            <span id='toggle'>
+              <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => {this.toggle = elem}} type='checkbox'/>
+              <label 
+                data-on='enabled' 
+                data-off='disabled'>
+              </label>
+            </span>
+            <button onClick={this.submitPatch} className='update-action'>Save Update</button>
+          </div>
+        }
         <div className='actions-container'>
           <ul className='actions'>
             {actions}
@@ -85,4 +113,8 @@ class UpdateAction extends Component {
   }
 }
 
-export default UpdateAction;
+const mapStateToProps = store => ({
+  user: store.User
+});
+
+export default connect(mapStateToProps, null)(UpdateAction);

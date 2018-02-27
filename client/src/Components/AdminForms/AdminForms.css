@@ -58,11 +58,9 @@
         .create-new-action-container .select-action-container .create-action-form form .add-text-area {
           font-size: 16pt;
           width: 200px;
-          height: 40px;
           align-self: center; }
         .create-new-action-container .select-action-container .create-action-form form #toggle {
           background-color: #fff;
-          box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
           text-align: left;
           align-self: center;
           display: inline-block;
@@ -115,7 +113,6 @@
 
 .UpdateAction #toggle {
   background-color: #fff;
-  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
   text-align: left;
   align-self: center;
   display: inline-block;

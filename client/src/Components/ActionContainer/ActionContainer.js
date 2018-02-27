@@ -6,6 +6,14 @@ import PhoneCard from '../ActionCard/PhoneCard';
 import './ActionContainer.css';
 import '../ActionCard/ActionCard.css';
 import { connect } from 'react-redux';
+import { 
+  getTwitterActions, 
+  getFacebookActions, 
+  getEmailActions, 
+  getPhoneActions,
+  getCompletedActions } from '../../utils/apiCalls';
+import { get } from 'https';
+
 
 class ActionContainer extends Component {
   constructor() {
@@ -16,42 +24,38 @@ class ActionContainer extends Component {
       facebook: [],
       email: [],
       phone: []
-    }
+    };
   }
   async componentDidMount() {
-    const { twitter_actions, facebook_actions, email_actions, phone_actions} = this.props.user;
+    const { twitter_actions, facebook_actions, email_actions, phone_actions, id, id_token} = this.props.user;
     await this.setState({ userPreferences: { twitter_actions, facebook_actions, email_actions, phone_actions} });
 
-    let twitter = [];
-    let facebook = [];
-    let email = [];
-    let phone = [];
+    const completedActions = await getCompletedActions(id, id_token);
 
-    if (this.state.userPreferences.twitter_actions) {
-      const twitterFetch = await fetch('/api/v1/twitter_actions');
-      const twitterActions = await twitterFetch.json();
-      twitter = twitterActions.results;
-    }
+    const actions = {
+      twitter: this.state.userPreferences.twitter_actions ? 
+      await getTwitterActions() : [],
+      facebook: this.state.userPreferences.facebook_actions ?
+      await getFacebookActions() : [],
+      email: this.state.userPreferences.email_actions ? 
+      await getEmailActions() : [],
+      phone: this.state.userPreferences.phone_actions ?
+      await getPhoneActions() : []
+    };
 
-    if (this.state.userPreferences.facebook_actions) {
-      const facebookFetch = await fetch('/api/v1/facebook_actions');
-      const facebookActions = await facebookFetch.json();
-      facebook = facebookActions.results;
-    }
+    completedActions.forEach( action => {
+      const actionTypes = {
+        twitter_actions: 'twitter',
+        facebook_actions: 'facebook',
+        email_actions: 'email',
+        phone_actions: 'phone'
+      };
+      const type = actionTypes[action.action_type];
 
-    if (this.state.userPreferences.email_actions) {
-      const emailFetch = await fetch('/api/v1/email_actions');
-      const emailActions = await emailFetch.json();
-      email = emailActions.results;
-    }
-
-    if (this.state.userPreferences.phone_actions) {
-      const phoneFetch = await fetch('/api/v1/phone_actions');
-      const phoneActions = await phoneFetch.json();
-      phone = phoneActions.results;
-    }
-
-    await this.setState({ twitter, facebook, email, phone });
+      actions[type] = actions[type].filter(act => act.id != action.action_id);
+    });
+    
+    await this.setState(actions);
   };
 
   render() {

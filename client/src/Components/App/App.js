@@ -26,6 +26,7 @@ class App extends Component {
         <Header />
         <Switch>
           <Route path='/admin' component={AdminDashboard} />
+          <Route path='/admin/actions' component={AdminActions} />
           <Route path='/home' component={UserActions} />
           <Route path='/profile' component={UserProfile} />
           <Route path='/signin' component={CustomLogin} />

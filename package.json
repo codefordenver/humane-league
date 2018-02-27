@@ -9,7 +9,8 @@
     "client": "cd client && yarn start",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\" \"yarn watch-css\"",
     "build-css": "node-sass-chokidar client/src/ -o client/src/",
-    "watch-css": "npm run build-css && node-sass-chokidar client/src/ -o client/src/ --watch --recursive"
+    "watch-css": "npm run build-css && node-sass-chokidar client/src/ -o client/src/ --watch --recursive",
+    "stage": "cd client && npm run build cd .."
   },
   "keywords": [],
   "author": "",

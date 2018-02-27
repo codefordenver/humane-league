@@ -12,7 +12,9 @@ import logger from 'redux-logger';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = createStore(rootReducer, devTools, applyMiddleware(thunk, logger));
+const middleware = process.env.NODE_ENV === 'development' ? [thunk, logger] : [thunk];
+
+const store = createStore(rootReducer, devTools, applyMiddleware(...middleware));
 
 const appWrapper = (
   <Provider store={store}>

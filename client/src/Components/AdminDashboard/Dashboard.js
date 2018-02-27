@@ -19,7 +19,7 @@ const Dashboard = () => {
         <NavLink 
           to='/admin/addcontent'
           className='admin-btn add-content'>
-          ADD ACTION CONTENT</NavLink>
+          EDIT ACTIONS</NavLink>
       </div>
       <div className='dashboard-section'>
         <h2>ANALYTICS</h2>

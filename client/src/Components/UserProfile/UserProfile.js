@@ -32,25 +32,30 @@ class UserProfile extends Component {
     this.setState({ [event.target.value]: !this.state[event.target.value] });
   }
 
-  patchPreferences = async (event) => {
+  patchPreferences = async (event, param) => {
     event.preventDefault();
+    const { name, email, actionCount, twitter_actions, facebook_actions, email_actions, phone_actions } = this.state;
+    const updates = param === 'prefs' ? 
+      {twitter_actions, facebook_actions, email_actions, phone_actions} :
+      {name, email};
+
     const preferencePath = await fetch(`/api/v1/users/${this.props.user.id}?token=${this.props.user.id_token}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ ...this.state })
+      body: JSON.stringify(updates)
     });
 
     if (preferencePath.status === 204) {
-      this.updateLocal();
-      this.props.updatePrefs(this.state);
+      this.updateLocal(updates);
+      this.props.updatePrefs(updates);
     }
   };
 
-  updateLocal = () => {
+  updateLocal = (updates) => {
     const { user } = JSON.parse(localStorage.getItem('THL-FAN-USER'));
-    const updatedUser = Object.assign({}, user, {...this.state});
+    const updatedUser = Object.assign({}, user, updates);
 
     localStorage.setItem('THL-FAN-USER', JSON.stringify({ user: updatedUser }));
   }
@@ -82,7 +87,7 @@ class UserProfile extends Component {
               <input className="checkbox" type="checkbox" value="phone_actions" checked={this.state.phone_actions} onChange={this.changeClick}/>
             </label>
             
-            <button onClick={this.patchPreferences}>SAVE</button>
+            <button onClick={(event) => this.patchPreferences(event, 'prefs')}>SAVE</button>
           </form>
         </div>
 
@@ -97,7 +102,7 @@ class UserProfile extends Component {
               <input className="text-input" onChange={(e) => this.setState({email: e.target.value})} value={this.state.email} />
             </label>
 
-            <button onClick={this.patchPreferences}>SAVE</button>
+            <button onClick={(event) => this.patchPreferences(event, 'name')}>SAVE</button>
           </form>
         </div>
       </div>

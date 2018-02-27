@@ -8,7 +8,7 @@ import ActionLog from '../AdminForms/ActionLog';
 import UserFeedback from '../AdminForms/UserFeedback';
 import './AdminDashboard.css';
 
-const AdminDashboard = () => {
+export const AdminDashboard = () => {
   return (
     <div className='AdminDashboard'>
       <h1 className='admin-greeting'>ADMIN DASHBOARD</h1>

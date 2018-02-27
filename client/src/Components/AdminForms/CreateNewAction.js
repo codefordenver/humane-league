@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './AdminForms.css';
 
-class CreateNewAction extends Component {
+export class CreateNewAction extends Component {
   constructor() {
     super();
     this.state = {
@@ -47,7 +47,7 @@ class CreateNewAction extends Component {
   }
 
   actionPost = async (action, type) => {
-    console.log(action)
+    // console.log(action)
     const token = this.props.user.id_token;
     const actionPost = await fetch(`/api/v1/${type}_actions?token=${token}`, {
       method: 'POST',
@@ -61,7 +61,7 @@ class CreateNewAction extends Component {
     if (actionID.id) {
       for (let i = 0; i < this.state.actionBodies; i++) {
         let content = this[`actionContent${i}`].value;
-        console.log(content)
+        // console.log(content)
 
         const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
           method: 'POST',
@@ -160,8 +160,6 @@ class CreateNewAction extends Component {
   }
 
   render() {
-    console.log(this);
-
     const socialMediaTarget = {
       targetUrl: <input type='text' ref={(elem) => {this.targetUrl = elem}} placeholder='Target Url' />
     }  

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 // import './UpdateAction.css';
 
-class UpdateAction extends Component {
+export class UpdateAction extends Component {
   constructor() {
     super();
     this.state = {
@@ -33,7 +33,7 @@ class UpdateAction extends Component {
     const phoneFetch = await fetch('/api/v1/phone_actions');
     const phoneActions = await phoneFetch.json();
     const phone = phoneActions.results;
-
+    console.log(phone);
     await this.setState({ facebook, twitter, email, phone });
   };
 

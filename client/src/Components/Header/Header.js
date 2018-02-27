@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 import thlLogoWhite from '../../THL-Assets/png/THL18-horiz-logo-white.png';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -7,15 +8,20 @@ import firebase from '../../firebase';
 
 export const Header = ({ User, logout, validateUser }) => {
   let currentUser = JSON.parse(localStorage.getItem('THL-FAN-USER'));
+  
   if (Object.keys(User).length === 0 && currentUser) {
     validateUser(currentUser);
   }
+
+  if (Object.keys(User).length === 0 && !currentUser && location.pathname !== '/') {
+    history.push('/');
+  }
   
   const userInfo = User.name ? <p className="welcome">Welcome, {User.name}</p> : null;
-  const actions = (User.name && !User.admin) ? <Link to="/home"><p className="nav-btn">Actions</p></Link> : null;
-  const profile = (User.name && !User.admin) ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : null;
-  const adminDash = (User.name && User.admin) ? <NavLink className='nav-btn' to='/admin'><p>Dashboard</p></NavLink> : null;
-  const adminActions = (User.name && User.admin) ? <NavLink className="nav-btn" to="/admin/actions"><p>View Actions</p></NavLink> : null;
+  const actions = (User.name && !User.admin) ? <NavLink exact to="/home" className="nav-btn"><p>Actions</p></NavLink> : null;
+  const profile = (User.name && !User.admin) ? <NavLink exact to="/profile" className="nav-btn"><p>Profile</p></NavLink> : null;
+  const adminDash = (User.name && User.admin) ? <NavLink className='nav-btn' exact to='/admin'><p>Dashboard</p></NavLink> : null;
+  const adminActions = (User.name && User.admin) ? <NavLink className="nav-btn" exact to="/admin/actions"><p>View Actions</p></NavLink> : null;
   const logoutButton = User.name 
     ? <Link to="/"><p 
       onClick={() => { 
@@ -58,4 +64,5 @@ const mapDispatchToProps = dispatch => ({
   validateUser: user => dispatch(actions.updateUser(user))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
+

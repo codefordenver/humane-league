@@ -36,13 +36,23 @@
         padding: 20px 15px;
       }
 
+
       .nav-btn {
         cursor: pointer;
+        border-left: 2px solid transparent;
+        border-right: 2px solid transparent;
         text-decoration: none;
 
         &:hover {
           background-color: black;
         }
+      
+        &.active {
+          background-color: black;
+          border-left: 2px solid gray;
+          border-right: 2px solid gray;
+        }
+      
       }
     }
   }

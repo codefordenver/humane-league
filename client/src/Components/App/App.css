@@ -31,6 +31,12 @@
         padding: 20px 15px; }
       .App header nav .nav-btn {
         cursor: pointer;
+        border-left: 2px solid transparent;
+        border-right: 2px solid transparent;
         text-decoration: none; }
         .App header nav .nav-btn:hover {
           background-color: black; }
+        .App header nav .nav-btn.active {
+          background-color: black;
+          border-left: 2px solid gray;
+          border-right: 2px solid gray; }

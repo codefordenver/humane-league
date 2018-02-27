@@ -35,7 +35,7 @@ class FacebookCard extends Component {
     return (
       <div className="ActionCard facebook-card">
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p className="action-description">{description}</p>
 
         {textArea}
 

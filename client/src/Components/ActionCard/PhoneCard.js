@@ -35,7 +35,7 @@ class PhoneCard extends Component {
     return (
       <div className="ActionCard phone-card">
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p className="action-description">{description}</p>
 
         {phoneNumber}
         {textArea}

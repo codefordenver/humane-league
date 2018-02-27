@@ -4,11 +4,8 @@
 /*#3B5998*/
 /*#3cba54*/
 /*#db3236*/
-h3, p {
-  color: white; }
-
 .ActionCard {
-  background-color: #14212F;
+  background-color: white;
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -18,32 +15,46 @@ h3, p {
   .ActionCard h3 {
     align-self: center;
     font-size: 32px;
-    font-weight: normal;
-    margin-bottom: 40px; }
+    font-weight: normal; }
+  .ActionCard .action-description {
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center; }
   .ActionCard .button-holder {
     align-self: center; }
     .ActionCard .button-holder button {
       background-color: white;
       border: none;
       border-radius: 2px;
+      color: white;
       display: flex;
       justify-content: space-between;
       font-size: 26px;
       padding: 20px 10px; }
+      .ActionCard .button-holder button:hover {
+        cursor: pointer; }
       .ActionCard .button-holder button i {
         color: inherit;
         padding-left: 10px; }
         .ActionCard .button-holder button i:before {
           margin: 0; }
 
-.twitter-card button {
-  color: #00aced; }
+.twitter-card {
+  border: 10px solid #00aced; }
+  .twitter-card .button-holder button {
+    background-color: #00aced; }
 
-.facebook-card button {
-  color: #284E92; }
+.facebook-card {
+  border: 10px solid #284E92; }
+  .facebook-card .button-holder button {
+    background-color: #284E92; }
 
-.email-card button {
-  color: #db3236; }
+.email-card {
+  border: 10px solid #db3236; }
+  .email-card .button-holder button {
+    background-color: #db3236; }
 
-.phone-card button {
-  color: #3cba54; }
+.phone-card {
+  border: 10px solid #3cba54; }
+  .phone-card .button-holder button {
+    background-color: #3cba54; }

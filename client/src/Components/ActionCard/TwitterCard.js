@@ -25,7 +25,6 @@ class TwitterCard extends Component {
     const { title, description, target } = this.props.action;
     const expanded = this.state.actionBody !== null;
 
-    const descriptionP = expanded ? <p>{description}</p> : null;
     const buttonText = expanded ? 'GO' : 'TWEET';
     const buttonOnClick = expanded ? logAction('twitter_actions', this.props.user, this.props.action) : this.setActionBody;
     const targetLink = expanded ? `https://twitter.com/intent/tweet?text=${target} ${this.state.actionBody}` : null;
@@ -35,7 +34,7 @@ class TwitterCard extends Component {
     return (
       <div className="ActionCard twitter-card">
         <h3>{title}</h3>
-        {descriptionP}
+        <p className="action-description">{description}</p>
         {textArea}
 
         <div className="button-holder">

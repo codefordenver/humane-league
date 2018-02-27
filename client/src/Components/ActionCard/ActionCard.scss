@@ -6,12 +6,9 @@
 /*#3cba54*/
 /*#db3236*/
 
-h3, p {
-  color: white;
-}
 
 .ActionCard {
-  background-color: #14212F;
+  background-color: white;
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -23,7 +20,12 @@ h3, p {
     align-self: center;
     font-size: 32px;
     font-weight: normal;
-    margin-bottom: 40px;
+  }
+
+  .action-description {
+    font-size: 20px;
+    margin: 20px 0;
+    text-align: center;
   }
 
   .button-holder {
@@ -33,10 +35,15 @@ h3, p {
       background-color: white;
       border: none;
       border-radius: 2px;
+      color: white;
       display: flex;
       justify-content: space-between;
       font-size: 26px;
       padding: 20px 10px;
+
+      &:hover {
+        cursor: pointer;
+      }
 
       i {
         color: inherit;
@@ -51,25 +58,29 @@ h3, p {
 }
 
 .twitter-card {
-  button {
-    color: #00aced;
+  border: 10px solid #00aced;
+  .button-holder button {
+    background-color: #00aced;
   }
 }
 
 .facebook-card {
-  button {
-    color: #284E92;
+  border: 10px solid #284E92;
+  .button-holder button {
+    background-color: #284E92;
   }
 }
 
 .email-card {
-  button {
-    color: #db3236;
+  border: 10px solid #db3236;
+  .button-holder button {
+    background-color: #db3236;
   }
 }
 
 .phone-card {
-  button {
-    color: #3cba54;
+  border: 10px solid #3cba54;
+  .button-holder button {
+    background-color: #3cba54;
   }
 }

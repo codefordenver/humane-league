@@ -39,10 +39,28 @@ class UpdateAction extends Component {
     this.setState({ actionType });
   }
 
+  handleActionClick = (event) => {
+    console.log(event.target);
+    
+  }
+
+  handleUpdate = () => {
+
+  }
+
   render() {
     const actions = this.state[this.state.actionType].map((action, i) => {
       return (
-        <li key={`li-${i}`} className='action'>{`ACTION ${i}: ${action.title}`}</li>
+        <li key={`li-${i}`} className='action'>
+          <p onClick={this.handleActionClick}>{`ACTION ${i}: ${action.title}`}</p>
+          {/*<span id='toggle'>
+            <input onChange={this.handleUpdate} checked={action.enabled} ref={(elem) => {this[`toggle${i}`] = elem}} type='checkbox'/>
+            <label 
+              data-on='enabled' 
+              data-off='disabled'>
+            </label>
+          </span>*/}
+        </li>
       )
     });
 
@@ -50,7 +68,7 @@ class UpdateAction extends Component {
       <div className='UpdateAction'>
         <h1>Enable and Disable <span>{this.state.actionType.toUpperCase()}</span> Actions</h1>
         <label htmlFor='action-types'>Select Action Type:
-          <select onChange={() => this.handleChange()} ref={(elem) => {this.updateActionTypes = elem}} name='action-types' id='action-types'>
+          <select onChange={this.handleChange} ref={(elem) => {this.updateActionTypes = elem}} name='action-types' id='action-types'>
             <option value='facebook'>Facebook</option>
             <option value='twitter'>Twitter</option>
             <option value='email'>Email</option>

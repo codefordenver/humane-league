@@ -36,7 +36,12 @@ class Welcome extends Component {
 
       this.props.validateUser(dbUser);
       localStorage.setItem('THL-FAN-USER', JSON.stringify(dbUser));
-      this.props.history.push('/home');
+
+      if (dbUser.user.admin) {
+        this.props.history.push('/admin');
+      } else {
+        this.props.history.push('/home');
+      }
 
     }).catch(error => {
       // Handle Errors here.

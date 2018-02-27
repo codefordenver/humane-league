@@ -12,6 +12,7 @@ a {
 .ActionCard {
   align-items: center;
   background-color: white;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -50,7 +51,7 @@ a {
       justify-content: space-between;
       font-size: 26px;
       margin: 0 5px;
-      padding: 20px 10px;
+      padding: 20px;
 
       &:hover {
         cursor: pointer;
@@ -69,22 +70,18 @@ a {
 }
 
 .twitter-card {
-  border: 10px solid #00aced;
   .button-holder button {
     background-color: #00aced;
   }
 }
 
 .facebook-card {
-  border: 10px solid #284E92;
   .button-holder button {
     background-color: #284E92;
   }
 }
 
 .email-card {
-  border: 10px solid #db3236;
-
   .button-holder button,
   button {
     background-color: #db3236;
@@ -110,7 +107,6 @@ a {
 }
 
 .phone-card {
-  border: 10px solid #3cba54;
   .button-holder button {
     background-color: #3cba54;
   }

@@ -7,6 +7,10 @@ import UserActions from '../UserActions/UserActions';
 import UserProfile from '../UserProfile/UserProfile';
 import AdminDashboard from '../AdminDashboard/AdminDashboard';
 import CustomLogin from '../CustomLogin/CustomLogin';
+import ForgotPassword from '../ForgotPassword/ForgotPassword';
+import ResetPassword from '../ResetPassword/ResetPassword';
+
+
 
 class App extends Component {
   constructor() {
@@ -25,6 +29,8 @@ class App extends Component {
           <Route path='/home' component={UserActions} />
           <Route path='/profile' component={UserProfile} />
           <Route path='/signin' component={CustomLogin} />
+          <Route path='/forgotpassword' component={ForgotPassword} />
+          {/* <Route path='/resetpassword' component={ResetPassword} /> */}
           <Route exact path='/' component={Welcome} />
         </Switch>
       </div>

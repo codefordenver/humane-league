@@ -1,20 +1,21 @@
 import logAction from '../logAction';
 
-window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-  json: () => 
-    Promise.resolve(
-      { results: {
-          // twitter: [mockAction, mockAction],
-          // facebook: [mockAction, mockAction],
-          // email: [mockAction, mockAction],
-          // phone: [mockAction, mockAction]
-        }
-      }
-    )   
-}));
+window.fetch = jest.fn().mockImplementation(() => 
+  Promise.resolve({ 
+  })
+);
 
-describe.skip('logAction util function', () => {
+describe('logAction util function', () => {
   it('should post to the action log', () => {
-    expect(logAction()).toEqual();
+    const mockUser = { 
+      id_token: 'ashgei29483jngsdg', 
+      id: 2 
+    };
+    const mockAction = {
+      id: 3, 
+    };
+
+    const expectedResult = logAction('facebook', mockUser, mockAction, 'mock description');
+    expect(expectedResult).toEqual(Promise.resolve());
   })
 })

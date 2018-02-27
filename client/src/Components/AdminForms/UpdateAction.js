@@ -44,6 +44,7 @@ export class UpdateAction extends Component {
     const action = this.state[this.state.actionType].find(action => action.id == actionId);
 
     this.setState({ showForm: true, actionEnabled: action.enabled, action });
+    window.scrollTo(0, 0);
   }
 
   submitPatch = async () => {
@@ -70,7 +71,7 @@ export class UpdateAction extends Component {
     const actions = this.state[this.state.actionType].map((action, i) => {
       return (
         <li key={`li-${i}`} className='action'>
-          <p data-id={action.id} onClick={this.handleActionClick}>{`ACTION ${i}: ${action.title}`}</p>
+          <p data-id={action.id} onClick={this.handleActionClick}>{`${action.title}`}</p>
         </li>
       )
     });
@@ -78,35 +79,42 @@ export class UpdateAction extends Component {
     return (
       <div className='UpdateAction'>
         <h1>Enable and Disable <span>{this.state.actionType.toUpperCase()}</span> Actions</h1>
-        <label htmlFor='action-types'>Select Action Type:
-          <select onChange={this.handleChange} ref={(elem) => {this.updateActionTypes = elem}} name='action-types' id='action-types'>
-            <option value='facebook'>Facebook</option>
-            <option value='twitter'>Twitter</option>
-            <option value='email'>Email</option>
-            <option value='phone'>Phone</option>
-          </select>
-        </label>
         {
           this.state.success && 
           <p>{this.state.success}</p>
         }
+        <div className='update-container'>
+          <label htmlFor='action-types'>Select Action Type:
+            <select onChange={this.handleChange} ref={(elem) => {this.updateActionTypes = elem}} name='action-types' id='action-types'>
+              <option value='facebook'>Facebook</option>
+              <option value='twitter'>Twitter</option>
+              <option value='email'>Email</option>
+              <option value='phone'>Phone</option>
+            </select>
+          </label>
         {
           this.state.showForm &&
-          <div className='update-form'>   
-            <span id='toggle'>
-              <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => {this.toggle = elem}} type='checkbox'/>
-              <label 
-                data-on='enabled' 
-                data-off='disabled'>
-              </label>
-            </span>
-            <button onClick={this.submitPatch} className='update-action'>Save Update</button>
+          <div className='update-action'>
+            <p>{`TITLE: ${this.state.action.title}`}</p>
+            <p>{`DESCRIPTION: ${this.state.action.description}`}</p>
+            <div className='update-form'>  
+              <span id='toggle'>
+                <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => {this.toggle = elem}} type='checkbox'/>
+                <label 
+                  data-on='enabled' 
+                  data-off='disabled'>
+                </label>
+              </span>
+              <button onClick={this.submitPatch} className='update-action'>Save Update</button>
+            </div> 
           </div>
         }
-        <div className='actions-container'>
-          <ul className='actions'>
-            {actions}
-          </ul>
+          <div className='actions-container'>
+            <h3>Click an action to see or change status</h3>
+            <ul className='actions'>
+              {actions}
+            </ul>
+          </div>
         </div>
       </div>
     )

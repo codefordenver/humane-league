@@ -34,22 +34,17 @@ class PhoneCard extends Component {
 
     return (
       <div className="ActionCard phone-card">
-        <div className="action-logo-holder">
-          <img className="action-logo" src={phoneLogo} alt="Phone Symbol"/>
+        <h3>{title}</h3>
+        <p>{description}</p>
+
+        {phoneNumber}
+        {textArea}
+
+        {userFeedback}
+        <div className="button-holder">
+          <button onClick={ buttonOnClick }><i className="icon-phone"></i>{ buttonText }</button>
+          {cancelButton}
         </div>
-        <div className="action-card-main">
-          <h3>{title}</h3>
-          <p>{description}</p>
-
-          {phoneNumber}
-          {textArea}
-
-          {userFeedback}
-          <div className="button-holder">
-            <button onClick={ buttonOnClick }>{ buttonText }</button>
-            {cancelButton}
-          </div>
-        </div> 
       </div>
     );
   }

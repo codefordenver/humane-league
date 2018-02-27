@@ -34,21 +34,16 @@ class FacebookCard extends Component {
     
     return (
       <div className="ActionCard facebook-card">
-        <div className="action-logo-holder">
-          <img className="action-logo" src={facebookLogo} alt="Facebook Symbol"/>
-        </div>
-        <div className="action-card-main">
-          <h3>{title}</h3>
-          <p>{description}</p>
+        <h3>{title}</h3>
+        <p>{description}</p>
 
-          {textArea}
+        {textArea}
 
-          <div className="button-holder">
-            <a target="_blank" href={targetLink}>
-              <button onClick={buttonOnClick}>{buttonText}</button>
-            </a> 
-            {cancelButton}
-          </div>
+        <div className="button-holder">
+          <a target="_blank" href={targetLink}>
+            <button onClick={buttonOnClick}><i className="icon-facebook"></i>{buttonText}</button>
+          </a> 
+          {cancelButton}
         </div>
       </div>
     );

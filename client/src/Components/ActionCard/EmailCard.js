@@ -52,7 +52,7 @@ class EmailCard extends Component {
 
         <div className="button-holder">
           <a href={targetLink}>
-            <button onClick={ buttonOnClick }>{buttonText}</button>
+            <button onClick={ buttonOnClick }><i className="icon-mail"></i>{buttonText}</button>
           </a> 
           {cancelButton}
         </div>

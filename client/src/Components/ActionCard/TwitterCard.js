@@ -33,21 +33,16 @@ class TwitterCard extends Component {
 
     return (
       <div className="ActionCard twitter-card">
-        <div className="action-logo-holder">
-          <img className="action-logo" src={twitterLogo} alt="Twitter Symbol"/>
-        </div>
-        <div className="action-card-main">
-          <h3>{title}</h3>
-          <p>{description}</p>
+        <h3>{title}</h3>
+        <p>{description}</p>
 
-          {textArea}
+        {textArea}
 
-          <div className="button-holder">
-            <a href={targetLink} target="_blank">
-              <button onClick={ buttonOnClick }>{buttonText}</button>
-            </a>
-            {cancelButton}
-          </div>
+        <div className="button-holder">
+          <a href={targetLink} target="_blank">
+            <button onClick={ buttonOnClick }><i className="icon-twitter"></i>{buttonText}</button>
+          </a>
+          {cancelButton}
         </div>
       </div>
     );

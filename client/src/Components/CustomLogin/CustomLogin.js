@@ -6,7 +6,6 @@ import * as actions from '../../Actions/';
 import { signInUser } from '../../utils/apiCalls';
 import { Link } from 'react-router-dom';
 
-
 export class CustomLogin extends Component {
   constructor() {
     super();
@@ -98,7 +97,6 @@ export class CustomLogin extends Component {
 
   signupHandler = () => {
     const { email, password } = this.state;
-    console.log('whatup');
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(error => {
       if (error.code === "auth/invalid-email") {
         this.setState({

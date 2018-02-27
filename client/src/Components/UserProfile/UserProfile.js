@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './UserProfile.css';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions';
+import { getActionLog, patchPreferences } from '../../utils/apiCalls';
 
 export class UserProfile extends Component {
   constructor (props) {
@@ -18,8 +19,7 @@ export class UserProfile extends Component {
   }
 
   async componentDidMount () {
-    const actionLogFetch = await fetch('/api/v1/actions');
-    const actionLog = await actionLogFetch.json();
+    const actionLog = await getActionLog();
 
     const userActions = actionLog.results.filter(action => action.user_id === this.props.user.id);
     this.setState({ actionCount: userActions.length });
@@ -39,13 +39,7 @@ export class UserProfile extends Component {
       {twitter_actions, facebook_actions, email_actions, phone_actions} :
       {name, email};
 
-    const preferencePath = await fetch(`/api/v1/users/${this.props.user.id}?token=${this.props.user.id_token}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(updates)
-    });
+    const preferencePath = await patchPreferences(this.props.user.id, this.props.user.id_token, updates);
 
     if (preferencePath.status === 204) {
       this.updateLocal(updates);

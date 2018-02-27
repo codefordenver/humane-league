@@ -213,4 +213,14 @@ const handleNewUser = (request, response) => {
     });
 };
 
+app.get('/api/v1/users/actions/:id', patchValidation, (request, response) => {
+  return database('action_log').where('user_id', request.params.id).select()
+    .then(actions => {
+      return response.status(200).json({ actions });
+    })
+    .catch(err => {
+      return response.status(500).json({ error: err });
+    })
+});
+
 module.exports = app;

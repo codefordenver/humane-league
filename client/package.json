@@ -16,8 +16,9 @@
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
-    "jest-cli": "^20.0.4",
     "enzyme-adapter-react-16": "^1.1.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "jest-cli": "^20.0.4",
     "redux-devtools": "^3.4.1",
     "redux-logger": "^3.0.6"
   },
@@ -25,6 +26,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "eslint": "eslint ./src/*.js ./src/*/*.js ./src/*/*/*.js",
     "eject": "react-scripts eject"
   }
 }

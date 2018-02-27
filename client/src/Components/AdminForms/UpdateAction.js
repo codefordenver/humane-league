@@ -65,9 +65,12 @@ class UpdateAction extends Component {
       },
       body: JSON.stringify(action)
     });
-    console.log(actionPatch);
-    // const result = await actionPatch.json();
-    // console.log(result);
+    if (actionPatch.status === 204) {
+      this.setState({ showForm: false, success: `Sucessfully updated action ${action.id}`});
+        setTimeout(() => {
+        this.setState({ success: false });
+      }, 3000);
+    }
   }
 
   render() {
@@ -90,6 +93,10 @@ class UpdateAction extends Component {
             <option value='phone'>Phone</option>
           </select>
         </label>
+        {
+          this.state.success && 
+          <p>{this.state.success}</p>
+        }
         {
           this.state.showForm &&
           <div className='update-form'>   

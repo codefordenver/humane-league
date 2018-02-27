@@ -46,7 +46,6 @@ class UpdateAction extends Component {
   handleActionClick = (event) => {
     const actionId = event.target.dataset.id;
     const action = this.state[this.state.actionType].find(action => action.id == actionId);
-    console.log(action)
 
     this.setState({ showForm: true, actionEnabled: action.enabled, action });
   }
@@ -56,17 +55,21 @@ class UpdateAction extends Component {
     const type = this.state.actionType;
 
     const action = Object.assign({ ...oldAction }, { enabled: this.state.actionEnabled });
+    const actionId = action.id;
 
     const token = this.props.user.id_token;
-    const actionPatch = await fetch(`/api/v1/${type}_actions/${action.id}?token=${token}`, {
+    const actionPatch = await fetch(`/api/v1/${type}_actions/${actionId}?token=${token}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(action)
     });
+
     if (actionPatch.status === 204) {
-      this.setState({ showForm: false, success: `Sucessfully updated action ${action.id}`});
+      const removedAction = this.state[this.state.actionType].filter(action => action.id !== actionId);
+      const newState = [...removedAction, action];
+      this.setState({ [type]: newState, showForm: false, success: `Sucessfully updated action ${action.id}`});
         setTimeout(() => {
         this.setState({ success: false });
       }, 3000);

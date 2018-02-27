@@ -14,6 +14,12 @@ class EmailCard extends Component {
     this.fetchActionBody = fetchActionBody.bind(this);
   }
 
+  componentDidMount () {
+    if (this.props.user.admin) {
+      this.actionCount();
+    }
+  };
+
   setActionBody = async () => {
     const actionBody = await this.fetchActionBody('email_contents', this.props.action);
     this.setState({ actionBody });
@@ -23,11 +29,18 @@ class EmailCard extends Component {
     this.setState({ actionBody: newBody });
   }
 
+  actionCount = async () => {
+    const actionLogFetch = await fetch('/api/v1/actions');
+    const actionLog = await actionLogFetch.json();
+    const actionCount = actionLog.results.filter(actionLog => (actionLog.action_id === this.props.action.id && actionLog.action_type === 'email_actions')).length;
+    await this.setState({ actionCount });
+  }
+
   render () {
     const { title, description, to, cc, bcc, subject } = this.props.action;
     const expanded = this.state.actionBody !== null;
 
-    const buttonText = expanded ? 'SEND' : 'EMAIL';
+    let buttonText = expanded ? 'SEND' : 'EMAIL';
     const buttonOnClick = expanded ? () => logAction('email_actions', this.props.user, this.props.action) : this.setActionBody;
     const targetLink = expanded ? `mailto:${to}?subject=${subject}&body=${this.state.actionBody}` : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
@@ -40,6 +53,10 @@ class EmailCard extends Component {
         <p><strong>Subject:</strong> {subject}</p>
       </div>
       : null;
+
+    if (this.props.user.admin) {
+      buttonText = `${this.state.actionCount} people have taken this action!`
+    }
 
     return (
       <div className="ActionCard email-card">

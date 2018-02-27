@@ -30,7 +30,7 @@ class TwitterCard extends Component {
   actionCount = async () => {
     const actionLogFetch = await fetch('/api/v1/actions');
     const actionLog = await actionLogFetch.json();
-    const actionCount = actionLog.results.filter(actionLog => actionLog.action_id === this.props.action.id).length;
+    const actionCount = actionLog.results.filter(actionLog => (actionLog.action_id === this.props.action.id && actionLog.action_type === 'twitter_actions')).length;
     await this.setState({ actionCount });
   }
 

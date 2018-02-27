@@ -1,9 +1,9 @@
 import Placeholder from '../Placeholder';
 // import * as actions from '../../Actions';
 
-describe.skip('Placeholder reducer tests', () => {
+describe('Placeholder reducer tests', () => {
   it('returns the correct default state', () => {
-    const expectedState = {};
+    const expectedState = {Data: 'String'};
 
     expect(Placeholder(undefined, {})).toEqual(expectedState);
   });

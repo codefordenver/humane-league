@@ -27,7 +27,7 @@ class TwitterCard extends Component {
 
     const buttonText = expanded ? 'GO' : 'TWEET';
     const buttonOnClick = expanded ? logAction('twitter_actions', this.props.user, this.props.action) : this.setActionBody;
-    const targetLink = expanded ? target : null;
+    const targetLink = expanded ? `https://twitter.com/intent/tweet?text=${target} ${this.state.actionBody}` : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const textArea = expanded ? <textarea onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
 
@@ -43,10 +43,10 @@ class TwitterCard extends Component {
           {textArea}
 
           <div className="button-holder">
-            {cancelButton}
             <a href={targetLink} target="_blank">
               <button onClick={ buttonOnClick }>{buttonText}</button>
             </a>
+            {cancelButton}
           </div>
         </div>
       </div>

@@ -44,10 +44,10 @@ class FacebookCard extends Component {
           {textArea}
 
           <div className="button-holder">
-            {cancelButton}
             <a target="_blank" href={targetLink}>
               <button onClick={buttonOnClick}>{buttonText}</button>
             </a> 
+            {cancelButton}
           </div>
         </div>
       </div>

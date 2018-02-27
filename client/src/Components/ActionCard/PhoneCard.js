@@ -46,8 +46,8 @@ class PhoneCard extends Component {
 
           {userFeedback}
           <div className="button-holder">
-            {cancelButton}
             <button onClick={ buttonOnClick }>{ buttonText }</button>
+            {cancelButton}
           </div>
         </div> 
       </div>

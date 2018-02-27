@@ -43,23 +43,18 @@ class EmailCard extends Component {
 
     return (
       <div className="ActionCard email-card">
-        <div className="action-logo-holder">
-          <img className="action-logo" src={emailLogo} alt="Email Symbol"/>
-        </div>
-        <div className="action-card-main">
-          <h3>{title}</h3>
-          <p>{description}</p>
-          
-          {emailContent}
-          {textArea}
-          {showContentButton}
+        <h3>{title}</h3>
+        <p>{description}</p>
+        
+        {emailContent}
+        {textArea}
+        {showContentButton}
 
-          <div className="button-holder">
-            {cancelButton}
-            <a href={targetLink}>
-              <button onClick={ buttonOnClick }>{buttonText}</button>
-            </a> 
-          </div>
+        <div className="button-holder">
+          <a href={targetLink}>
+            <button onClick={ buttonOnClick }>{buttonText}</button>
+          </a> 
+          {cancelButton}
         </div>
       </div>
     );

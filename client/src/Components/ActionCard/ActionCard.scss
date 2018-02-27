@@ -9,3 +9,67 @@
 h3, p {
   color: white;
 }
+
+.ActionCard {
+  background-color: #14212F;
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 20px;
+  width: 600px;
+
+  h3 {
+    align-self: center;
+    font-size: 32px;
+    font-weight: normal;
+    margin-bottom: 40px;
+  }
+
+  .button-holder {
+    align-self: center;
+
+    button {
+      background-color: white;
+      border: none;
+      border-radius: 2px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 26px;
+      padding: 20px 10px;
+
+      i {
+        color: inherit;
+        padding-left: 10px;
+
+        &:before {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+.twitter-card {
+  button {
+    color: #00aced;
+  }
+}
+
+.facebook-card {
+  button {
+    color: #284E92;
+  }
+}
+
+.email-card {
+  button {
+    color: #db3236;
+  }
+}
+
+.phone-card {
+  button {
+    color: #3cba54;
+  }
+}

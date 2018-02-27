@@ -41,7 +41,7 @@ class FacebookCard extends Component {
 
         <div className="button-holder">
           <a target="_blank" href={targetLink}>
-            <button onClick={buttonOnClick}><i className="icon-facebook"></i>{buttonText}</button>
+            <button onClick={buttonOnClick}>{buttonText}<i className="icon-facebook"></i></button>
           </a> 
           {cancelButton}
         </div>

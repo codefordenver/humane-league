@@ -5,33 +5,33 @@ import { NavLink } from 'react-router-dom'
 const Dashboard = () => {
   return (
     <section className='main-dashboard'>
-      <div className='dashboard-section'>
-        <h2>MANAGE ACTIONS</h2>
+      <h1 className='admin-greeting'>Admin Dashboard</h1>
+      
+      <div className="dashboard-container">
+        <div className='dashboard-section'>
+          <h2>MANAGE ACTIONS</h2>
 
-        <NavLink 
-          to='/admin/create' 
-          className='admin-btn create-new-action'>
-          CREATE NEW ACTION</NavLink>
-        <NavLink 
-          to='/admin/update'
-          className='admin-btn enable-disable'>
-          ENABLE/DISABLE</NavLink>
-        <NavLink 
-          to='/admin/addcontent'
-          className='admin-btn add-content'>
-          EDIT ACTIONS</NavLink>
-      </div>
-      <div className='dashboard-section'>
-        <h2>ANALYTICS</h2>
+          <NavLink 
+            to='/admin/create' 
+            className='admin-btn create-new-action'>
+            Create New Action</NavLink>
+          <NavLink 
+            to='/admin/update'
+            className='admin-btn enable-disable'>
+            Enable/Disable</NavLink>
+        </div>
+        <div className='dashboard-section'>
+          <h2>ANALYTICS</h2>
 
-        <NavLink 
-          to='/admin/log'
-          className='admin-btn action-log'>
-          ACTION LOG</NavLink>
-        <NavLink 
-          to='/admin/feedback'
-          className='admin-btn user-feedback'>
-          USER FEEDBACK</NavLink>
+          <NavLink 
+            to='/admin/log'
+            className='admin-btn action-log'>
+            Action Log</NavLink>
+          <NavLink 
+            to='/admin/feedback'
+            className='admin-btn user-feedback'>
+            User Feedback</NavLink>
+        </div>
       </div>
     </section>
   )

@@ -15,7 +15,7 @@ import {
 import { get } from 'https';
 
 
-class ActionContainer extends Component {
+export class ActionContainer extends Component {
   constructor() {
     super();
     this.state = {

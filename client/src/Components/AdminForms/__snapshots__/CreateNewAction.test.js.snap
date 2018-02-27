@@ -1,0 +1,1221 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CreateNewAction component tests matches SnapShot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <CreateNewAction />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          CREATE A NEW 
+          <span>
+                    FACEBOOK
+          </span>
+           ACTION
+</h1>,
+        <section
+          className="select-action-container"
+>
+          <label
+                    htmlFor="action-types"
+          >
+                    Select Action Type:
+                    <select
+                              id="action-types"
+                              name="action-types"
+                              onChange={[Function]}
+                    >
+                              <option
+                                        value="facebook"
+                              >
+                                        Facebook
+                              </option>
+                              <option
+                                        value="twitter"
+                              >
+                                        Twitter
+                              </option>
+                              <option
+                                        value="email"
+                              >
+                                        Email
+                              </option>
+                              <option
+                                        value="phone"
+                              >
+                                        Phone
+                              </option>
+                    </select>
+          </label>
+          <section
+                    className="create-action-form"
+          >
+                    <form
+                              action="create-new-action-form"
+                    >
+                              <input
+                                        placeholder="Action Title"
+                                        type="text"
+                              />
+                              <input
+                                        placeholder="Action Description"
+                                        type="text"
+                              />
+                              <input
+                                        placeholder="Target Url"
+                                        type="text"
+                              />
+                              <textarea
+                                        placeholder="Action Body"
+                              />
+                              <button
+                                        className="add-text-area"
+                                        onClick={[Function]}
+                              >
+                                        + Add another body
+                              </button>
+                              <span
+                                        id="toggle"
+                              >
+                                        <input
+                                                  checked={true}
+                                                  onChange={[Function]}
+                                                  type="checkbox"
+                                        />
+                                        <label
+                                                  data-off="disabled"
+                                                  data-on="enabled"
+                                        />
+                              </span>
+                              <button
+                                        onClick={[Function]}
+                              >
+                                        CREATE THIS ACTION
+                              </button>
+                    </form>
+          </section>
+</section>,
+      ],
+      "className": "create-new-action-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "CREATE A NEW ",
+            <span>
+              FACEBOOK
+</span>,
+            " ACTION",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "CREATE A NEW ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "FACEBOOK",
+            },
+            "ref": null,
+            "rendered": "FACEBOOK",
+            "type": "span",
+          },
+          " ACTION",
+        ],
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <label
+              htmlFor="action-types"
+>
+              Select Action Type:
+              <select
+                            id="action-types"
+                            name="action-types"
+                            onChange={[Function]}
+              >
+                            <option
+                                          value="facebook"
+                            >
+                                          Facebook
+                            </option>
+                            <option
+                                          value="twitter"
+                            >
+                                          Twitter
+                            </option>
+                            <option
+                                          value="email"
+                            >
+                                          Email
+                            </option>
+                            <option
+                                          value="phone"
+                            >
+                                          Phone
+                            </option>
+              </select>
+</label>,
+            <section
+              className="create-action-form"
+>
+              <form
+                            action="create-new-action-form"
+              >
+                            <input
+                                          placeholder="Action Title"
+                                          type="text"
+                            />
+                            <input
+                                          placeholder="Action Description"
+                                          type="text"
+                            />
+                            <input
+                                          placeholder="Target Url"
+                                          type="text"
+                            />
+                            <textarea
+                                          placeholder="Action Body"
+                            />
+                            <button
+                                          className="add-text-area"
+                                          onClick={[Function]}
+                            >
+                                          + Add another body
+                            </button>
+                            <span
+                                          id="toggle"
+                            >
+                                          <input
+                                                        checked={true}
+                                                        onChange={[Function]}
+                                                        type="checkbox"
+                                          />
+                                          <label
+                                                        data-off="disabled"
+                                                        data-on="enabled"
+                                          />
+                            </span>
+                            <button
+                                          onClick={[Function]}
+                            >
+                                          CREATE THIS ACTION
+                            </button>
+              </form>
+</section>,
+          ],
+          "className": "select-action-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Select Action Type:",
+                <select
+                  id="action-types"
+                  name="action-types"
+                  onChange={[Function]}
+>
+                  <option
+                                    value="facebook"
+                  >
+                                    Facebook
+                  </option>
+                  <option
+                                    value="twitter"
+                  >
+                                    Twitter
+                  </option>
+                  <option
+                                    value="email"
+                  >
+                                    Email
+                  </option>
+                  <option
+                                    value="phone"
+                  >
+                                    Phone
+                  </option>
+</select>,
+                false,
+                false,
+              ],
+              "htmlFor": "action-types",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Select Action Type:",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <option
+                      value="facebook"
+>
+                      Facebook
+</option>,
+                    <option
+                      value="twitter"
+>
+                      Twitter
+</option>,
+                    <option
+                      value="email"
+>
+                      Email
+</option>,
+                    <option
+                      value="phone"
+>
+                      Phone
+</option>,
+                  ],
+                  "id": "action-types",
+                  "name": "action-types",
+                  "onChange": [Function],
+                },
+                "ref": [Function],
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Facebook",
+                      "value": "facebook",
+                    },
+                    "ref": null,
+                    "rendered": "Facebook",
+                    "type": "option",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Twitter",
+                      "value": "twitter",
+                    },
+                    "ref": null,
+                    "rendered": "Twitter",
+                    "type": "option",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Email",
+                      "value": "email",
+                    },
+                    "ref": null,
+                    "rendered": "Email",
+                    "type": "option",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Phone",
+                      "value": "phone",
+                    },
+                    "ref": null,
+                    "rendered": "Phone",
+                    "type": "option",
+                  },
+                ],
+                "type": "select",
+              },
+              false,
+              false,
+            ],
+            "type": "label",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <form
+                action="create-new-action-form"
+>
+                <input
+                                placeholder="Action Title"
+                                type="text"
+                />
+                <input
+                                placeholder="Action Description"
+                                type="text"
+                />
+                <input
+                                placeholder="Target Url"
+                                type="text"
+                />
+                <textarea
+                                placeholder="Action Body"
+                />
+                <button
+                                className="add-text-area"
+                                onClick={[Function]}
+                >
+                                + Add another body
+                </button>
+                <span
+                                id="toggle"
+                >
+                                <input
+                                                checked={true}
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                />
+                                <label
+                                                data-off="disabled"
+                                                data-on="enabled"
+                                />
+                </span>
+                <button
+                                onClick={[Function]}
+                >
+                                CREATE THIS ACTION
+                </button>
+</form>,
+              "className": "create-action-form",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "action": "create-new-action-form",
+                "children": Array [
+                  <input
+                    placeholder="Action Title"
+                    type="text"
+/>,
+                  <input
+                    placeholder="Action Description"
+                    type="text"
+/>,
+                  <input
+                    placeholder="Target Url"
+                    type="text"
+/>,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  Array [
+                    <textarea
+                      placeholder="Action Body"
+/>,
+                  ],
+                  <button
+                    className="add-text-area"
+                    onClick={[Function]}
+>
+                    + Add another body
+</button>,
+                  <span
+                    id="toggle"
+>
+                    <input
+                                        checked={true}
+                                        onChange={[Function]}
+                                        type="checkbox"
+                    />
+                    <label
+                                        data-off="disabled"
+                                        data-on="enabled"
+                    />
+</span>,
+                  <button
+                    onClick={[Function]}
+>
+                    CREATE THIS ACTION
+</button>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "placeholder": "Action Title",
+                    "type": "text",
+                  },
+                  "ref": [Function],
+                  "rendered": null,
+                  "type": "input",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "placeholder": "Action Description",
+                    "type": "text",
+                  },
+                  "ref": [Function],
+                  "rendered": null,
+                  "type": "input",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "placeholder": "Target Url",
+                    "type": "text",
+                  },
+                  "ref": [Function],
+                  "rendered": null,
+                  "type": "input",
+                },
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                undefined,
+                Object {
+                  "instance": null,
+                  "key": "textarea-0",
+                  "nodeType": "host",
+                  "props": Object {
+                    "placeholder": "Action Body",
+                  },
+                  "ref": [Function],
+                  "rendered": null,
+                  "type": "textarea",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "+ Add another body",
+                    "className": "add-text-area",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "+ Add another body",
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <input
+                        checked={true}
+                        onChange={[Function]}
+                        type="checkbox"
+/>,
+                      <label
+                        data-off="disabled"
+                        data-on="enabled"
+/>,
+                    ],
+                    "id": "toggle",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "checked": true,
+                        "onChange": [Function],
+                        "type": "checkbox",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "data-off": "disabled",
+                        "data-on": "enabled",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "label",
+                    },
+                  ],
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "CREATE THIS ACTION",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "CREATE THIS ACTION",
+                  "type": "button",
+                },
+              ],
+              "type": "form",
+            },
+            "type": "section",
+          },
+        ],
+        "type": "section",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            CREATE A NEW 
+            <span>
+                        FACEBOOK
+            </span>
+             ACTION
+</h1>,
+          <section
+            className="select-action-container"
+>
+            <label
+                        htmlFor="action-types"
+            >
+                        Select Action Type:
+                        <select
+                                    id="action-types"
+                                    name="action-types"
+                                    onChange={[Function]}
+                        >
+                                    <option
+                                                value="facebook"
+                                    >
+                                                Facebook
+                                    </option>
+                                    <option
+                                                value="twitter"
+                                    >
+                                                Twitter
+                                    </option>
+                                    <option
+                                                value="email"
+                                    >
+                                                Email
+                                    </option>
+                                    <option
+                                                value="phone"
+                                    >
+                                                Phone
+                                    </option>
+                        </select>
+            </label>
+            <section
+                        className="create-action-form"
+            >
+                        <form
+                                    action="create-new-action-form"
+                        >
+                                    <input
+                                                placeholder="Action Title"
+                                                type="text"
+                                    />
+                                    <input
+                                                placeholder="Action Description"
+                                                type="text"
+                                    />
+                                    <input
+                                                placeholder="Target Url"
+                                                type="text"
+                                    />
+                                    <textarea
+                                                placeholder="Action Body"
+                                    />
+                                    <button
+                                                className="add-text-area"
+                                                onClick={[Function]}
+                                    >
+                                                + Add another body
+                                    </button>
+                                    <span
+                                                id="toggle"
+                                    >
+                                                <input
+                                                            checked={true}
+                                                            onChange={[Function]}
+                                                            type="checkbox"
+                                                />
+                                                <label
+                                                            data-off="disabled"
+                                                            data-on="enabled"
+                                                />
+                                    </span>
+                                    <button
+                                                onClick={[Function]}
+                                    >
+                                                CREATE THIS ACTION
+                                    </button>
+                        </form>
+            </section>
+</section>,
+        ],
+        "className": "create-new-action-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "CREATE A NEW ",
+              <span>
+                FACEBOOK
+</span>,
+              " ACTION",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "CREATE A NEW ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "FACEBOOK",
+              },
+              "ref": null,
+              "rendered": "FACEBOOK",
+              "type": "span",
+            },
+            " ACTION",
+          ],
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <label
+                htmlFor="action-types"
+>
+                Select Action Type:
+                <select
+                                id="action-types"
+                                name="action-types"
+                                onChange={[Function]}
+                >
+                                <option
+                                                value="facebook"
+                                >
+                                                Facebook
+                                </option>
+                                <option
+                                                value="twitter"
+                                >
+                                                Twitter
+                                </option>
+                                <option
+                                                value="email"
+                                >
+                                                Email
+                                </option>
+                                <option
+                                                value="phone"
+                                >
+                                                Phone
+                                </option>
+                </select>
+</label>,
+              <section
+                className="create-action-form"
+>
+                <form
+                                action="create-new-action-form"
+                >
+                                <input
+                                                placeholder="Action Title"
+                                                type="text"
+                                />
+                                <input
+                                                placeholder="Action Description"
+                                                type="text"
+                                />
+                                <input
+                                                placeholder="Target Url"
+                                                type="text"
+                                />
+                                <textarea
+                                                placeholder="Action Body"
+                                />
+                                <button
+                                                className="add-text-area"
+                                                onClick={[Function]}
+                                >
+                                                + Add another body
+                                </button>
+                                <span
+                                                id="toggle"
+                                >
+                                                <input
+                                                                checked={true}
+                                                                onChange={[Function]}
+                                                                type="checkbox"
+                                                />
+                                                <label
+                                                                data-off="disabled"
+                                                                data-on="enabled"
+                                                />
+                                </span>
+                                <button
+                                                onClick={[Function]}
+                                >
+                                                CREATE THIS ACTION
+                                </button>
+                </form>
+</section>,
+            ],
+            "className": "select-action-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Select Action Type:",
+                  <select
+                    id="action-types"
+                    name="action-types"
+                    onChange={[Function]}
+>
+                    <option
+                                        value="facebook"
+                    >
+                                        Facebook
+                    </option>
+                    <option
+                                        value="twitter"
+                    >
+                                        Twitter
+                    </option>
+                    <option
+                                        value="email"
+                    >
+                                        Email
+                    </option>
+                    <option
+                                        value="phone"
+                    >
+                                        Phone
+                    </option>
+</select>,
+                  false,
+                  false,
+                ],
+                "htmlFor": "action-types",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Select Action Type:",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <option
+                        value="facebook"
+>
+                        Facebook
+</option>,
+                      <option
+                        value="twitter"
+>
+                        Twitter
+</option>,
+                      <option
+                        value="email"
+>
+                        Email
+</option>,
+                      <option
+                        value="phone"
+>
+                        Phone
+</option>,
+                    ],
+                    "id": "action-types",
+                    "name": "action-types",
+                    "onChange": [Function],
+                  },
+                  "ref": [Function],
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Facebook",
+                        "value": "facebook",
+                      },
+                      "ref": null,
+                      "rendered": "Facebook",
+                      "type": "option",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Twitter",
+                        "value": "twitter",
+                      },
+                      "ref": null,
+                      "rendered": "Twitter",
+                      "type": "option",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Email",
+                        "value": "email",
+                      },
+                      "ref": null,
+                      "rendered": "Email",
+                      "type": "option",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Phone",
+                        "value": "phone",
+                      },
+                      "ref": null,
+                      "rendered": "Phone",
+                      "type": "option",
+                    },
+                  ],
+                  "type": "select",
+                },
+                false,
+                false,
+              ],
+              "type": "label",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <form
+                  action="create-new-action-form"
+>
+                  <input
+                                    placeholder="Action Title"
+                                    type="text"
+                  />
+                  <input
+                                    placeholder="Action Description"
+                                    type="text"
+                  />
+                  <input
+                                    placeholder="Target Url"
+                                    type="text"
+                  />
+                  <textarea
+                                    placeholder="Action Body"
+                  />
+                  <button
+                                    className="add-text-area"
+                                    onClick={[Function]}
+                  >
+                                    + Add another body
+                  </button>
+                  <span
+                                    id="toggle"
+                  >
+                                    <input
+                                                      checked={true}
+                                                      onChange={[Function]}
+                                                      type="checkbox"
+                                    />
+                                    <label
+                                                      data-off="disabled"
+                                                      data-on="enabled"
+                                    />
+                  </span>
+                  <button
+                                    onClick={[Function]}
+                  >
+                                    CREATE THIS ACTION
+                  </button>
+</form>,
+                "className": "create-action-form",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "action": "create-new-action-form",
+                  "children": Array [
+                    <input
+                      placeholder="Action Title"
+                      type="text"
+/>,
+                    <input
+                      placeholder="Action Description"
+                      type="text"
+/>,
+                    <input
+                      placeholder="Target Url"
+                      type="text"
+/>,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    undefined,
+                    Array [
+                      <textarea
+                        placeholder="Action Body"
+/>,
+                    ],
+                    <button
+                      className="add-text-area"
+                      onClick={[Function]}
+>
+                      + Add another body
+</button>,
+                    <span
+                      id="toggle"
+>
+                      <input
+                                            checked={true}
+                                            onChange={[Function]}
+                                            type="checkbox"
+                      />
+                      <label
+                                            data-off="disabled"
+                                            data-on="enabled"
+                      />
+</span>,
+                    <button
+                      onClick={[Function]}
+>
+                      CREATE THIS ACTION
+</button>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "placeholder": "Action Title",
+                      "type": "text",
+                    },
+                    "ref": [Function],
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "placeholder": "Action Description",
+                      "type": "text",
+                    },
+                    "ref": [Function],
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "placeholder": "Target Url",
+                      "type": "text",
+                    },
+                    "ref": [Function],
+                    "rendered": null,
+                    "type": "input",
+                  },
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  undefined,
+                  Object {
+                    "instance": null,
+                    "key": "textarea-0",
+                    "nodeType": "host",
+                    "props": Object {
+                      "placeholder": "Action Body",
+                    },
+                    "ref": [Function],
+                    "rendered": null,
+                    "type": "textarea",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "+ Add another body",
+                      "className": "add-text-area",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": "+ Add another body",
+                    "type": "button",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <input
+                          checked={true}
+                          onChange={[Function]}
+                          type="checkbox"
+/>,
+                        <label
+                          data-off="disabled"
+                          data-on="enabled"
+/>,
+                      ],
+                      "id": "toggle",
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "checked": true,
+                          "onChange": [Function],
+                          "type": "checkbox",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "data-off": "disabled",
+                          "data-on": "enabled",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "label",
+                      },
+                    ],
+                    "type": "span",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "CREATE THIS ACTION",
+                      "onClick": [Function],
+                    },
+                    "ref": null,
+                    "rendered": "CREATE THIS ACTION",
+                    "type": "button",
+                  },
+                ],
+                "type": "form",
+              },
+              "type": "section",
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

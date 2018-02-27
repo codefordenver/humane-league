@@ -3,19 +3,33 @@
   display: flex;
   flex-direction: column;
 
-  .user-achievements,
+  h1 {
+    color: white;
+    font-weight: normal;
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
+  .action-count-description {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
   .user-preferences,
   .user-profile-edit {
     align-items: center;
-    background-color: #FFF;
+    background-color: white;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     margin: 20px 0;
-    padding: 25px;
-    width: 75%;
+    padding: 25px 50px;
 
     h2 {
-      margin: 20px;
+      font-size: 32px;
+      font-weight: normal;
+      margin-bottom: 20px;
     }
 
     .user-preferences-form,
@@ -44,10 +58,11 @@
     }
 
     .user-profile-form {
-      width: 300px;
+      width: 400px;
 
       .text-input {
         padding: 5px;
+        width: 325px;
       }
     }
   }

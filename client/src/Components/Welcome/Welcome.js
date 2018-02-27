@@ -7,7 +7,7 @@ import * as actions from '../../Actions/';
 import { signInUser } from '../../utils/apiCalls';
 import { Link } from 'react-router-dom';
 
-class Welcome extends Component {
+export class Welcome extends Component {
   constructor() {
     super();
     this.state = {
@@ -36,7 +36,12 @@ class Welcome extends Component {
 
       this.props.validateUser(dbUser);
       localStorage.setItem('THL-FAN-USER', JSON.stringify(dbUser));
-      this.props.history.push('/home');
+
+      if (dbUser.user.admin) {
+        this.props.history.push('/admin');
+      } else {
+        this.props.history.push('/home');
+      }
 
     }).catch(error => {
       // Handle Errors here.

@@ -10,6 +10,7 @@ a {
 .ActionCard {
   align-items: center;
   background-color: white;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -40,7 +41,7 @@ a {
       justify-content: space-between;
       font-size: 26px;
       margin: 0 5px;
-      padding: 20px 10px; }
+      padding: 20px; }
       .ActionCard .button-holder button:hover {
         cursor: pointer; }
       .ActionCard .button-holder button i {
@@ -49,39 +50,36 @@ a {
         .ActionCard .button-holder button i:before {
           margin: 0; }
 
-.twitter-card {
-  border: 10px solid #00aced; }
-  .twitter-card .button-holder button {
-    background-color: #00aced; }
+.twitter-card .button-holder button {
+  background-color: #00aced; }
 
-.facebook-card {
-  border: 10px solid #284E92; }
-  .facebook-card .button-holder button {
-    background-color: #284E92; }
+.facebook-card .button-holder button {
+  background-color: #284E92; }
 
-.email-card {
-  border: 10px solid #db3236; }
-  .email-card .button-holder button,
-  .email-card button {
-    background-color: #db3236;
-    border: none;
-    border-radius: 2px;
-    color: white; }
-  .email-card .email-template {
-    align-self: flex-start;
-    font-size: 18px;
-    margin-bottom: 10px; }
-  .email-card .body-text {
-    width: 100%; }
-  .email-card button {
-    margin-bottom: 10px;
-    padding: 10px 5px; }
+.email-card .button-holder button,
+.email-card button {
+  background-color: #db3236;
+  border: none;
+  border-radius: 2px;
+  color: white; }
 
-.phone-card {
-  border: 10px solid #3cba54; }
-  .phone-card .button-holder button {
-    background-color: #3cba54; }
-  .phone-card .phone-number {
-    font-size: 22px; }
-  .phone-card .feedback-textarea {
-    margin-top: 10px; }
+.email-card .email-template {
+  align-self: flex-start;
+  font-size: 18px;
+  margin-bottom: 10px; }
+
+.email-card .body-text {
+  width: 100%; }
+
+.email-card button {
+  margin-bottom: 10px;
+  padding: 10px 5px; }
+
+.phone-card .button-holder button {
+  background-color: #3cba54; }
+
+.phone-card .phone-number {
+  font-size: 22px; }
+
+.phone-card .feedback-textarea {
+  margin-top: 10px; }

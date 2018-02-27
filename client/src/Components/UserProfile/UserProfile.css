@@ -2,22 +2,29 @@
   align-items: center;
   display: flex;
   flex-direction: column; }
-  .UserProfile .user-achievements,
+  .UserProfile h1 {
+    color: white;
+    font-weight: normal;
+    font-size: 36px;
+    margin-bottom: 10px; }
+  .UserProfile .action-count-description {
+    color: white;
+    font-size: 22px;
+    margin-bottom: 20px; }
   .UserProfile .user-preferences,
   .UserProfile .user-profile-edit {
     align-items: center;
-    background-color: #FFF;
+    background-color: white;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     margin: 20px 0;
-    padding: 25px;
-    width: 75%; }
-    .UserProfile .user-achievements h2,
+    padding: 25px 50px; }
     .UserProfile .user-preferences h2,
     .UserProfile .user-profile-edit h2 {
-      margin: 20px; }
-    .UserProfile .user-achievements .user-preferences-form,
-    .UserProfile .user-achievements .user-profile-form,
+      font-size: 32px;
+      font-weight: normal;
+      margin-bottom: 20px; }
     .UserProfile .user-preferences .user-preferences-form,
     .UserProfile .user-preferences .user-profile-form,
     .UserProfile .user-profile-edit .user-preferences-form,
@@ -26,8 +33,6 @@
       flex-direction: column;
       font-size: 20px;
       width: 200px; }
-      .UserProfile .user-achievements .user-preferences-form label,
-      .UserProfile .user-achievements .user-profile-form label,
       .UserProfile .user-preferences .user-preferences-form label,
       .UserProfile .user-preferences .user-profile-form label,
       .UserProfile .user-profile-edit .user-preferences-form label,
@@ -36,8 +41,6 @@
         display: flex;
         justify-content: space-between;
         margin: 5px 0; }
-      .UserProfile .user-achievements .user-preferences-form button,
-      .UserProfile .user-achievements .user-profile-form button,
       .UserProfile .user-preferences .user-preferences-form button,
       .UserProfile .user-preferences .user-profile-form button,
       .UserProfile .user-profile-edit .user-preferences-form button,
@@ -49,11 +52,10 @@
         cursor: pointer;
         margin: 20px 0;
         padding: 10px; }
-    .UserProfile .user-achievements .user-profile-form,
     .UserProfile .user-preferences .user-profile-form,
     .UserProfile .user-profile-edit .user-profile-form {
-      width: 300px; }
-      .UserProfile .user-achievements .user-profile-form .text-input,
+      width: 400px; }
       .UserProfile .user-preferences .user-profile-form .text-input,
       .UserProfile .user-profile-edit .user-profile-form .text-input {
-        padding: 5px; }
+        padding: 5px;
+        width: 325px; }

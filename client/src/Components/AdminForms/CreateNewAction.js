@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './AdminForms.css';
 import { postAction, postActionContent } from '../../utils/apiCalls';
 
-class CreateNewAction extends Component {
+export class CreateNewAction extends Component {
   constructor() {
     super();
     this.state = {
@@ -48,7 +48,7 @@ class CreateNewAction extends Component {
   }
 
   actionPost = async (action, type) => {
-    console.log(action)
+    // console.log(action)
     const token = this.props.user.id_token;
 
     const actionID = await postAction(action, type, token);
@@ -56,7 +56,7 @@ class CreateNewAction extends Component {
     if (actionID.id) {
       for (let i = 0; i < this.state.actionBodies; i++) {
         let content = this[`actionContent${i}`].value;
-        console.log(content)
+        // console.log(content)
 
         const contentID = await postActionContent(type, token, actionID, content);
         
@@ -149,8 +149,6 @@ class CreateNewAction extends Component {
   }
 
   render() {
-    console.log(this);
-
     const socialMediaTarget = {
       targetUrl: <input type='text' ref={(elem) => {this.targetUrl = elem}} placeholder='Target Url' />
     }  

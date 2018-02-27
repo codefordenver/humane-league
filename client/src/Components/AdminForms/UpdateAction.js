@@ -10,7 +10,7 @@ import {
 
 // import './UpdateAction.css';
 
-class UpdateAction extends Component {
+export class UpdateAction extends Component {
   constructor() {
     super();
     this.state = {

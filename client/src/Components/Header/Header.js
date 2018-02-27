@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../Actions/';
 import firebase from '../../firebase';
 
-export const Header = ({ User, logout, validateUser }) => {
+export const Header = ({ User, logout, validateUser, history, location }) => {
   let currentUser = JSON.parse(localStorage.getItem('THL-FAN-USER'));
   
   if (Object.keys(User).length === 0 && currentUser) {

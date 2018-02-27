@@ -27,10 +27,10 @@ class PhoneCard extends Component {
 
     const buttonText = expanded ? 'COMPLETED!' : 'CALL';
     const buttonOnClick = expanded ? () => logAction('phone_actions', this.props.user, this.props.action) : this.setActionBody;
-    const phoneNumber = expanded ? <p>{`Call ${phone_number}, and then click completed!`}</p> : null;
-    const userFeedback = expanded ? <label>We would love to hear how this call went for you:<textarea className="feedback-textarea" placeholder="How did this call go for you?"></textarea></label> : null;
+    const phoneNumber = expanded ? <p className="phone-number">{`Call ${phone_number}, and then click completed!`}</p> : null;
+    const textArea = expanded ? <textarea className="body-text feedback-textarea" placeholder="How did this call go for you? Please leave your feedback here!"></textarea> : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
-    const textArea = expanded ? <label>Here is an optional script for your call: <textarea onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea></label> : null;
+    const script = expanded ? <textarea className="script body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
 
     return (
       <div className="ActionCard phone-card">
@@ -38,9 +38,9 @@ class PhoneCard extends Component {
         <p className="action-description">{description}</p>
 
         {phoneNumber}
-        {textArea}
+        {script}
 
-        {userFeedback}
+        {textArea}
         <div className="button-holder">
           <button onClick={ buttonOnClick }>{buttonText}<i className="icon-phone"></i></button>
           {cancelButton}

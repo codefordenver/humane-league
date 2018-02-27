@@ -30,7 +30,7 @@ class FacebookCard extends Component {
     const buttonOnClick = expanded ? logAction('facebook_actions', this.props.user, this.props.action) : this.setActionBody;
     const targetLink = expanded ? target : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
-    const textArea = expanded ? <textarea onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
+    const textArea = expanded ? <textarea className="body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
     
     return (
       <div className="ActionCard facebook-card">

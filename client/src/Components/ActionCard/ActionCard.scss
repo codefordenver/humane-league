@@ -5,9 +5,12 @@
 /*#3B5998*/
 /*#3cba54*/
 /*#db3236*/
-
+a {
+  text-decoration: none;
+}
 
 .ActionCard {
+  align-items: center;
   background-color: white;
   border-radius: 2px;
   display: flex;
@@ -17,7 +20,6 @@
   width: 600px;
 
   h3 {
-    align-self: center;
     font-size: 32px;
     font-weight: normal;
   }
@@ -28,17 +30,26 @@
     text-align: center;
   }
 
+  .body-text {
+    font-size: 18px;
+    height: 150px;
+    padding: 10px;
+    width: 80%;
+  }
+
   .button-holder {
     align-self: center;
-
+    display: flex;
+    margin-top: 20px;
+  
     button {
-      background-color: white;
       border: none;
       border-radius: 2px;
       color: white;
       display: flex;
       justify-content: space-between;
       font-size: 26px;
+      margin: 0 5px;
       padding: 20px 10px;
 
       &:hover {
@@ -73,8 +84,28 @@
 
 .email-card {
   border: 10px solid #db3236;
-  .button-holder button {
+
+  .button-holder button,
+  button {
     background-color: #db3236;
+    border: none;
+    border-radius: 2px;
+    color: white;
+  }
+
+  .email-template {
+    align-self: flex-start;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .body-text {
+    width: 100%;
+  }
+
+  button {
+    margin-bottom: 10px;
+    padding: 10px 5px;
   }
 }
 
@@ -82,5 +113,13 @@
   border: 10px solid #3cba54;
   .button-holder button {
     background-color: #3cba54;
+  }
+
+  .phone-number {
+    font-size: 22px;
+  }
+
+  .feedback-textarea {
+    margin-top: 10px;
   }
 }

@@ -12,9 +12,10 @@ const Header = ({ User, logout, validateUser }) => {
   }
   
   const userInfo = User.name ? <p className="welcome">Welcome, {User.name}</p> : null;
-  const actions = (User.name && !User.admin) ? <Link to="/home"><p className="nav-btn">Actions</p></Link> : <NavLink className='nav-btn' to='/home'><p>UserView</p></NavLink>;
-  const profile = User.name ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : null;
-  const adminDash = (User.name && User.admin) ? <NavLink className='nav-btn' to='/admin'><p>Admin Dashboard</p></NavLink> : null;
+  const actions = (User.name && !User.admin) ? <Link to="/home"><p className="nav-btn">Actions</p></Link> : null;
+  const profile = (User.name && !User.admin) ? <Link to="/profile"><p className="settings-btn nav-btn">Profile</p></Link> : null;
+  const adminDash = (User.name && User.admin) ? <NavLink className='nav-btn' to='/admin'><p>Dashboard</p></NavLink> : null;
+  const adminActions = (User.name && User.admin) ? <NavLink className="nav-btn" to="/admin/actions"><p>View Actions</p></NavLink> : null;
   const logoutButton = User.name 
     ? <Link to="/"><p 
       onClick={() => { 
@@ -41,6 +42,7 @@ const Header = ({ User, logout, validateUser }) => {
         {actions}
         {profile}
         {adminDash}
+        {adminActions}
         {logoutButton}
       </nav>
     </header>

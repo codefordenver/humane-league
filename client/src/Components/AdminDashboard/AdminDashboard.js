@@ -6,6 +6,7 @@ import UpdateAction from '../AdminForms/UpdateAction';
 import AddContent from '../AdminForms/AddContent';
 import ActionLog from '../AdminForms/ActionLog';
 import UserFeedback from '../AdminForms/UserFeedback';
+import AdminActions from '../AdminActions/AdminActions';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -19,6 +20,7 @@ const AdminDashboard = () => {
         <Route path='/admin/addcontent' component={AddContent} />
         <Route path='/admin/log' component={ActionLog} />
         <Route path='/admin/feedback' component={UserFeedback} />
+        <Route path='/admin/actions' component={AdminActions} />
       </Switch>
     </div>
   )

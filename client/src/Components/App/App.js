@@ -10,8 +10,6 @@ import CustomLogin from '../CustomLogin/CustomLogin';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
 import ResetPassword from '../ResetPassword/ResetPassword';
 
-
-
 class App extends Component {
   constructor() {
     super();

@@ -4,22 +4,20 @@ import { connect } from 'react-redux';
 import * as actions from '../../Actions';
 
 class UserProfile extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
-      name: '',
-      email: '',
-      actionCount: null,
-      twitter_actions: null,
-      facebook_actions: null,
-      email_actions: null,
-      phone_actions: null
+      name: props.user.name,
+      email: props.user.email,
+      actionCount: true,
+      twitter_actions: true,
+      facebook_actions: true,
+      email_actions: true,
+      phone_actions: true
     };
   }
 
   async componentDidMount () {
-    this.setState({ name: this.props.user.name, email: this.props.user.email });
-
     const actionLogFetch = await fetch('/api/v1/actions');
     const actionLog = await actionLogFetch.json();
 

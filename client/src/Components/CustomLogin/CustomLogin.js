@@ -44,7 +44,7 @@ class CustomLogin extends Component {
       }
 
       if (event.target.name === 'confirmPass' || event.target.name === 'password') {
-        if (this.password.value === this.confirmPass.value) {
+        if (this.password.value === this.confirmPass.value && event.target.value.length)  {
           this.setState({ passMatchStatus: '✅' });
         } else {
           this.setState({ passMatchStatus: '❌' });
@@ -152,6 +152,7 @@ class CustomLogin extends Component {
           onChange={this.handleChange} 
           type="password" 
           placeholder="Password"/>
+        <Link to="/forgotpassword">Forgot Password</Link>
         <span>{this.state.error}</span>
         <button disabled={this.state.disableSubmit} ref={(button) => { this.submit = button; }} onClick={this.signinHandler}>Sign In</button>
         <button onClick={() => {this.setState({signin: !this.state.signin})}}>Sign Up Instead</button>

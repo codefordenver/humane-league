@@ -1,4 +1,4 @@
-const logAction = async (actionType, user, action) => {
+const logAction = async (actionType, user, action, feedback) => {
   const actionLogPost = await fetch(`/api/v1/actions?token=${user.id_token}`, {
     method: 'POST',
     headers: {
@@ -9,7 +9,7 @@ const logAction = async (actionType, user, action) => {
       action_id: action.id,
       action_type: actionType,
       action_title: action.title,
-      description: action.description
+      description: feedback
     })
   });
 };

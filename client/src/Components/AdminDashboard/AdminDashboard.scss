@@ -1,28 +1,36 @@
+.dashboard-container {
+  align-self: center;
+  display: flex;    
+}
+
 .AdminDashboard {
   display: flex;
   flex-direction: column;
   align-items: center;
   .admin-greeting {
+    align-self: center;
     color: #fff;
     font-size: 30pt;
     margin-bottom: 40px;
   }
   .main-dashboard {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     width: 75%;
+
     .dashboard-section {
       display: flex;
       flex-direction: column;
       width: 400px;
       margin: 10px;
       h2 {
-        color: #999;
+        color: white;
         font-size: 24pt;
         text-align: center;
       }
       .admin-btn {
-        background: #1CB841;
+        background: #ffffffe3;
         border: none;
         border-radius: 5px;
         box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
@@ -36,8 +44,7 @@
         margin: 10px;
         transition: 0.3s;
         &:hover {
-          color: white;
-          background: #009639;
+          background: #ffffff;
           box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
         }
       }

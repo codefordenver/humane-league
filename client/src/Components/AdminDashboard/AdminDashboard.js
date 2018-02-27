@@ -12,7 +12,6 @@ import './AdminDashboard.css';
 export const AdminDashboard = () => {
   return (
     <div className='AdminDashboard'>
-      <h1 className='admin-greeting'>ADMIN DASHBOARD</h1>
       <Switch>
         <Route exact path='/admin' component={Dashboard} />
         <Route path='/admin/create' component={CreateNewAction} />

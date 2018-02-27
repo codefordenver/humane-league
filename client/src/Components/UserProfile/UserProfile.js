@@ -3,7 +3,7 @@ import './UserProfile.css';
 import { connect } from 'react-redux';
 import * as actions from '../../Actions';
 
-class UserProfile extends Component {
+export class UserProfile extends Component {
   constructor (props) {
     super(props);
     this.state = {

@@ -7,7 +7,7 @@ import './ActionContainer.css';
 import '../ActionCard/ActionCard.css';
 import { connect } from 'react-redux';
 
-class ActionContainer extends Component {
+export class ActionContainer extends Component {
   constructor() {
     super();
     this.state = {

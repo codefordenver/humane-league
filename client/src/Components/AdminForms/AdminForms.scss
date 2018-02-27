@@ -200,4 +200,28 @@
       margin-left: 100px;
     }
   }
+  .actions-container {
+    .actions {
+      list-style: none;
+      font-size: 20pt;
+      .action {
+        cursor: pointer;
+        margin: 5px;
+        background: #fff;
+        border-radius: 10px;
+        p {
+          border-radius: 10px;
+          padding: 5px;
+        }
+        &:hover p{
+          background: #009639;
+          color: #fff;
+        }
+      }
+      .action.active {
+        background: #009639;
+        color: #fff;
+      }
+    }
+  }
 }

@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ActionContainer component tests matches SnapShot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ActionContainer
+    user={
+        Object {
+            "email_actions": false,
+            "facebook_actions": false,
+            "phone_actions": false,
+            "twitter_actions": false,
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          FAN ACTION ALERTS
+</h1>,
+        Array [],
+        Array [],
+        Array [],
+        Array [],
+      ],
+      "className": "ActionContainer",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "FAN ACTION ALERTS",
+        },
+        "ref": null,
+        "rendered": "FAN ACTION ALERTS",
+        "type": "h1",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            FAN ACTION ALERTS
+</h1>,
+          Array [],
+          Array [],
+          Array [],
+          Array [],
+        ],
+        "className": "ActionContainer",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "FAN ACTION ALERTS",
+          },
+          "ref": null,
+          "rendered": "FAN ACTION ALERTS",
+          "type": "h1",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

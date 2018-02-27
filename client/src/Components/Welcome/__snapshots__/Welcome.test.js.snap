@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome component tests matches SnapShot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Welcome
+    User={
+        Object {
+            "name": "Julie Hawkins",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <img
+          alt=""
+          className="fan-logo shifted"
+          src="fan-logo.png"
+/>,
+        <div>
+          <p
+                    className="welcome-description"
+          >
+                    Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!
+          </p>
+          <Link
+                    replace={false}
+                    to="/home"
+          >
+                    Dashboard
+          </Link>
+</div>,
+      ],
+      "className": "Welcome shifted",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "",
+          "className": "fan-logo shifted",
+          "src": "fan-logo.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <p
+              className="welcome-description"
+>
+              Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!
+</p>,
+            <Link
+              replace={false}
+              to="/home"
+>
+              Dashboard
+</Link>,
+            null,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!",
+              "className": "welcome-description",
+            },
+            "ref": null,
+            "rendered": "Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!",
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": "Dashboard",
+              "replace": false,
+              "to": "/home",
+            },
+            "ref": null,
+            "rendered": "Dashboard",
+            "type": [Function],
+          },
+          null,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <img
+            alt=""
+            className="fan-logo shifted"
+            src="fan-logo.png"
+/>,
+          <div>
+            <p
+                        className="welcome-description"
+            >
+                        Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!
+            </p>
+            <Link
+                        replace={false}
+                        to="/home"
+            >
+                        Dashboard
+            </Link>
+</div>,
+        ],
+        "className": "Welcome shifted",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "",
+            "className": "fan-logo shifted",
+            "src": "fan-logo.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p
+                className="welcome-description"
+>
+                Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!
+</p>,
+              <Link
+                replace={false}
+                to="/home"
+>
+                Dashboard
+</Link>,
+              null,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!",
+                "className": "welcome-description",
+              },
+              "ref": null,
+              "rendered": "Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!",
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "children": "Dashboard",
+                "replace": false,
+                "to": "/home",
+              },
+              "ref": null,
+              "rendered": "Dashboard",
+              "type": [Function],
+            },
+            null,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

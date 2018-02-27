@@ -7,7 +7,7 @@ import * as actions from '../../Actions/';
 import { signInUser } from '../../utils/apiCalls';
 import { Link } from 'react-router-dom';
 
-class Welcome extends Component {
+export class Welcome extends Component {
   constructor() {
     super();
     this.state = {

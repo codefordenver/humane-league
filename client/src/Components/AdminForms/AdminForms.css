@@ -158,3 +158,21 @@
     background: #1CB841;
     color: #000;
     margin-left: 100px; }
+
+.UpdateAction .actions-container .actions {
+  list-style: none;
+  font-size: 20pt; }
+  .UpdateAction .actions-container .actions .action {
+    cursor: pointer;
+    margin: 5px;
+    background: #fff;
+    border-radius: 10px; }
+    .UpdateAction .actions-container .actions .action p {
+      border-radius: 10px;
+      padding: 5px; }
+    .UpdateAction .actions-container .actions .action:hover p {
+      background: #009639;
+      color: #fff; }
+  .UpdateAction .actions-container .actions .action.active {
+    background: #009639;
+    color: #fff; }

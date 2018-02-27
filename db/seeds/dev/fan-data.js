@@ -18,7 +18,7 @@ exports.seed = function(knex, Promise) {
         enabled: true, 
         title: 'Tweet at Carl\'s Jr.', 
         description: "Let's keep the pressure on CKE's Chief Marketing Officer, Jeff Jenkins, to be a leader for the animals and address the suffering of chickens in Carl's Jr's supply chain.", 
-        target: 'https://twitter.com/jeffmjenkins'
+        target: '@jeffmjenkins'
       }, 'id')
 
         .then(twitterActionId => {

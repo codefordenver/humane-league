@@ -56,6 +56,8 @@
         display: none; }
       .Welcome .welcome-controls button.hidden {
         position: absolute;
+        background: transparent;
+        color: transparent;
         width: 150px;
         margin-left: 90px;
         overflow: hidden; }

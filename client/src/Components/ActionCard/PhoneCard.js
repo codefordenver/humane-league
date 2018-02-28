@@ -37,8 +37,8 @@ class PhoneCard extends Component {
   }
 
   completeAction = () => {
-    this.props.removeCompleted('email', this.props.action.id);
-    logAction('email_actions', this.props.user, this.props.action);
+    this.props.removeCompleted('phone', this.props.action.id);
+    logAction('phone_actions', this.props.user, this.props.action);
   }
 
   render () {

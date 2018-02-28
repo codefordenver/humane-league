@@ -37,8 +37,8 @@ class FacebookCard extends Component {
   }
 
   completeAction = () => {
-    this.props.removeCompleted('email', this.props.action.id);
-    logAction('email_actions', this.props.user, this.props.action);
+    this.props.removeCompleted('facebook', this.props.action.id);
+    logAction('facebook_actions', this.props.user, this.props.action);
   }
 
   render() {

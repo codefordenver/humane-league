@@ -5,7 +5,7 @@ const UserFeedback = () => {
   
 
   return (
-    <h1>USER FEEDBACK MESSAGES</h1>
+    <h1>User Feedback</h1>
   )
 }
 

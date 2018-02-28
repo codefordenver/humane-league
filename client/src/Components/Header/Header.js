@@ -5,7 +5,8 @@ import { withRouter } from 'react-router';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import thlLogoWhite from '../../THL-Assets/png/THL18-horiz-logo-white.png';
+// import thlLogoWhite from '../../THL-Assets/png/THL18-horiz-logo-white.png';
+import fanLogo from '../../assets/fan-logo.png';
 import * as actions from '../../Actions/';
 import firebase from '../../firebase';
 
@@ -52,15 +53,13 @@ export const Header = ({ User, logout, validateUser, history, location }) => {
 
   return (
     <header>
-      <a 
+      <Link
         className='main-site'
-        target='_blank' 
-        rel='noopener noreferrer' 
-        href='https://thehumaneleague.org/'>
+        to='/'>
         <img 
           className="App__logo" 
-          src={thlLogoWhite} />
-      </a>
+          src={fanLogo} /> Fast Action Network
+      </Link>
       <nav>
         {userInfo}
         {actions}

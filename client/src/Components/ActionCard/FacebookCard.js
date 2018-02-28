@@ -30,8 +30,6 @@ class FacebookCard extends Component {
   actionCount = async () => {
     const actionLogFetch = await fetch('/api/v1/actions');
     const actionLog = await actionLogFetch.json();
-    console.log(actionLog.results);
-    console.log(this.props.action.id);
     const actionCount = actionLog.results.filter(actionLog => (actionLog.action_id === this.props.action.id && actionLog.action_type === 'facebook_actions')).length;
     await this.setState({ actionCount });
   }

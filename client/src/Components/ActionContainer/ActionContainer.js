@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+fiximport React, { Component } from 'react';
 import TwitterCard from '../ActionCard/TwitterCard';
 import FacebookCard from '../ActionCard/FacebookCard';
 import EmailCard from '../ActionCard/EmailCard';
@@ -33,13 +33,13 @@ export class ActionContainer extends Component {
     const completedActions = await getCompletedActions(id, id_token);
     const actions = {
       twitter: this.state.userPreferences.twitter_actions ? 
-      await getTwitterActions() : [],
+        await getTwitterActions() : [],
       facebook: this.state.userPreferences.facebook_actions ?
-      await getFacebookActions() : [],
+        await getFacebookActions() : [],
       email: this.state.userPreferences.email_actions ? 
-      await getEmailActions() : [],
+        await getEmailActions() : [],
       phone: this.state.userPreferences.phone_actions ?
-      await getPhoneActions() : []
+        await getPhoneActions() : []
     };
 
     completedActions.forEach( action => {

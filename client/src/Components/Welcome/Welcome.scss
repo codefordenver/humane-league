@@ -26,15 +26,7 @@
     }
   }
   .fan-logo {
-    // margin: 0 auto;
-    // display: block;
-    // transition: margin 1s ease;
     width: 100%;
-  }
-  .fan-logo.shifted {
-    // margin-right: 0;
-    // transition: margin 1s ease;
-    align-self: flex-end;
   }
   .welcome-controls {
     color: #fff;
@@ -53,9 +45,10 @@
       align-items: center;
       justify-content: center;
       border-radius: 2px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
       border: none;
-      background: #1CB841;
-      color: white;
+      background: #ffffffe3;
+      color: #000;
       cursor: pointer;
       transition: 0.3s;
       font-size: 20px;
@@ -68,19 +61,21 @@
       }
       &.hidden {
         position: absolute;
+        background: transparent;
+        color: transparent;
         width: 150px;
         margin-left: 90px;
         overflow: hidden;
       }
       &:hover {
-        color: white;
-        background-color: rgb(50, 50, 50);
+        background: #ffffff;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
       }
     }
   }
   .create-account-form {
-    display: flex;
     flex-direction: column;
+    align-items: center;
     width: 500px;
     .create-account-user-input,
     .create-account-submit {
@@ -101,13 +96,22 @@
   }
 }
 
-.Welcome.shifted {
-  flex-direction: row;
-}
-
 .welcome-description {
   font-size: 20px;
   line-height: 1.5em;
   margin: 30px;
   padding: 20px;
+  background-color: #ffffffe3;
+  border-radius: 2px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 850px) {
+  .Welcome {
+    grid-template-columns: 90%;
+    grid-template-rows: 50% 50%;
+    .welcome-controls {
+      padding: 0;
+    }
+  }
 }

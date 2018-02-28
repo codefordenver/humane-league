@@ -31,7 +31,6 @@ export class ActionContainer extends Component {
     await this.setState({ userPreferences: { twitter_actions, facebook_actions, email_actions, phone_actions} });
 
     const completedActions = await getCompletedActions(id, id_token);
-
     const actions = {
       twitter: this.state.userPreferences.twitter_actions ? 
       await getTwitterActions() : [],

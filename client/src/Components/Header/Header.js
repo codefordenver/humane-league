@@ -17,7 +17,7 @@ export const Header = ({ User, logout, validateUser, history, location }) => {
     history.push('/');
   }
   
-  const userInfo = User.name ? <p className="welcome">Welcome, {User.name}</p> : null;
+  const userInfo = User.name ? <p className="welcome">Welcome, {User.name.split(' ')[0]}</p> : null;
   const actions = (User.name && !User.admin) ? <NavLink exact to="/home" className="nav-btn"><p>Actions</p></NavLink> : null;
   const profile = (User.name && !User.admin) ? <NavLink exact to="/profile" className="nav-btn"><p>Profile</p></NavLink> : null;
   const adminDash = (User.name && User.admin) ? <NavLink className='nav-btn' exact to='/admin'><p>Dashboard</p></NavLink> : null;

@@ -1,90 +1,134 @@
 export const signInUser = async (token, name, email) => {
-  const validateResponse = await fetch(`/api/v1/authenticate?token=${token}&name=${name}&email=${email}`);
-  const validate = await validateResponse.json();
-
-  return validate;
+  try {
+    const validateResponse = await fetch(`/api/v1/authenticate?token=${token}&name=${name}&email=${email}`);
+    const validate = await validateResponse.json();
+  
+    return validate;
+  } catch (error) {
+    return error;
+  }
 };
 
 export const getTwitterActions = async () => {
-  const twitterFetch = await fetch('/api/v1/twitter_actions');
-  const twitterActions = await twitterFetch.json();
-  return twitterActions.results;
+  try {
+    const twitterFetch = await fetch('/api/v1/twitter_actions');
+    const twitterActions = await twitterFetch.json();
+    return twitterActions.results;
+  } catch (error) {
+    return error;
+  }
 };
 
 export const getFacebookActions = async () => {
-  const facebookFetch = await fetch('/api/v1/facebook_actions');
-  const facebookActions = await facebookFetch.json();
-  return facebookActions.results;
+  try {
+    const facebookFetch = await fetch('/api/v1/facebook_actions');
+    const facebookActions = await facebookFetch.json();
+    return facebookActions.results;
+  } catch (error) {
+    return error;
+  }
 };
 
 export const getEmailActions = async () => {
-  const emailFetch = await fetch('/api/v1/email_actions');
-  const emailActions = await emailFetch.json();
-  return emailActions.results;
+  try {
+    const emailFetch = await fetch('/api/v1/email_actions');
+    const emailActions = await emailFetch.json();
+    return emailActions.results;
+  } catch (error) {
+    return error;
+  }
 };
 
 export const getPhoneActions = async () => {
-  const phoneFetch = await fetch('/api/v1/phone_actions');
-  const phoneActions = await phoneFetch.json();
-  return phoneActions.results;
+  try {
+    const phoneFetch = await fetch('/api/v1/phone_actions');
+    const phoneActions = await phoneFetch.json();
+    return phoneActions.results;
+  } catch (error) {
+    return error;
+  }
 };
 
 export const getCompletedActions = async(id, token) => {
-  const completedFetch = await fetch(`/api/v1/users/actions/${id}?token=${token}`);
-  const completedActions = await completedFetch.json();
-
-  return completedActions.actions;
-}
+  try {
+    const completedFetch = await fetch(`/api/v1/users/actions/${id}?token=${token}`);
+    const completedActions = await completedFetch.json();
+  
+    return completedActions.actions;
+  } catch (error) {
+    return error;
+  }
+};
 
 export const postAction = async (action, type, token) => {
-  const actionPost = await fetch(`/api/v1/${type}_actions?token=${token}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(action)
-  });
-  const actionID = await actionPost.json();
-
-  return actionID;
-}
+  try {
+    const actionPost = await fetch(`/api/v1/${type}_actions?token=${token}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(action)
+    });
+    const actionID = await actionPost.json();
+  
+    return actionID;
+  } catch (error) {
+    return error;
+  }
+};
 
 export const postActionContent = async (type, token, actionID, content) => {
-  const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ action_id: actionID.id, content })
-  });
-  const contentID = await contentPost.json();
-
-  return contentID;
-}
+  try {
+    const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ action_id: actionID.id, content })
+    });
+    const contentID = await contentPost.json();
+  
+    return contentID;
+  } catch (error) {
+    return error;
+  }
+};
 
 export const patchAction = async (type, actionId, token, action) => {
-  return await fetch(`/api/v1/${type}_actions/${actionId}?token=${token}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(action)
-  });
-}
+  try {
+    return await fetch(`/api/v1/${type}_actions/${actionId}?token=${token}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(action)
+    });
+  } catch (error) {
+    return error;
+  }
+};
 
 export const getActionLog = async () => {
-  const actionLogFetch = await fetch('/api/v1/actions');
-  const actionLog = await actionLogFetch.json();
-
-  return actionLog;
-}
+  try {
+    const actionLogFetch = await fetch('/api/v1/actions');
+    const actionLog = await actionLogFetch.json();
+  
+    return actionLog;
+  } catch (error) {
+    return error;
+  }
+};
 
 export const patchPreferences = async (id, id_token, updates) => {
-  return await fetch(`/api/v1/users/${id}?token=${id_token}`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(updates)
-  });
-}
+  try {
+    return await fetch(`/api/v1/users/${id}?token=${id_token}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(updates)
+    });
+  } catch (error) {
+    return error;
+  }
+};

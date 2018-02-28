@@ -77,5 +77,6 @@ export default FacebookCard;
 
 FacebookCard.propTypes = {
   user: PropTypes.object,
-  action: PropTypes.object  
+  action: PropTypes.object,
+  removeCompleted: PropTypes.func  
 };

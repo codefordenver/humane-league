@@ -78,5 +78,6 @@ export default PhoneCard;
 
 PhoneCard.propTypes = {
   user: PropTypes.object,
-  action: PropTypes.object  
+  action: PropTypes.object,
+  removeCompleted: PropTypes.func  
 };

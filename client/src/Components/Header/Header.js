@@ -13,7 +13,7 @@ export const Header = ({ User, logout, validateUser, history, location }) => {
     validateUser(currentUser);
   }
 
-  if (Object.keys(User).length === 0 && !currentUser && location.pathname !== '/') {
+  if (Object.keys(User).length === 0 && !currentUser && location.pathname !== '/' && location.pathname !== '/signin' && location.pathname !== '/forgotpassword') {
     history.push('/');
   }
   

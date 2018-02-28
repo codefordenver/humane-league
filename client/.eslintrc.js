@@ -31,7 +31,7 @@ module.exports = {
     "keyword-spacing": ["error", { "before": true, "after": true }],
     "max-len": ["warn", 100],
     "no-duplicate-imports": "error",
-    "id-blacklist": ["error", "err", "e", "cb", "callback", "payload", "obj", "arr"],
+    "id-blacklist": ["error", "err", "e", "cb", "callback", "obj", "arr"],
     "max-depth": ["warn", 4]
   },
   "globals": {

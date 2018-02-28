@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 // import './Dashboard.css';
 
 const Dashboard = () => {
@@ -34,7 +34,7 @@ const Dashboard = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Dashboard;

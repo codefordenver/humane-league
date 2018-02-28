@@ -12,7 +12,7 @@ export class CreateNewAction extends Component {
       actionBodies: 1,
       error: false,
       success: false
-    }
+    };
   }
 
   createAction = (type) => {
@@ -25,8 +25,7 @@ export class CreateNewAction extends Component {
       const target = this.targetUrl.value;
 
       return Object.assign({ enabled: this.state.actionEnabled }, baseAction, { target });
-    } 
-    else if (type === 'email') {
+    } else if (type === 'email') {
       const email = {
         to: this.emailTo.value,
         cc: this.emailCC.value,
@@ -35,8 +34,7 @@ export class CreateNewAction extends Component {
       };
 
       return Object.assign({ enabled: this.state.actionEnabled }, baseAction, email);
-    } 
-    else if (type === 'phone') {
+    } else if (type === 'phone') {
       const phone = {
         name: this.phoneName.value,
         position: this.phonePosition.value,
@@ -61,13 +59,13 @@ export class CreateNewAction extends Component {
         const contentID = await postActionContent(type, token, actionID, content);
         
 
-        if(contentID.error) {
+        if (contentID.error) {
           this.setState({ error: `Could not create action content: ${contentID.error}`});
           setTimeout(() => {
-          this.setState({ error: false });
-        }, 5000);
-        } else if(contentID.id) {
-          return contentID
+            this.setState({ error: false });
+          }, 5000);
+        } else if (contentID.id) {
+          return contentID;
         }
       }
 
@@ -96,13 +94,13 @@ export class CreateNewAction extends Component {
   renderTextAreas = () => {
     const bodies = [];
     for (let i = 1; i <= this.state.actionBodies; i++) {
-      bodies.push(i)
+      bodies.push(i);
     }
 
     return bodies.map((body, i) => {
       return (
-        <textarea key={`textarea-${i}`} ref={(elem) => {this[`actionContent${i}`] = elem}} placeholder='Action Body'></textarea>
-      )
+        <textarea key={`textarea-${i}`} ref={(elem) => { this[`actionContent${i}`] = elem; }} placeholder='Action Body'></textarea>
+      );
     });
   }
 
@@ -150,50 +148,50 @@ export class CreateNewAction extends Component {
 
   render() {
     const socialMediaTarget = {
-      targetUrl: <input type='text' ref={(elem) => {this.targetUrl = elem}} placeholder='Target Url' />
-    }  
+      targetUrl: <input type='text' ref={(elem) => { this.targetUrl = elem; }} placeholder='Target Url' />
+    };  
     const emailTarget = {
-      to: <input type='text' ref={(elem) => {this.emailTo = elem}} placeholder='Target Email Address' />,
-      cc: <input type='text' ref={(elem) => {this.emailCC = elem}} placeholder='CCs' />,
-      bcc: <input type='text' ref={(elem) => {this.emailBCC = elem}} placeholder='BCCs' />,
-      subject: <input type='text' ref={(elem) => {this.emailSubject = elem}} placeholder='Email Subject' />,
-    }
+      to: <input type='text' ref={(elem) => { this.emailTo = elem; }} placeholder='Target Email Address' />,
+      cc: <input type='text' ref={(elem) => { this.emailCC = elem; }} placeholder='CCs' />,
+      bcc: <input type='text' ref={(elem) => { this.emailBCC = elem; }} placeholder='BCCs' />,
+      subject: <input type='text' ref={(elem) => { this.emailSubject = elem; }} placeholder='Email Subject' />
+    };
     const phoneTarget = {
-      name: <input type='text' ref={(elem) => {this.phoneName = elem}} placeholder='Target Name' />,
-      position: <input type='text' ref={(elem) => {this.phonePosition = elem}} placeholder='Target Position' />,
-      phoneNumber: <input type='text' ref={(elem) => {this.phoneNumber = elem}} placeholder='Target Phone Number' />
-    }
+      name: <input type='text' ref={(elem) => { this.phoneName = elem; }} placeholder='Target Name' />,
+      position: <input type='text' ref={(elem) => { this.phonePosition = elem; }} placeholder='Target Position' />,
+      phoneNumber: <input type='text' ref={(elem) => { this.phoneNumber = elem; }} placeholder='Target Phone Number' />
+    };
     const form = {
       facebook: socialMediaTarget,
       twitter: socialMediaTarget,
       email: emailTarget,
       phone: phoneTarget
-    }
+    };
 
     return (
       <div className='create-new-action-container'>
         <h1>CREATE A NEW <span>{this.state.form.toUpperCase()}</span> ACTION</h1>
         <section className='select-action-container'>
           <label htmlFor='action-types'>Select Action Type:
-            <select onChange={() => this.handleChange()} ref={(elem) => {this.actionTypes = elem}} name='action-types' id='action-types'>
-              <option value='facebook'>Facebook</option>
-              <option value='twitter'>Twitter</option>
-              <option value='email'>Email</option>
-              <option value='phone'>Phone</option>
-            </select>
-            {
-              this.state.error && 
+          <select onChange={() => this.handleChange()} ref={(elem) => { this.actionTypes = elem; }} name='action-types' id='action-types'>
+            <option value='facebook'>Facebook</option>
+            <option value='twitter'>Twitter</option>
+            <option value='email'>Email</option>
+            <option value='phone'>Phone</option>
+          </select>
+          {
+            this.state.error && 
               <h1>{this.state.error}</h1>
-            }
-            {
-              this.state.success &&
+          }
+          {
+            this.state.success &&
               <h1>{this.state.success}</h1>
-            }
+          }
           </label>
           <section className='create-action-form'>
             <form action='create-new-action-form'>
-              <input type='text' ref={(elem) => {this.actionTitle = elem}} placeholder='Action Title' />
-              <input type='text' ref={(elem) => {this.actionDescription = elem}} placeholder='Action Description' />
+              <input type='text' ref={(elem) => { this.actionTitle = elem; }} placeholder='Action Title' />
+              <input type='text' ref={(elem) => { this.actionDescription = elem; }} placeholder='Action Description' />
               {form[this.state.form].targetUrl}
 
               {form[this.state.form].to}
@@ -222,7 +220,7 @@ export class CreateNewAction extends Component {
           </section>
         </section>
       </div>
-    )
+    );
   }
 }
 

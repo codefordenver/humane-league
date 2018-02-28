@@ -10,7 +10,7 @@ class EmailCard extends Component {
     this.state = {
       actionBody: null,
       showContent: false
-    }
+    };
     this.fetchActionBody = fetchActionBody.bind(this);
   }
 
@@ -18,7 +18,7 @@ class EmailCard extends Component {
     if (this.props.user.admin) {
       this.actionCount();
     }
-  };
+  }
 
   setActionBody = async () => {
     const actionBody = await this.fetchActionBody('email_contents', this.props.action);
@@ -55,7 +55,7 @@ class EmailCard extends Component {
       : null;
 
     if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`
+      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (

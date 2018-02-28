@@ -8,7 +8,7 @@ class PhoneCard extends Component {
     super();
     this.state = {
       actionBody: null
-    }
+    };
     this.fetchActionBody = fetchActionBody.bind(this);
   }
 
@@ -16,7 +16,7 @@ class PhoneCard extends Component {
     if (this.props.user.admin) {
       this.actionCount();
     }
-  };
+  }
 
   setActionBody = async () => {
     const actionBody = await this.fetchActionBody('twitter_contents', this.props.action);
@@ -46,7 +46,7 @@ class PhoneCard extends Component {
     const script = expanded ? <textarea className="script body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
 
     if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`
+      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (

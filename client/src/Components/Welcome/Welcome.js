@@ -72,7 +72,7 @@ export class Welcome extends Component {
       <button className={hiddenButtons} onClick={() => this.handleClick('google')}>Sign In With Google</button>
       <button className={hiddenButtons} onClick={() => this.handleClick('facebook')}>Sign In With Facebook</button>
       <button className={hiddenButtons} onClick={() => this.props.history.push('/signin')}>Sign In With Email</button>
-    </div>
+    </div>;
 
     const conditionalInfo = this.props.User.name ? <Link to="/home">Dashboard</Link> : expandOptions;
 
@@ -85,7 +85,7 @@ export class Welcome extends Component {
           {this.state.errorMessage}
         </div>
       </div>
-    )
+    );
   }
 }
 

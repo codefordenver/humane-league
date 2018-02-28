@@ -28,7 +28,7 @@ export const Header = ({ User, logout, validateUser, history, location }) => {
       onClick={() => { 
         firebase.auth().signOut().then(() => {
           logout();
-        })
+        });
       }}
       className="nav-btn">
       <p className="login-logout-btn">Logout</p></Link> 
@@ -55,16 +55,16 @@ export const Header = ({ User, logout, validateUser, history, location }) => {
       </nav>
     </header>
   );
-}
+};
 
 const mapStateToProps = store => ({
   User: store.User
-})
+});
 
 const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(actions.logout()),
   validateUser: user => dispatch(actions.updateUser(user))
-})
+});
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));
 

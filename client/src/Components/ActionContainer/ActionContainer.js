@@ -53,7 +53,7 @@ export class ActionContainer extends Component {
     });
     
     await this.setState(actions);
-  };
+  }
 
   render() {
     const twitterCards = this.state.twitter.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action} user={this.props.user}/>);

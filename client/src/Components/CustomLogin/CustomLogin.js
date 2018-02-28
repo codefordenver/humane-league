@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import './CustomLogin.css';
 import firebase from '../../firebase';
 import { connect } from 'react-redux';
@@ -133,73 +133,73 @@ export class CustomLogin extends Component {
     if (this.state.signin) {
       return (
         <div className="CustomLogin">
-        <h1>Sign in with Email</h1>
-        <label>Email:</label>
-        <input 
-          value={this.state.email}
-          ref={(input) => { this.email = input; }} 
-          name="email" 
-          onChange={this.handleChange} 
-          type="email" 
-          placeholder="Email"/>
-        <label>Password:</label>
-        <input 
-          value={this.state.password}
-          ref={(input) => { this.password = input }} 
-          name="password" 
-          onChange={this.handleChange} 
-          type="password" 
-          placeholder="Password"/>
-        <Link to="/forgotpassword">Forgot Password</Link>
-        <span>{this.state.error}</span>
-        <button disabled={this.state.disableSubmit} ref={(button) => { this.submit = button; }} onClick={this.signinHandler}>Sign In</button>
-        <button onClick={() => {this.setState({signin: !this.state.signin})}}>Sign Up Instead</button>
+          <h1>Sign in with Email</h1>
+          <label>Email:</label>
+          <input 
+            value={this.state.email}
+            ref={(input) => { this.email = input; }} 
+            name="email" 
+            onChange={this.handleChange} 
+            type="email" 
+            placeholder="Email"/>
+          <label>Password:</label>
+          <input 
+            value={this.state.password}
+            ref={(input) => { this.password = input; }} 
+            name="password" 
+            onChange={this.handleChange} 
+            type="password" 
+            placeholder="Password"/>
+          <Link to="/forgotpassword">Forgot Password</Link>
+          <span>{this.state.error}</span>
+          <button disabled={this.state.disableSubmit} ref={(button) => { this.submit = button; }} onClick={this.signinHandler}>Sign In</button>
+          <button onClick={() => { this.setState({signin: !this.state.signin}); }}>Sign Up Instead</button>
         
-      </div>
-      )
+        </div>
+      );
     } else {
       return (
         <div className="CustomLogin">
-        <h1>Sign Up with Email</h1>
-        <label>Name:</label>
-        <input 
-          ref={(input) => { this.name = input; }} 
-          name="name" 
-          onChange={this.handleChange} 
-          type="text" 
-          value={this.state.name}
-          placeholder="First/Last Name"/>
-        <label>Email:</label>
-        <input 
-          ref={(input) => { this.email = input; }} 
-          name="email" 
-          onChange={this.handleChange} 
-          type="email" 
-          value={this.state.email}
-          placeholder="Email"/>
-        <label>Password:</label>
-        <input 
-          ref={(input) => { this.password = input }} 
-          name="password" 
-          onChange={this.handleChange} 
-          value={this.state.password}
-          type="password" 
-          placeholder="Password"/>
-        <label>Confirm Password:</label>
-        <div className="confirmWrapper">
+          <h1>Sign Up with Email</h1>
+          <label>Name:</label>
           <input 
-            ref={(input) => { this.confirmPass = input }} 
-            name="confirmPass" 
+            ref={(input) => { this.name = input; }} 
+            name="name" 
             onChange={this.handleChange} 
-            value={this.state.confirmPass}
+            type="text" 
+            value={this.state.name}
+            placeholder="First/Last Name"/>
+          <label>Email:</label>
+          <input 
+            ref={(input) => { this.email = input; }} 
+            name="email" 
+            onChange={this.handleChange} 
+            type="email" 
+            value={this.state.email}
+            placeholder="Email"/>
+          <label>Password:</label>
+          <input 
+            ref={(input) => { this.password = input; }} 
+            name="password" 
+            onChange={this.handleChange} 
+            value={this.state.password}
             type="password" 
-            placeholder="Confirm Password" />
-          <span>{this.state.passMatchStatus}</span>        
+            placeholder="Password"/>
+          <label>Confirm Password:</label>
+          <div className="confirmWrapper">
+            <input 
+              ref={(input) => { this.confirmPass = input; }} 
+              name="confirmPass" 
+              onChange={this.handleChange} 
+              value={this.state.confirmPass}
+              type="password" 
+              placeholder="Confirm Password" />
+            <span>{this.state.passMatchStatus}</span>        
+          </div>
+          <button disabled={this.state.disableSubmit} ref={(button) => { this.submit = button; }} onClick={this.signupHandler}>Sign Up</button>
+          <button onClick={() => { this.setState({signin: !this.state.signin}); }}>Sign In Instead</button>
         </div>
-        <button disabled={this.state.disableSubmit} ref={(button) => { this.submit = button; }} onClick={this.signupHandler}>Sign Up</button>
-        <button onClick={() => {this.setState({signin: !this.state.signin})}}>Sign In Instead</button>
-      </div>
-      )
+      );
     }
   }
 

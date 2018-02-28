@@ -20,7 +20,7 @@ class AdminActions extends Component {
 
   async componentDidMount() {
     const actions = await this.makeFetches();
-  };
+  }
   
   makeFetches = async () => {
     const twitterFetch = await fetch('/api/v1/twitter_actions');
@@ -59,7 +59,7 @@ class AdminActions extends Component {
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = store => ({
   user: store.User

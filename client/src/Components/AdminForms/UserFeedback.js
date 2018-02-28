@@ -48,7 +48,7 @@ class UserFeedback extends Component {
             {this.feedbackParagraphs(feedback[actionTitle].feedback)}
           </div>
         );
-      })
+      });
 
       return (
         <div className="UserFeedback">

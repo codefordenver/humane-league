@@ -16,7 +16,7 @@ class FacebookCard extends Component {
     if (this.props.user.admin) {
       this.actionCount();
     }
-  };
+  }
 
   setActionBody = async () => {
     const actionBody = await this.fetchActionBody('facebook_contents', this.props.action);
@@ -47,7 +47,7 @@ class FacebookCard extends Component {
     const textArea = expanded ? <textarea className="body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
     
     if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`
+      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (

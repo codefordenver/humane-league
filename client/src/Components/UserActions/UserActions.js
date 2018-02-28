@@ -10,6 +10,6 @@ const UserActions = () => {
     </div>
   );
   
-}
+};
 
 export default UserActions;

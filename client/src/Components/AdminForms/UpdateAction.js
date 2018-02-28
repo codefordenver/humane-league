@@ -21,7 +21,7 @@ export class UpdateAction extends Component {
       twitter: [],
       email: [],
       phone: []
-    }
+    };
   }
 
   async componentDidMount() {
@@ -31,7 +31,7 @@ export class UpdateAction extends Component {
     const phone = await getPhoneActions();
 
     await this.setState({ facebook, twitter, email, phone });
-  };
+  }
 
   handleChange = () => {
     const actionType = this.updateActionTypes.value;
@@ -61,7 +61,7 @@ export class UpdateAction extends Component {
       const removedAction = this.state[this.state.actionType].filter(action => action.id !== actionId);
       const newState = [...removedAction, action];
       this.setState({ [type]: newState, showForm: false, success: `Sucessfully updated action ${action.id}`});
-        setTimeout(() => {
+      setTimeout(() => {
         this.setState({ success: false });
       }, 3000);
     }
@@ -73,7 +73,7 @@ export class UpdateAction extends Component {
         <li key={`li-${i}`} className='action'>
           <p data-id={action.id} onClick={this.handleActionClick}>{`${action.title}`}</p>
         </li>
-      )
+      );
     });
 
     return (
@@ -85,21 +85,21 @@ export class UpdateAction extends Component {
         }
         <div className='update-container'>
           <label htmlFor='action-types'>Select Action Type:
-            <select onChange={this.handleChange} ref={(elem) => {this.updateActionTypes = elem}} name='action-types' id='action-types'>
-              <option value='facebook'>Facebook</option>
-              <option value='twitter'>Twitter</option>
-              <option value='email'>Email</option>
-              <option value='phone'>Phone</option>
-            </select>
+          <select onChange={this.handleChange} ref={(elem) => { this.updateActionTypes = elem; }} name='action-types' id='action-types'>
+            <option value='facebook'>Facebook</option>
+            <option value='twitter'>Twitter</option>
+            <option value='email'>Email</option>
+            <option value='phone'>Phone</option>
+          </select>
           </label>
-        {
-          this.state.showForm &&
+          {
+            this.state.showForm &&
           <div className='update-action'>
             <p>{`TITLE: ${this.state.action.title}`}</p>
             <p>{`DESCRIPTION: ${this.state.action.description}`}</p>
             <div className='update-form'>  
               <span id='toggle'>
-                <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => {this.toggle = elem}} type='checkbox'/>
+                <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => { this.toggle = elem; }} type='checkbox'/>
                 <label 
                   data-on='enabled' 
                   data-off='disabled'>
@@ -108,7 +108,7 @@ export class UpdateAction extends Component {
               <button onClick={this.submitPatch} className='update-action'>Save Update</button>
             </div> 
           </div>
-        }
+          }
           <div className='actions-container'>
             <h3>Click an action to see or change status</h3>
             <ul className='actions'>
@@ -117,7 +117,7 @@ export class UpdateAction extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

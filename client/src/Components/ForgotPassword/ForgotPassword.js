@@ -33,7 +33,7 @@ class ForgotPassword extends Component {
         <button onClick={this.handleSubmit}>Send Reset Link</button>
         <Link to="/signin">Back to Sign In</Link>
       </div>
-    )
+    );
   }
 }
 export default ForgotPassword;

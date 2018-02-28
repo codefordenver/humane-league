@@ -12,7 +12,7 @@ const logAction = async (actionType, user, action, feedback) => {
     })
   });
 
-  console.log({ user_id: user.id, action_id: action.id, action_type: actionType, description: feedback })
+  console.log({ user_id: user.id, action_id: action.id, action_type: actionType, description: feedback });
 };
 
 export default logAction;

@@ -15,7 +15,7 @@ class App extends Component {
     super();
     this.state = {
       serverRes: null
-    }
+    };
   }
 
   render() {

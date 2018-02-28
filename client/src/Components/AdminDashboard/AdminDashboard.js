@@ -22,7 +22,7 @@ export const AdminDashboard = () => {
         <Route path='/admin/actions' component={AdminActions} />
       </Switch>
     </div>
-  )
-}
+  );
+};
 
 export default AdminDashboard;

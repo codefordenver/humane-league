@@ -7,6 +7,7 @@ const logAction = async (actionType, user, action, feedback) => {
     body: JSON.stringify({
       user_id: user.id,
       action_id: action.id,
+      action_title: action.title,
       action_type: actionType,
       description: feedback
     })

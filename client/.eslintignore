@@ -1,3 +1,5 @@
 *.test.js
 
 registerServiceWorker.js
+
+setupTests.js

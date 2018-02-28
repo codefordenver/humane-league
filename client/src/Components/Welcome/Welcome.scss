@@ -13,16 +13,14 @@
     justify-content: center;
     border-radius: 2px;
     border: none;
-    background: #1CB841;
-    color: white;
+    background: #ffffffe3;
     cursor: pointer;
     margin: 0px auto;
     transition: 0.3s;
     font-size: 20px;
     padding: 10px;
     &:hover {
-      color: white;
-      background-color: rgb(50, 50, 50);
+      background: white;
     }
   }
   .fan-logo {

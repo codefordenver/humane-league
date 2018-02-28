@@ -13,16 +13,14 @@
     justify-content: center;
     border-radius: 2px;
     border: none;
-    background: #1CB841;
-    color: white;
+    background: #ffffffe3;
     cursor: pointer;
     margin: 0px auto;
     transition: 0.3s;
     font-size: 20px;
     padding: 10px; }
     .Welcome a:hover {
-      color: white;
-      background-color: #323232; }
+      background: white; }
   .Welcome .fan-logo {
     width: 100%; }
   .Welcome .welcome-controls {

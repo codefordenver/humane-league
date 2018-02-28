@@ -1,4 +1,4 @@
-fiximport React, { Component } from 'react';
+import React, { Component } from 'react';
 import TwitterCard from '../ActionCard/TwitterCard';
 import FacebookCard from '../ActionCard/FacebookCard';
 import EmailCard from '../ActionCard/EmailCard';

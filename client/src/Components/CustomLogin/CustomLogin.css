@@ -8,6 +8,7 @@
   padding: 0px 30px 20px 15px;
   border-radius: 2px; }
   .CustomLogin h1 {
+    color: black;
     grid-column: span 5;
     text-align: center; }
   .CustomLogin label {

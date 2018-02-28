@@ -24,14 +24,14 @@ export const Header = ({ User, logout, validateUser, history, location }) => {
   const adminActions = (User.name && User.admin) ? <NavLink className="nav-btn" exact to="/admin/actions"><p>View Actions</p></NavLink> : null;
   const logoutButton = User.name 
     ? <Link 
-        to="/" 
-        onClick={() => { 
-          firebase.auth().signOut().then(() => {
-            logout();
-          })
-        }}
-        className="nav-btn">
-        <p className="login-logout-btn">Logout</p></Link> 
+      to="/" 
+      onClick={() => { 
+        firebase.auth().signOut().then(() => {
+          logout();
+        })
+      }}
+      className="nav-btn">
+      <p className="login-logout-btn">Logout</p></Link> 
     : null;
 
   return (

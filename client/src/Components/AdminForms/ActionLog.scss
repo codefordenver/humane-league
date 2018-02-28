@@ -1,0 +1,68 @@
+@import '../../assets/fontello-45ad5e7a/css/fan.css';
+
+.action-log {
+  .total-counts {
+    align-items: center;
+    background-color: #ffffffe3;
+    border-radius: 2px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+    .action-log-p {
+      align-items: center;
+      display: flex;
+      font-size: 26px;
+      margin: 20px;
+
+
+      strong {
+        font-size: 40px;
+        margin: 0 5px;
+      }
+
+
+      &.specific-count {
+        margin: 5px;
+        
+        strong {
+          color: inherit;
+        }
+
+        i {
+          color: inherit;
+        }
+      }
+
+      &.twitter-actions {
+        color: #00aced;
+      }
+
+      &.facebook-actions {
+        color: #3B5998;
+      }
+
+      &.email-actions {
+        color: #db3236;
+      }
+
+      &.phone-actions {
+        color: #3cba54;
+      }
+    }
+
+    .view-actions-btn {
+      font-size: 20px;
+      padding: 20px;
+      background: #1CB841;
+      text-decoration: none;
+      margin: 30px 0;
+      &:hover {
+        color: white;
+        background: #009639;
+        cursor: pointer;
+      }
+    }
+  }
+}

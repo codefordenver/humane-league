@@ -15,7 +15,6 @@ module.exports = {
     "es6": true
   },
   "rules": {
-    "eqeqeq": ["error", "always"],
     "getter-return": ["error", { "allowImplicit": true }],
     "indent": ["warn", 2],
     "no-template-curly-in-string": "error",

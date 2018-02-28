@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import TwitterCard from '../ActionCard/TwitterCard';
 import FacebookCard from '../ActionCard/FacebookCard';
 import EmailCard from '../ActionCard/EmailCard';
 import PhoneCard from '../ActionCard/PhoneCard';
 import './ActionContainer.css';
 import '../ActionCard/ActionCard.css';
-import { connect } from 'react-redux';
 import { 
   getTwitterActions, 
   getFacebookActions, 
   getEmailActions, 
   getPhoneActions,
   getCompletedActions } from '../../utils/apiCalls';
-import { get } from 'https';
-
 
 export class ActionContainer extends Component {
   constructor() {
@@ -60,7 +59,7 @@ export class ActionContainer extends Component {
     actions.phone = actions.phone.filter(action => action.enabled === true);
     
     await this.setState(actions);
-  };
+  }
 
   removeCompleted = (actionType, actionId) => {
     this.setState({ [actionType]: this.state[actionType].filter(act => act.id !== actionId)});
@@ -95,3 +94,7 @@ const mapStateToProps = store => ({
 });
 
 export default connect(mapStateToProps, null)(ActionContainer);
+
+ActionContainer.propTypes = {
+  user: PropTypes.object
+};

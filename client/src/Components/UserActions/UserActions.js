@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default */
+
 import React from 'react';
 import ActionContainer from '../ActionContainer/ActionContainer';
 import './UserActions.css';
@@ -10,6 +12,6 @@ const UserActions = () => {
     </div>
   );
   
-}
+};
 
 export default UserActions;

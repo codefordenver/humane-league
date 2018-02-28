@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const routes = require('./serverHelper/serverHelpers');
 
 const express = require('express');
@@ -69,7 +71,7 @@ const validateAdmin = async (request, response, next) => {
   }
 
   next();
-}
+};
 
 const patchValidation = async (request, response, next) => {
   const { id } = request.params;
@@ -95,7 +97,7 @@ const patchValidation = async (request, response, next) => {
   }
 
   next();  
-}
+};
 
 //unsecured endpoints
 endpoints.filter(endpoint => !endpoint.getSecurity).map( endpoint => {
@@ -142,7 +144,7 @@ endpoints.filter(endpoint => endpoint.updateSecurity === 'other').map( endpoint 
   return app.post(all, validateAdmin, (req, res) => {
     return routes.postHelper(req, res, database, table, reqParams);
   });
-})
+});
 
 
 //secured patch endpoints
@@ -174,7 +176,7 @@ app.get('/api/v1/authenticate', async (request, response) => {
     }
 
     return response.status(200).json({ user });
-  } catch(err) {
+  } catch (err) {
     return response.status(500).json({ error: `Error retrieving user: ${err}.`});
   }
 });
@@ -218,7 +220,7 @@ app.get('/api/v1/users/actions/:id', patchValidation, (request, response) => {
     })
     .catch(err => {
       return response.status(500).json({ error: err });
-    })
+    });
 });
 
 module.exports = app;

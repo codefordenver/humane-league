@@ -12,6 +12,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "redux": "^3.7.2",
+    "prop-types": "^15.6.1",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
@@ -26,7 +27,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eslint": "eslint ./src/*.js ./src/*/*.js ./src/*/*/*.js",
+    "eslint": "eslint ./src/*.js ./src/*/*.js ./src/*/*/*.js --quiet",
     "eject": "react-scripts eject"
   }
 }

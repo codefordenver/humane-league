@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default*/
+
 import React from 'react';
 import { Switch, Route } from 'react-router';
 import Dashboard from './Dashboard';
@@ -22,7 +24,7 @@ export const AdminDashboard = () => {
         <Route path='/admin/actions' component={AdminActions} />
       </Switch>
     </div>
-  )
-}
+  );
+};
 
 export default AdminDashboard;

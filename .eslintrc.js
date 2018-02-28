@@ -13,7 +13,6 @@ module.exports = {
     "no-mixed-requires": [0],
     "no-underscore-dangle": [0],
     "no-unused-vars": "error",
-    "eqeqeq": ["error", "always"],
     "indent": ["warn", 2],
     "semi": ["error", "always"],
     "array-bracket-spacing": ["error", "never"],

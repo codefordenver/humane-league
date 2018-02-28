@@ -1,3 +1,5 @@
+/* eslint-disable import/no-named-as-default */
+
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
 import './App.css';
@@ -8,14 +10,14 @@ import UserProfile from '../UserProfile/UserProfile';
 import AdminDashboard from '../AdminDashboard/AdminDashboard';
 import CustomLogin from '../CustomLogin/CustomLogin';
 import ForgotPassword from '../ForgotPassword/ForgotPassword';
-import ResetPassword from '../ResetPassword/ResetPassword';
+// import ResetPassword from '../ResetPassword/ResetPassword';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       serverRes: null
-    }
+    };
   }
 
   render() {

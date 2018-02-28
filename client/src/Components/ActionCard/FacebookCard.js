@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
-import facebookLogo from '../../assets/facebook.png';
+import PropTypes from 'prop-types';
 import logAction from '../../utils/logAction';
 import fetchActionBody from '../../utils/fetchActionBody';
 
@@ -16,7 +18,7 @@ class FacebookCard extends Component {
     if (this.props.user.admin) {
       this.actionCount();
     }
-  };
+  }
 
   setActionBody = async () => {
     const actionBody = await this.fetchActionBody('facebook_contents', this.props.action);
@@ -47,10 +49,10 @@ class FacebookCard extends Component {
     const buttonOnClick = expanded ? this.completeAction : this.setActionBody;
     const targetLink = expanded ? target : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
-    const textArea = expanded ? <textarea className="body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
+    const textArea = expanded ? <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
     
     if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`
+      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (
@@ -72,3 +74,8 @@ class FacebookCard extends Component {
 }
 
 export default FacebookCard;
+
+FacebookCard.propTypes = {
+  user: PropTypes.object,
+  action: PropTypes.object  
+};

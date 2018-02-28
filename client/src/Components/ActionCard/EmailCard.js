@@ -1,8 +1,10 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 import React, {Component} from 'react';
-import emailLogo from '../../assets/email.png';
+import PropTypes from 'prop-types';
 import logAction from '../../utils/logAction';
 import fetchActionBody from '../../utils/fetchActionBody';
-
 
 class EmailCard extends Component {
   constructor () {
@@ -10,7 +12,7 @@ class EmailCard extends Component {
     this.state = {
       actionBody: null,
       showContent: false
-    }
+    };
     this.fetchActionBody = fetchActionBody.bind(this);
   }
 
@@ -18,7 +20,7 @@ class EmailCard extends Component {
     if (this.props.user.admin) {
       this.actionCount();
     }
-  };
+  }
 
   setActionBody = async () => {
     const actionBody = await this.fetchActionBody('email_contents', this.props.action);
@@ -50,7 +52,7 @@ class EmailCard extends Component {
     const targetLink = expanded ? `mailto:${to}?subject=${subject}&body=${this.state.actionBody}` : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const showContentButton = expanded ? <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button> : null;
-    const textArea = expanded ? <textarea className="body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
+    const textArea = expanded ? <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
 
     const emailContent = this.state.showContent ?
       <div className="email-template">
@@ -60,7 +62,7 @@ class EmailCard extends Component {
       : null;
 
     if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`
+      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (
@@ -84,3 +86,8 @@ class EmailCard extends Component {
 }
 
 export default EmailCard;
+
+EmailCard.propTypes = {
+  user: PropTypes.object,
+  action: PropTypes.object  
+};

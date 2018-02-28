@@ -1,11 +1,14 @@
+/* eslint-disable no-undef */
+
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import TwitterCard from '../ActionCard/TwitterCard';
 import FacebookCard from '../ActionCard/FacebookCard';
 import EmailCard from '../ActionCard/EmailCard';
 import PhoneCard from '../ActionCard/PhoneCard';
 import '../ActionContainer/ActionContainer.css';
 import '../ActionCard/ActionCard.css';
-import { connect } from 'react-redux';
 
 class AdminActions extends Component {
   constructor() {
@@ -19,8 +22,8 @@ class AdminActions extends Component {
   }
 
   async componentDidMount() {
-    const actions = await this.makeFetches();
-  };
+    await this.makeFetches();
+  }
   
   makeFetches = async () => {
     const twitterFetch = await fetch('/api/v1/twitter_actions');
@@ -59,10 +62,14 @@ class AdminActions extends Component {
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = store => ({
   user: store.User
 });
 
 export default connect(mapStateToProps, null)(AdminActions);
+
+AdminActions.propTypes = {
+  user: PropTypes.object
+};

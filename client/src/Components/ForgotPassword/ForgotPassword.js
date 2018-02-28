@@ -1,7 +1,10 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './ForgotPassword.css';
 import firebase from '../../firebase';
-import { Link } from 'react-router-dom';
 
 class ForgotPassword extends Component {
   constructor() {
@@ -33,7 +36,7 @@ class ForgotPassword extends Component {
         <button onClick={this.handleSubmit}>Send Reset Link</button>
         <Link to="/signin">Back to Sign In</Link>
       </div>
-    )
+    );
   }
 }
 export default ForgotPassword;

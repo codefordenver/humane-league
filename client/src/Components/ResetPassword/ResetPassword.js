@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { Component } from 'react';
 import './ResetPassword.css';
 import firebase from '../../firebase';
@@ -45,7 +47,7 @@ class ForgotPassword extends Component {
         <label>Confirm Password: </label>
         <div className="confirmWrapper">
           <input 
-            ref={(input) => { this.confirmPass = input }} 
+            ref={(input) => { this.confirmPass = input; }} 
             name="confirmPass" 
             onChange={this.handleChange} 
             value={this.state.confirmPass}
@@ -55,7 +57,7 @@ class ForgotPassword extends Component {
         </div> 
         <button disabled={this.state.disableButton}>Change Password</button>
       </div>
-    )
+    );
   }
 }
 export default ForgotPassword;

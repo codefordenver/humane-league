@@ -53,6 +53,11 @@ export class ActionContainer extends Component {
 
       actions[type] = actions[type].filter(act => act.id != action.action_id);
     });
+
+    actions.twitter = actions.twitter.filter(action => action.enabled === true);
+    actions.facebook = actions.facebook.filter(action => action.enabled === true);
+    actions.email = actions.email.filter(action => action.enabled === true);
+    actions.phone = actions.phone.filter(action => action.enabled === true);
     
     await this.setState(actions);
   };

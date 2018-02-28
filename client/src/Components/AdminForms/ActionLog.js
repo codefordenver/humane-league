@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getActionLog } from '../../utils/apiCalls.js';
-// import './ActionLog.css';
+import { Link } from 'react-router-dom';
+import './ActionLog.css';
 
 class ActionLog extends Component {
   constructor() {
@@ -31,17 +32,36 @@ class ActionLog extends Component {
   }
 
   render () {
-    const { all, twitter, facebook, email, phone } = this.state;
+    const { all, twitter, facebook, email, phone, userCount } = this.state;
     if (all) {
       return (
         <div className="action-log">
           <h1>Action Log</h1>
           <div className="total-counts">
-            <p>{`${all.length} total actions`}</p>
-            <p>{`${twitter.length} twitter actions`}</p>
-            <p>{`${facebook.length} facebook actions`}</p>
-            <p>{`${email.length} email actions`}</p>
-            <p>{`${phone.length} phone actions`}</p>
+            <p className="total-actions action-log-p">
+              <strong>{all.length} </strong>
+              TOTAL ACTIONS
+            </p>
+            <p className="twitter-actions action-log-p specific-count">
+              <strong>{twitter.length} </strong>
+              <i className="icon-twitter"></i> actions
+            </p>
+            <p className="facebook-actions action-log-p specific-count">
+              <strong>{facebook.length} </strong>
+              <i className="icon-facebook"></i> actions
+            </p>
+            <p className="email-actions action-log-p specific-count">
+              <strong>{email.length} </strong>
+              <i className="icon-mail"></i> actions
+            </p>
+            <p className="phone-actions action-log-p specific-count">
+              <strong>{phone.length} </strong>
+              <i className="icon-phone"></i> actions
+            </p>
+            <p className="action-log-p">   
+              BY <strong>{userCount} </strong> USERS
+            </p>
+            <Link to="/admin/actions" ><button className="view-actions-btn">VIEW ALL ACTIONS</button></Link>
           </div>
         </div>
       ); 

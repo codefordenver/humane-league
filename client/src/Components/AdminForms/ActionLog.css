@@ -1,0 +1,41 @@
+@import url(../../assets/fontello-45ad5e7a/css/fan.css);
+.action-log .total-counts {
+  align-items: center;
+  background-color: #ffffffe3;
+  border-radius: 2px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px; }
+  .action-log .total-counts .action-log-p {
+    align-items: center;
+    display: flex;
+    font-size: 26px;
+    margin: 20px; }
+    .action-log .total-counts .action-log-p strong {
+      font-size: 40px;
+      margin: 0 5px; }
+    .action-log .total-counts .action-log-p.specific-count {
+      margin: 5px; }
+      .action-log .total-counts .action-log-p.specific-count strong {
+        color: inherit; }
+      .action-log .total-counts .action-log-p.specific-count i {
+        color: inherit; }
+    .action-log .total-counts .action-log-p.twitter-actions {
+      color: #00aced; }
+    .action-log .total-counts .action-log-p.facebook-actions {
+      color: #3B5998; }
+    .action-log .total-counts .action-log-p.email-actions {
+      color: #db3236; }
+    .action-log .total-counts .action-log-p.phone-actions {
+      color: #3cba54; }
+  .action-log .total-counts .view-actions-btn {
+    font-size: 20px;
+    padding: 20px;
+    background: #1CB841;
+    text-decoration: none;
+    margin: 30px 0; }
+    .action-log .total-counts .view-actions-btn:hover {
+      color: white;
+      background: #009639;
+      cursor: pointer; }

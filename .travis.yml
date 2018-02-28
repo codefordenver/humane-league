@@ -4,6 +4,7 @@ node_js:
 services:
 - postgresql
 before_script:
+- npm run eslint
 - cd client && npm install
 - npm run build
 - createdb fan_test
@@ -12,7 +13,6 @@ before_script:
 - npm test
 - npm run eslint
 - cd ..
-- npm run eslint
 deploy:
   provider: heroku
   api_key:

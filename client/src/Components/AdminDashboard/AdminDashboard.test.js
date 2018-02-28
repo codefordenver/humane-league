@@ -17,7 +17,7 @@ describe('AdminDashboard component tests', () => {
 
   beforeEach(() => {
     renderedAdminDashboard = shallow(
-      <MemoryRouter>
+      <MemoryRouter initialEntries={[ { pathname: '/', key: 'testKey' } ]}>
         <AdminDashboard />
       </MemoryRouter>
     )
@@ -25,10 +25,10 @@ describe('AdminDashboard component tests', () => {
   it('renders without crashing', () => {
     expect(renderedAdminDashboard).toBeDefined();
   });
-  it.skip('matches SnapShot', () => {
+  it('matches SnapShot', () => {
     expect(renderedAdminDashboard).toMatchSnapshot();
   }); 
-})
+});
 
 describe('Dashboard component tests', () => {
   let renderedDashboard;

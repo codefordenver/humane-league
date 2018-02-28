@@ -34,6 +34,11 @@ ShallowWrapper {
         Array [],
         Array [],
         Array [],
+        <p
+          className="no-actions"
+>
+          There are no actions to take at this time. Please check back again soon!
+</p>,
       ],
       "className": "ActionContainer",
     },
@@ -49,6 +54,18 @@ ShallowWrapper {
         "ref": null,
         "rendered": "FAN ACTION ALERTS",
         "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "There are no actions to take at this time. Please check back again soon!",
+          "className": "no-actions",
+        },
+        "ref": null,
+        "rendered": "There are no actions to take at this time. Please check back again soon!",
+        "type": "p",
       },
     ],
     "type": "div",
@@ -67,6 +84,11 @@ ShallowWrapper {
           Array [],
           Array [],
           Array [],
+          <p
+            className="no-actions"
+>
+            There are no actions to take at this time. Please check back again soon!
+</p>,
         ],
         "className": "ActionContainer",
       },
@@ -82,6 +104,18 @@ ShallowWrapper {
           "ref": null,
           "rendered": "FAN ACTION ALERTS",
           "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "There are no actions to take at this time. Please check back again soon!",
+            "className": "no-actions",
+          },
+          "ref": null,
+          "rendered": "There are no actions to take at this time. Please check back again soon!",
+          "type": "p",
         },
       ],
       "type": "div",

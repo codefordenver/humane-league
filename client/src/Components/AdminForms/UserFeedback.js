@@ -1,6 +1,8 @@
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
 import './UserFeedback.css';
-import { getActionLog } from '../../utils/apiCalls.js';
+import { getActionLog } from '../../utils/apiCalls';
 
 class UserFeedback extends Component {
   constructor () {
@@ -24,7 +26,7 @@ class UserFeedback extends Component {
   }
 
   feedbackParagraphs = (feedback) => {
-    return feedback.map(feedback => <p>{feedback}</p>);
+    return feedback.map((feedback, ind) => <p key={`feedback${ind}`}>{feedback}</p>);
   }
   
   render () {
@@ -37,10 +39,10 @@ class UserFeedback extends Component {
 
     if (this.state.feedback) {
       const { feedback } = this.state;
-      const cards = Object.keys(feedback).map(actionTitle => {
+      const cards = Object.keys(feedback).map((actionTitle, ind) => {
         const iconClass = iconClasses[feedback[actionTitle].type];
         return (
-          <div className="feedback-card">
+          <div className="feedback-card" key={`feedback${ind}`}>
             <h3>
               {actionTitle}
               <i className={`icon-${iconClass}`}></i>

@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
-import facebookLogo from '../../assets/facebook.png';
+import PropTypes from 'prop-types';
 import logAction from '../../utils/logAction';
 import fetchActionBody from '../../utils/fetchActionBody';
 
@@ -30,8 +32,6 @@ class FacebookCard extends Component {
   actionCount = async () => {
     const actionLogFetch = await fetch('/api/v1/actions');
     const actionLog = await actionLogFetch.json();
-    console.log(actionLog.results);
-    console.log(this.props.action.id);
     const actionCount = actionLog.results.filter(actionLog => (actionLog.action_id === this.props.action.id && actionLog.action_type === 'facebook_actions')).length;
     await this.setState({ actionCount });
   }
@@ -44,7 +44,7 @@ class FacebookCard extends Component {
     const buttonOnClick = expanded ? () => logAction('facebook_actions', this.props.user, this.props.action) : this.setActionBody;
     const targetLink = expanded ? target : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
-    const textArea = expanded ? <textarea className="body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
+    const textArea = expanded ? <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
     
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
@@ -69,3 +69,8 @@ class FacebookCard extends Component {
 }
 
 export default FacebookCard;
+
+FacebookCard.propTypes = {
+  user: PropTypes.object,
+  action: PropTypes.object  
+};

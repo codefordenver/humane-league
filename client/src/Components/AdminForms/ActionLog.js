@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { getActionLog } from '../../utils/apiCalls.js';
 import { Link } from 'react-router-dom';
+import { getActionLog } from '../../utils/apiCalls';
 import './ActionLog.css';
 
 class ActionLog extends Component {

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import TwitterCard from '../ActionCard/TwitterCard';
 import FacebookCard from '../ActionCard/FacebookCard';
 import EmailCard from '../ActionCard/EmailCard';
 import PhoneCard from '../ActionCard/PhoneCard';
 import './ActionContainer.css';
 import '../ActionCard/ActionCard.css';
-import { connect } from 'react-redux';
 import { 
   getTwitterActions, 
   getFacebookActions, 
@@ -78,3 +79,7 @@ const mapStateToProps = store => ({
 });
 
 export default connect(mapStateToProps, null)(ActionContainer);
+
+ActionContainer.propTypes = {
+  user: PropTypes.object
+};

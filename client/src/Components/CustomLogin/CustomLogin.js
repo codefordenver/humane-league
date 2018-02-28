@@ -1,10 +1,14 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './CustomLogin.css';
 import firebase from '../../firebase';
-import { connect } from 'react-redux';
 import * as actions from '../../Actions/';
 import { signInUser } from '../../utils/apiCalls';
-import { Link } from 'react-router-dom';
 
 export class CustomLogin extends Component {
   constructor() {
@@ -35,10 +39,8 @@ export class CustomLogin extends Component {
 
     if (!this.state.signin) {
       if (this.password.value !== this.confirmPass.value || this.email.value.length < 5 || this.password.value.length < 5) {
-        console.log('disabled');
         this.setState({ disableSubmit: true });
       } else {
-        console.log('enabled');
         this.setState({ disableSubmit: false });
       }
 
@@ -81,7 +83,6 @@ export class CustomLogin extends Component {
     });
 
     firebase.auth().onAuthStateChanged( async user => {
-      console.log("auth change in signinhandler - usersigned in? ", !!user);
       if (user) {
         const { displayName, email, uid } = user;
 
@@ -90,7 +91,6 @@ export class CustomLogin extends Component {
         this.props.validateUser(dbUser);
         localStorage.setItem('THL-FAN-USER', JSON.stringify(dbUser));
         this.props.history.push('/home');
-      } else {
       }
     });
   }
@@ -114,7 +114,6 @@ export class CustomLogin extends Component {
     });
 
     firebase.auth().onAuthStateChanged(async user => {
-      console.log("auth change in signuphandler - usersigned in? ", !!user);  
       if (user) {
         firebase.auth().currentUser.updateProfile({displayName: this.state.name});
 
@@ -219,3 +218,8 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(CustomLogin);
+
+CustomLogin.propTypes = {
+  history: PropTypes.object,
+  validateUser: PropTypes.func
+};

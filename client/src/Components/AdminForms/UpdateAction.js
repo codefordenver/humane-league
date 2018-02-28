@@ -1,11 +1,13 @@
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { 
   getTwitterActions, 
   getFacebookActions, 
   getEmailActions, 
   getPhoneActions,
-  getCompletedActions,
   patchAction } from '../../utils/apiCalls';
 
 // import './UpdateAction.css';
@@ -126,3 +128,7 @@ const mapStateToProps = store => ({
 });
 
 export default connect(mapStateToProps, null)(UpdateAction);
+
+UpdateAction.propTypes = {
+  user: PropTypes.object
+};

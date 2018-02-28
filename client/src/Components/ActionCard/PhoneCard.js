@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
-import phoneLogo from '../../assets/phone.png';
+import PropTypes from 'prop-types';
 import logAction from '../../utils/logAction';
 import fetchActionBody from '../../utils/fetchActionBody';
 
@@ -43,7 +45,7 @@ class PhoneCard extends Component {
     const phoneNumber = expanded ? <p className="phone-number">{`Call ${phone_number}, and then click completed!`}</p> : null;
     const textArea = expanded ? <textarea className="body-text feedback-textarea" placeholder="How did this call go for you? Please leave your feedback here!" ref={(input) => this.feedbackTextArea = input }></textarea> : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
-    const script = expanded ? <textarea className="script body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;
+    const script = expanded ? <textarea className="script body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
 
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
@@ -68,3 +70,8 @@ class PhoneCard extends Component {
 }
 
 export default PhoneCard;
+
+PhoneCard.propTypes = {
+  user: PropTypes.object,
+  action: PropTypes.object  
+};

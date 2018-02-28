@@ -1,11 +1,16 @@
+/* eslint-disable max-len */
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import fanLogo from '../../assets/fan-logo.png';
 import './Welcome.css';
 import firebase from '../../firebase';
-import { connect } from 'react-redux';
 import * as actions from '../../Actions/';
 import { signInUser } from '../../utils/apiCalls';
-import { Link } from 'react-router-dom';
 
 export class Welcome extends Component {
   constructor() {
@@ -27,7 +32,7 @@ export class Welcome extends Component {
 
     firebase.auth().signInWithPopup(providers[prov]).then( async result => {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      const token = result.credential.idToken;
+      // const token = result.credential.idToken;
       const user = result.user;
 
       const { displayName, email, uid } = user;
@@ -45,14 +50,11 @@ export class Welcome extends Component {
 
     }).catch(error => {
       // Handle Errors here.
-      const errorCode = error.code;
+      // const errorCode = error.code;
       const errorMessage = error.message;
       this.setState({ 
         errorMessage: <h3>{errorMessage}</h3>
       });
-
-      const email = error.email;
-      const credential = error.credential;
 
       setTimeout(() => {
         this.setState({
@@ -80,7 +82,7 @@ export class Welcome extends Component {
       <div className='Welcome'>
         <img className='fan-logo' src={fanLogo} alt='' />
         <div>
-          <p className="welcome-description">Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!</p>
+          <p className="welcome-description">Welcome to The Humane League&#39;s Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!</p>
           {conditionalInfo}
           {this.state.errorMessage}
         </div>
@@ -100,3 +102,9 @@ const mapDispatchToProps = dispatch => ({
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
+
+Welcome.propTypes = {
+  User: PropTypes.object,
+  history: PropTypes.object,
+  validateUser: PropTypes.func
+};

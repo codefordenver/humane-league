@@ -34,12 +34,12 @@ const postHelper = (request, response, database, table, reqParams) => {
     .then(id => {
       return response.status(201).json({ id: id[0] });
     })
-    .catch(err => {
+    .catch(() => {
       return response.status(500).json({ error: `Could not add item to ${table}.`});
     });
 };
 
-const patchHelper = async (request, response, database, table, reqParams) => {
+const patchHelper = async (request, response, database, table) => {
   const { id } = request.params;
 
   return database(table).where('id', id).update(request.body, 'id')
@@ -49,9 +49,9 @@ const patchHelper = async (request, response, database, table, reqParams) => {
       }
       return response.sendStatus(204);
     })
-    .catch(err => {
+    .catch(() => {
       return response.status(500).json({ error: `Error updating entry ${id} in ${table}` });
-    })
+    });
 };
 
 

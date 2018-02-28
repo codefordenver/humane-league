@@ -1,5 +1,9 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import './AdminForms.css';
 import { postAction, postActionContent } from '../../utils/apiCalls';
 
@@ -229,3 +233,7 @@ const mapStateToProps = store => ({
 });
 
 export default connect(mapStateToProps, null)(CreateNewAction);
+
+CreateNewAction.propTypes = {
+  user: PropTypes.object
+};

@@ -1,7 +1,10 @@
+/* eslint-disable import/no-named-as-default-member */
+/* eslint-disable no-undef */
+
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './ForgotPassword.css';
 import firebase from '../../firebase';
-import { Link } from 'react-router-dom';
 
 class ForgotPassword extends Component {
   constructor() {

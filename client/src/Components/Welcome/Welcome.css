@@ -13,16 +13,14 @@
     justify-content: center;
     border-radius: 2px;
     border: none;
-    background: #1CB841;
-    color: white;
+    background: #ffffffe3;
     cursor: pointer;
     margin: 0px auto;
     transition: 0.3s;
     font-size: 20px;
     padding: 10px; }
     .Welcome a:hover {
-      color: white;
-      background-color: #323232; }
+      background: white; }
   .Welcome .fan-logo {
     width: 100%; }
   .Welcome .welcome-controls {
@@ -42,7 +40,7 @@
       align-items: center;
       justify-content: center;
       border-radius: 2px;
-      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
       border: none;
       background: #ffffffe3;
       color: #000;
@@ -62,8 +60,7 @@
         margin-left: 90px;
         overflow: hidden; }
       .Welcome .welcome-controls button:hover {
-        background: #ffffff;
-        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6); }
+        background: #ffffff; }
   .Welcome .create-account-form {
     flex-direction: column;
     align-items: center;
@@ -91,9 +88,17 @@
   border-radius: 2px;
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1150px) {
   .Welcome {
     grid-template-columns: 90%;
-    grid-template-rows: 50% 50%; }
+    grid-template-rows: 50% 50%;
+    padding-bottom: 50px; }
+    .Welcome .fan-logo {
+      margin: 0 auto;
+      width: 400px; }
     .Welcome .welcome-controls {
       padding: 0; } }
+
+@media screen and (max-width: 550px) {
+  .Welcome .fan-logo {
+    width: 90%; } }

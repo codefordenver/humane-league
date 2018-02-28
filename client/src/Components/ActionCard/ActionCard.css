@@ -18,7 +18,8 @@ a {
   width: 600px; }
   .ActionCard h3 {
     font-size: 32px;
-    font-weight: normal; }
+    font-weight: normal;
+    text-align: center; }
   .ActionCard .action-description {
     font-size: 20px;
     margin: 20px 0;
@@ -85,4 +86,4 @@ a {
 
 @media screen and (max-width: 850px) {
   .ActionCard {
-    width: auto; } }
+    width: 95%; } }

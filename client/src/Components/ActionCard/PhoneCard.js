@@ -36,12 +36,17 @@ class PhoneCard extends Component {
     await this.setState({ actionCount });
   }
 
+  completeAction = () => {
+    this.props.removeCompleted('email', this.props.action.id);
+    logAction('email_actions', this.props.user, this.props.action);
+  }
+
   render () {
     const { title, description, phone_number } = this.props.action;
     const expanded = this.state.actionBody !== null;
 
     let buttonText = expanded ? 'COMPLETED!' : 'CALL';
-    const buttonOnClick = expanded ? () => logAction('phone_actions', this.props.user, this.props.action, this.feedbackTextArea.value) : this.setActionBody;
+    const buttonOnClick = expanded ? this.completeAction : this.setActionBody;
     const phoneNumber = expanded ? <p className="phone-number">{`Call ${phone_number}, and then click completed!`}</p> : null;
     const textArea = expanded ? <textarea className="body-text feedback-textarea" placeholder="How did this call go for you? Please leave your feedback here!" ref={(input) => this.feedbackTextArea = input }></textarea> : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;

@@ -49,10 +49,16 @@
       height: auto; }
       .App header nav {
         width: 100%;
-        justify-content: space-between; }
+        justify-content: center; }
         .App header nav p {
+          align-self: center;
           text-align: center;
-          padding: 0; }
+          padding: 0;
+          width: 25%; }
         .App header nav .nav-btn {
-          padding: 10px;
-          width: 30%; } }
+          display: flex;
+          justify-content: center;
+          padding: 10px 0;
+          width: 25%; }
+          .App header nav .nav-btn p {
+            width: 100%; } }

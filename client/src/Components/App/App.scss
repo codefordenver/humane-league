@@ -66,14 +66,22 @@
       height: auto;
       nav {
         width: 100%;
-        justify-content: space-between;
+        justify-content: center;
         p {
+          align-self: center;
           text-align: center;
           padding: 0;
+          width: 25%;
         }
         .nav-btn {
-          padding: 10px;
-          width: 30%;
+          display: flex;
+          justify-content: center;
+          padding: 10px 0;
+          width: 25%;
+
+          p {
+            width: 100%;
+          }
         }
       }
     }

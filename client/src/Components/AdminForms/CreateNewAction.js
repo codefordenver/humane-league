@@ -50,7 +50,6 @@ export class CreateNewAction extends Component {
   }
 
   actionPost = async (action, type) => {
-    // console.log(action)
     const token = this.props.user.id_token;
 
     const actionID = await postAction(action, type, token);
@@ -58,11 +57,8 @@ export class CreateNewAction extends Component {
     if (actionID.id) {
       for (let i = 0; i < this.state.actionBodies; i++) {
         let content = this[`actionContent${i}`].value;
-        // console.log(content)
-
         const contentID = await postActionContent(type, token, actionID, content);
         
-
         if (contentID.error) {
           this.setState({ error: `Could not create action content: ${contentID.error}`});
           setTimeout(() => {

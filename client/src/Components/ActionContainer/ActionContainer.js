@@ -62,13 +62,17 @@ export class ActionContainer extends Component {
     await this.setState(actions);
   };
 
+  removeCompleted = (actionType, actionId) => {
+    this.setState({ [actionType]: this.state[actionType].filter(act => act.id !== actionId)});
+  }
+
   render() {
     const { twitter, facebook, email, phone } = this.state;
 
-    const twitterCards = twitter.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action} user={this.props.user}/>);
-    const facebookCards = facebook.map((action, i) => <FacebookCard key={`facebook-${i}`} action={action} user={this.props.user}/>);
-    const emailCards = email.map((action, i) => <EmailCard key={`email-${i}`} action={action} user={this.props.user}/>);
-    const phoneCards = phone.map((action, i) => <PhoneCard key={`phone-${i}`} action={action} user={this.props.user}/>);
+    const twitterCards = twitter.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
+    const facebookCards = facebook.map((action, i) => <FacebookCard key={`facebook-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
+    const emailCards = email.map((action, i) => <EmailCard key={`email-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
+    const phoneCards = phone.map((action, i) => <PhoneCard key={`phone-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
 
     const noActions = twitter.length === 0 && facebook.length === 0 && email.length === 0 && phone.length === 0;
     const noActionsMessage = noActions ? <p className="no-actions">There are no actions to take at this time. Please check back again soon!</p> : null;

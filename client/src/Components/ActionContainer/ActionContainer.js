@@ -58,10 +58,15 @@ export class ActionContainer extends Component {
   };
 
   render() {
-    const twitterCards = this.state.twitter.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action} user={this.props.user}/>);
-    const facebookCards = this.state.facebook.map((action, i) => <FacebookCard key={`facebook-${i}`} action={action} user={this.props.user}/>);
-    const emailCards = this.state.email.map((action, i) => <EmailCard key={`email-${i}`} action={action} user={this.props.user}/>);
-    const phoneCards = this.state.phone.map((action, i) => <PhoneCard key={`phone-${i}`} action={action} user={this.props.user}/>);
+    const { twitter, facebook, email, phone } = this.state;
+
+    const twitterCards = twitter.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action} user={this.props.user}/>);
+    const facebookCards = facebook.map((action, i) => <FacebookCard key={`facebook-${i}`} action={action} user={this.props.user}/>);
+    const emailCards = email.map((action, i) => <EmailCard key={`email-${i}`} action={action} user={this.props.user}/>);
+    const phoneCards = phone.map((action, i) => <PhoneCard key={`phone-${i}`} action={action} user={this.props.user}/>);
+
+    const noActions = twitter.length === 0 && facebook.length === 0 && email.length === 0 && phone.length === 0;
+    const noActionsMessage = noActions ? <p className="no-actions">There are no actions to take at this time. Please check back again soon!</p> : null;
 
     return (
       <div className="ActionContainer">
@@ -70,6 +75,7 @@ export class ActionContainer extends Component {
         {facebookCards}
         {emailCards}
         {phoneCards}
+        {noActionsMessage}
       </div>
     );
   }

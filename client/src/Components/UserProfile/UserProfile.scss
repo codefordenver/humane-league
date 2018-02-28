@@ -67,3 +67,17 @@
     }
   }
 }
+
+@media screen and (max-width: 850px) {
+  .UserProfile {
+    .user-preferences,
+    .user-profile-edit {
+      .user-preferences-form,
+      .user-profile-form {
+        width: 300px;
+        margin: 0;
+        padding: 10px;
+      } 
+    }
+  }
+}

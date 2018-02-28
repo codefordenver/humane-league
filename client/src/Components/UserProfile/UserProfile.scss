@@ -72,11 +72,11 @@
   .UserProfile {
     .user-preferences,
     .user-profile-edit {
+      margin: 10px 0;
+      padding: 10px;
       .user-preferences-form,
       .user-profile-form {
         width: 300px;
-        margin: 0;
-        padding: 10px;
       } 
     }
   }

@@ -26,15 +26,7 @@
     }
   }
   .fan-logo {
-    // margin: 0 auto;
-    // display: block;
-    // transition: margin 1s ease;
     width: 100%;
-  }
-  .fan-logo.shifted {
-    // margin-right: 0;
-    // transition: margin 1s ease;
-    align-self: flex-end;
   }
   .welcome-controls {
     color: #fff;
@@ -81,6 +73,7 @@
   .create-account-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 500px;
     .create-account-user-input,
     .create-account-submit {
@@ -101,13 +94,19 @@
   }
 }
 
-.Welcome.shifted {
-  flex-direction: row;
-}
-
 .welcome-description {
   font-size: 20px;
   line-height: 1.5em;
   margin: 30px;
   padding: 20px;
+  background-color: #ffffffe3;
+  border-radius: 2px;
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+}
+
+@media screen and (max-width: 850px) {
+  .Welcome {
+    grid-template-columns: 75%;
+    grid-template-rows: 50% 50%;
+  }
 }

@@ -1,18 +1,18 @@
 language: node_js
 node_js:
-  - "node"
+- node
 services:
-  - postgresql
+- postgresql
 before_script:
-  - cd client && npm install
-  - createdb fan_test
-  - npm install knex
-  - knex migrate:latest --env test
-  - npm test
-  - cd ..
-
+- cd client && npm install
+- npm run build
+- createdb fan_test
+- npm install knex
+- knex migrate:latest --env test
+- npm test
+- cd ..
 deploy:
   provider: heroku
   api_key:
-    secure: "4b9ee583-8164-4306-aa1e-81ff86bd8584"
+    secure: VW3HZ/nBZa5AW1rii+7DbbDFr7Wlu+3p0SszAfO8V8El/aBb3/bKnJfLGCbAenPNawd5pJ+IFDnXoEr5lVUuxKMyC4wF3sUaMya4/enFF8Sb9YF/P+O444fcPr3yqQfrD3WlxGm6xCoe++55A7BfwdQES7HFtP7hCevanDHuipmRfL9jdPRpuwAtz2YW1BoZL5DO+PQFuaqAILbvVyjBgKgCjOoYwPs3DFCBqZMFspuW0u03HcEl2tbyrZ39CZH0TBmOJGzTWqi/CnyjIhn42zWbGnmkV3KFrXepgeeEVrlrdLZPdSoaP643zngXNhu63ykVLf2HWiuGVosCXyNVMSszIaMsZ9lzqdZZvwKbF+H4EKpBKwnTYrKSZ1PgCOZpMNENspBn8YRJRzlBhYqf28OlqxDLg1Uf08xxnRB945HDcKY0yKAVAmnu7pRGfUfTAMDLucbg91T8KteKAuOrS8930z4TXGVw+stLCmMvxEmz2Nl57k0Eu+MxwZbKtMEwVKmLE4ub+U5u/sW66KIne3ck22KKGfSjoZ3CPL/NpRGgNV9UyKsLFlxQflmAST042T4rCYvecgrgo76Xp8EEiZ9OyjOuYzh1IuinaV4/xf+UyKBvrkqXKvArNQbCDPzKfMtLL+caMKqfEHMj6NMWm88AWhFiQKeQ8tf2SYXW0Yw=
   app: humaneleague-fan

@@ -4,6 +4,7 @@ node_js:
 services:
 - postgresql
 before_script:
+- npm install eslint-plugin-import
 - npm run eslint
 - cd client && npm install
 - npm run build

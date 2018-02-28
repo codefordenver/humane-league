@@ -1,3 +1,1227 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UserProfile component tests matches SnapShot 1`] = `undefined`;
+exports[`UserProfile component tests matches SnapShot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <UserProfile
+    user={
+        Object {
+            "email": "Julabi@gmail.com",
+            "email_actions": false,
+            "facebook_actions": false,
+            "id": 1,
+            "name": "Julie Hawkins",
+            "phone_actions": false,
+            "twitter_actions": false,
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          Welcome, Julie
+</h1>,
+        <p
+          className="action-count-description"
+>
+          You have completed true actions so far!
+</p>,
+        <div
+          className="user-preferences"
+>
+          <h2>
+                    Your Preferences
+          </h2>
+          <form
+                    className="user-preferences-form"
+          >
+                    <label>
+                               Twitter Actions
+                              <input
+                                        checked={true}
+                                        className="checkbox"
+                                        onChange={[Function]}
+                                        type="checkbox"
+                                        value="twitter_actions"
+                              />
+                    </label>
+                    <label>
+                               Facebook Actions
+                              <input
+                                        checked={true}
+                                        className="checkbox"
+                                        onChange={[Function]}
+                                        type="checkbox"
+                                        value="facebook_actions"
+                              />
+                    </label>
+                    <label>
+                               Email Actions
+                              <input
+                                        checked={true}
+                                        className="checkbox"
+                                        onChange={[Function]}
+                                        type="checkbox"
+                                        value="email_actions"
+                              />
+                    </label>
+                    <label>
+                               Phone Actions
+                              <input
+                                        checked={true}
+                                        className="checkbox"
+                                        onChange={[Function]}
+                                        type="checkbox"
+                                        value="phone_actions"
+                              />
+                    </label>
+                    <button
+                              onClick={[Function]}
+                    >
+                              SAVE
+                    </button>
+          </form>
+</div>,
+        <div
+          className="user-profile-edit"
+>
+          <h2>
+                    Your Profile
+          </h2>
+          <form
+                    className="user-profile-form"
+          >
+                    <label>
+                               Name:
+                              <input
+                                        className="text-input"
+                                        onChange={[Function]}
+                                        value="Julie Hawkins"
+                              />
+                    </label>
+                    <label>
+                               Email:
+                              <input
+                                        className="text-input"
+                                        onChange={[Function]}
+                                        value="Julabi@gmail.com"
+                              />
+                    </label>
+                    <button
+                              onClick={[Function]}
+                    >
+                              SAVE
+                    </button>
+          </form>
+</div>,
+      ],
+      "className": "UserProfile",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Welcome, Julie",
+        },
+        "ref": null,
+        "rendered": "Welcome, Julie",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "You have completed true actions so far!",
+          "className": "action-count-description",
+        },
+        "ref": null,
+        "rendered": "You have completed true actions so far!",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h2>
+              Your Preferences
+</h2>,
+            <form
+              className="user-preferences-form"
+>
+              <label>
+                             Twitter Actions
+                            <input
+                                          checked={true}
+                                          className="checkbox"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                          value="twitter_actions"
+                            />
+              </label>
+              <label>
+                             Facebook Actions
+                            <input
+                                          checked={true}
+                                          className="checkbox"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                          value="facebook_actions"
+                            />
+              </label>
+              <label>
+                             Email Actions
+                            <input
+                                          checked={true}
+                                          className="checkbox"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                          value="email_actions"
+                            />
+              </label>
+              <label>
+                             Phone Actions
+                            <input
+                                          checked={true}
+                                          className="checkbox"
+                                          onChange={[Function]}
+                                          type="checkbox"
+                                          value="phone_actions"
+                            />
+              </label>
+              <button
+                            onClick={[Function]}
+              >
+                            SAVE
+              </button>
+</form>,
+          ],
+          "className": "user-preferences",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Your Preferences",
+            },
+            "ref": null,
+            "rendered": "Your Preferences",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label>
+                   Twitter Actions
+                  <input
+                                    checked={true}
+                                    className="checkbox"
+                                    onChange={[Function]}
+                                    type="checkbox"
+                                    value="twitter_actions"
+                  />
+</label>,
+                <label>
+                   Facebook Actions
+                  <input
+                                    checked={true}
+                                    className="checkbox"
+                                    onChange={[Function]}
+                                    type="checkbox"
+                                    value="facebook_actions"
+                  />
+</label>,
+                <label>
+                   Email Actions
+                  <input
+                                    checked={true}
+                                    className="checkbox"
+                                    onChange={[Function]}
+                                    type="checkbox"
+                                    value="email_actions"
+                  />
+</label>,
+                <label>
+                   Phone Actions
+                  <input
+                                    checked={true}
+                                    className="checkbox"
+                                    onChange={[Function]}
+                                    type="checkbox"
+                                    value="phone_actions"
+                  />
+</label>,
+                <button
+                  onClick={[Function]}
+>
+                  SAVE
+</button>,
+              ],
+              "className": "user-preferences-form",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " Twitter Actions",
+                    <input
+                      checked={true}
+                      className="checkbox"
+                      onChange={[Function]}
+                      type="checkbox"
+                      value="twitter_actions"
+/>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  " Twitter Actions",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "checked": true,
+                      "className": "checkbox",
+                      "onChange": [Function],
+                      "type": "checkbox",
+                      "value": "twitter_actions",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " Facebook Actions",
+                    <input
+                      checked={true}
+                      className="checkbox"
+                      onChange={[Function]}
+                      type="checkbox"
+                      value="facebook_actions"
+/>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  " Facebook Actions",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "checked": true,
+                      "className": "checkbox",
+                      "onChange": [Function],
+                      "type": "checkbox",
+                      "value": "facebook_actions",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " Email Actions",
+                    <input
+                      checked={true}
+                      className="checkbox"
+                      onChange={[Function]}
+                      type="checkbox"
+                      value="email_actions"
+/>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  " Email Actions",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "checked": true,
+                      "className": "checkbox",
+                      "onChange": [Function],
+                      "type": "checkbox",
+                      "value": "email_actions",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " Phone Actions",
+                    <input
+                      checked={true}
+                      className="checkbox"
+                      onChange={[Function]}
+                      type="checkbox"
+                      value="phone_actions"
+/>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  " Phone Actions",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "checked": true,
+                      "className": "checkbox",
+                      "onChange": [Function],
+                      "type": "checkbox",
+                      "value": "phone_actions",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "SAVE",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "SAVE",
+                "type": "button",
+              },
+            ],
+            "type": "form",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h2>
+              Your Profile
+</h2>,
+            <form
+              className="user-profile-form"
+>
+              <label>
+                             Name:
+                            <input
+                                          className="text-input"
+                                          onChange={[Function]}
+                                          value="Julie Hawkins"
+                            />
+              </label>
+              <label>
+                             Email:
+                            <input
+                                          className="text-input"
+                                          onChange={[Function]}
+                                          value="Julabi@gmail.com"
+                            />
+              </label>
+              <button
+                            onClick={[Function]}
+              >
+                            SAVE
+              </button>
+</form>,
+          ],
+          "className": "user-profile-edit",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Your Profile",
+            },
+            "ref": null,
+            "rendered": "Your Profile",
+            "type": "h2",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <label>
+                   Name:
+                  <input
+                                    className="text-input"
+                                    onChange={[Function]}
+                                    value="Julie Hawkins"
+                  />
+</label>,
+                <label>
+                   Email:
+                  <input
+                                    className="text-input"
+                                    onChange={[Function]}
+                                    value="Julabi@gmail.com"
+                  />
+</label>,
+                <button
+                  onClick={[Function]}
+>
+                  SAVE
+</button>,
+              ],
+              "className": "user-profile-form",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " Name:",
+                    <input
+                      className="text-input"
+                      onChange={[Function]}
+                      value="Julie Hawkins"
+/>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  " Name:",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "text-input",
+                      "onChange": [Function],
+                      "value": "Julie Hawkins",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    " Email:",
+                    <input
+                      className="text-input"
+                      onChange={[Function]}
+                      value="Julabi@gmail.com"
+/>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  " Email:",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "text-input",
+                      "onChange": [Function],
+                      "value": "Julabi@gmail.com",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "input",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "SAVE",
+                  "onClick": [Function],
+                },
+                "ref": null,
+                "rendered": "SAVE",
+                "type": "button",
+              },
+            ],
+            "type": "form",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Welcome, Julie
+</h1>,
+          <p
+            className="action-count-description"
+>
+            You have completed true actions so far!
+</p>,
+          <div
+            className="user-preferences"
+>
+            <h2>
+                        Your Preferences
+            </h2>
+            <form
+                        className="user-preferences-form"
+            >
+                        <label>
+                                     Twitter Actions
+                                    <input
+                                                checked={true}
+                                                className="checkbox"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                                value="twitter_actions"
+                                    />
+                        </label>
+                        <label>
+                                     Facebook Actions
+                                    <input
+                                                checked={true}
+                                                className="checkbox"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                                value="facebook_actions"
+                                    />
+                        </label>
+                        <label>
+                                     Email Actions
+                                    <input
+                                                checked={true}
+                                                className="checkbox"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                                value="email_actions"
+                                    />
+                        </label>
+                        <label>
+                                     Phone Actions
+                                    <input
+                                                checked={true}
+                                                className="checkbox"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                                value="phone_actions"
+                                    />
+                        </label>
+                        <button
+                                    onClick={[Function]}
+                        >
+                                    SAVE
+                        </button>
+            </form>
+</div>,
+          <div
+            className="user-profile-edit"
+>
+            <h2>
+                        Your Profile
+            </h2>
+            <form
+                        className="user-profile-form"
+            >
+                        <label>
+                                     Name:
+                                    <input
+                                                className="text-input"
+                                                onChange={[Function]}
+                                                value="Julie Hawkins"
+                                    />
+                        </label>
+                        <label>
+                                     Email:
+                                    <input
+                                                className="text-input"
+                                                onChange={[Function]}
+                                                value="Julabi@gmail.com"
+                                    />
+                        </label>
+                        <button
+                                    onClick={[Function]}
+                        >
+                                    SAVE
+                        </button>
+            </form>
+</div>,
+        ],
+        "className": "UserProfile",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Welcome, Julie",
+          },
+          "ref": null,
+          "rendered": "Welcome, Julie",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "You have completed true actions so far!",
+            "className": "action-count-description",
+          },
+          "ref": null,
+          "rendered": "You have completed true actions so far!",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h2>
+                Your Preferences
+</h2>,
+              <form
+                className="user-preferences-form"
+>
+                <label>
+                                 Twitter Actions
+                                <input
+                                                checked={true}
+                                                className="checkbox"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                                value="twitter_actions"
+                                />
+                </label>
+                <label>
+                                 Facebook Actions
+                                <input
+                                                checked={true}
+                                                className="checkbox"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                                value="facebook_actions"
+                                />
+                </label>
+                <label>
+                                 Email Actions
+                                <input
+                                                checked={true}
+                                                className="checkbox"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                                value="email_actions"
+                                />
+                </label>
+                <label>
+                                 Phone Actions
+                                <input
+                                                checked={true}
+                                                className="checkbox"
+                                                onChange={[Function]}
+                                                type="checkbox"
+                                                value="phone_actions"
+                                />
+                </label>
+                <button
+                                onClick={[Function]}
+                >
+                                SAVE
+                </button>
+</form>,
+            ],
+            "className": "user-preferences",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Your Preferences",
+              },
+              "ref": null,
+              "rendered": "Your Preferences",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label>
+                     Twitter Actions
+                    <input
+                                        checked={true}
+                                        className="checkbox"
+                                        onChange={[Function]}
+                                        type="checkbox"
+                                        value="twitter_actions"
+                    />
+</label>,
+                  <label>
+                     Facebook Actions
+                    <input
+                                        checked={true}
+                                        className="checkbox"
+                                        onChange={[Function]}
+                                        type="checkbox"
+                                        value="facebook_actions"
+                    />
+</label>,
+                  <label>
+                     Email Actions
+                    <input
+                                        checked={true}
+                                        className="checkbox"
+                                        onChange={[Function]}
+                                        type="checkbox"
+                                        value="email_actions"
+                    />
+</label>,
+                  <label>
+                     Phone Actions
+                    <input
+                                        checked={true}
+                                        className="checkbox"
+                                        onChange={[Function]}
+                                        type="checkbox"
+                                        value="phone_actions"
+                    />
+</label>,
+                  <button
+                    onClick={[Function]}
+>
+                    SAVE
+</button>,
+                ],
+                "className": "user-preferences-form",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " Twitter Actions",
+                      <input
+                        checked={true}
+                        className="checkbox"
+                        onChange={[Function]}
+                        type="checkbox"
+                        value="twitter_actions"
+/>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " Twitter Actions",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "checked": true,
+                        "className": "checkbox",
+                        "onChange": [Function],
+                        "type": "checkbox",
+                        "value": "twitter_actions",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " Facebook Actions",
+                      <input
+                        checked={true}
+                        className="checkbox"
+                        onChange={[Function]}
+                        type="checkbox"
+                        value="facebook_actions"
+/>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " Facebook Actions",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "checked": true,
+                        "className": "checkbox",
+                        "onChange": [Function],
+                        "type": "checkbox",
+                        "value": "facebook_actions",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " Email Actions",
+                      <input
+                        checked={true}
+                        className="checkbox"
+                        onChange={[Function]}
+                        type="checkbox"
+                        value="email_actions"
+/>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " Email Actions",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "checked": true,
+                        "className": "checkbox",
+                        "onChange": [Function],
+                        "type": "checkbox",
+                        "value": "email_actions",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " Phone Actions",
+                      <input
+                        checked={true}
+                        className="checkbox"
+                        onChange={[Function]}
+                        type="checkbox"
+                        value="phone_actions"
+/>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " Phone Actions",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "checked": true,
+                        "className": "checkbox",
+                        "onChange": [Function],
+                        "type": "checkbox",
+                        "value": "phone_actions",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "SAVE",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "SAVE",
+                  "type": "button",
+                },
+              ],
+              "type": "form",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h2>
+                Your Profile
+</h2>,
+              <form
+                className="user-profile-form"
+>
+                <label>
+                                 Name:
+                                <input
+                                                className="text-input"
+                                                onChange={[Function]}
+                                                value="Julie Hawkins"
+                                />
+                </label>
+                <label>
+                                 Email:
+                                <input
+                                                className="text-input"
+                                                onChange={[Function]}
+                                                value="Julabi@gmail.com"
+                                />
+                </label>
+                <button
+                                onClick={[Function]}
+                >
+                                SAVE
+                </button>
+</form>,
+            ],
+            "className": "user-profile-edit",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Your Profile",
+              },
+              "ref": null,
+              "rendered": "Your Profile",
+              "type": "h2",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <label>
+                     Name:
+                    <input
+                                        className="text-input"
+                                        onChange={[Function]}
+                                        value="Julie Hawkins"
+                    />
+</label>,
+                  <label>
+                     Email:
+                    <input
+                                        className="text-input"
+                                        onChange={[Function]}
+                                        value="Julabi@gmail.com"
+                    />
+</label>,
+                  <button
+                    onClick={[Function]}
+>
+                    SAVE
+</button>,
+                ],
+                "className": "user-profile-form",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " Name:",
+                      <input
+                        className="text-input"
+                        onChange={[Function]}
+                        value="Julie Hawkins"
+/>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " Name:",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "text-input",
+                        "onChange": [Function],
+                        "value": "Julie Hawkins",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      " Email:",
+                      <input
+                        className="text-input"
+                        onChange={[Function]}
+                        value="Julabi@gmail.com"
+/>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    " Email:",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "className": "text-input",
+                        "onChange": [Function],
+                        "value": "Julabi@gmail.com",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "input",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "SAVE",
+                    "onClick": [Function],
+                  },
+                  "ref": null,
+                  "rendered": "SAVE",
+                  "type": "button",
+                },
+              ],
+              "type": "form",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

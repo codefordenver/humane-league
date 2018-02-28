@@ -3,12 +3,18 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { UpdateAction } from './UpdateAction';
 
-describe.skip('UpdateAction component tests', () => {
+describe('UpdateAction component tests', () => {
   let renderedUpdateAction;
   let defaultState; 
   
   beforeEach(() => {
-    renderedUpdateAction = shallow( <UpdateAction user={{ name: 'hello' }}/> );
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => 
+        Promise.resolve({
+          results: []
+        })   
+    }));
+    renderedUpdateAction = shallow( <UpdateAction user={{ name: 'hello', id_token: 'xyz' }}/> );
     defaultState = {
       actionType: 'facebook',
       action: {},
@@ -17,20 +23,14 @@ describe.skip('UpdateAction component tests', () => {
       twitter: [],
       email: [],
       phone: []
-    }
+    };
 
-    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-      json: () => 
-        Promise.resolve(
-          [{id: 1, title: 'title'}]
-        )   
-    }));
-  })
+  });
   it('renders without crashing', () => {
     expect(renderedUpdateAction).toBeDefined();
     expect(renderedUpdateAction.state()).toEqual(defaultState);
   });
   it('matches SnapShot', () => {
-    // expect(renderedUpdateAction).toMatchSnapshot();
-  })
-})
+    expect(renderedUpdateAction).toMatchSnapshot();
+  });
+});

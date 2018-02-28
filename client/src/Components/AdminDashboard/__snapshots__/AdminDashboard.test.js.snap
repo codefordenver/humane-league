@@ -4,7 +4,16 @@ exports[`AdminDashboard component tests matches SnapShot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <MemoryRouter>
+  Symbol(enzyme.__unrendered__): <MemoryRouter
+    initialEntries={
+        Array [
+            Object {
+              "key": "testKey",
+              "pathname": "/",
+            },
+          ]
+    }
+>
     <Unknown />
 </MemoryRouter>,
   Symbol(enzyme.__renderer__): Object {
@@ -28,10 +37,9 @@ ShallowWrapper {
         "entries": Array [
           Object {
             "hash": "",
-            "key": "auyb6u",
+            "key": "testKey",
             "pathname": "/",
             "search": "",
-            "state": undefined,
           },
         ],
         "go": [Function],
@@ -42,10 +50,9 @@ ShallowWrapper {
         "listen": [Function],
         "location": Object {
           "hash": "",
-          "key": "auyb6u",
+          "key": "testKey",
           "pathname": "/",
           "search": "",
-          "state": undefined,
         },
         "push": [Function],
         "replace": [Function],
@@ -78,10 +85,9 @@ ShallowWrapper {
           "entries": Array [
             Object {
               "hash": "",
-              "key": "auyb6u",
+              "key": "testKey",
               "pathname": "/",
               "search": "",
-              "state": undefined,
             },
           ],
           "go": [Function],
@@ -92,10 +98,9 @@ ShallowWrapper {
           "listen": [Function],
           "location": Object {
             "hash": "",
-            "key": "auyb6u",
+            "key": "testKey",
             "pathname": "/",
             "search": "",
-            "state": undefined,
           },
           "push": [Function],
           "replace": [Function],
@@ -142,59 +147,60 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <div
-          className="dashboard-section"
+        <h1
+          className="admin-greeting"
 >
-          <h2>
-                    MANAGE ACTIONS
-          </h2>
-          <NavLink
-                    activeClassName="active"
-                    ariaCurrent="true"
-                    className="admin-btn create-new-action"
-                    to="/admin/create"
-          >
-                    CREATE NEW ACTION
-          </NavLink>
-          <NavLink
-                    activeClassName="active"
-                    ariaCurrent="true"
-                    className="admin-btn enable-disable"
-                    to="/admin/update"
-          >
-                    ENABLE/DISABLE
-          </NavLink>
-          <NavLink
-                    activeClassName="active"
-                    ariaCurrent="true"
-                    className="admin-btn add-content"
-                    to="/admin/addcontent"
-          >
-                    EDIT ACTIONS
-          </NavLink>
-</div>,
+          Admin Dashboard
+</h1>,
         <div
-          className="dashboard-section"
+          className="dashboard-container"
 >
-          <h2>
-                    ANALYTICS
-          </h2>
-          <NavLink
-                    activeClassName="active"
-                    ariaCurrent="true"
-                    className="admin-btn action-log"
-                    to="/admin/log"
+          <div
+                    className="dashboard-section"
           >
-                    ACTION LOG
-          </NavLink>
-          <NavLink
-                    activeClassName="active"
-                    ariaCurrent="true"
-                    className="admin-btn user-feedback"
-                    to="/admin/feedback"
+                    <h2>
+                              MANAGE ACTIONS
+                    </h2>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              className="admin-btn create-new-action"
+                              to="/admin/create"
+                    >
+                              Create New Action
+                    </NavLink>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              className="admin-btn enable-disable"
+                              to="/admin/update"
+                    >
+                              Enable/Disable
+                    </NavLink>
+          </div>
+          <div
+                    className="dashboard-section"
           >
-                    USER FEEDBACK
-          </NavLink>
+                    <h2>
+                              ANALYTICS
+                    </h2>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              className="admin-btn action-log"
+                              to="/admin/log"
+                    >
+                              Action Log
+                    </NavLink>
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              className="admin-btn user-feedback"
+                              to="/admin/feedback"
+                    >
+                              User Feedback
+                    </NavLink>
+          </div>
 </div>,
       ],
       "className": "main-dashboard",
@@ -206,97 +212,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": Array [
-            <h2>
-              MANAGE ACTIONS
-</h2>,
-            <NavLink
-              activeClassName="active"
-              ariaCurrent="true"
-              className="admin-btn create-new-action"
-              to="/admin/create"
->
-              CREATE NEW ACTION
-</NavLink>,
-            <NavLink
-              activeClassName="active"
-              ariaCurrent="true"
-              className="admin-btn enable-disable"
-              to="/admin/update"
->
-              ENABLE/DISABLE
-</NavLink>,
-            <NavLink
-              activeClassName="active"
-              ariaCurrent="true"
-              className="admin-btn add-content"
-              to="/admin/addcontent"
->
-              EDIT ACTIONS
-</NavLink>,
-          ],
-          "className": "dashboard-section",
+          "children": "Admin Dashboard",
+          "className": "admin-greeting",
         },
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "MANAGE ACTIONS",
-            },
-            "ref": null,
-            "rendered": "MANAGE ACTIONS",
-            "type": "h2",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "activeClassName": "active",
-              "ariaCurrent": "true",
-              "children": "CREATE NEW ACTION",
-              "className": "admin-btn create-new-action",
-              "to": "/admin/create",
-            },
-            "ref": null,
-            "rendered": "CREATE NEW ACTION",
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "activeClassName": "active",
-              "ariaCurrent": "true",
-              "children": "ENABLE/DISABLE",
-              "className": "admin-btn enable-disable",
-              "to": "/admin/update",
-            },
-            "ref": null,
-            "rendered": "ENABLE/DISABLE",
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "activeClassName": "active",
-              "ariaCurrent": "true",
-              "children": "EDIT ACTIONS",
-              "className": "admin-btn add-content",
-              "to": "/admin/addcontent",
-            },
-            "ref": null,
-            "rendered": "EDIT ACTIONS",
-            "type": [Function],
-          },
-        ],
-        "type": "div",
+        "rendered": "Admin Dashboard",
+        "type": "h1",
       },
       Object {
         "instance": null,
@@ -304,27 +225,54 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <h2>
-              ANALYTICS
-</h2>,
-            <NavLink
-              activeClassName="active"
-              ariaCurrent="true"
-              className="admin-btn action-log"
-              to="/admin/log"
+            <div
+              className="dashboard-section"
 >
-              ACTION LOG
-</NavLink>,
-            <NavLink
-              activeClassName="active"
-              ariaCurrent="true"
-              className="admin-btn user-feedback"
-              to="/admin/feedback"
+              <h2>
+                            MANAGE ACTIONS
+              </h2>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            className="admin-btn create-new-action"
+                            to="/admin/create"
+              >
+                            Create New Action
+              </NavLink>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            className="admin-btn enable-disable"
+                            to="/admin/update"
+              >
+                            Enable/Disable
+              </NavLink>
+</div>,
+            <div
+              className="dashboard-section"
 >
-              USER FEEDBACK
-</NavLink>,
+              <h2>
+                            ANALYTICS
+              </h2>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            className="admin-btn action-log"
+                            to="/admin/log"
+              >
+                            Action Log
+              </NavLink>
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            className="admin-btn user-feedback"
+                            to="/admin/feedback"
+              >
+                            User Feedback
+              </NavLink>
+</div>,
           ],
-          "className": "dashboard-section",
+          "className": "dashboard-container",
         },
         "ref": null,
         "rendered": Array [
@@ -333,41 +281,148 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "ANALYTICS",
+              "children": Array [
+                <h2>
+                  MANAGE ACTIONS
+</h2>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  className="admin-btn create-new-action"
+                  to="/admin/create"
+>
+                  Create New Action
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  className="admin-btn enable-disable"
+                  to="/admin/update"
+>
+                  Enable/Disable
+</NavLink>,
+              ],
+              "className": "dashboard-section",
             },
             "ref": null,
-            "rendered": "ANALYTICS",
-            "type": "h2",
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "MANAGE ACTIONS",
+                },
+                "ref": null,
+                "rendered": "MANAGE ACTIONS",
+                "type": "h2",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": "Create New Action",
+                  "className": "admin-btn create-new-action",
+                  "to": "/admin/create",
+                },
+                "ref": null,
+                "rendered": "Create New Action",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": "Enable/Disable",
+                  "className": "admin-btn enable-disable",
+                  "to": "/admin/update",
+                },
+                "ref": null,
+                "rendered": "Enable/Disable",
+                "type": [Function],
+              },
+            ],
+            "type": "div",
           },
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "function",
+            "nodeType": "host",
             "props": Object {
-              "activeClassName": "active",
-              "ariaCurrent": "true",
-              "children": "ACTION LOG",
-              "className": "admin-btn action-log",
-              "to": "/admin/log",
+              "children": Array [
+                <h2>
+                  ANALYTICS
+</h2>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  className="admin-btn action-log"
+                  to="/admin/log"
+>
+                  Action Log
+</NavLink>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  className="admin-btn user-feedback"
+                  to="/admin/feedback"
+>
+                  User Feedback
+</NavLink>,
+              ],
+              "className": "dashboard-section",
             },
             "ref": null,
-            "rendered": "ACTION LOG",
-            "type": [Function],
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "function",
-            "props": Object {
-              "activeClassName": "active",
-              "ariaCurrent": "true",
-              "children": "USER FEEDBACK",
-              "className": "admin-btn user-feedback",
-              "to": "/admin/feedback",
-            },
-            "ref": null,
-            "rendered": "USER FEEDBACK",
-            "type": [Function],
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "ANALYTICS",
+                },
+                "ref": null,
+                "rendered": "ANALYTICS",
+                "type": "h2",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": "Action Log",
+                  "className": "admin-btn action-log",
+                  "to": "/admin/log",
+                },
+                "ref": null,
+                "rendered": "Action Log",
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": "User Feedback",
+                  "className": "admin-btn user-feedback",
+                  "to": "/admin/feedback",
+                },
+                "ref": null,
+                "rendered": "User Feedback",
+                "type": [Function],
+              },
+            ],
+            "type": "div",
           },
         ],
         "type": "div",
@@ -382,59 +437,60 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <div
-            className="dashboard-section"
+          <h1
+            className="admin-greeting"
 >
-            <h2>
-                        MANAGE ACTIONS
-            </h2>
-            <NavLink
-                        activeClassName="active"
-                        ariaCurrent="true"
-                        className="admin-btn create-new-action"
-                        to="/admin/create"
-            >
-                        CREATE NEW ACTION
-            </NavLink>
-            <NavLink
-                        activeClassName="active"
-                        ariaCurrent="true"
-                        className="admin-btn enable-disable"
-                        to="/admin/update"
-            >
-                        ENABLE/DISABLE
-            </NavLink>
-            <NavLink
-                        activeClassName="active"
-                        ariaCurrent="true"
-                        className="admin-btn add-content"
-                        to="/admin/addcontent"
-            >
-                        EDIT ACTIONS
-            </NavLink>
-</div>,
+            Admin Dashboard
+</h1>,
           <div
-            className="dashboard-section"
+            className="dashboard-container"
 >
-            <h2>
-                        ANALYTICS
-            </h2>
-            <NavLink
-                        activeClassName="active"
-                        ariaCurrent="true"
-                        className="admin-btn action-log"
-                        to="/admin/log"
+            <div
+                        className="dashboard-section"
             >
-                        ACTION LOG
-            </NavLink>
-            <NavLink
-                        activeClassName="active"
-                        ariaCurrent="true"
-                        className="admin-btn user-feedback"
-                        to="/admin/feedback"
+                        <h2>
+                                    MANAGE ACTIONS
+                        </h2>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    className="admin-btn create-new-action"
+                                    to="/admin/create"
+                        >
+                                    Create New Action
+                        </NavLink>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    className="admin-btn enable-disable"
+                                    to="/admin/update"
+                        >
+                                    Enable/Disable
+                        </NavLink>
+            </div>
+            <div
+                        className="dashboard-section"
             >
-                        USER FEEDBACK
-            </NavLink>
+                        <h2>
+                                    ANALYTICS
+                        </h2>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    className="admin-btn action-log"
+                                    to="/admin/log"
+                        >
+                                    Action Log
+                        </NavLink>
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    className="admin-btn user-feedback"
+                                    to="/admin/feedback"
+                        >
+                                    User Feedback
+                        </NavLink>
+            </div>
 </div>,
         ],
         "className": "main-dashboard",
@@ -446,97 +502,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              <h2>
-                MANAGE ACTIONS
-</h2>,
-              <NavLink
-                activeClassName="active"
-                ariaCurrent="true"
-                className="admin-btn create-new-action"
-                to="/admin/create"
->
-                CREATE NEW ACTION
-</NavLink>,
-              <NavLink
-                activeClassName="active"
-                ariaCurrent="true"
-                className="admin-btn enable-disable"
-                to="/admin/update"
->
-                ENABLE/DISABLE
-</NavLink>,
-              <NavLink
-                activeClassName="active"
-                ariaCurrent="true"
-                className="admin-btn add-content"
-                to="/admin/addcontent"
->
-                EDIT ACTIONS
-</NavLink>,
-            ],
-            "className": "dashboard-section",
+            "children": "Admin Dashboard",
+            "className": "admin-greeting",
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "MANAGE ACTIONS",
-              },
-              "ref": null,
-              "rendered": "MANAGE ACTIONS",
-              "type": "h2",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "activeClassName": "active",
-                "ariaCurrent": "true",
-                "children": "CREATE NEW ACTION",
-                "className": "admin-btn create-new-action",
-                "to": "/admin/create",
-              },
-              "ref": null,
-              "rendered": "CREATE NEW ACTION",
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "activeClassName": "active",
-                "ariaCurrent": "true",
-                "children": "ENABLE/DISABLE",
-                "className": "admin-btn enable-disable",
-                "to": "/admin/update",
-              },
-              "ref": null,
-              "rendered": "ENABLE/DISABLE",
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "activeClassName": "active",
-                "ariaCurrent": "true",
-                "children": "EDIT ACTIONS",
-                "className": "admin-btn add-content",
-                "to": "/admin/addcontent",
-              },
-              "ref": null,
-              "rendered": "EDIT ACTIONS",
-              "type": [Function],
-            },
-          ],
-          "type": "div",
+          "rendered": "Admin Dashboard",
+          "type": "h1",
         },
         Object {
           "instance": null,
@@ -544,27 +515,54 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <h2>
-                ANALYTICS
-</h2>,
-              <NavLink
-                activeClassName="active"
-                ariaCurrent="true"
-                className="admin-btn action-log"
-                to="/admin/log"
+              <div
+                className="dashboard-section"
 >
-                ACTION LOG
-</NavLink>,
-              <NavLink
-                activeClassName="active"
-                ariaCurrent="true"
-                className="admin-btn user-feedback"
-                to="/admin/feedback"
+                <h2>
+                                MANAGE ACTIONS
+                </h2>
+                <NavLink
+                                activeClassName="active"
+                                ariaCurrent="true"
+                                className="admin-btn create-new-action"
+                                to="/admin/create"
+                >
+                                Create New Action
+                </NavLink>
+                <NavLink
+                                activeClassName="active"
+                                ariaCurrent="true"
+                                className="admin-btn enable-disable"
+                                to="/admin/update"
+                >
+                                Enable/Disable
+                </NavLink>
+</div>,
+              <div
+                className="dashboard-section"
 >
-                USER FEEDBACK
-</NavLink>,
+                <h2>
+                                ANALYTICS
+                </h2>
+                <NavLink
+                                activeClassName="active"
+                                ariaCurrent="true"
+                                className="admin-btn action-log"
+                                to="/admin/log"
+                >
+                                Action Log
+                </NavLink>
+                <NavLink
+                                activeClassName="active"
+                                ariaCurrent="true"
+                                className="admin-btn user-feedback"
+                                to="/admin/feedback"
+                >
+                                User Feedback
+                </NavLink>
+</div>,
             ],
-            "className": "dashboard-section",
+            "className": "dashboard-container",
           },
           "ref": null,
           "rendered": Array [
@@ -573,41 +571,148 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "ANALYTICS",
+                "children": Array [
+                  <h2>
+                    MANAGE ACTIONS
+</h2>,
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="admin-btn create-new-action"
+                    to="/admin/create"
+>
+                    Create New Action
+</NavLink>,
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="admin-btn enable-disable"
+                    to="/admin/update"
+>
+                    Enable/Disable
+</NavLink>,
+                ],
+                "className": "dashboard-section",
               },
               "ref": null,
-              "rendered": "ANALYTICS",
-              "type": "h2",
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "MANAGE ACTIONS",
+                  },
+                  "ref": null,
+                  "rendered": "MANAGE ACTIONS",
+                  "type": "h2",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "active",
+                    "ariaCurrent": "true",
+                    "children": "Create New Action",
+                    "className": "admin-btn create-new-action",
+                    "to": "/admin/create",
+                  },
+                  "ref": null,
+                  "rendered": "Create New Action",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "active",
+                    "ariaCurrent": "true",
+                    "children": "Enable/Disable",
+                    "className": "admin-btn enable-disable",
+                    "to": "/admin/update",
+                  },
+                  "ref": null,
+                  "rendered": "Enable/Disable",
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
             },
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "function",
+              "nodeType": "host",
               "props": Object {
-                "activeClassName": "active",
-                "ariaCurrent": "true",
-                "children": "ACTION LOG",
-                "className": "admin-btn action-log",
-                "to": "/admin/log",
+                "children": Array [
+                  <h2>
+                    ANALYTICS
+</h2>,
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="admin-btn action-log"
+                    to="/admin/log"
+>
+                    Action Log
+</NavLink>,
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="admin-btn user-feedback"
+                    to="/admin/feedback"
+>
+                    User Feedback
+</NavLink>,
+                ],
+                "className": "dashboard-section",
               },
               "ref": null,
-              "rendered": "ACTION LOG",
-              "type": [Function],
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "function",
-              "props": Object {
-                "activeClassName": "active",
-                "ariaCurrent": "true",
-                "children": "USER FEEDBACK",
-                "className": "admin-btn user-feedback",
-                "to": "/admin/feedback",
-              },
-              "ref": null,
-              "rendered": "USER FEEDBACK",
-              "type": [Function],
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "ANALYTICS",
+                  },
+                  "ref": null,
+                  "rendered": "ANALYTICS",
+                  "type": "h2",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "active",
+                    "ariaCurrent": "true",
+                    "children": "Action Log",
+                    "className": "admin-btn action-log",
+                    "to": "/admin/log",
+                  },
+                  "ref": null,
+                  "rendered": "Action Log",
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "active",
+                    "ariaCurrent": "true",
+                    "children": "User Feedback",
+                    "className": "admin-btn user-feedback",
+                    "to": "/admin/feedback",
+                  },
+                  "ref": null,
+                  "rendered": "User Feedback",
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
             },
           ],
           "type": "div",

@@ -5,23 +5,21 @@ window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
     Promise.resolve(
       {
         results: [
-          { action_id: 3 }
+          { action_id: 3, content: 'test action' }
         ]
       }
     )   
 }));
 
-describe.skip('fetchActionBody util function', () => {
-  it('should fetch action contents', () => {
+describe('fetchActionBody util function', () => {
+  it('should fetch action contents', async () => {
     // const tables = ['facebook', 'twitter', 'email', 'phone'];
     const mockAction = {
-      id: 3, 
+      id: 3
     };
 
-    const expectedResult = fetchActionBody('facebook', mockAction)
-    .then(result => {
-      return result;
-    });
-    expect(expectedResult).toEqual();
-  })
-})
+    const expectedResult = await fetchActionBody('facebook', mockAction);
+
+    expect(expectedResult).toEqual('test action');
+  });
+});

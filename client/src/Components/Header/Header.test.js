@@ -3,17 +3,17 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { Header } from './Header';
 
-describe.skip('Header component tests', () => {
+describe('Header component tests', () => {
   let renderedHeader;
   global.localStorage = {
     'THL-FAN-USER': { id: 1 },
     getItem: () => {
-       return 'THL-FAN-USER'
+      return JSON.stringify({name: 'Thomas', email: '123@mail.com'});
     }
   };
   
   beforeEach(() => {
-    renderedHeader = shallow( <Header User={{}}/> );
+    renderedHeader = shallow( <Header validateUser={jest.fn()} User={{}}/> );
     
   })
   it('renders without crashing', () => {
@@ -21,5 +21,5 @@ describe.skip('Header component tests', () => {
   });
   it('matches SnapShot', () => {
     expect(renderedHeader).toMatchSnapshot();
-  })
-})
+  });
+});

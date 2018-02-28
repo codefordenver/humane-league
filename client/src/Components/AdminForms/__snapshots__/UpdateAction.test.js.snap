@@ -1,3 +1,694 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`UpdateAction component tests matches SnapShot 1`] = `undefined`;
+exports[`UpdateAction component tests matches SnapShot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <UpdateAction
+    user={
+        Object {
+            "id_token": "xyz",
+            "name": "hello",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          Enable and Disable 
+          <span>
+                    FACEBOOK
+          </span>
+           Actions
+</h1>,
+        undefined,
+        <div
+          className="update-container"
+>
+          <label
+                    htmlFor="action-types"
+          >
+                    Select Action Type:
+                    <select
+                              id="action-types"
+                              name="action-types"
+                              onChange={[Function]}
+                    >
+                              <option
+                                        value="facebook"
+                              >
+                                        Facebook
+                              </option>
+                              <option
+                                        value="twitter"
+                              >
+                                        Twitter
+                              </option>
+                              <option
+                                        value="email"
+                              >
+                                        Email
+                              </option>
+                              <option
+                                        value="phone"
+                              >
+                                        Phone
+                              </option>
+                    </select>
+          </label>
+          <div
+                    className="actions-container"
+          >
+                    <h3>
+                              Click an action to see or change status
+                    </h3>
+                    <ul
+                              className="actions"
+                    >
+                              
+                    </ul>
+          </div>
+</div>,
+      ],
+      "className": "UpdateAction",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "Enable and Disable ",
+            <span>
+              FACEBOOK
+</span>,
+            " Actions",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "Enable and Disable ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "FACEBOOK",
+            },
+            "ref": null,
+            "rendered": "FACEBOOK",
+            "type": "span",
+          },
+          " Actions",
+        ],
+        "type": "h1",
+      },
+      undefined,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <label
+              htmlFor="action-types"
+>
+              Select Action Type:
+              <select
+                            id="action-types"
+                            name="action-types"
+                            onChange={[Function]}
+              >
+                            <option
+                                          value="facebook"
+                            >
+                                          Facebook
+                            </option>
+                            <option
+                                          value="twitter"
+                            >
+                                          Twitter
+                            </option>
+                            <option
+                                          value="email"
+                            >
+                                          Email
+                            </option>
+                            <option
+                                          value="phone"
+                            >
+                                          Phone
+                            </option>
+              </select>
+</label>,
+            false,
+            <div
+              className="actions-container"
+>
+              <h3>
+                            Click an action to see or change status
+              </h3>
+              <ul
+                            className="actions"
+              >
+                            
+              </ul>
+</div>,
+          ],
+          "className": "update-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                "Select Action Type:",
+                <select
+                  id="action-types"
+                  name="action-types"
+                  onChange={[Function]}
+>
+                  <option
+                                    value="facebook"
+                  >
+                                    Facebook
+                  </option>
+                  <option
+                                    value="twitter"
+                  >
+                                    Twitter
+                  </option>
+                  <option
+                                    value="email"
+                  >
+                                    Email
+                  </option>
+                  <option
+                                    value="phone"
+                  >
+                                    Phone
+                  </option>
+</select>,
+              ],
+              "htmlFor": "action-types",
+            },
+            "ref": null,
+            "rendered": Array [
+              "Select Action Type:",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <option
+                      value="facebook"
+>
+                      Facebook
+</option>,
+                    <option
+                      value="twitter"
+>
+                      Twitter
+</option>,
+                    <option
+                      value="email"
+>
+                      Email
+</option>,
+                    <option
+                      value="phone"
+>
+                      Phone
+</option>,
+                  ],
+                  "id": "action-types",
+                  "name": "action-types",
+                  "onChange": [Function],
+                },
+                "ref": [Function],
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Facebook",
+                      "value": "facebook",
+                    },
+                    "ref": null,
+                    "rendered": "Facebook",
+                    "type": "option",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Twitter",
+                      "value": "twitter",
+                    },
+                    "ref": null,
+                    "rendered": "Twitter",
+                    "type": "option",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Email",
+                      "value": "email",
+                    },
+                    "ref": null,
+                    "rendered": "Email",
+                    "type": "option",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Phone",
+                      "value": "phone",
+                    },
+                    "ref": null,
+                    "rendered": "Phone",
+                    "type": "option",
+                  },
+                ],
+                "type": "select",
+              },
+            ],
+            "type": "label",
+          },
+          false,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h3>
+                  Click an action to see or change status
+</h3>,
+                <ul
+                  className="actions"
+>
+                  
+</ul>,
+              ],
+              "className": "actions-container",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Click an action to see or change status",
+                },
+                "ref": null,
+                "rendered": "Click an action to see or change status",
+                "type": "h3",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [],
+                  "className": "actions",
+                },
+                "ref": null,
+                "rendered": Array [],
+                "type": "ul",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Enable and Disable 
+            <span>
+                        FACEBOOK
+            </span>
+             Actions
+</h1>,
+          undefined,
+          <div
+            className="update-container"
+>
+            <label
+                        htmlFor="action-types"
+            >
+                        Select Action Type:
+                        <select
+                                    id="action-types"
+                                    name="action-types"
+                                    onChange={[Function]}
+                        >
+                                    <option
+                                                value="facebook"
+                                    >
+                                                Facebook
+                                    </option>
+                                    <option
+                                                value="twitter"
+                                    >
+                                                Twitter
+                                    </option>
+                                    <option
+                                                value="email"
+                                    >
+                                                Email
+                                    </option>
+                                    <option
+                                                value="phone"
+                                    >
+                                                Phone
+                                    </option>
+                        </select>
+            </label>
+            <div
+                        className="actions-container"
+            >
+                        <h3>
+                                    Click an action to see or change status
+                        </h3>
+                        <ul
+                                    className="actions"
+                        >
+                                    
+                        </ul>
+            </div>
+</div>,
+        ],
+        "className": "UpdateAction",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "Enable and Disable ",
+              <span>
+                FACEBOOK
+</span>,
+              " Actions",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "Enable and Disable ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "FACEBOOK",
+              },
+              "ref": null,
+              "rendered": "FACEBOOK",
+              "type": "span",
+            },
+            " Actions",
+          ],
+          "type": "h1",
+        },
+        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <label
+                htmlFor="action-types"
+>
+                Select Action Type:
+                <select
+                                id="action-types"
+                                name="action-types"
+                                onChange={[Function]}
+                >
+                                <option
+                                                value="facebook"
+                                >
+                                                Facebook
+                                </option>
+                                <option
+                                                value="twitter"
+                                >
+                                                Twitter
+                                </option>
+                                <option
+                                                value="email"
+                                >
+                                                Email
+                                </option>
+                                <option
+                                                value="phone"
+                                >
+                                                Phone
+                                </option>
+                </select>
+</label>,
+              false,
+              <div
+                className="actions-container"
+>
+                <h3>
+                                Click an action to see or change status
+                </h3>
+                <ul
+                                className="actions"
+                >
+                                
+                </ul>
+</div>,
+            ],
+            "className": "update-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Select Action Type:",
+                  <select
+                    id="action-types"
+                    name="action-types"
+                    onChange={[Function]}
+>
+                    <option
+                                        value="facebook"
+                    >
+                                        Facebook
+                    </option>
+                    <option
+                                        value="twitter"
+                    >
+                                        Twitter
+                    </option>
+                    <option
+                                        value="email"
+                    >
+                                        Email
+                    </option>
+                    <option
+                                        value="phone"
+                    >
+                                        Phone
+                    </option>
+</select>,
+                ],
+                "htmlFor": "action-types",
+              },
+              "ref": null,
+              "rendered": Array [
+                "Select Action Type:",
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <option
+                        value="facebook"
+>
+                        Facebook
+</option>,
+                      <option
+                        value="twitter"
+>
+                        Twitter
+</option>,
+                      <option
+                        value="email"
+>
+                        Email
+</option>,
+                      <option
+                        value="phone"
+>
+                        Phone
+</option>,
+                    ],
+                    "id": "action-types",
+                    "name": "action-types",
+                    "onChange": [Function],
+                  },
+                  "ref": [Function],
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Facebook",
+                        "value": "facebook",
+                      },
+                      "ref": null,
+                      "rendered": "Facebook",
+                      "type": "option",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Twitter",
+                        "value": "twitter",
+                      },
+                      "ref": null,
+                      "rendered": "Twitter",
+                      "type": "option",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Email",
+                        "value": "email",
+                      },
+                      "ref": null,
+                      "rendered": "Email",
+                      "type": "option",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Phone",
+                        "value": "phone",
+                      },
+                      "ref": null,
+                      "rendered": "Phone",
+                      "type": "option",
+                    },
+                  ],
+                  "type": "select",
+                },
+              ],
+              "type": "label",
+            },
+            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h3>
+                    Click an action to see or change status
+</h3>,
+                  <ul
+                    className="actions"
+>
+                    
+</ul>,
+                ],
+                "className": "actions-container",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Click an action to see or change status",
+                  },
+                  "ref": null,
+                  "rendered": "Click an action to see or change status",
+                  "type": "h3",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [],
+                    "className": "actions",
+                  },
+                  "ref": null,
+                  "rendered": Array [],
+                  "type": "ul",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

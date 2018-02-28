@@ -112,10 +112,16 @@
     padding-bottom: 50px;
     .fan-logo {
       margin: 0 auto;
-      width: 50%;
+      width: 400px;
     }
     .welcome-controls {
       padding: 0;
     }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .Welcome .fan-logo {
+    width: 90%;
   }
 }

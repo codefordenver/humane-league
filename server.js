@@ -61,7 +61,6 @@ const validateAdmin = async (request, response, next) => {
   const user = await database('users').where('id_token', userToken).first().then(user => user);
 
   if (!user) {
-    console.log('here');
     return response.status(404).json({error: `No user found with token ${userToken}.`});
   }
 
@@ -73,7 +72,6 @@ const validateAdmin = async (request, response, next) => {
 }
 
 const patchValidation = async (request, response, next) => {
-  console.log('patching')
   const { id } = request.params;
   const { body } = request;
   const userToken = request.query.token;

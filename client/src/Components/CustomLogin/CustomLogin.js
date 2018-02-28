@@ -35,10 +35,8 @@ export class CustomLogin extends Component {
 
     if (!this.state.signin) {
       if (this.password.value !== this.confirmPass.value || this.email.value.length < 5 || this.password.value.length < 5) {
-        console.log('disabled');
         this.setState({ disableSubmit: true });
       } else {
-        console.log('enabled');
         this.setState({ disableSubmit: false });
       }
 

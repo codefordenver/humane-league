@@ -30,10 +30,13 @@ class FacebookCard extends Component {
   actionCount = async () => {
     const actionLogFetch = await fetch('/api/v1/actions');
     const actionLog = await actionLogFetch.json();
-    console.log(actionLog.results);
-    console.log(this.props.action.id);
     const actionCount = actionLog.results.filter(actionLog => (actionLog.action_id === this.props.action.id && actionLog.action_type === 'facebook_actions')).length;
     await this.setState({ actionCount });
+  }
+
+  completeAction = () => {
+    this.props.removeCompleted('email', this.props.action.id);
+    logAction('email_actions', this.props.user, this.props.action);
   }
 
   render() {
@@ -41,7 +44,7 @@ class FacebookCard extends Component {
     const expanded = this.state.actionBody !== null;
 
     let buttonText = expanded ? 'GO' : 'FACEBOOK';
-    const buttonOnClick = expanded ? () => logAction('facebook_actions', this.props.user, this.props.action) : this.setActionBody;
+    const buttonOnClick = expanded ? this.completeAction : this.setActionBody;
     const targetLink = expanded ? target : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const textArea = expanded ? <textarea className="body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;

@@ -37,6 +37,10 @@ class UserFeedback extends Component {
 
     if (this.state.feedback) {
       const { feedback } = this.state;
+      const noFeedback = Object.keys(feedback).length === 0
+        ? <p className="no-feedback">There is no user feedback at this time. Please check back again soon!</p>
+        : null;
+
       const cards = Object.keys(feedback).map(actionTitle => {
         const iconClass = iconClasses[feedback[actionTitle].type];
         return (
@@ -54,6 +58,7 @@ class UserFeedback extends Component {
         <div className="UserFeedback">
           <h1>User Feedback</h1>
           {cards}
+          {noFeedback}
         </div>
       );
     } else {

@@ -8,8 +8,6 @@ import {
   getCompletedActions,
   patchAction } from '../../utils/apiCalls';
 
-// import './UpdateAction.css';
-
 export class UpdateAction extends Component {
   constructor() {
     super();

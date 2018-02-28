@@ -34,12 +34,17 @@ class TwitterCard extends Component {
     await this.setState({ actionCount });
   }
 
+  completeAction = () => {
+    this.props.removeCompleted('email', this.props.action.id);
+    logAction('email_actions', this.props.user, this.props.action);
+  }
+
   render() {
     const { title, description, target } = this.props.action;
     const expanded = this.state.actionBody !== null;
 
     let buttonText = expanded ? 'GO' : 'TWEET';
-    const buttonOnClick = expanded ? () => logAction('twitter_actions', this.props.user, this.props.action) : this.setActionBody;
+    const buttonOnClick = expanded ? this.completeAction : this.setActionBody;
     const targetLink = expanded ? `https://twitter.com/intent/tweet?text=${target} ${this.state.actionBody}` : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const textArea = expanded ? <textarea className="body-text" onChange={(e) => this.resetBody(e.target.value)} value={this.state.actionBody}></textarea> : null;

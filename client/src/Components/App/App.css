@@ -40,3 +40,19 @@
           background-color: black;
           border-left: 2px solid gray;
           border-right: 2px solid gray; }
+
+@media screen and (max-width: 850px) {
+  .App {
+    padding-top: 120px; }
+    .App header {
+      flex-direction: column;
+      height: auto; }
+      .App header nav {
+        width: 100%;
+        justify-content: space-between; }
+        .App header nav p {
+          text-align: center;
+          padding: 0; }
+        .App header nav .nav-btn {
+          padding: 10px;
+          width: 30%; } }

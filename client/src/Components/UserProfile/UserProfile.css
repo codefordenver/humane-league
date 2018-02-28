@@ -59,3 +59,14 @@
       .UserProfile .user-profile-edit .user-profile-form .text-input {
         padding: 5px;
         width: 325px; }
+
+@media screen and (max-width: 850px) {
+  .UserProfile .user-preferences,
+  .UserProfile .user-profile-edit {
+    margin: 10px 0;
+    padding: 10px; }
+    .UserProfile .user-preferences .user-preferences-form,
+    .UserProfile .user-preferences .user-profile-form,
+    .UserProfile .user-profile-edit .user-preferences-form,
+    .UserProfile .user-profile-edit .user-profile-form {
+      width: 300px; } }

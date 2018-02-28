@@ -77,8 +77,8 @@ export class Welcome extends Component {
     const conditionalInfo = this.props.User.name ? <Link to="/home">Dashboard</Link> : expandOptions;
 
     return (
-      <div className='Welcome shifted'>
-        <img className='fan-logo shifted' src={fanLogo} alt='' />
+      <div className='Welcome'>
+        <img className='fan-logo' src={fanLogo} alt='' />
         <div>
           <p className="welcome-description">Welcome to The Humane League's Fast Action Network! FAN gives individuals a way to be heard by the largest corporations in the world. Whether it is by signing a petition, sending a tweet, emailing a CEO, or posting a quick comment on Facebook, this team comes together for a few minutes each week to call on companies to end their support of the worst factory farm cruelties, and it works! When activists like yourself come together for animals, the opportunities are endless!</p>
           {conditionalInfo}

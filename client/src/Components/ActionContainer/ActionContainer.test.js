@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
 import { ActionContainer } from './ActionContainer';
 
-describe.skip('ActionContainer component tests', () => {
+describe('ActionContainer component tests', () => {
   let renderedActionContainer;
   let defaultState;
   let mockUser;
@@ -24,18 +24,17 @@ describe.skip('ActionContainer component tests', () => {
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       json: () => 
-        Promise.resolve(
-          []
-        )   
+        Promise.resolve({
+          actions: []
+        })   
     }));
 
-  })
+  });
   it('renders without crashing', () => {
     expect(renderedActionContainer).toBeDefined();
     expect(renderedActionContainer.state()).toEqual(defaultState);
   });
   it('matches SnapShot', () => {
     expect(renderedActionContainer).toMatchSnapshot();
-  })
-  
-})
+  });
+});

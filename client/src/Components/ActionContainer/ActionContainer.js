@@ -12,8 +12,6 @@ import {
   getEmailActions, 
   getPhoneActions,
   getCompletedActions } from '../../utils/apiCalls';
-import { get } from 'https';
-
 
 export class ActionContainer extends Component {
   constructor() {

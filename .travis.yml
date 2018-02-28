@@ -10,7 +10,9 @@ before_script:
 - npm install knex
 - knex migrate:latest --env test
 - npm test
+- npm run eslint
 - cd ..
+- npm run eslint
 deploy:
   provider: heroku
   api_key:

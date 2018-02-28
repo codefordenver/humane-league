@@ -119,3 +119,9 @@ a {
     margin-top: 10px;
   }
 }
+
+@media screen and (max-width: 850px) {
+  .ActionCard {
+    width: auto;
+  }
+}

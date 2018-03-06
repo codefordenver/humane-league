@@ -3,13 +3,44 @@ import PropTypes from 'prop-types';
 import './AdminForms.css';
 
 class ActionForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       // form: 'facebook',
       actionEnabled: true,
       actionBodies: [0],
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.action) {
+      const type = (this.props.form === 'facebook' || this.state.form === 'twitter')
+      ? 'social'
+      :  this.props.form;
+      console.log(this.props.action)
+      this.actionTitle.value = this.props.action.title;
+      this.actionDescription.value = this.props.action.description;
+
+
+      if (type === 'social') {
+        this.targetUrl.value = this.props.action.target;
+      } else if (type === 'email') {
+        this.emailTo.value = this.props.action.to;
+        this.emailCC.value = this.props.action.cc;
+        this.emailBCC.value = this.props.action.bcc;
+        this.emailSubject.value = this.props.action.subject;
+      } else if (type === 'phone') {
+        this.phoneName.value = this.props.action.name;
+        this.phonePosition.value = this.props.action.position;
+        this.phoneNumber.value = this.props.action.phone_number;
+      }
+
+      // for (let i = 0; i < this.state.actionBodies.length; i++) {
+      //   this[`actionContent${i}`].value = '';
+      // }
+
+      this.setState({ actionEnabled: this.props.action.enabled })
     }
   }
 
@@ -21,7 +52,7 @@ class ActionForm extends Component {
     const action = this.createAction(type);
     const actionBodies = this.state.actionBodies.map((body, i) => this[`actionContent${i}`].value);
 
-    this.props.handleSubmit(action, this.state.actionBodies);
+    this.props.handleSubmit(action, actionBodies);
 
     this.resetForm(type)
   }
@@ -74,7 +105,7 @@ class ActionForm extends Component {
     }
 
     for (let i = 0; i < this.state.actionBodies.length; i++) {
-      let content = this[`actionContent${i}`].value = '';
+      this[`actionContent${i}`].value = '';
     }
 
     this.setState({ actionEnabled: true });
@@ -142,7 +173,7 @@ class ActionForm extends Component {
 
     return (
       <section className='create-action-form'>
-        <form action='create-new-action-form'>
+        <form>
           <input type='text' ref={(elem) => { this.actionTitle = elem; }} placeholder='Action Title' />
           <input type='text' ref={(elem) => { this.actionDescription = elem; }} placeholder='Action Description' />
           {form[this.props.form].targetUrl}
@@ -170,7 +201,7 @@ class ActionForm extends Component {
               data-off='disabled'>
             </label>
           </span>    
-          <button onClick={this.submitAction}>CREATE THIS ACTION</button>
+          <button onClick={this.submitAction}>SAVE ACTION</button>
         </form>
       </section>
     )
@@ -178,3 +209,8 @@ class ActionForm extends Component {
 }
 
 export default ActionForm;
+
+ActionForm.propTypes = {
+  action: PropTypes.object,
+  form: PropTypes.string
+};

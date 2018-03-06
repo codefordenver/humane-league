@@ -2,6 +2,7 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ActionForm from './ActionForm';
 import PropTypes from 'prop-types';
 import { 
   getTwitterActions, 
@@ -94,20 +95,21 @@ export class UpdateAction extends Component {
           </label>
           {
             this.state.showForm &&
-          <div className='update-action'>
-            <p>{`TITLE: ${this.state.action.title}`}</p>
-            <p>{`DESCRIPTION: ${this.state.action.description}`}</p>
-            <div className='update-form'>  
-              <span id='toggle'>
-                <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => { this.toggle = elem; }} type='checkbox'/>
-                <label 
-                  data-on='enabled' 
-                  data-off='disabled'>
-                </label>
-              </span>
-              <button onClick={this.submitPatch} className='update-action'>Save Update</button>
-            </div> 
-          </div>
+            <ActionForm form={this.state.actionType} action={this.state.action}/>
+          // <div className='update-action'>
+          //   <p>{`TITLE: ${this.state.action.title}`}</p>
+          //   <p>{`DESCRIPTION: ${this.state.action.description}`}</p>
+          //   <div className='update-form'>  
+          //     <span id='toggle'>
+          //       <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => { this.toggle = elem; }} type='checkbox'/>
+          //       <label 
+          //         data-on='enabled' 
+          //         data-off='disabled'>
+          //       </label>
+          //     </span>
+          //     <button onClick={this.submitPatch} className='update-action'>Save Update</button>
+          //   </div> 
+          // </div>
           }
           <div className='actions-container'>
             <h3>Click an action to see or change status</h3>

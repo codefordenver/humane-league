@@ -13,7 +13,7 @@ export class CreateNewAction extends Component {
     this.state = {
       form: 'facebook',
       actionEnabled: true,
-      actionBodies: 1,
+      actionBodies: [],
       error: false,
       success: false
     };
@@ -85,37 +85,32 @@ export class CreateNewAction extends Component {
 
   addTextArea = (event) => {
     event.preventDefault();
-    let actionBodies = this.state.actionBodies;
-    actionBodies += 1;
+    let actionBodies = [...this.state.actionBodies];
+    let actionBody = {
+      id: `actionContent${actionBodies.length+1}`,
+      body: null
+    };
+    actionBodies.push(actionBody);
 
     this.setState({ actionBodies });
   }
 
   deleteBody = (event) => {
-    console.log(event.target)
+    event.preventDefault();
+    let actionBodies = [...this.state.actionBodies];
+    actionBodies = actionBodies.filter(body => event.target.dataset.id !== body.id);
+
+    this.setState({ actionBodies });
   }
 
   renderTextAreas = () => {
-    const bodies = [];
-    for (let i = 1; i <= this.state.actionBodies; i++) {
-      bodies.push(i);
-    }
-
-    return bodies.map((body, i) => {
-      if (i > 0) {
-        return (
-          <div key={`textarea-${i}`} className='textarea'>
-            <button onClick={this.deleteBody} className='delete-textarea'>X</button>
-            <textarea ref={(elem) => { this[`actionContent${i}`] = elem; }} placeholder='Action Body'></textarea>
-          </div>
-        );
-      } else {
-        return (
-          <div key={`textarea-${i}`} className='textarea'>
-            <textarea ref={(elem) => { this[`actionContent${i}`] = elem; }} placeholder='Action Body'></textarea>
-          </div>
-        );
-      }
+    return this.state.actionBodies.map((body, i) => {
+      return (
+        <div key={`textarea-${i}`} className='textarea'>
+          <button onClick={this.deleteBody} data-id={body.id} className='delete-textarea'>X</button>
+          <textarea ref={(elem) => { this[body.id] = elem; }} placeholder='Action Body'>{body.body}</textarea>
+        </div>
+      ); 
     });
   }
 
@@ -217,7 +212,12 @@ export class CreateNewAction extends Component {
               {form[this.state.form].name}
               {form[this.state.form].position}
               {form[this.state.form].phoneNumber}
+
+              <div className='textarea'>
+                <textarea ref={(elem) => { this.actionContent0 = elem; }} placeholder='Action Body'></textarea>
+              </div>
               {this.renderTextAreas()}
+
               <button onClick={this.addTextArea} className='add-text-area'>+ Add another body</button>
               
               <span id='toggle'>

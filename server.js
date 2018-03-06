@@ -42,7 +42,7 @@ const params = {
 };
 
 const endpoints = [
-  { table: 'action_log',        all: '/api/v1/actions',           one: '/api/v1/actions/:id',           reqParams: params.log,         getSecurity: false,  updateSecurity: false   },
+  { table: 'action_log',        all: '/api/v1/actions',           one: '/api/v1/actions/:id',           reqParams: params.log,         getSecurity: false, updateSecurity: false   },
   { table: 'twitter_actions',   all: '/api/v1/twitter_actions',   one: '/api/v1/twitter_actions/:id',   reqParams: params.socialMedia, getSecurity: false, updateSecurity: true    },
   { table: 'twitter_contents',  all: '/api/v1/twitter_contents',  one: '/api/v1/twitter_contents/:id',  reqParams: params.content,     getSecurity: false, updateSecurity: true    },
   { table: 'facebook_actions',  all: '/api/v1/facebook_actions',  one: '/api/v1/facebook_actions/:id',  reqParams: params.socialMedia, getSecurity: false, updateSecurity: true    },

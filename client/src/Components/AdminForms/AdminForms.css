@@ -39,8 +39,18 @@
           font-size: 20px;
           padding: 10px;
           margin: 10px; }
-        .create-new-action-container .select-action-container .create-action-form form textarea {
-          height: 100px; }
+        .create-new-action-container .select-action-container .create-action-form form .textarea {
+          position: relative; }
+          .create-new-action-container .select-action-container .create-action-form form .textarea textarea {
+            height: 100px;
+            width: -webkit-fill-available;
+            width: -moz-available;
+            width: fill-available; }
+          .create-new-action-container .select-action-container .create-action-form form .textarea .delete-textarea {
+            position: absolute;
+            right: 0;
+            padding: 5;
+            height: auto; }
         .create-new-action-container .select-action-container .create-action-form form button {
           background: #1CB841;
           color: #000;

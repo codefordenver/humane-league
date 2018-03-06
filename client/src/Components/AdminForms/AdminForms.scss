@@ -44,8 +44,20 @@
           padding: 10px;
           margin: 10px;
         }
-        textarea {
-          height: 100px;
+        .textarea {
+          position: relative;
+          textarea {
+            height: 100px;
+            width: -webkit-fill-available;
+            width: -moz-available;
+            width: fill-available;
+          }
+          .delete-textarea {
+            position: absolute;
+            right: 0;
+            padding: 5;
+            height: auto;
+          }
         }
         button {
           background: #1CB841;

@@ -91,6 +91,10 @@ export class CreateNewAction extends Component {
     this.setState({ actionBodies });
   }
 
+  deleteBody = (event) => {
+    console.log(event.target)
+  }
+
   renderTextAreas = () => {
     const bodies = [];
     for (let i = 1; i <= this.state.actionBodies; i++) {
@@ -98,9 +102,20 @@ export class CreateNewAction extends Component {
     }
 
     return bodies.map((body, i) => {
-      return (
-        <textarea key={`textarea-${i}`} ref={(elem) => { this[`actionContent${i}`] = elem; }} placeholder='Action Body'></textarea>
-      );
+      if (i > 0) {
+        return (
+          <div key={`textarea-${i}`} className='textarea'>
+            <button onClick={this.deleteBody} className='delete-textarea'>X</button>
+            <textarea ref={(elem) => { this[`actionContent${i}`] = elem; }} placeholder='Action Body'></textarea>
+          </div>
+        );
+      } else {
+        return (
+          <div key={`textarea-${i}`} className='textarea'>
+            <textarea ref={(elem) => { this[`actionContent${i}`] = elem; }} placeholder='Action Body'></textarea>
+          </div>
+        );
+      }
     });
   }
 
@@ -204,7 +219,7 @@ export class CreateNewAction extends Component {
               {form[this.state.form].phoneNumber}
               {this.renderTextAreas()}
               <button onClick={this.addTextArea} className='add-text-area'>+ Add another body</button>
-
+              
               <span id='toggle'>
                 <input
                   type='checkbox' 

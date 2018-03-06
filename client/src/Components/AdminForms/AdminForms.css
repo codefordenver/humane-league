@@ -45,7 +45,7 @@
             height: 100px;
             width: -webkit-fill-available;
             width: -moz-available;
-            width: fill-available; }
+            width: stretch; }
           .create-new-action-container .select-action-container .create-action-form form .textarea .delete-textarea {
             position: absolute;
             right: 0;

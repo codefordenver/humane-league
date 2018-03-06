@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Dashboard from './Dashboard';
 import CreateNewAction from '../AdminForms/CreateNewAction';
 import UpdateAction from '../AdminForms/UpdateAction';
@@ -40,4 +41,9 @@ const mapStateToProps = (store) => ({
   User: store.User 
 });
 
-export default connect(mapStateToProps,null)(AdminDashboard);
+export default connect(mapStateToProps, null)(AdminDashboard);
+
+AdminDashboard.propTypes = {
+  User: PropTypes.object,
+  history: PropTypes.object
+};

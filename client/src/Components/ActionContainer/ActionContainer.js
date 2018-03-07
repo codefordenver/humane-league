@@ -67,7 +67,7 @@ export class ActionContainer extends Component {
     const index = this.state[actionType].indexOf(action);
     const actions = this.state[actionType];
     actions[index] = { id: action.id, completed: true, title: 'Thank You!', description: `For taking action: ${action.title}`};
-    this.setState({ [actionType]: actions });
+    setTimeout(() => this.setState({ [actionType]: actions }), 1000);
   }
 
   render() {

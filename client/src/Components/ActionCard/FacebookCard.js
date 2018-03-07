@@ -37,13 +37,13 @@ class FacebookCard extends Component {
   }
 
   completeAction = () => {
-    this.props.removeCompleted('facebook', this.props.action.id);
+    this.props.removeCompleted('facebook', this.props.action);
     logAction('facebook_actions', this.props.user, this.props.action);
   }
 
   render() {
     const { title, description, target } = this.props.action;
-    const expanded = this.state.actionBody !== null;
+    const expanded = this.state.actionBody !== null && !this.props.action.completed;
 
     let buttonText = expanded ? 'GO' : 'FACEBOOK';
     const buttonOnClick = expanded ? this.completeAction : this.setActionBody;
@@ -51,6 +51,12 @@ class FacebookCard extends Component {
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const textArea = expanded ? <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
     
+    let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
+
+    if (this.props.action.completed) {
+      button = null;
+    }
+
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
     }
@@ -64,7 +70,7 @@ class FacebookCard extends Component {
 
         <div className="button-holder">
           <a target="_blank" href={targetLink}>
-            <button onClick={buttonOnClick}>{buttonText}<i className="icon-facebook"></i></button>
+            {button}
           </a> 
           {cancelButton}
         </div>

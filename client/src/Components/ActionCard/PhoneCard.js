@@ -37,13 +37,13 @@ class PhoneCard extends Component {
   }
 
   completeAction = () => {
-    this.props.removeCompleted('phone', this.props.action.id);
+    this.props.removeCompleted('phone', this.props.action);
     logAction('phone_actions', this.props.user, this.props.action);
   }
 
   render () {
     const { title, description, phone_number } = this.props.action;
-    const expanded = this.state.actionBody !== null;
+    const expanded = this.state.actionBody !== null && !this.props.action.completed;
 
     let buttonText = expanded ? 'COMPLETED!' : 'CALL';
     const buttonOnClick = expanded ? this.completeAction : this.setActionBody;
@@ -51,6 +51,12 @@ class PhoneCard extends Component {
     const textArea = expanded ? <textarea className="body-text feedback-textarea" placeholder="How did this call go for you? Please leave your feedback here!" ref={(input) => this.feedbackTextArea = input }></textarea> : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const script = expanded ? <textarea className="script body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
+
+    let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
+
+    if (this.props.action.completed) {
+      button = null;
+    }
 
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
@@ -66,7 +72,7 @@ class PhoneCard extends Component {
 
         {textArea}
         <div className="button-holder">
-          <button onClick={ buttonOnClick }>{buttonText}<i className="icon-phone"></i></button>
+          {button}
           {cancelButton}
         </div>
       </div>

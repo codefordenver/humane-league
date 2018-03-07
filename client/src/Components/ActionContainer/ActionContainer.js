@@ -63,8 +63,11 @@ export class ActionContainer extends Component {
     await this.setState(actions);
   }
 
-  removeCompleted = (actionType, actionId) => {
-    this.setState({ [actionType]: this.state[actionType].filter(act => act.id !== actionId)});
+  removeCompleted = (actionType, action) => {
+    const index = this.state[actionType].indexOf(action);
+    const actions = this.state[actionType];
+    actions[index] = { id: action.id, completed: true, title: 'Thank You!', description: `For taking action: ${action.title}`};
+    this.setState({ [actionType]: actions });
   }
 
   render() {

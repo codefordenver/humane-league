@@ -32,8 +32,8 @@ class EmailCard extends Component {
   }
 
   completeAction = () => {
-    this.props.removeCompleted('email', this.props.action.id);
-    logAction('email_actions', this.props.user, this.props.action);
+    this.props.removeCompleted('email', this.props.action);
+    // logAction('email_actions', this.props.user, this.props.action);
   }
 
   actionCount = async () => {
@@ -45,7 +45,7 @@ class EmailCard extends Component {
 
   render () {
     const { title, description, to, cc, bcc, subject } = this.props.action;
-    const expanded = this.state.actionBody !== null;
+    const expanded = this.state.actionBody !== null && !this.props.action.completed;
 
     let buttonText = expanded ? 'SEND' : 'EMAIL';
     const buttonOnClick = expanded ? this.completeAction: this.setActionBody;
@@ -61,8 +61,14 @@ class EmailCard extends Component {
       </div>
       : null;
 
+    let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
+
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
+    }
+
+    if (this.props.action.completed) {
+      button = null;
     }
 
     return (
@@ -76,7 +82,7 @@ class EmailCard extends Component {
 
         <div className="button-holder">
           <a href={targetLink}>
-            <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>
+            {button}
           </a> 
           {cancelButton}
         </div>

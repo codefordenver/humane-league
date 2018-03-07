@@ -37,19 +37,25 @@ class TwitterCard extends Component {
   }
 
   completeAction = () => {
-    this.props.removeCompleted('twitter', this.props.action.id);
+    this.props.removeCompleted('twitter', this.props.action);
     logAction('twitter_actions', this.props.user, this.props.action);
   }
 
   render() {
     const { title, description, target } = this.props.action;
-    const expanded = this.state.actionBody !== null;
+    const expanded = this.state.actionBody !== null && !this.props.action.completed;
 
     let buttonText = expanded ? 'GO' : 'TWEET';
     const buttonOnClick = expanded ? this.completeAction : this.setActionBody;
     const targetLink = expanded ? `https://twitter.com/intent/tweet?text=${target} ${this.state.actionBody}` : null;
     const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
     const textArea = expanded ? <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
+
+    let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
+
+    if (this.props.action.completed) {
+      button = null;
+    }
 
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
@@ -63,7 +69,7 @@ class TwitterCard extends Component {
 
         <div className="button-holder">
           <a href={targetLink} target="_blank">
-            <button onClick={ buttonOnClick }>{buttonText}<i className="icon-twitter"></i></button>
+            {button}
           </a>
           {cancelButton}
         </div>

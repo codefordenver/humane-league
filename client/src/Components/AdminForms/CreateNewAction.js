@@ -13,8 +13,6 @@ export class CreateNewAction extends Component {
     super();
     this.state = {
       form: 'facebook',
-      // actionEnabled: true,
-      // actionBodies: [0],
       error: false,
       success: false
     };
@@ -27,7 +25,6 @@ export class CreateNewAction extends Component {
 
     if (actionID.id) {
       for (let i = 0; i < actionBodies.length; i++) {
-        // let content = this[`actionContent${i}`].value;
         let content = actionBodies[i];
         const contentID = await postActionContent(type, token, actionID, content);
         

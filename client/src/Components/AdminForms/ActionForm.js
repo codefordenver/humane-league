@@ -7,40 +7,49 @@ class ActionForm extends Component {
     super(props);
 
     this.state = {
-      // form: 'facebook',
       actionEnabled: true,
-      actionBodies: [0],
+      actionBodies: []
     }
   }
 
   componentDidMount() {
     if (this.props.action) {
-      const type = (this.props.form === 'facebook' || this.state.form === 'twitter')
-      ? 'social'
-      :  this.props.form;
-      console.log(this.props.action)
-      this.actionTitle.value = this.props.action.title;
-      this.actionDescription.value = this.props.action.description;
+      this.populateEditAction()
+    }
+    const actionBodies = [{ id: 0, value: '' }];
 
+    this.setState({ actionBodies });
+  }
 
-      if (type === 'social') {
-        this.targetUrl.value = this.props.action.target;
-      } else if (type === 'email') {
-        this.emailTo.value = this.props.action.to;
-        this.emailCC.value = this.props.action.cc;
-        this.emailBCC.value = this.props.action.bcc;
-        this.emailSubject.value = this.props.action.subject;
-      } else if (type === 'phone') {
-        this.phoneName.value = this.props.action.name;
-        this.phonePosition.value = this.props.action.position;
-        this.phoneNumber.value = this.props.action.phone_number;
-      }
+  populateEditAction = async () => {
+    const type = (this.props.form === 'facebook' || this.state.form === 'twitter')
+    ? 'social'
+    :  this.props.form;
 
-      // for (let i = 0; i < this.state.actionBodies.length; i++) {
-      //   this[`actionContent${i}`].value = '';
-      // }
+    this.actionTitle.value = this.props.action.title;
+    this.actionDescription.value = this.props.action.description;
 
-      this.setState({ actionEnabled: this.props.action.enabled })
+    if (type === 'social') {
+      this.targetUrl.value = this.props.action.target;
+    } else if (type === 'email') {
+      this.emailTo.value = this.props.action.to;
+      this.emailCC.value = this.props.action.cc;
+      this.emailBCC.value = this.props.action.bcc;
+      this.emailSubject.value = this.props.action.subject;
+    } else if (type === 'phone') {
+      this.phoneName.value = this.props.action.name;
+      this.phonePosition.value = this.props.action.position;
+      this.phoneNumber.value = this.props.action.phone_number;
+    }
+
+    const actionBodiesFetch = await fetch(`/api/v1/${this.props.form}_contents`);
+    let actionBodies = await actionBodiesFetch.json();
+    actionBodies = actionBodies.results.filter(body => body.action_id === this.props.action.id);
+
+    this.setState({ actionEnabled: this.props.action.enabled, actionBodies });
+
+    for (let i = 0; i < actionBodies.length; i++) {
+      this[`actionContent${i}`].value = actionBodies[i].content;
     }
   }
 
@@ -50,7 +59,7 @@ class ActionForm extends Component {
       ? 'social'
       :  this.props.form;
     const action = this.createAction(type);
-    const actionBodies = this.state.actionBodies.map((body, i) => this[`actionContent${i}`].value);
+    const actionBodies = this.state.actionBodies.map((body) => body.value);
 
     this.props.handleSubmit(action, actionBodies);
 
@@ -104,17 +113,15 @@ class ActionForm extends Component {
       this.phoneNumber.value = '';
     }
 
-    for (let i = 0; i < this.state.actionBodies.length; i++) {
-      this[`actionContent${i}`].value = '';
-    }
+    const emptyBody = { id: 0, value: '' };
 
-    this.setState({ actionEnabled: true });
+    this.setState({ actionEnabled: true, actionBodies: [emptyBody] });
   }
 
   addTextArea = (event) => {
     event.preventDefault();
     let actionBodies = [...this.state.actionBodies];
-    let nextBody = actionBodies.length;
+    let nextBody = { id: actionBodies.length, value: '' };
     actionBodies.push(nextBody);
 
     this.setState({ actionBodies });
@@ -123,9 +130,19 @@ class ActionForm extends Component {
   deleteBody = (event) => {
     event.preventDefault();
     let actionBodies = [...this.state.actionBodies];
-    console.log(event.target.dataset.id, actionBodies[1])
-    actionBodies = actionBodies.filter((body, i) => i !== parseInt(event.target.dataset.id));
+    console.log(event.target.dataset.id)
+    actionBodies = actionBodies.filter((body) => {
+      console.log(body.id)
+      return parseInt(body.id) !== parseInt(event.target.dataset.id)
+    });
     console.log(actionBodies)
+
+    this.setState({ actionBodies });
+  }
+
+  handleTextArea = (i, event) => {
+    const actionBodies = [...this.state.actionBodies];
+    actionBodies[i].value = event.target.value;
 
     this.setState({ actionBodies });
   }
@@ -135,14 +152,22 @@ class ActionForm extends Component {
       if (i <= 0) {
         return (
           <div key={`textarea-${i}`} className='textarea'>
-            <textarea ref={(elem) => { this[`actionContent${i}`] = elem; }} placeholder='Action Body'></textarea>
+            <textarea 
+              value={this.state.actionBodies[i].value} 
+              onChange={(event) => this.handleTextArea(i, event)} 
+              placeholder='Action Body'>
+            </textarea>
           </div>
         );
       } else {
         return (
           <div key={`textarea-${i}`} className='textarea'>
-            <button onClick={this.deleteBody} data-id={i} className='delete-textarea'>X</button>
-            <textarea ref={(elem) => { this[`actionContent${i}`] = elem; }} placeholder='Action Body'></textarea>
+            <button onClick={this.deleteBody} data-id={this.state.actionBodies[i].id} className='delete-textarea'>X</button>
+            <textarea 
+              value={this.state.actionBodies[i].value} 
+              onChange={(event) => this.handleTextArea(i, event)} 
+              placeholder='Action Body'>
+            </textarea>
           </div>
         ); 
       }

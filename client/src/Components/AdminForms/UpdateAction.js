@@ -44,7 +44,7 @@ export class UpdateAction extends Component {
     const actionId = event.target.dataset.id;
     const action = this.state[this.state.actionType].find(action => action.id == actionId);
 
-    this.setState({ showForm: true, actionEnabled: action.enabled, action });
+    this.setState({ showForm: true, action });
     window.scrollTo(0, 0);
   }
 

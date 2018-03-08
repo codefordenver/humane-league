@@ -16,7 +16,7 @@ class ActionForm extends Component {
     if (this.props.action) {
       this.populateEditAction()
     }
-    const actionBodies = [{ id: 0, value: '' }];
+    const actionBodies = [{ id: 0, content: '' }];
 
     this.setState({ actionBodies });
   }
@@ -47,10 +47,6 @@ class ActionForm extends Component {
     actionBodies = actionBodies.results.filter(body => body.action_id === this.props.action.id);
 
     this.setState({ actionEnabled: this.props.action.enabled, actionBodies });
-
-    for (let i = 0; i < actionBodies.length; i++) {
-      this[`actionContent${i}`].value = actionBodies[i].content;
-    }
   }
 
   submitAction = async (event) => {
@@ -59,7 +55,7 @@ class ActionForm extends Component {
       ? 'social'
       :  this.props.form;
     const action = this.createAction(type);
-    const actionBodies = this.state.actionBodies.map((body) => body.value);
+    const actionBodies = this.state.actionBodies.map((body) => body.content);
 
     const success = await this.props.handleSubmit(action, actionBodies);
     
@@ -115,7 +111,7 @@ class ActionForm extends Component {
       this.phoneNumber.value = '';
     }
 
-    const emptyBody = { id: 0, value: '' };
+    const emptyBody = { id: 0, content: '' };
 
     this.setState({ actionEnabled: true, actionBodies: [emptyBody] });
   }
@@ -123,7 +119,7 @@ class ActionForm extends Component {
   addTextArea = (event) => {
     event.preventDefault();
     let actionBodies = [...this.state.actionBodies];
-    let nextBody = { id: actionBodies.length, value: '' };
+    let nextBody = { id: actionBodies.length, content: '' };
     actionBodies.push(nextBody);
 
     this.setState({ actionBodies });
@@ -139,7 +135,7 @@ class ActionForm extends Component {
 
   handleTextArea = (i, event) => {
     const actionBodies = [...this.state.actionBodies];
-    actionBodies[i].value = event.target.value;
+    actionBodies[i].content = event.target.value;
 
     this.setState({ actionBodies });
   }
@@ -150,7 +146,7 @@ class ActionForm extends Component {
         return (
           <div key={`textarea-${i}`} className='textarea'>
             <textarea 
-              value={this.state.actionBodies[i].value} 
+              value={this.state.actionBodies[i].content} 
               onChange={(event) => this.handleTextArea(i, event)} 
               placeholder='Action Body'>
             </textarea>
@@ -161,7 +157,7 @@ class ActionForm extends Component {
           <div key={`textarea-${i}`} className='textarea'>
             <button onClick={this.deleteBody} data-id={this.state.actionBodies[i].id} className='delete-textarea'>X</button>
             <textarea 
-              value={this.state.actionBodies[i].value} 
+              value={this.state.actionBodies[i].content} 
               onChange={(event) => this.handleTextArea(i, event)} 
               placeholder='Action Body'>
             </textarea>

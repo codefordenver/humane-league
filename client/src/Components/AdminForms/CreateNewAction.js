@@ -60,6 +60,9 @@ export class CreateNewAction extends Component {
       setTimeout(() => {
         this.setState({ success: false });
       }, 5000);
+      return true;
+    } else {
+      return false;
     }
   }
 

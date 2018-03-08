@@ -53,7 +53,7 @@ class ActionForm extends Component {
     }
   }
 
-  submitAction = (event) => {
+  submitAction = async (event) => {
     event.preventDefault();
     const type = (this.props.form === 'facebook' || this.state.form === 'twitter')
       ? 'social'
@@ -61,9 +61,11 @@ class ActionForm extends Component {
     const action = this.createAction(type);
     const actionBodies = this.state.actionBodies.map((body) => body.value);
 
-    this.props.handleSubmit(action, actionBodies);
-
-    this.resetForm(type)
+    const success = await this.props.handleSubmit(action, actionBodies);
+    
+    if(success) {
+      this.resetForm(type);
+    }
   }
 
   createAction = (type) => {
@@ -130,12 +132,7 @@ class ActionForm extends Component {
   deleteBody = (event) => {
     event.preventDefault();
     let actionBodies = [...this.state.actionBodies];
-    console.log(event.target.dataset.id)
-    actionBodies = actionBodies.filter((body) => {
-      console.log(body.id)
-      return parseInt(body.id) !== parseInt(event.target.dataset.id)
-    });
-    console.log(actionBodies)
+    actionBodies = actionBodies.filter((body) => parseInt(body.id) !== parseInt(event.target.dataset.id));
 
     this.setState({ actionBodies });
   }

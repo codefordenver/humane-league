@@ -55,7 +55,7 @@ class ActionForm extends Component {
       ? 'social'
       :  this.props.form;
     const action = this.createAction(type);
-    const actionBodies = this.state.actionBodies.map((body) => body.content);
+    const actionBodies = [...this.state.actionBodies];
 
     if (this.props.action) {
       this.props.submitPatch(action, actionBodies);

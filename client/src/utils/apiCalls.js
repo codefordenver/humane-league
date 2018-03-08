@@ -79,7 +79,7 @@ export const postAction = async (action, type, token) => {
   }
 };
 
-export const postActionContent = async (type, token, actionID, content) => {
+export const postActionContent = async (type, actionID, token, content) => {
   try {
     const contentPost = await fetch(`/api/v1/${type}_contents?token=${token}`, {
       method: 'POST',
@@ -109,6 +109,20 @@ export const patchAction = async (type, actionId, token, action) => {
     return error;
   }
 };
+
+export const patchActionContent = async (type, actionId, token, content) => {
+  try {
+    return await fetch(`/api/v1/${type}_contents/${actionId}?token=${token}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ action_id: actionId, content })
+    });
+  } catch (error) {
+    return error;
+  }
+}
 
 export const getActionLog = async () => {
   try {

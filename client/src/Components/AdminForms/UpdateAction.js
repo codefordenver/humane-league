@@ -9,7 +9,9 @@ import {
   getFacebookActions, 
   getEmailActions, 
   getPhoneActions,
-  patchAction } from '../../utils/apiCalls';
+  patchAction,
+  patchActionContent,
+  postActionContent } from '../../utils/apiCalls';
 
 export class UpdateAction extends Component {
   constructor() {
@@ -57,6 +59,17 @@ export class UpdateAction extends Component {
     const actionPatch = await patchAction(type, actionId, token, newAction);
 
     if (actionPatch.status === 204) {
+      for (let i = 0; i < actionBodies.length; i++) {
+        let content = actionBodies[i];
+        if (content.action_id) {
+          const contentID = await patchActionContent(type, actionId, token, content.content);
+          console.log('patch:', contentID)
+        } else {
+          const contentID = await postActionContent(type, {id: actionId}, token, content.content);
+          console.log('post:', contentID)
+        }
+      }
+
       const updatedActions = this.state[type].map(action => {
         return action.id === actionId ? newAction : action;
       })

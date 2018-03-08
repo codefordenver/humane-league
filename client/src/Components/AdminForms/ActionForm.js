@@ -57,10 +57,14 @@ class ActionForm extends Component {
     const action = this.createAction(type);
     const actionBodies = this.state.actionBodies.map((body) => body.content);
 
-    const success = await this.props.handleSubmit(action, actionBodies);
-    
-    if(success) {
-      this.resetForm(type);
+    if (this.props.action) {
+      this.props.submitPatch(action, actionBodies);
+    } else {
+      const success = await this.props.handleSubmit(action, actionBodies);
+      
+      if(success) {
+        this.resetForm(type);
+      }
     }
   }
 

@@ -48,20 +48,19 @@ export class UpdateAction extends Component {
     window.scrollTo(0, 0);
   }
 
-  submitPatch = async () => {
-    const oldAction = this.state.action;
+  submitPatch = async (action, actionBodies) => {
+    const actionId = this.state.action.id;
     const type = this.state.actionType;
-
-    const action = Object.assign({ ...oldAction }, { enabled: this.state.actionEnabled });
-    const actionId = action.id;
-
+    const newAction = Object.assign({ ...action }, { id: actionId });
     const token = this.props.user.id_token;
-    const actionPatch = await patchAction(type, actionId, token, action);
+
+    const actionPatch = await patchAction(type, actionId, token, newAction);
 
     if (actionPatch.status === 204) {
       const removedAction = this.state[this.state.actionType].filter(action => action.id !== actionId);
-      const newState = [...removedAction, action];
-      this.setState({ [type]: newState, showForm: false, success: `Sucessfully updated action ${action.id}`});
+      const newState = [...removedAction, newAction];
+
+      this.setState({ [type]: newState, showForm: false, success: `Sucessfully updated action ${newAction.id}`});
       setTimeout(() => {
         this.setState({ success: false });
       }, 3000);
@@ -95,7 +94,14 @@ export class UpdateAction extends Component {
           </label>
           {
             this.state.showForm &&
-            <ActionForm form={this.state.actionType} action={this.state.action}/>
+            <div>
+              <button onClick={() => this.setState({ showForm: false })}>Cancel</button>
+              <ActionForm 
+                form={this.state.actionType} 
+                action={this.state.action}
+                submitPatch={this.submitPatch}
+              />
+            </div>
           // <div className='update-action'>
           //   <p>{`TITLE: ${this.state.action.title}`}</p>
           //   <p>{`DESCRIPTION: ${this.state.action.description}`}</p>

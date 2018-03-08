@@ -57,10 +57,11 @@ export class UpdateAction extends Component {
     const actionPatch = await patchAction(type, actionId, token, newAction);
 
     if (actionPatch.status === 204) {
-      const removedAction = this.state[this.state.actionType].filter(action => action.id !== actionId);
-      const newState = [...removedAction, newAction];
+      const updatedActions = this.state[type].map(action => {
+        return action.id === actionId ? newAction : action;
+      })
 
-      this.setState({ [type]: newState, showForm: false, success: `Sucessfully updated action ${newAction.id}`});
+      this.setState({ [type]: updatedActions, showForm: false, success: `Sucessfully updated action ${newAction.id}`});
       setTimeout(() => {
         this.setState({ success: false });
       }, 3000);

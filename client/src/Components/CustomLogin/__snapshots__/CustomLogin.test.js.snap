@@ -25,6 +25,7 @@ ShallowWrapper {
           Email:
 </label>,
         <input
+          autoComplete="email"
           name="email"
           onChange={[Function]}
           placeholder="Email"
@@ -35,6 +36,7 @@ ShallowWrapper {
           Password:
 </label>,
         <input
+          autoComplete="current-password"
           name="password"
           onChange={[Function]}
           placeholder="Password"
@@ -91,6 +93,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "autoComplete": "email",
           "name": "email",
           "onChange": [Function],
           "placeholder": "Email",
@@ -117,6 +120,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "autoComplete": "current-password",
           "name": "password",
           "onChange": [Function],
           "placeholder": "Password",
@@ -193,6 +197,7 @@ ShallowWrapper {
             Email:
 </label>,
           <input
+            autoComplete="email"
             name="email"
             onChange={[Function]}
             placeholder="Email"
@@ -203,6 +208,7 @@ ShallowWrapper {
             Password:
 </label>,
           <input
+            autoComplete="current-password"
             name="password"
             onChange={[Function]}
             placeholder="Password"
@@ -259,6 +265,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "autoComplete": "email",
             "name": "email",
             "onChange": [Function],
             "placeholder": "Email",
@@ -285,6 +292,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "autoComplete": "current-password",
             "name": "password",
             "onChange": [Function],
             "placeholder": "Password",

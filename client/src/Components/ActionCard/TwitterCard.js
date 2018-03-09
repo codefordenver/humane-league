@@ -37,7 +37,7 @@ class TwitterCard extends Component {
   }
 
   completeAction = () => {
-    this.props.removeCompleted('twitter', this.props.action);
+    this.props.removeCompleted('twitter_actions', this.props.action);
     logAction('twitter_actions', this.props.user, this.props.action);
   }
 

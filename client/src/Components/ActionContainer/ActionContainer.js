@@ -21,10 +21,10 @@ export class ActionContainer extends Component {
     super();
     this.state = {
       userPreferences: {},
-      twitter: [],
-      facebook: [],
-      email: [],
-      phone: []
+      twitter_actions: [],
+      facebook_actions: [],
+      email_actions: [],
+      phone_actions: []
     };
   }
   async componentDidMount() {
@@ -33,32 +33,23 @@ export class ActionContainer extends Component {
 
     const completedActions = await getCompletedActions(id, id_token);
     const actions = {
-      twitter: this.state.userPreferences.twitter_actions ? 
+      twitter_actions: this.state.userPreferences.twitter_actions ? 
         await getTwitterActions() : [],
-      facebook: this.state.userPreferences.facebook_actions ?
+      facebook_actions: this.state.userPreferences.facebook_actions ?
         await getFacebookActions() : [],
-      email: this.state.userPreferences.email_actions ? 
+      email_actions: this.state.userPreferences.email_actions ? 
         await getEmailActions() : [],
-      phone: this.state.userPreferences.phone_actions ?
+      phone_actions: this.state.userPreferences.phone_actions ?
         await getPhoneActions() : []
     };
 
     completedActions.forEach( action => {
-      const actionTypes = {
-        twitter_actions: 'twitter',
-        facebook_actions: 'facebook',
-        email_actions: 'email',
-        phone_actions: 'phone'
-      };
-      const type = actionTypes[action.action_type];
-
-      actions[type] = actions[type].filter(act => act.id != action.action_id);
+      actions[action.action_type] = actions[action.action_type].filter(act => act.id != action.action_id);
     });
 
-    actions.twitter = actions.twitter.filter(action => action.enabled === true);
-    actions.facebook = actions.facebook.filter(action => action.enabled === true);
-    actions.email = actions.email.filter(action => action.enabled === true);
-    actions.phone = actions.phone.filter(action => action.enabled === true);
+    Object.keys(actions).forEach (actionType => {
+      actions[actionType] = actions[actionType].filter(action => action.enabled === true);
+    });
     
     await this.setState(actions);
   }
@@ -71,14 +62,14 @@ export class ActionContainer extends Component {
   }
 
   render() {
-    const { twitter, facebook, email, phone } = this.state;
+    const { twitter_actions, facebook_actions, email_actions, phone_actions } = this.state;
 
-    const twitterCards = twitter.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
-    const facebookCards = facebook.map((action, i) => <FacebookCard key={`facebook-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
-    const emailCards = email.map((action, i) => <EmailCard key={`email-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
-    const phoneCards = phone.map((action, i) => <PhoneCard key={`phone-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
+    const twitterCards = twitter_actions.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
+    const facebookCards = facebook_actions.map((action, i) => <FacebookCard key={`facebook-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
+    const emailCards = email_actions.map((action, i) => <EmailCard key={`email-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
+    const phoneCards = phone_actions.map((action, i) => <PhoneCard key={`phone-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
 
-    const noActions = twitter.length === 0 && facebook.length === 0 && email.length === 0 && phone.length === 0;
+    const noActions = twitter_actions.length === 0 && facebook_actions.length === 0 && email_actions.length === 0 && phone_actions.length === 0;
     const noActionsMessage = noActions ? <p className="no-actions">There are no actions to take at this time. Please check back again soon!</p> : null;
 
     return (

@@ -32,7 +32,7 @@ class EmailCard extends Component {
   }
 
   completeAction = () => {
-    this.props.removeCompleted('email', this.props.action);
+    this.props.removeCompleted('email_actions', this.props.action);
     logAction('email_actions', this.props.user, this.props.action);
   }
 

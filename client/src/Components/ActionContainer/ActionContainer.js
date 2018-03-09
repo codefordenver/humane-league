@@ -49,8 +49,10 @@ export class ActionContainer extends Component {
 
     Object.keys(actions).forEach (actionType => {
       actions[actionType] = actions[actionType].filter(action => action.enabled === true);
+      actions[actionType].sort((a,b) => a.created_at > b.created_at);
     });
-    
+
+    console.log(actions.twitter_actions);
     await this.setState(actions);
   }
 

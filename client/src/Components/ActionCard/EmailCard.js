@@ -45,7 +45,6 @@ class EmailCard extends Component {
 
   render () {
     const { title, description, to, cc, bcc, subject } = this.props.action;
-    const expanded = ;
 
     let buttonText = 'EMAIL';
     let buttonOnClick = this.setActionBody;
@@ -53,7 +52,6 @@ class EmailCard extends Component {
     let cancelButton = null;
     let showContentButton = null;
     let textArea = null;
-    let emailContent = null;
     let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
     let emailContent = null;
 

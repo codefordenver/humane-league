@@ -43,15 +43,21 @@ class FacebookCard extends Component {
 
   render() {
     const { title, description, target } = this.props.action;
-    const expanded = this.state.actionBody !== null && !this.props.action.completed;
 
-    let buttonText = expanded ? 'GO' : 'FACEBOOK';
-    const buttonOnClick = expanded ? this.completeAction : this.setActionBody;
-    const targetLink = expanded ? target : null;
-    const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
-    const textArea = expanded ? <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
-    
+    let buttonText = 'FACEBOOK';
+    let buttonOnClick = this.setActionBody;
+    let targetLink = null;
+    let cancelButton = null;
+    let textArea = null;
     let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
+
+    if (this.state.actionBody !== null && !this.props.action.completed) {
+      buttonText = 'GO';
+      buttonOnClick = this.completeAction;
+      targetLink = target;
+      cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
+      textArea = <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea>;
+    }
 
     if (this.props.action.completed) {
       button = null;

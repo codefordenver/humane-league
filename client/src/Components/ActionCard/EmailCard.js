@@ -57,6 +57,7 @@ class EmailCard extends Component {
 
     if (this.state.actionBody !== null && !this.props.action.completed) {
       buttonText = 'SEND';
+      buttonOnClick = this.completeAction;
       targetLink = `mailto:${to}?subject=${subject}&body=${this.state.actionBody}`;
       cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
       showContentButton = <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button>;

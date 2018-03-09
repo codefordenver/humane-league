@@ -45,23 +45,33 @@ class EmailCard extends Component {
 
   render () {
     const { title, description, to, cc, bcc, subject } = this.props.action;
-    const expanded = this.state.actionBody !== null && !this.props.action.completed;
+    const expanded = ;
 
-    let buttonText = expanded ? 'SEND' : 'EMAIL';
-    const buttonOnClick = expanded ? this.completeAction: this.setActionBody;
-    const targetLink = expanded ? `mailto:${to}?subject=${subject}&body=${this.state.actionBody}` : null;
-    const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
-    const showContentButton = expanded ? <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button> : null;
-    const textArea = expanded ? <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
-
-    const emailContent = this.state.showContent ?
-      <div className="email-template">
-        <p><strong>To:</strong> {to}</p>
-        <p><strong>Subject:</strong> {subject}</p>
-      </div>
-      : null;
-
+    let buttonText = 'EMAIL';
+    let buttonOnClick = this.setActionBody;
+    let targetLink = null;
+    let cancelButton = null;
+    let showContentButton = null;
+    let textArea = null;
+    let emailContent = null;
     let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
+    let emailContent = null;
+
+    if (this.state.actionBody !== null && !this.props.action.completed) {
+      buttonText = 'SEND';
+      targetLink = `mailto:${to}?subject=${subject}&body=${this.state.actionBody}`;
+      cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
+      showContentButton = <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button>;
+      textArea = <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea>;
+    }
+
+    if (this.state.showContent) {
+      emailContent = 
+        <div className="email-template">
+          <p><strong>To:</strong> {to}</p>
+          <p><strong>Subject:</strong> {subject}</p>
+        </div>;
+    }
 
     if (this.props.action.completed) {
       button = null;
@@ -70,7 +80,6 @@ class EmailCard extends Component {
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
     }
-
 
     return (
       <div className="ActionCard email-card">

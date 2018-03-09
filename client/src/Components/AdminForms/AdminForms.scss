@@ -1,3 +1,108 @@
+// ACTION FORM
+.create-action-form {
+  width: 600px;
+  margin: 10px;
+  form {
+    display: flex;
+    flex-direction: column;
+    input,
+    textarea,
+    button {
+      border: 1px solid darkgray;
+      font-size: 20px;
+      padding: 10px;
+      margin: 10px;
+    }
+    .textarea {
+      position: relative;
+      textarea {
+        height: 100px;
+        width: -webkit-fill-available;
+        width: -moz-available;
+        // width: fill-available;
+        width: stretch;
+      }
+      .delete-textarea {
+        position: absolute;
+        right: 0;
+        padding: 5;
+        height: auto;
+      }
+    }
+    button {
+      background: #1CB841;
+      color: #000;
+      cursor: pointer;
+      text-decoration: none;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      &:hover {
+        color: white;
+        background: #009639;
+      }
+    }
+    .add-text-area {
+      font-size: 16pt;
+      width: 200px;
+      align-self: center;
+    }
+    #toggle {
+      background-color: #fff;
+      text-align: left;
+      align-self: center;
+      display: inline-block;
+      position: relative;
+      
+      margin: 10px;
+      width: 200px;
+      input {
+        cursor: pointer;
+        opacity: 0;
+
+        position: absolute;
+        z-index: 2;
+        
+        margin: 0;
+        width: 100%;
+        height: 100%;
+      }
+      label {
+        background-color: #333;
+        color: #fff;
+        cursor: pointer;
+        font-size: 12pt;
+        font-weight: bold;
+        text-align: center;
+        
+        display: inline-block;
+
+        padding: 5px 10px;
+        width: 100px;
+
+        -webkit-transition: margin-left 0.2s ease-in-out;
+        -moz-transition: margin-left 0.2s ease-in-out;
+        transition: margin-left 0.2s ease-in-out;
+        &:before {
+          content: attr(data-off);
+        }
+      }
+      input:checked + label:before {
+        content: attr(data-on);
+      }
+
+      input:checked + label {
+        background: #1CB841;
+        color: #000;
+        margin-left: 100px;
+      }
+    }
+  }
+}
+
+//CREATE NEW ACTION
 .create-new-action-container {
   display: flex;
   flex-direction: column;
@@ -30,98 +135,10 @@
       padding: 5px;
       margin: 20px;
     }
-    .create-action-form {
-      width: 600px;
-      margin: 10px;
-      form {
-        display: flex;
-        flex-direction: column;
-        input,
-        textarea,
-        button {
-          border: 1px solid darkgray;
-          font-size: 20px;
-          padding: 10px;
-          margin: 10px;
-        }
-        textarea {
-          height: 100px;
-        }
-        button {
-          background: #1CB841;
-          color: #000;
-          cursor: pointer;
-          text-decoration: none;
-          height: 70px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: 0.3s;
-          &:hover {
-            color: white;
-            background: #009639;
-          }
-        }
-        .add-text-area {
-          font-size: 16pt;
-          width: 200px;
-          align-self: center;
-        }
-        #toggle {
-          background-color: #fff;
-          text-align: left;
-          align-self: center;
-          display: inline-block;
-          position: relative;
-          
-          margin: 10px;
-          width: 200px;
-          input {
-            cursor: pointer;
-            opacity: 0;
-
-            position: absolute;
-            z-index: 2;
-            
-            margin: 0;
-            width: 100%;
-            height: 100%;
-          }
-          label {
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
-            font-size: 12pt;
-            font-weight: bold;
-            text-align: center;
-            
-            display: inline-block;
-
-            padding: 5px 10px;
-            width: 100px;
-
-            -webkit-transition: margin-left 0.2s ease-in-out;
-            -moz-transition: margin-left 0.2s ease-in-out;
-            transition: margin-left 0.2s ease-in-out;
-            &:before {
-              content: attr(data-off);
-            }
-          }
-          input:checked + label:before {
-            content: attr(data-on);
-          }
-
-          input:checked + label {
-            background: #1CB841;
-            color: #000;
-            margin-left: 100px;
-          }
-        }
-      }
-    }
   }
 }
 
+//UPDATE ACTION
 .UpdateAction {
   display: flex;
   flex-direction: column;

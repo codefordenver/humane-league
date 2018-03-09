@@ -6,11 +6,7 @@ import { CreateNewAction } from './CreateNewAction';
 describe('CreateNewAction component tests', () => {
   let renderedCreateNewAction;
   let defaultState = {
-    form: 'facebook',
-    actionEnabled: true,
-    actionBodies: 1,
-    error: false,
-    success: false
+    "error": false, "form": "facebook", "success": false
   }
   
   beforeEach(() => {

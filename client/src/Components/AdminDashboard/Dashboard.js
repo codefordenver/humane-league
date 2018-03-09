@@ -18,7 +18,7 @@ const Dashboard = () => {
           <NavLink 
             to='/admin/update'
             className='admin-btn enable-disable'>
-            Enable/Disable</NavLink>
+            Edit/Update Actions</NavLink>
         </div>
         <div className='dashboard-section'>
           <h2>ANALYTICS</h2>

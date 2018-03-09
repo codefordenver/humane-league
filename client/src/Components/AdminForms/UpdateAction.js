@@ -1,14 +1,18 @@
 /* eslint-disable no-undef */
+/* eslint-disable no-console */
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import ActionForm from './ActionForm';
 import { 
   getTwitterActions, 
   getFacebookActions, 
   getEmailActions, 
   getPhoneActions,
-  patchAction } from '../../utils/apiCalls';
+  patchAction,
+  patchActionContent,
+  postActionContent } from '../../utils/apiCalls';
 
 export class UpdateAction extends Component {
   constructor() {
@@ -43,24 +47,35 @@ export class UpdateAction extends Component {
     const actionId = event.target.dataset.id;
     const action = this.state[this.state.actionType].find(action => action.id == actionId);
 
-    this.setState({ showForm: true, actionEnabled: action.enabled, action });
+    this.setState({ showForm: true, action });
     window.scrollTo(0, 0);
   }
 
-  submitPatch = async () => {
-    const oldAction = this.state.action;
+  submitPatch = async (action, actionBodies) => {
+    const actionId = this.state.action.id;
     const type = this.state.actionType;
-
-    const action = Object.assign({ ...oldAction }, { enabled: this.state.actionEnabled });
-    const actionId = action.id;
-
+    const newAction = Object.assign({ ...action }, { id: actionId });
     const token = this.props.user.id_token;
-    const actionPatch = await patchAction(type, actionId, token, action);
+
+    const actionPatch = await patchAction(type, actionId, token, newAction);
 
     if (actionPatch.status === 204) {
-      const removedAction = this.state[this.state.actionType].filter(action => action.id !== actionId);
-      const newState = [...removedAction, action];
-      this.setState({ [type]: newState, showForm: false, success: `Sucessfully updated action ${action.id}`});
+      for (let i = 0; i < actionBodies.length; i++) {
+        let content = actionBodies[i];
+        if (content.action_id) {
+          const contentID = await patchActionContent(type, actionId, token, content.content);
+          console.log('patch:', contentID);
+        } else {
+          const contentID = await postActionContent(type, {id: actionId}, token, content.content);
+          console.log('post:', contentID);
+        }
+      }
+
+      const updatedActions = this.state[type].map(action => {
+        return action.id === actionId ? newAction : action;
+      });
+
+      this.setState({ [type]: updatedActions, showForm: false, success: `Sucessfully updated action ${newAction.id}`});
       setTimeout(() => {
         this.setState({ success: false });
       }, 3000);
@@ -94,20 +109,28 @@ export class UpdateAction extends Component {
           </label>
           {
             this.state.showForm &&
-          <div className='update-action'>
-            <p>{`TITLE: ${this.state.action.title}`}</p>
-            <p>{`DESCRIPTION: ${this.state.action.description}`}</p>
-            <div className='update-form'>  
-              <span id='toggle'>
-                <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => { this.toggle = elem; }} type='checkbox'/>
-                <label 
-                  data-on='enabled' 
-                  data-off='disabled'>
-                </label>
-              </span>
-              <button onClick={this.submitPatch} className='update-action'>Save Update</button>
-            </div> 
-          </div>
+            <div>
+              <button onClick={() => this.setState({ showForm: false })}>Cancel</button>
+              <ActionForm 
+                form={this.state.actionType} 
+                action={this.state.action}
+                submitPatch={this.submitPatch}
+              />
+            </div>
+          // <div className='update-action'>
+          //   <p>{`TITLE: ${this.state.action.title}`}</p>
+          //   <p>{`DESCRIPTION: ${this.state.action.description}`}</p>
+          //   <div className='update-form'>  
+          //     <span id='toggle'>
+          //       <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => { this.toggle = elem; }} type='checkbox'/>
+          //       <label 
+          //         data-on='enabled' 
+          //         data-off='disabled'>
+          //       </label>
+          //     </span>
+          //     <button onClick={this.submitPatch} className='update-action'>Save Update</button>
+          //   </div> 
+          // </div>
           }
           <div className='actions-container'>
             <h3>Click an action to see or change status</h3>

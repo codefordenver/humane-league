@@ -175,7 +175,7 @@ ShallowWrapper {
                               className="admin-btn enable-disable"
                               to="/admin/update"
                     >
-                              Enable/Disable
+                              Edit/Update Actions
                     </NavLink>
           </div>
           <div
@@ -245,7 +245,7 @@ ShallowWrapper {
                             className="admin-btn enable-disable"
                             to="/admin/update"
               >
-                            Enable/Disable
+                            Edit/Update Actions
               </NavLink>
 </div>,
             <div
@@ -299,7 +299,7 @@ ShallowWrapper {
                   className="admin-btn enable-disable"
                   to="/admin/update"
 >
-                  Enable/Disable
+                  Edit/Update Actions
 </NavLink>,
               ],
               "className": "dashboard-section",
@@ -339,12 +339,12 @@ ShallowWrapper {
                 "props": Object {
                   "activeClassName": "active",
                   "ariaCurrent": "true",
-                  "children": "Enable/Disable",
+                  "children": "Edit/Update Actions",
                   "className": "admin-btn enable-disable",
                   "to": "/admin/update",
                 },
                 "ref": null,
-                "rendered": "Enable/Disable",
+                "rendered": "Edit/Update Actions",
                 "type": [Function],
               },
             ],
@@ -465,7 +465,7 @@ ShallowWrapper {
                                     className="admin-btn enable-disable"
                                     to="/admin/update"
                         >
-                                    Enable/Disable
+                                    Edit/Update Actions
                         </NavLink>
             </div>
             <div
@@ -535,7 +535,7 @@ ShallowWrapper {
                                 className="admin-btn enable-disable"
                                 to="/admin/update"
                 >
-                                Enable/Disable
+                                Edit/Update Actions
                 </NavLink>
 </div>,
               <div
@@ -589,7 +589,7 @@ ShallowWrapper {
                     className="admin-btn enable-disable"
                     to="/admin/update"
 >
-                    Enable/Disable
+                    Edit/Update Actions
 </NavLink>,
                 ],
                 "className": "dashboard-section",
@@ -629,12 +629,12 @@ ShallowWrapper {
                   "props": Object {
                     "activeClassName": "active",
                     "ariaCurrent": "true",
-                    "children": "Enable/Disable",
+                    "children": "Edit/Update Actions",
                     "className": "admin-btn enable-disable",
                     "to": "/admin/update",
                   },
                   "ref": null,
-                  "rendered": "Enable/Disable",
+                  "rendered": "Edit/Update Actions",
                   "type": [Function],
                 },
               ],

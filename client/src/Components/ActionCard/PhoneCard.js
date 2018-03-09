@@ -48,15 +48,18 @@ class PhoneCard extends Component {
     let buttonOnClick = this.setActionBody;
     let phoneNumber = null;
     let textArea = null;
-    let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
+    let cancelButton = null;
+    let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-phone"></i></button>;
+    let script = null;
 
     if (this.state.actionBody !== null && !this.props.action.completed) {
-      buttonText = 'COMPLETED!' : 'CALL';
-      buttonOnClick = this.completeAction : this.setActionBody;
+      buttonText = 'COMPLETED!';
+      buttonOnClick = this.completeAction;
       phoneNumber = <p className="phone-number">{`Call ${phone_number}, and then click completed!`}</p>;
       textArea = <textarea className="body-text feedback-textarea" placeholder="How did this call go for you? Please leave your feedback here!" ref={(input) => this.feedbackTextArea = input }></textarea>;
       cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
       script = <textarea className="script body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea>;
+      button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-phone"></i></button>;
     }
     
     if (this.props.action.completed) {

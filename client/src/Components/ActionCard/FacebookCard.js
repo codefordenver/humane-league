@@ -49,7 +49,7 @@ class FacebookCard extends Component {
     let targetLink = null;
     let cancelButton = null;
     let textArea = null;
-    let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
+    let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-facebook"></i></button>;
 
     if (this.state.actionBody !== null && !this.props.action.completed) {
       buttonText = 'GO';
@@ -57,6 +57,7 @@ class FacebookCard extends Component {
       targetLink = target;
       cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
       textArea = <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea>;
+      button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-facebook"></i></button>;
     }
 
     if (this.props.action.completed) {

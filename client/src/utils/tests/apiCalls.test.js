@@ -1,17 +1,17 @@
 import * as apiCalls from '../apiCalls';
 
 const testData = [
-  { name: 'signInUser', json: true, params: ['xyz', 'Thomas', '123@mail.com'], url: ['/api/v1/authenticate?token=xyz&name=Thomas&email=123@mail.com'], returning: '123', expectedRes: '123' },
-  { name: 'getTwitterActions', json: true, params: [], url: ['/api/v1/twitter_actions'], returning: {results: ['action']},  expectedRes: ['action']},
-  { name: 'getFacebookActions', json: true, params: [], url: ['/api/v1/facebook_actions'], returning: {results: ['action']},expectedRes: ['action']},
-  { name: 'getEmailActions', json: true, params: [], url: ['/api/v1/email_actions'], returning: {results: ['action']},      expectedRes: ['action']},
-  { name: 'getPhoneActions', json: true, params: [], url: ['/api/v1/phone_actions'], returning: {results: ['action']},      expectedRes: ['action']},
-  { name: 'getCompletedActions', json: true, params: [3, 'xyz'], url: ['/api/v1/users/actions/3?token=xyz'], returning: {actions: ['action']},  expectedRes: ['action']},
-  { name: 'postAction', json: true, params: ['', 'facebook', 'xyz'], url: ['/api/v1/facebook_actions?token=xyz', {"body": "\"\"", "headers": {"Content-Type": "application/json"}, "method": "POST"}], returning: '3',  expectedRes: '3'},
-  { name: 'postActionContent', json: true, params: ['facebook', 'xyz', '3', ''], url: ['/api/v1/facebook_contents?token=xyz', {"body": "{\"content\":\"\"}", "headers": {"Content-Type": "application/json"}, "method": "POST"}], returning: '3',  expectedRes: '3'},
-  { name: 'patchAction', json: false, params: ['facebook', '3', 'xyz', 'abc'], url: ['/api/v1/facebook_actions/3?token=xyz', {"body": "\"abc\"", "headers": {"Content-Type": "application/json"}, "method": "PATCH"}], returning: '3',  expectedRes: '3'},
-  { name: 'getActionLog', json: true, params: [], url: ['/api/v1/actions'], returning: ['log'], expectedRes: ['log']},
-  { name: 'patchPreferences', json: false, params: ['3', 'xyz', 'abc'], url: ['/api/v1/users/3?token=xyz', {"body": "\"abc\"", "headers": {"Content-Type": "application/json"}, "method": "PATCH"}], returning: '3',  expectedRes: '3'}  
+  { name: 'signInUser',          json: true,  params: ['xyz', 'Thomas', '123@mail.com'], url: ['/api/v1/authenticate?token=xyz&name=Thomas&email=123@mail.com'], returning: '123', expectedRes: '123' },
+  { name: 'getTwitterActions',   json: true,  params: [], url: ['/api/v1/twitter_actions'], returning: {results: ['action']},  expectedRes: ['action']},
+  { name: 'getFacebookActions',  json: true,  params: [], url: ['/api/v1/facebook_actions'], returning: {results: ['action']},expectedRes: ['action']},
+  { name: 'getEmailActions',     json: true,  params: [], url: ['/api/v1/email_actions'], returning: {results: ['action']},      expectedRes: ['action']},
+  { name: 'getPhoneActions',     json: true,  params: [], url: ['/api/v1/phone_actions'], returning: {results: ['action']},      expectedRes: ['action']},
+  { name: 'getCompletedActions', json: true,  params: [3, 'xyz'], url: ['/api/v1/users/actions/3?token=xyz'], returning: {actions: ['action']},  expectedRes: ['action']},
+  { name: 'postAction',          json: true,  params: ['', 'facebook', 'xyz'], url: ['/api/v1/facebook_actions?token=xyz', {"body": "\"\"", "headers": {"Content-Type": "application/json"}, "method": "POST"}], returning: '3',  expectedRes: '3'},
+  { name: 'postActionContent',   json: true,  params: ['facebook', '3', 'xyz', ''], url: ['/api/v1/facebook_contents?token=xyz', {"body": "{\"content\":\"\"}", "headers": {"Content-Type": "application/json"}, "method": "POST"}], returning: '3',  expectedRes: '3'},
+  { name: 'patchAction',         json: false, params: ['facebook', '3', 'xyz', 'abc'], url: ['/api/v1/facebook_actions/3?token=xyz', {"body": "\"abc\"", "headers": {"Content-Type": "application/json"}, "method": "PATCH"}], returning: '3',  expectedRes: '3'},
+  { name: 'getActionLog',        json: true,  params: [], url: ['/api/v1/actions'], returning: ['log'], expectedRes: ['log']},
+  { name: 'patchPreferences',    json: false, params: ['3', 'xyz', 'abc'], url: ['/api/v1/users/3?token=xyz', {"body": "\"abc\"", "headers": {"Content-Type": "application/json"}, "method": "PATCH"}], returning: '3',  expectedRes: '3'}  
 ];
 
 testData.map( fetch => {

@@ -43,17 +43,22 @@ class PhoneCard extends Component {
 
   render () {
     const { title, description, phone_number } = this.props.action;
-    const expanded = this.state.actionBody !== null && !this.props.action.completed;
 
-    let buttonText = expanded ? 'COMPLETED!' : 'CALL';
-    const buttonOnClick = expanded ? this.completeAction : this.setActionBody;
-    const phoneNumber = expanded ? <p className="phone-number">{`Call ${phone_number}, and then click completed!`}</p> : null;
-    const textArea = expanded ? <textarea className="body-text feedback-textarea" placeholder="How did this call go for you? Please leave your feedback here!" ref={(input) => this.feedbackTextArea = input }></textarea> : null;
-    const cancelButton = expanded ? <button onClick={() => this.resetBody(null)}>CANCEL</button>: null;
-    const script = expanded ? <textarea className="script body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea> : null;
-
+    let buttonText = 'CALL';
+    let buttonOnClick = this.setActionBody;
+    let phoneNumber = null;
+    let textArea = null;
     let button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
 
+    if (this.state.actionBody !== null && !this.props.action.completed) {
+      buttonText = 'COMPLETED!' : 'CALL';
+      buttonOnClick = this.completeAction : this.setActionBody;
+      phoneNumber = <p className="phone-number">{`Call ${phone_number}, and then click completed!`}</p>;
+      textArea = <textarea className="body-text feedback-textarea" placeholder="How did this call go for you? Please leave your feedback here!" ref={(input) => this.feedbackTextArea = input }></textarea>;
+      cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
+      script = <textarea className="script body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea>;
+    }
+    
     if (this.props.action.completed) {
       button = null;
     }

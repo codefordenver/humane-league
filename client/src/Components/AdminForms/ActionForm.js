@@ -9,12 +9,12 @@ class ActionForm extends Component {
     this.state = {
       actionEnabled: true,
       actionBodies: []
-    }
+    };
   }
 
   componentDidMount() {
     if (this.props.action) {
-      this.populateEditAction()
+      this.populateEditAction();
     }
     const actionBodies = [{ id: 0, content: '' }];
 
@@ -62,7 +62,7 @@ class ActionForm extends Component {
     } else {
       const success = await this.props.handleSubmit(action, actionBodies);
       
-      if(success) {
+      if (success) {
         this.resetForm(type);
       }
     }
@@ -226,7 +226,7 @@ class ActionForm extends Component {
           <button onClick={this.submitAction}>SAVE ACTION</button>
         </form>
       </section>
-    )
+    );
   }
 }
 
@@ -234,5 +234,7 @@ export default ActionForm;
 
 ActionForm.propTypes = {
   action: PropTypes.object,
-  form: PropTypes.string
+  form: PropTypes.string,
+  submitPatch: PropTypes.func,
+  handleSubmit: PropTypes.func
 };

@@ -1,9 +1,10 @@
 /* eslint-disable no-undef */
+/* eslint-disable no-console */
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ActionForm from './ActionForm';
 import PropTypes from 'prop-types';
+import ActionForm from './ActionForm';
 import { 
   getTwitterActions, 
   getFacebookActions, 
@@ -63,16 +64,16 @@ export class UpdateAction extends Component {
         let content = actionBodies[i];
         if (content.action_id) {
           const contentID = await patchActionContent(type, actionId, token, content.content);
-          console.log('patch:', contentID)
+          console.log('patch:', contentID);
         } else {
           const contentID = await postActionContent(type, {id: actionId}, token, content.content);
-          console.log('post:', contentID)
+          console.log('post:', contentID);
         }
       }
 
       const updatedActions = this.state[type].map(action => {
         return action.id === actionId ? newAction : action;
-      })
+      });
 
       this.setState({ [type]: updatedActions, showForm: false, success: `Sucessfully updated action ${newAction.id}`});
       setTimeout(() => {

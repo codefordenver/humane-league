@@ -122,7 +122,7 @@ export const patchActionContent = async (type, actionId, token, content) => {
   } catch (error) {
     return error;
   }
-}
+};
 
 export const getActionLog = async () => {
   try {

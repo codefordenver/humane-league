@@ -3,8 +3,8 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ActionForm from './ActionForm';
 import PropTypes from 'prop-types';
+import ActionForm from './ActionForm';
 import './AdminForms.css';
 import { postAction, postActionContent } from '../../utils/apiCalls';
 

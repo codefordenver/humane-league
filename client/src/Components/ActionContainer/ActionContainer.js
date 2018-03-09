@@ -52,7 +52,6 @@ export class ActionContainer extends Component {
       actions[actionType].sort((a,b) => a.created_at > b.created_at);
     });
 
-    console.log(actions.twitter_actions);
     await this.setState(actions);
   }
 
@@ -65,11 +64,12 @@ export class ActionContainer extends Component {
 
   render() {
     const { twitter_actions, facebook_actions, email_actions, phone_actions } = this.state;
+    const { user } = this.props;
 
-    const twitterCards = twitter_actions.map((action, i) => <TwitterCard key={`twitter-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
-    const facebookCards = facebook_actions.map((action, i) => <FacebookCard key={`facebook-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
-    const emailCards = email_actions.map((action, i) => <EmailCard key={`email-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
-    const phoneCards = phone_actions.map((action, i) => <PhoneCard key={`phone-${i}`} action={action} user={this.props.user} removeCompleted={this.removeCompleted}/>);
+    const twitter = twitter_actions.length ? <TwitterCard action={twitter_actions[0]} user={user} removeCompleted={this.removeCompleted}/> : null;
+    const facebook = facebook_actions.length ? <FacebookCard action={facebook_actions[0]} user={user} removeCompleted={this.removeCompleted}/> : null;
+    const email = email_actions.length ? <EmailCard action={email_actions[0]} user={user} removeCompleted={this.removeCompleted}/> : null;
+    const phone = phone_actions.length ? <PhoneCard action={phone_actions[0]} user={user} removeCompleted={this.removeCompleted}/> : null;
 
     const noActions = twitter_actions.length === 0 && facebook_actions.length === 0 && email_actions.length === 0 && phone_actions.length === 0;
     const noActionsMessage = noActions ? <p className="no-actions">There are no actions to take at this time. Please check back again soon!</p> : null;
@@ -77,10 +77,10 @@ export class ActionContainer extends Component {
     return (
       <div className="ActionContainer">
         <h1>FAN ACTION ALERTS</h1>
-        {twitterCards}
-        {facebookCards}
-        {emailCards}
-        {phoneCards}
+        {twitter}
+        {facebook}
+        {email}
+        {phone}
         {noActionsMessage}
       </div>
     );

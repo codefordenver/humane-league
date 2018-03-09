@@ -61,6 +61,7 @@ class EmailCard extends Component {
       cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
       showContentButton = <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button>;
       textArea = <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea>;
+      button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
     }
 
     if (this.state.showContent) {

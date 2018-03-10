@@ -139,6 +139,7 @@ export class CustomLogin extends Component {
             ref={(input) => { this.email = input; }} 
             name="email" 
             onChange={this.handleChange} 
+            autoComplete="email"            
             type="email" 
             placeholder="Email"/>
           <label>Password:</label>
@@ -147,7 +148,8 @@ export class CustomLogin extends Component {
             ref={(input) => { this.password = input; }} 
             name="password" 
             onChange={this.handleChange} 
-            type="password" 
+            type="password"
+            autoComplete="current-password"            
             placeholder="Password"/>
           <Link to="/forgotpassword">Forgot Password</Link>
           <span>{this.state.error}</span>
@@ -167,12 +169,14 @@ export class CustomLogin extends Component {
             onChange={this.handleChange} 
             type="text" 
             value={this.state.name}
+            autoComplete="name"
             placeholder="First/Last Name"/>
           <label>Email:</label>
           <input 
             ref={(input) => { this.email = input; }} 
             name="email" 
             onChange={this.handleChange} 
+            autoComplete="email"
             type="email" 
             value={this.state.email}
             placeholder="Email"/>
@@ -182,6 +186,7 @@ export class CustomLogin extends Component {
             name="password" 
             onChange={this.handleChange} 
             value={this.state.password}
+            autoComplete="off"
             type="password" 
             placeholder="Password"/>
           <label>Confirm Password:</label>
@@ -191,6 +196,7 @@ export class CustomLogin extends Component {
               name="confirmPass" 
               onChange={this.handleChange} 
               value={this.state.confirmPass}
+              autoComplete="off"              
               type="password" 
               placeholder="Confirm Password" />
             <span>{this.state.passMatchStatus}</span>        

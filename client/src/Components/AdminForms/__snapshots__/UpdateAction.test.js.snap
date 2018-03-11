@@ -36,37 +36,78 @@ ShallowWrapper {
         <div
           className="update-container"
 >
-          <label
-                    htmlFor="action-types"
+          <div
+                    className="update-controls"
           >
-                    Select Action Type:
-                    <select
-                              id="action-types"
-                              name="action-types"
-                              onChange={[Function]}
+                    <label
+                              htmlFor="action-types"
                     >
-                              <option
-                                        value="facebook"
+                              Select Action Type:
+                              <select
+                                        id="action-types"
+                                        name="action-types"
+                                        onChange={[Function]}
                               >
-                                        Facebook
-                              </option>
-                              <option
-                                        value="twitter"
-                              >
-                                        Twitter
-                              </option>
-                              <option
-                                        value="email"
-                              >
-                                        Email
-                              </option>
-                              <option
-                                        value="phone"
-                              >
-                                        Phone
-                              </option>
-                    </select>
-          </label>
+                                        <option
+                                                  value="facebook"
+                                        >
+                                                  Facebook
+                                        </option>
+                                        <option
+                                                  value="twitter"
+                                        >
+                                                  Twitter
+                                        </option>
+                                        <option
+                                                  value="email"
+                                        >
+                                                  Email
+                                        </option>
+                                        <option
+                                                  value="phone"
+                                        >
+                                                  Phone
+                                        </option>
+                              </select>
+                    </label>
+                    <div
+                              className="sort-by"
+                    >
+                              <p>
+                                        Sort by:
+                              </p>
+                              <label>
+                                        <input
+                                                  checked={true}
+                                                  name="sort-by"
+                                                  onChange={[Function]}
+                                                  type="radio"
+                                                  value="all"
+                                        />
+                                        All
+                              </label>
+                              <label>
+                                        <input
+                                                  checked={false}
+                                                  name="sort-by"
+                                                  onChange={[Function]}
+                                                  type="radio"
+                                                  value="enabled"
+                                        />
+                                        Enabled
+                              </label>
+                              <label>
+                                        <input
+                                                  checked={false}
+                                                  name="sort-by"
+                                                  onChange={[Function]}
+                                                  type="radio"
+                                                  value="disabled"
+                                        />
+                                        Disabled
+                              </label>
+                    </div>
+          </div>
           <div
                     className="actions-container"
           >
@@ -123,37 +164,78 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <label
-              htmlFor="action-types"
+            <div
+              className="update-controls"
 >
-              Select Action Type:
-              <select
-                            id="action-types"
-                            name="action-types"
-                            onChange={[Function]}
+              <label
+                            htmlFor="action-types"
               >
-                            <option
-                                          value="facebook"
+                            Select Action Type:
+                            <select
+                                          id="action-types"
+                                          name="action-types"
+                                          onChange={[Function]}
                             >
-                                          Facebook
-                            </option>
-                            <option
-                                          value="twitter"
-                            >
-                                          Twitter
-                            </option>
-                            <option
-                                          value="email"
-                            >
-                                          Email
-                            </option>
-                            <option
-                                          value="phone"
-                            >
-                                          Phone
-                            </option>
-              </select>
-</label>,
+                                          <option
+                                                        value="facebook"
+                                          >
+                                                        Facebook
+                                          </option>
+                                          <option
+                                                        value="twitter"
+                                          >
+                                                        Twitter
+                                          </option>
+                                          <option
+                                                        value="email"
+                                          >
+                                                        Email
+                                          </option>
+                                          <option
+                                                        value="phone"
+                                          >
+                                                        Phone
+                                          </option>
+                            </select>
+              </label>
+              <div
+                            className="sort-by"
+              >
+                            <p>
+                                          Sort by:
+                            </p>
+                            <label>
+                                          <input
+                                                        checked={true}
+                                                        name="sort-by"
+                                                        onChange={[Function]}
+                                                        type="radio"
+                                                        value="all"
+                                          />
+                                          All
+                            </label>
+                            <label>
+                                          <input
+                                                        checked={false}
+                                                        name="sort-by"
+                                                        onChange={[Function]}
+                                                        type="radio"
+                                                        value="enabled"
+                                          />
+                                          Enabled
+                            </label>
+                            <label>
+                                          <input
+                                                        checked={false}
+                                                        name="sort-by"
+                                                        onChange={[Function]}
+                                                        type="radio"
+                                                        value="disabled"
+                                          />
+                                          Disabled
+                            </label>
+              </div>
+</div>,
             false,
             <div
               className="actions-container"
@@ -178,125 +260,376 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                "Select Action Type:",
-                <select
-                  id="action-types"
-                  name="action-types"
-                  onChange={[Function]}
+                <label
+                  htmlFor="action-types"
 >
-                  <option
-                                    value="facebook"
+                  Select Action Type:
+                  <select
+                                    id="action-types"
+                                    name="action-types"
+                                    onChange={[Function]}
                   >
-                                    Facebook
-                  </option>
-                  <option
-                                    value="twitter"
-                  >
-                                    Twitter
-                  </option>
-                  <option
-                                    value="email"
-                  >
-                                    Email
-                  </option>
-                  <option
-                                    value="phone"
-                  >
-                                    Phone
-                  </option>
-</select>,
+                                    <option
+                                                      value="facebook"
+                                    >
+                                                      Facebook
+                                    </option>
+                                    <option
+                                                      value="twitter"
+                                    >
+                                                      Twitter
+                                    </option>
+                                    <option
+                                                      value="email"
+                                    >
+                                                      Email
+                                    </option>
+                                    <option
+                                                      value="phone"
+                                    >
+                                                      Phone
+                                    </option>
+                  </select>
+</label>,
+                <div
+                  className="sort-by"
+>
+                  <p>
+                                    Sort by:
+                  </p>
+                  <label>
+                                    <input
+                                                      checked={true}
+                                                      name="sort-by"
+                                                      onChange={[Function]}
+                                                      type="radio"
+                                                      value="all"
+                                    />
+                                    All
+                  </label>
+                  <label>
+                                    <input
+                                                      checked={false}
+                                                      name="sort-by"
+                                                      onChange={[Function]}
+                                                      type="radio"
+                                                      value="enabled"
+                                    />
+                                    Enabled
+                  </label>
+                  <label>
+                                    <input
+                                                      checked={false}
+                                                      name="sort-by"
+                                                      onChange={[Function]}
+                                                      type="radio"
+                                                      value="disabled"
+                                    />
+                                    Disabled
+                  </label>
+</div>,
               ],
-              "htmlFor": "action-types",
+              "className": "update-controls",
             },
             "ref": null,
             "rendered": Array [
-              "Select Action Type:",
               Object {
                 "instance": null,
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    <option
-                      value="facebook"
+                    "Select Action Type:",
+                    <select
+                      id="action-types"
+                      name="action-types"
+                      onChange={[Function]}
 >
-                      Facebook
-</option>,
-                    <option
-                      value="twitter"
->
-                      Twitter
-</option>,
-                    <option
-                      value="email"
->
-                      Email
-</option>,
-                    <option
-                      value="phone"
->
-                      Phone
-</option>,
+                      <option
+                                            value="facebook"
+                      >
+                                            Facebook
+                      </option>
+                      <option
+                                            value="twitter"
+                      >
+                                            Twitter
+                      </option>
+                      <option
+                                            value="email"
+                      >
+                                            Email
+                      </option>
+                      <option
+                                            value="phone"
+                      >
+                                            Phone
+                      </option>
+</select>,
                   ],
-                  "id": "action-types",
-                  "name": "action-types",
-                  "onChange": [Function],
+                  "htmlFor": "action-types",
                 },
-                "ref": [Function],
+                "ref": null,
+                "rendered": Array [
+                  "Select Action Type:",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <option
+                          value="facebook"
+>
+                          Facebook
+</option>,
+                        <option
+                          value="twitter"
+>
+                          Twitter
+</option>,
+                        <option
+                          value="email"
+>
+                          Email
+</option>,
+                        <option
+                          value="phone"
+>
+                          Phone
+</option>,
+                      ],
+                      "id": "action-types",
+                      "name": "action-types",
+                      "onChange": [Function],
+                    },
+                    "ref": [Function],
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Facebook",
+                          "value": "facebook",
+                        },
+                        "ref": null,
+                        "rendered": "Facebook",
+                        "type": "option",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Twitter",
+                          "value": "twitter",
+                        },
+                        "ref": null,
+                        "rendered": "Twitter",
+                        "type": "option",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Email",
+                          "value": "email",
+                        },
+                        "ref": null,
+                        "rendered": "Email",
+                        "type": "option",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Phone",
+                          "value": "phone",
+                        },
+                        "ref": null,
+                        "rendered": "Phone",
+                        "type": "option",
+                      },
+                    ],
+                    "type": "select",
+                  },
+                ],
+                "type": "label",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <p>
+                      Sort by:
+</p>,
+                    <label>
+                      <input
+                                            checked={true}
+                                            name="sort-by"
+                                            onChange={[Function]}
+                                            type="radio"
+                                            value="all"
+                      />
+                      All
+</label>,
+                    <label>
+                      <input
+                                            checked={false}
+                                            name="sort-by"
+                                            onChange={[Function]}
+                                            type="radio"
+                                            value="enabled"
+                      />
+                      Enabled
+</label>,
+                    <label>
+                      <input
+                                            checked={false}
+                                            name="sort-by"
+                                            onChange={[Function]}
+                                            type="radio"
+                                            value="disabled"
+                      />
+                      Disabled
+</label>,
+                  ],
+                  "className": "sort-by",
+                },
+                "ref": null,
                 "rendered": Array [
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "Facebook",
-                      "value": "facebook",
+                      "children": "Sort by:",
                     },
                     "ref": null,
-                    "rendered": "Facebook",
-                    "type": "option",
+                    "rendered": "Sort by:",
+                    "type": "p",
                   },
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "Twitter",
-                      "value": "twitter",
+                      "children": Array [
+                        <input
+                          checked={true}
+                          name="sort-by"
+                          onChange={[Function]}
+                          type="radio"
+                          value="all"
+/>,
+                        "All",
+                      ],
                     },
                     "ref": null,
-                    "rendered": "Twitter",
-                    "type": "option",
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "checked": true,
+                          "name": "sort-by",
+                          "onChange": [Function],
+                          "type": "radio",
+                          "value": "all",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      "All",
+                    ],
+                    "type": "label",
                   },
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "Email",
-                      "value": "email",
+                      "children": Array [
+                        <input
+                          checked={false}
+                          name="sort-by"
+                          onChange={[Function]}
+                          type="radio"
+                          value="enabled"
+/>,
+                        "Enabled",
+                      ],
                     },
                     "ref": null,
-                    "rendered": "Email",
-                    "type": "option",
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "checked": false,
+                          "name": "sort-by",
+                          "onChange": [Function],
+                          "type": "radio",
+                          "value": "enabled",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      "Enabled",
+                    ],
+                    "type": "label",
                   },
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": "Phone",
-                      "value": "phone",
+                      "children": Array [
+                        <input
+                          checked={false}
+                          name="sort-by"
+                          onChange={[Function]}
+                          type="radio"
+                          value="disabled"
+/>,
+                        "Disabled",
+                      ],
                     },
                     "ref": null,
-                    "rendered": "Phone",
-                    "type": "option",
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "checked": false,
+                          "name": "sort-by",
+                          "onChange": [Function],
+                          "type": "radio",
+                          "value": "disabled",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      "Disabled",
+                    ],
+                    "type": "label",
                   },
                 ],
-                "type": "select",
+                "type": "div",
               },
             ],
-            "type": "label",
+            "type": "div",
           },
           false,
           Object {
@@ -368,37 +701,78 @@ ShallowWrapper {
           <div
             className="update-container"
 >
-            <label
-                        htmlFor="action-types"
+            <div
+                        className="update-controls"
             >
-                        Select Action Type:
-                        <select
-                                    id="action-types"
-                                    name="action-types"
-                                    onChange={[Function]}
+                        <label
+                                    htmlFor="action-types"
                         >
-                                    <option
-                                                value="facebook"
+                                    Select Action Type:
+                                    <select
+                                                id="action-types"
+                                                name="action-types"
+                                                onChange={[Function]}
                                     >
-                                                Facebook
-                                    </option>
-                                    <option
-                                                value="twitter"
-                                    >
-                                                Twitter
-                                    </option>
-                                    <option
-                                                value="email"
-                                    >
-                                                Email
-                                    </option>
-                                    <option
-                                                value="phone"
-                                    >
-                                                Phone
-                                    </option>
-                        </select>
-            </label>
+                                                <option
+                                                            value="facebook"
+                                                >
+                                                            Facebook
+                                                </option>
+                                                <option
+                                                            value="twitter"
+                                                >
+                                                            Twitter
+                                                </option>
+                                                <option
+                                                            value="email"
+                                                >
+                                                            Email
+                                                </option>
+                                                <option
+                                                            value="phone"
+                                                >
+                                                            Phone
+                                                </option>
+                                    </select>
+                        </label>
+                        <div
+                                    className="sort-by"
+                        >
+                                    <p>
+                                                Sort by:
+                                    </p>
+                                    <label>
+                                                <input
+                                                            checked={true}
+                                                            name="sort-by"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="all"
+                                                />
+                                                All
+                                    </label>
+                                    <label>
+                                                <input
+                                                            checked={false}
+                                                            name="sort-by"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="enabled"
+                                                />
+                                                Enabled
+                                    </label>
+                                    <label>
+                                                <input
+                                                            checked={false}
+                                                            name="sort-by"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="disabled"
+                                                />
+                                                Disabled
+                                    </label>
+                        </div>
+            </div>
             <div
                         className="actions-container"
             >
@@ -455,37 +829,78 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <label
-                htmlFor="action-types"
+              <div
+                className="update-controls"
 >
-                Select Action Type:
-                <select
-                                id="action-types"
-                                name="action-types"
-                                onChange={[Function]}
+                <label
+                                htmlFor="action-types"
                 >
-                                <option
-                                                value="facebook"
+                                Select Action Type:
+                                <select
+                                                id="action-types"
+                                                name="action-types"
+                                                onChange={[Function]}
                                 >
-                                                Facebook
-                                </option>
-                                <option
-                                                value="twitter"
-                                >
-                                                Twitter
-                                </option>
-                                <option
-                                                value="email"
-                                >
-                                                Email
-                                </option>
-                                <option
-                                                value="phone"
-                                >
-                                                Phone
-                                </option>
-                </select>
-</label>,
+                                                <option
+                                                                value="facebook"
+                                                >
+                                                                Facebook
+                                                </option>
+                                                <option
+                                                                value="twitter"
+                                                >
+                                                                Twitter
+                                                </option>
+                                                <option
+                                                                value="email"
+                                                >
+                                                                Email
+                                                </option>
+                                                <option
+                                                                value="phone"
+                                                >
+                                                                Phone
+                                                </option>
+                                </select>
+                </label>
+                <div
+                                className="sort-by"
+                >
+                                <p>
+                                                Sort by:
+                                </p>
+                                <label>
+                                                <input
+                                                                checked={true}
+                                                                name="sort-by"
+                                                                onChange={[Function]}
+                                                                type="radio"
+                                                                value="all"
+                                                />
+                                                All
+                                </label>
+                                <label>
+                                                <input
+                                                                checked={false}
+                                                                name="sort-by"
+                                                                onChange={[Function]}
+                                                                type="radio"
+                                                                value="enabled"
+                                                />
+                                                Enabled
+                                </label>
+                                <label>
+                                                <input
+                                                                checked={false}
+                                                                name="sort-by"
+                                                                onChange={[Function]}
+                                                                type="radio"
+                                                                value="disabled"
+                                                />
+                                                Disabled
+                                </label>
+                </div>
+</div>,
               false,
               <div
                 className="actions-container"
@@ -510,125 +925,376 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  "Select Action Type:",
-                  <select
-                    id="action-types"
-                    name="action-types"
-                    onChange={[Function]}
+                  <label
+                    htmlFor="action-types"
 >
-                    <option
-                                        value="facebook"
+                    Select Action Type:
+                    <select
+                                        id="action-types"
+                                        name="action-types"
+                                        onChange={[Function]}
                     >
-                                        Facebook
-                    </option>
-                    <option
-                                        value="twitter"
-                    >
-                                        Twitter
-                    </option>
-                    <option
-                                        value="email"
-                    >
-                                        Email
-                    </option>
-                    <option
-                                        value="phone"
-                    >
-                                        Phone
-                    </option>
-</select>,
+                                        <option
+                                                            value="facebook"
+                                        >
+                                                            Facebook
+                                        </option>
+                                        <option
+                                                            value="twitter"
+                                        >
+                                                            Twitter
+                                        </option>
+                                        <option
+                                                            value="email"
+                                        >
+                                                            Email
+                                        </option>
+                                        <option
+                                                            value="phone"
+                                        >
+                                                            Phone
+                                        </option>
+                    </select>
+</label>,
+                  <div
+                    className="sort-by"
+>
+                    <p>
+                                        Sort by:
+                    </p>
+                    <label>
+                                        <input
+                                                            checked={true}
+                                                            name="sort-by"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="all"
+                                        />
+                                        All
+                    </label>
+                    <label>
+                                        <input
+                                                            checked={false}
+                                                            name="sort-by"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="enabled"
+                                        />
+                                        Enabled
+                    </label>
+                    <label>
+                                        <input
+                                                            checked={false}
+                                                            name="sort-by"
+                                                            onChange={[Function]}
+                                                            type="radio"
+                                                            value="disabled"
+                                        />
+                                        Disabled
+                    </label>
+</div>,
                 ],
-                "htmlFor": "action-types",
+                "className": "update-controls",
               },
               "ref": null,
               "rendered": Array [
-                "Select Action Type:",
                 Object {
                   "instance": null,
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
-                      <option
-                        value="facebook"
+                      "Select Action Type:",
+                      <select
+                        id="action-types"
+                        name="action-types"
+                        onChange={[Function]}
 >
-                        Facebook
-</option>,
-                      <option
-                        value="twitter"
->
-                        Twitter
-</option>,
-                      <option
-                        value="email"
->
-                        Email
-</option>,
-                      <option
-                        value="phone"
->
-                        Phone
-</option>,
+                        <option
+                                                value="facebook"
+                        >
+                                                Facebook
+                        </option>
+                        <option
+                                                value="twitter"
+                        >
+                                                Twitter
+                        </option>
+                        <option
+                                                value="email"
+                        >
+                                                Email
+                        </option>
+                        <option
+                                                value="phone"
+                        >
+                                                Phone
+                        </option>
+</select>,
                     ],
-                    "id": "action-types",
-                    "name": "action-types",
-                    "onChange": [Function],
+                    "htmlFor": "action-types",
                   },
-                  "ref": [Function],
+                  "ref": null,
+                  "rendered": Array [
+                    "Select Action Type:",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <option
+                            value="facebook"
+>
+                            Facebook
+</option>,
+                          <option
+                            value="twitter"
+>
+                            Twitter
+</option>,
+                          <option
+                            value="email"
+>
+                            Email
+</option>,
+                          <option
+                            value="phone"
+>
+                            Phone
+</option>,
+                        ],
+                        "id": "action-types",
+                        "name": "action-types",
+                        "onChange": [Function],
+                      },
+                      "ref": [Function],
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Facebook",
+                            "value": "facebook",
+                          },
+                          "ref": null,
+                          "rendered": "Facebook",
+                          "type": "option",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Twitter",
+                            "value": "twitter",
+                          },
+                          "ref": null,
+                          "rendered": "Twitter",
+                          "type": "option",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Email",
+                            "value": "email",
+                          },
+                          "ref": null,
+                          "rendered": "Email",
+                          "type": "option",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Phone",
+                            "value": "phone",
+                          },
+                          "ref": null,
+                          "rendered": "Phone",
+                          "type": "option",
+                        },
+                      ],
+                      "type": "select",
+                    },
+                  ],
+                  "type": "label",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <p>
+                        Sort by:
+</p>,
+                      <label>
+                        <input
+                                                checked={true}
+                                                name="sort-by"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="all"
+                        />
+                        All
+</label>,
+                      <label>
+                        <input
+                                                checked={false}
+                                                name="sort-by"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="enabled"
+                        />
+                        Enabled
+</label>,
+                      <label>
+                        <input
+                                                checked={false}
+                                                name="sort-by"
+                                                onChange={[Function]}
+                                                type="radio"
+                                                value="disabled"
+                        />
+                        Disabled
+</label>,
+                    ],
+                    "className": "sort-by",
+                  },
+                  "ref": null,
                   "rendered": Array [
                     Object {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "Facebook",
-                        "value": "facebook",
+                        "children": "Sort by:",
                       },
                       "ref": null,
-                      "rendered": "Facebook",
-                      "type": "option",
+                      "rendered": "Sort by:",
+                      "type": "p",
                     },
                     Object {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "Twitter",
-                        "value": "twitter",
+                        "children": Array [
+                          <input
+                            checked={true}
+                            name="sort-by"
+                            onChange={[Function]}
+                            type="radio"
+                            value="all"
+/>,
+                          "All",
+                        ],
                       },
                       "ref": null,
-                      "rendered": "Twitter",
-                      "type": "option",
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "checked": true,
+                            "name": "sort-by",
+                            "onChange": [Function],
+                            "type": "radio",
+                            "value": "all",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "input",
+                        },
+                        "All",
+                      ],
+                      "type": "label",
                     },
                     Object {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "Email",
-                        "value": "email",
+                        "children": Array [
+                          <input
+                            checked={false}
+                            name="sort-by"
+                            onChange={[Function]}
+                            type="radio"
+                            value="enabled"
+/>,
+                          "Enabled",
+                        ],
                       },
                       "ref": null,
-                      "rendered": "Email",
-                      "type": "option",
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "checked": false,
+                            "name": "sort-by",
+                            "onChange": [Function],
+                            "type": "radio",
+                            "value": "enabled",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "input",
+                        },
+                        "Enabled",
+                      ],
+                      "type": "label",
                     },
                     Object {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": "Phone",
-                        "value": "phone",
+                        "children": Array [
+                          <input
+                            checked={false}
+                            name="sort-by"
+                            onChange={[Function]}
+                            type="radio"
+                            value="disabled"
+/>,
+                          "Disabled",
+                        ],
                       },
                       "ref": null,
-                      "rendered": "Phone",
-                      "type": "option",
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "checked": false,
+                            "name": "sort-by",
+                            "onChange": [Function],
+                            "type": "radio",
+                            "value": "disabled",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "input",
+                        },
+                        "Disabled",
+                      ],
+                      "type": "label",
                     },
                   ],
-                  "type": "select",
+                  "type": "div",
                 },
               ],
-              "type": "label",
+              "type": "div",
             },
             false,
             Object {

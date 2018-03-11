@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ActionForm from './ActionForm';
+import './UpdateAction.css';
 import { 
   getTwitterActions, 
   getFacebookActions, 
@@ -21,6 +22,7 @@ export class UpdateAction extends Component {
       actionType: 'facebook',
       action: {},
       showForm: false,
+      sortBy: 'all',
       facebook: [],
       twitter: [],
       email: [],
@@ -82,10 +84,27 @@ export class UpdateAction extends Component {
     }
   }
 
+  handleSort = (event) => {
+    const sortBy = event.target.value;
+
+    this.setState({ sortBy });
+  }
+
   render() {
-    const actions = this.state[this.state.actionType].map((action, i) => {
+    let actions = this.state[this.state.actionType].filter(action => {
+      if (this.state.sortBy === 'all') {
+        return action;
+      } else if (this.state.sortBy === 'enabled') {
+        return action.enabled;
+      } else if (this.state.sortBy === 'disabled') {
+        return !action.enabled;
+      }
+    });
+
+    actions = actions.map((action, i) => {
+      const actionClass = action.enabled ? 'action' : 'action disabled';
       return (
-        <li key={`li-${i}`} className='action'>
+        <li key={`li-${i}`} className={actionClass}>
           <p data-id={action.id} onClick={this.handleActionClick}>{`${action.title}`}</p>
         </li>
       );
@@ -99,14 +118,25 @@ export class UpdateAction extends Component {
           <p>{this.state.success}</p>
         }
         <div className='update-container'>
-          <label htmlFor='action-types'>Select Action Type:
-          <select onChange={this.handleChange} ref={(elem) => { this.updateActionTypes = elem; }} name='action-types' id='action-types'>
-            <option value='facebook'>Facebook</option>
-            <option value='twitter'>Twitter</option>
-            <option value='email'>Email</option>
-            <option value='phone'>Phone</option>
-          </select>
-          </label>
+          <div className='update-controls'>
+            <label htmlFor='action-types'>Select Action Type:
+              <select onChange={this.handleChange} ref={(elem) => { this.updateActionTypes = elem; }} name='action-types' id='action-types'>
+                <option value='facebook'>Facebook</option>
+                <option value='twitter'>Twitter</option>
+                <option value='email'>Email</option>
+                <option value='phone'>Phone</option>
+              </select>
+            </label>
+            <div className='sort-by'>
+              <p>Sort by:</p>
+              
+              <label><input type='radio' name='sort-by' value='all' onChange={this.handleSort} checked={this.state.sortBy === 'all'}/>All</label>
+
+              <label><input type='radio' name='sort-by' value='enabled' onChange={this.handleSort} checked={this.state.sortBy === 'enabled'}/>Enabled</label>
+
+              <label><input type='radio' name='sort-by' value='disabled' onChange={this.handleSort} checked={this.state.sortBy === 'disabled'}/>Disabled</label>
+            </div>
+          </div>
           {
             this.state.showForm &&
             <div>
@@ -117,21 +147,7 @@ export class UpdateAction extends Component {
                 submitPatch={this.submitPatch}
               />
             </div>
-          // <div className='update-action'>
-          //   <p>{`TITLE: ${this.state.action.title}`}</p>
-          //   <p>{`DESCRIPTION: ${this.state.action.description}`}</p>
-          //   <div className='update-form'>  
-          //     <span id='toggle'>
-          //       <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => { this.toggle = elem; }} type='checkbox'/>
-          //       <label 
-          //         data-on='enabled' 
-          //         data-off='disabled'>
-          //       </label>
-          //     </span>
-          //     <button onClick={this.submitPatch} className='update-action'>Save Update</button>
-          //   </div> 
-          // </div>
-          }
+          } 
           <div className='actions-container'>
             <h3>Click an action to see or change status</h3>
             <ul className='actions'>

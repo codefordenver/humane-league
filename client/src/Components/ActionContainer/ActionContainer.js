@@ -47,9 +47,9 @@ export class ActionContainer extends Component {
       actions[action.action_type] = actions[action.action_type].filter(act => act.id != action.action_id);
     });
 
-    Object.keys(actions).forEach (actionType => {
+    Object.keys(actions).forEach(actionType => {
       actions[actionType] = actions[actionType].filter(action => action.enabled === true);
-      actions[actionType].sort((a,b) => a.created_at > b.created_at);
+      actions[actionType].sort((a, b) => a.created_at > b.created_at);
     });
 
     await this.setState(actions);

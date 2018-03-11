@@ -18,7 +18,6 @@ class ForgotPassword extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
     // firebase.auth().verifyPasswordResetCode
   }
 

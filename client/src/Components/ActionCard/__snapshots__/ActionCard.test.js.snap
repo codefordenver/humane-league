@@ -343,7 +343,7 @@ ShallowWrapper {
                     >
                               FACEBOOK
                               <i
-                                        className="icon-mail"
+                                        className="icon-facebook"
                               />
                     </button>
           </a>
@@ -392,7 +392,7 @@ ShallowWrapper {
               >
                             FACEBOOK
                             <i
-                                          className="icon-mail"
+                                          className="icon-facebook"
                             />
               </button>
 </a>,
@@ -412,7 +412,7 @@ ShallowWrapper {
 >
                 FACEBOOK
                 <i
-                                className="icon-mail"
+                                className="icon-facebook"
                 />
 </button>,
               "href": null,
@@ -427,7 +427,7 @@ ShallowWrapper {
                 "children": Array [
                   "FACEBOOK",
                   <i
-                    className="icon-mail"
+                    className="icon-facebook"
 />,
                 ],
                 "onClick": [Function],
@@ -440,7 +440,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "className": "icon-mail",
+                    "className": "icon-facebook",
                   },
                   "ref": null,
                   "rendered": null,
@@ -482,7 +482,7 @@ ShallowWrapper {
                         >
                                     FACEBOOK
                                     <i
-                                                className="icon-mail"
+                                                className="icon-facebook"
                                     />
                         </button>
             </a>
@@ -531,7 +531,7 @@ ShallowWrapper {
                 >
                                 FACEBOOK
                                 <i
-                                                className="icon-mail"
+                                                className="icon-facebook"
                                 />
                 </button>
 </a>,
@@ -551,7 +551,7 @@ ShallowWrapper {
 >
                   FACEBOOK
                   <i
-                                    className="icon-mail"
+                                    className="icon-facebook"
                   />
 </button>,
                 "href": null,
@@ -566,7 +566,7 @@ ShallowWrapper {
                   "children": Array [
                     "FACEBOOK",
                     <i
-                      className="icon-mail"
+                      className="icon-facebook"
 />,
                   ],
                   "onClick": [Function],
@@ -579,7 +579,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "className": "icon-mail",
+                      "className": "icon-facebook",
                     },
                     "ref": null,
                     "rendered": null,
@@ -644,7 +644,7 @@ ShallowWrapper {
           >
                     CALL
                     <i
-                              className="icon-mail"
+                              className="icon-phone"
                     />
           </button>
 </div>,
@@ -690,7 +690,7 @@ ShallowWrapper {
 >
               CALL
               <i
-                            className="icon-mail"
+                            className="icon-phone"
               />
 </button>,
             null,
@@ -707,7 +707,7 @@ ShallowWrapper {
               "children": Array [
                 "CALL",
                 <i
-                  className="icon-mail"
+                  className="icon-phone"
 />,
               ],
               "onClick": [Function],
@@ -720,7 +720,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "className": "icon-mail",
+                  "className": "icon-phone",
                 },
                 "ref": null,
                 "rendered": null,
@@ -758,7 +758,7 @@ ShallowWrapper {
             >
                         CALL
                         <i
-                                    className="icon-mail"
+                                    className="icon-phone"
                         />
             </button>
 </div>,
@@ -804,7 +804,7 @@ ShallowWrapper {
 >
                 CALL
                 <i
-                                className="icon-mail"
+                                className="icon-phone"
                 />
 </button>,
               null,
@@ -821,7 +821,7 @@ ShallowWrapper {
                 "children": Array [
                   "CALL",
                   <i
-                    className="icon-mail"
+                    className="icon-phone"
 />,
                 ],
                 "onClick": [Function],
@@ -834,7 +834,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "className": "icon-mail",
+                    "className": "icon-phone",
                   },
                   "ref": null,
                   "rendered": null,
@@ -899,7 +899,7 @@ ShallowWrapper {
                     >
                               TWEET
                               <i
-                                        className="icon-mail"
+                                        className="icon-twitter"
                               />
                     </button>
           </a>
@@ -948,7 +948,7 @@ ShallowWrapper {
               >
                             TWEET
                             <i
-                                          className="icon-mail"
+                                          className="icon-twitter"
                             />
               </button>
 </a>,
@@ -968,7 +968,7 @@ ShallowWrapper {
 >
                 TWEET
                 <i
-                                className="icon-mail"
+                                className="icon-twitter"
                 />
 </button>,
               "href": null,
@@ -983,7 +983,7 @@ ShallowWrapper {
                 "children": Array [
                   "TWEET",
                   <i
-                    className="icon-mail"
+                    className="icon-twitter"
 />,
                 ],
                 "onClick": [Function],
@@ -996,7 +996,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "className": "icon-mail",
+                    "className": "icon-twitter",
                   },
                   "ref": null,
                   "rendered": null,
@@ -1038,7 +1038,7 @@ ShallowWrapper {
                         >
                                     TWEET
                                     <i
-                                                className="icon-mail"
+                                                className="icon-twitter"
                                     />
                         </button>
             </a>
@@ -1087,7 +1087,7 @@ ShallowWrapper {
                 >
                                 TWEET
                                 <i
-                                                className="icon-mail"
+                                                className="icon-twitter"
                                 />
                 </button>
 </a>,
@@ -1107,7 +1107,7 @@ ShallowWrapper {
 >
                   TWEET
                   <i
-                                    className="icon-mail"
+                                    className="icon-twitter"
                   />
 </button>,
                 "href": null,
@@ -1122,7 +1122,7 @@ ShallowWrapper {
                   "children": Array [
                     "TWEET",
                     <i
-                      className="icon-mail"
+                      className="icon-twitter"
 />,
                   ],
                   "onClick": [Function],
@@ -1135,7 +1135,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "className": "icon-mail",
+                      "className": "icon-twitter",
                     },
                     "ref": null,
                     "rendered": null,

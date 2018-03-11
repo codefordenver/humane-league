@@ -22,6 +22,7 @@ export class UpdateAction extends Component {
       actionType: 'facebook',
       action: {},
       showForm: false,
+      sortBy: 'all',
       facebook: [],
       twitter: [],
       email: [],
@@ -83,8 +84,24 @@ export class UpdateAction extends Component {
     }
   }
 
+  handleSort = (event) => {
+    const sortBy = event.target.value;
+
+    this.setState({ sortBy });
+  }
+
   render() {
-    const actions = this.state[this.state.actionType].map((action, i) => {
+    let actions = this.state[this.state.actionType].filter(action => {
+      if (this.state.sortBy === 'all') {
+        return action
+      } else if (this.state.sortBy === 'enabled') {
+        return action.enabled
+      } else if (this.state.sortBy === 'disabled') {
+        return !action.enabled
+      }
+    });
+    
+    actions = actions.map((action, i) => {
       const actionClass = action.enabled ? 'action' : 'action disabled';
       return (
         <li key={`li-${i}`} className={actionClass}>
@@ -113,11 +130,11 @@ export class UpdateAction extends Component {
             <div className='sort-by'>
               <p>Sort by:</p>
               
-              <label htmlFor='all'><input type='radio' name='all'/>All</label>
+              <label><input type='radio' name='sort-by' value='all' onChange={this.handleSort} checked={this.state.sortBy === 'all'}/>All</label>
 
-              <label htmlFor='enabled'><input type='radio' name='enabled'/>Enabled</label>
+              <label><input type='radio' name='sort-by' value='enabled' onChange={this.handleSort} checked={this.state.sortBy === 'enabled'}/>Enabled</label>
 
-              <label htmlFor='disabled'><input type='radio' name='disabled'/>Disabled</label>
+              <label><input type='radio' name='sort-by' value='disabled' onChange={this.handleSort} checked={this.state.sortBy === 'disabled'}/>Disabled</label>
             </div>
           </div>
           {

@@ -5,6 +5,17 @@
   form {
     display: flex;
     flex-direction: column;
+    position: relative;
+    .preview {
+      position: absolute;
+      top: 0;
+      left: -60px;
+      margin: 20px;
+      padding: 50px 20px;
+      background-color: #ffffffe3;
+      border-radius: 2px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+    }
     input,
     textarea,
     button {

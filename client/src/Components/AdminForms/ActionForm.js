@@ -122,7 +122,7 @@ class ActionForm extends Component {
 
     const emptyBody = { id: 0, content: '' };
 
-    this.setState({ actionEnabled: true, actionBodies: [emptyBody] });
+    this.setState({ actionEnabled: true, actionBodies: [emptyBody], preview: false });
   }
 
   addTextArea = (event) => {
@@ -155,12 +155,18 @@ class ActionForm extends Component {
     this.setState({ preview: true });
   }
 
+  closePreview = (event) => {
+    event.preventDefault();
+    console.log('close preview')
+    this.setState({ preview: false });
+  }
+
   renderPreviewCard = () => {
     const form = this.props.form;
     const type = (form === 'facebook' || form === 'twitter')
       ? 'social'
       :  form;
-      
+
     const action = Object.assign({}, this.createAction(type), { content: 'test content' });
     
     if (form === 'facebook') {
@@ -225,10 +231,6 @@ class ActionForm extends Component {
 
     return (
       <section className='create-action-form'>
-      {
-        this.state.preview && 
-        this.renderPreviewCard()
-      }
         <form>
           <input type='text' ref={(elem) => { this.actionTitle = elem; }} placeholder='Action Title' />
           <input type='text' ref={(elem) => { this.actionDescription = elem; }} placeholder='Action Description' />
@@ -257,8 +259,15 @@ class ActionForm extends Component {
               data-off='disabled'>
             </label>
           </span>  
-          <button onClick={this.previewAction}>Preview Action</button>  
-          <button onClick={this.submitAction}>SAVE ACTION</button>
+          {
+            this.state.preview && 
+            <div className='preview'>
+              {this.renderPreviewCard()}
+              <button onClick={this.closePreview}>Keep Editing</button>
+              <button onClick={this.submitAction}>SAVE ACTION</button>
+            </div>
+          }
+          <button onClick={this.previewAction}>Preview and Save Action</button>  
         </form>
       </section>
     );

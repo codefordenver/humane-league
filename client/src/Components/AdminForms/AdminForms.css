@@ -3,7 +3,17 @@
   margin: 10px; }
   .create-action-form form {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    position: relative; }
+    .create-action-form form .preview {
+      position: absolute;
+      top: 0;
+      left: -60px;
+      margin: 20px;
+      padding: 50px 20px;
+      background-color: #ffffffe3;
+      border-radius: 2px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
     .create-action-form form input,
     .create-action-form form textarea,
     .create-action-form form button {

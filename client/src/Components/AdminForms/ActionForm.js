@@ -144,6 +144,8 @@ class ActionForm extends Component {
     this.setState({ actionBodies });
   }
 
+  previewAction =
+
   renderTextAreas = () => {
     return this.state.actionBodies.map((body, i) => {
       if (i <= 0) {
@@ -222,7 +224,8 @@ class ActionForm extends Component {
               data-on='enabled' 
               data-off='disabled'>
             </label>
-          </span>    
+          </span>  
+          <button onClick={this.previewAction}>Preview Action</button>  
           <button onClick={this.submitAction}>SAVE ACTION</button>
         </form>
       </section>

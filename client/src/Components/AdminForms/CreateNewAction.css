@@ -1,0 +1,28 @@
+.create-new-action-container {
+  display: flex;
+  flex-direction: column; }
+  .create-new-action-container h1 {
+    color: #fff;
+    font-size: 24pt;
+    text-align: center;
+    margin: 20px; }
+    .create-new-action-container h1 span {
+      font-size: 28pt;
+      margin: 0 5px; }
+  .create-new-action-container .select-action-container {
+    background-color: #ffffffe3;
+    border-radius: 2px;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+    margin: 20px; }
+    .create-new-action-container .select-action-container label {
+      display: block;
+      font-size: 20px;
+      width: 328px;
+      margin: 0 auto; }
+    .create-new-action-container .select-action-container select,
+    .create-new-action-container .select-action-container option {
+      cursor: pointer;
+      font-size: 20px;
+      height: 40px;
+      padding: 5px;
+      margin: 20px; }

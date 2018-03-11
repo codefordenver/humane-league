@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ActionForm from './ActionForm';
+import './UpdateAction.css';
 import { 
   getTwitterActions, 
   getFacebookActions, 
@@ -100,14 +101,17 @@ export class UpdateAction extends Component {
           <p>{this.state.success}</p>
         }
         <div className='update-container'>
-          <label htmlFor='action-types'>Select Action Type:
-          <select onChange={this.handleChange} ref={(elem) => { this.updateActionTypes = elem; }} name='action-types' id='action-types'>
-            <option value='facebook'>Facebook</option>
-            <option value='twitter'>Twitter</option>
-            <option value='email'>Email</option>
-            <option value='phone'>Phone</option>
-          </select>
-          </label>
+          <div className='update-controls'>
+            <label htmlFor='action-types'>Select Action Type:
+            <select onChange={this.handleChange} ref={(elem) => { this.updateActionTypes = elem; }} name='action-types' id='action-types'>
+              <option value='facebook'>Facebook</option>
+              <option value='twitter'>Twitter</option>
+              <option value='email'>Email</option>
+              <option value='phone'>Phone</option>
+            </select>
+            </label>
+
+          </div>
           {
             this.state.showForm &&
             <div>

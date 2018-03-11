@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ActionForm from './ActionForm';
-import './AdminForms.css';
+import './CreateNewAction.css';
 import { postAction, postActionContent } from '../../utils/apiCalls';
 
 export class CreateNewAction extends Component {

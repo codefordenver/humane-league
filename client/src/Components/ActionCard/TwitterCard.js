@@ -21,13 +21,14 @@ class TwitterCard extends Component {
   }
 
   setActionBody = async () => {
+    event.preventDefault();
     let actionBody;
     if (this.props.user.preview) {
       actionBody = this.props.action.content;
     } else {
       actionBody = await this.fetchActionBody('twitter_contents', this.props.action);
     }
-    
+
     this.setState({ actionBody });
   }
 

@@ -21,6 +21,7 @@ class PhoneCard extends Component {
   }
 
   setActionBody = async () => {
+    event.preventDefault();
     let actionBody;
     if (this.props.user.preview) {
       actionBody = this.props.action.content;

@@ -167,7 +167,7 @@ class ActionForm extends Component {
       ? 'social'
       :  form;
 
-    const action = Object.assign({}, this.createAction(type), { content: 'test content' });
+    const action = Object.assign({}, this.createAction(type), { content: this.state.actionBodies[0].content });
     
     if (form === 'facebook') {
       return <FacebookCard action={action} user={{ preview: true }}/>

@@ -20,14 +20,15 @@ class FacebookCard extends Component {
     }
   }
 
-  setActionBody = async () => {
+  setActionBody = async (event) => {
+    event.preventDefault();
     let actionBody;
     if (this.props.user.preview) {
       actionBody = this.props.action.content;
     } else {
       actionBody = await this.fetchActionBody('facebook_contents', this.props.action);
     }
-    
+
     this.setState({ actionBody });
   }
 

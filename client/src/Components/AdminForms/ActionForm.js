@@ -263,8 +263,8 @@ class ActionForm extends Component {
             this.state.preview && 
             <div className='preview'>
               {this.renderPreviewCard()}
-              <button onClick={this.closePreview}>Keep Editing</button>
-              <button onClick={this.submitAction}>SAVE ACTION</button>
+              <button className='preview-btn' onClick={this.closePreview}>Continue Editing</button>
+              <button className='preview-btn' onClick={this.submitAction}>Create Action</button>
             </div>
           }
           <button onClick={this.previewAction}>Preview and Save Action</button>  

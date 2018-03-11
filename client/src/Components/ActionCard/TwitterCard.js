@@ -20,7 +20,7 @@ class TwitterCard extends Component {
     }
   }
 
-  setActionBody = async () => {
+  setActionBody = async (event) => {
     event.preventDefault();
     let actionBody;
     if (this.props.user.preview) {

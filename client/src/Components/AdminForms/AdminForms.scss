@@ -7,6 +7,10 @@
     flex-direction: column;
     position: relative;
     .preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       position: absolute;
       top: 0;
       left: -60px;
@@ -15,6 +19,9 @@
       background-color: #ffffffe3;
       border-radius: 2px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+      button.preview-btn {
+        width: 94%;
+      }
     }
     input,
     textarea,

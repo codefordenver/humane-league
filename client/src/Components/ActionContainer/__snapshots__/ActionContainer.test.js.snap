@@ -30,10 +30,10 @@ ShallowWrapper {
         <h1>
           FAN ACTION ALERTS
 </h1>,
-        Array [],
-        Array [],
-        Array [],
-        Array [],
+        null,
+        null,
+        null,
+        null,
         <p
           className="no-actions"
 >
@@ -55,6 +55,10 @@ ShallowWrapper {
         "rendered": "FAN ACTION ALERTS",
         "type": "h1",
       },
+      null,
+      null,
+      null,
+      null,
       Object {
         "instance": null,
         "key": undefined,
@@ -80,10 +84,10 @@ ShallowWrapper {
           <h1>
             FAN ACTION ALERTS
 </h1>,
-          Array [],
-          Array [],
-          Array [],
-          Array [],
+          null,
+          null,
+          null,
+          null,
           <p
             className="no-actions"
 >
@@ -105,6 +109,10 @@ ShallowWrapper {
           "rendered": "FAN ACTION ALERTS",
           "type": "h1",
         },
+        null,
+        null,
+        null,
+        null,
         Object {
           "instance": null,
           "key": undefined,

@@ -15,10 +15,10 @@ describe('ActionContainer component tests', () => {
       userPreferences: {
         ...mockUser
       },
-      twitter: [],
-      facebook: [],
-      email: [],
-      phone: []
+      twitter_actions: [],
+      facebook_actions: [],
+      email_actions: [],
+      phone_actions: []
     };
     mockAction = { title: 'action title' };
 

@@ -51,7 +51,7 @@ export const getPhoneActions = async () => {
   }
 };
 
-export const getCompletedActions = async(id, token) => {
+export const getCompletedActions = async (id, token) => {
   try {
     const completedFetch = await fetch(`/api/v1/users/actions/${id}?token=${token}`);
     const completedActions = await completedFetch.json();
@@ -63,6 +63,7 @@ export const getCompletedActions = async(id, token) => {
 };
 
 export const postAction = async (action, type, token) => {
+  console.log(action)
   try {
     const actionPost = await fetch(`/api/v1/${type}_actions?token=${token}`, {
       method: 'POST',
@@ -72,7 +73,7 @@ export const postAction = async (action, type, token) => {
       body: JSON.stringify(action)
     });
     const actionID = await actionPost.json();
-  
+    console.log(actionID)
     return actionID;
   } catch (error) {
     return error;

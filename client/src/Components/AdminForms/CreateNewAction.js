@@ -25,7 +25,7 @@ export class CreateNewAction extends Component {
 
     if (actionID.id) {
       for (let i = 0; i < actionBodies.length; i++) {
-        let content = actionBodies[i];
+        let content = actionBodies[i].content;
         const contentID = await postActionContent(type, actionID, token, content);
         
         if (contentID.error) {

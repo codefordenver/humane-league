@@ -12,15 +12,16 @@
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 0;
+      top: -95px;
       left: -60px;
       margin: 20px;
-      padding: 50px 20px;
+      padding: 70px 20px;
       background-color: #ffffffe3;
       border-radius: 2px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
       button.preview-btn {
         width: 94%;
+        margin: 30px 0;
       }
     }
     input,

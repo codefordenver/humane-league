@@ -56,6 +56,7 @@ class ActionForm extends Component {
 
   submitAction = async (event) => {
     event.preventDefault();
+    this.setState({ preview: false });
     const type = (this.props.form === 'facebook' || this.state.form === 'twitter')
       ? 'social'
       :  this.props.form;
@@ -137,7 +138,7 @@ class ActionForm extends Component {
   deleteBody = (event) => {
     event.preventDefault();
     let actionBodies = [...this.state.actionBodies];
-    actionBodies = actionBodies.filter((body) => parseInt(body.id) !== parseInt(event.target.dataset.id));
+    actionBodies = actionBodies.filter((body) => parseInt(body.id, 10) !== parseInt(event.target.dataset.id, 10));
 
     this.setState({ actionBodies });
   }
@@ -168,7 +169,7 @@ class ActionForm extends Component {
       :  form;
 
     const action = Object.assign({}, this.createAction(type), { content: this.state.actionBodies[0].content });
-    
+    console.log(action)
     if (form === 'facebook') {
       return <FacebookCard action={action} user={{ preview: true }}/>
     } else if (form === 'twitter') {

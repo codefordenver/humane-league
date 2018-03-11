@@ -47,7 +47,7 @@ export class UpdateAction extends Component {
 
   handleActionClick = (event) => {
     const actionId = event.target.dataset.id;
-    const action = this.state[this.state.actionType].find(action => action.id == actionId);
+    const action = this.state[this.state.actionType].find(action => parseInt(action.id, 10) === parseInt(actionId, 10));
 
     this.setState({ showForm: true, action });
     window.scrollTo(0, 0);
@@ -110,6 +110,21 @@ export class UpdateAction extends Component {
       );
     });
 
+    const actionList = 
+      <div className='actions-container'>
+        <h3>Click an action to see or change status</h3>
+        <ul className='actions'>
+          {actions}
+        </ul>
+      </div>;
+    const actionForm = 
+      <div>
+        <button onClick={() => this.setState({ showForm: false })}>Cancel</button>
+        <ActionForm form={this.state.actionType} action={this.state.action}submitPatch={this.submitPatch} />
+      </div>;
+
+    const toDisplay = !this.state.showForm ? actionList : actionForm;
+
     return (
       <div className='UpdateAction'>
         <h1>Enable and Disable <span>{this.state.actionType.toUpperCase()}</span> Actions</h1>
@@ -137,23 +152,7 @@ export class UpdateAction extends Component {
               <label><input type='radio' name='sort-by' value='disabled' onChange={this.handleSort} checked={this.state.sortBy === 'disabled'}/>Disabled</label>
             </div>
           </div>
-          {
-            this.state.showForm &&
-            <div>
-              <button onClick={() => this.setState({ showForm: false })}>Cancel</button>
-              <ActionForm 
-                form={this.state.actionType} 
-                action={this.state.action}
-                submitPatch={this.submitPatch}
-              />
-            </div>
-          } 
-          <div className='actions-container'>
-            <h3>Click an action to see or change status</h3>
-            <ul className='actions'>
-              {actions}
-            </ul>
-          </div>
+          {toDisplay}
         </div>
       </div>
     );

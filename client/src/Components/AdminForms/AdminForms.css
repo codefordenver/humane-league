@@ -136,63 +136,6 @@
       .UpdateAction .update-container .update-action p {
         text-align: center;
         font-size: 20pt; }
-      .UpdateAction .update-container .update-action .update-form {
-        display: flex;
-        align-items: center;
-        justify-content: center; }
-        .UpdateAction .update-container .update-action .update-form button {
-          border: 1px solid darkgray;
-          font-size: 20px;
-          padding: 10px;
-          margin: 10px;
-          background: #1CB841;
-          color: #000;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: 0.3s; }
-          .UpdateAction .update-container .update-action .update-form button:hover {
-            color: white;
-            background: #009639;
-            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6); }
-        .UpdateAction .update-container .update-action .update-form #toggle {
-          border: 1px solid darkgray;
-          background-color: #fff;
-          text-align: left;
-          display: inline-block;
-          position: relative;
-          margin: 10px;
-          width: 200px; }
-          .UpdateAction .update-container .update-action .update-form #toggle input {
-            cursor: pointer;
-            opacity: 0;
-            position: absolute;
-            z-index: 2;
-            margin: 0;
-            width: 100%;
-            height: 100%; }
-          .UpdateAction .update-container .update-action .update-form #toggle label {
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
-            font-size: 12pt;
-            font-weight: bold;
-            text-align: center;
-            display: inline-block;
-            padding: 5px 10px;
-            width: 100px;
-            -webkit-transition: margin-left 0.2s ease-in-out;
-            -moz-transition: margin-left 0.2s ease-in-out;
-            transition: margin-left 0.2s ease-in-out; }
-            .UpdateAction .update-container .update-action .update-form #toggle label:before {
-              content: attr(data-off); }
-          .UpdateAction .update-container .update-action .update-form #toggle input:checked + label:before {
-            content: attr(data-on); }
-          .UpdateAction .update-container .update-action .update-form #toggle input:checked + label {
-            background: #1CB841;
-            color: #000;
-            margin-left: 100px; }
     .UpdateAction .update-container .actions-container {
       margin: 20px; }
       .UpdateAction .update-container .actions-container h3 {
@@ -213,3 +156,7 @@
           .UpdateAction .update-container .actions-container .actions .action:hover p {
             color: #fff;
             font-weight: bold; }
+        .UpdateAction .update-container .actions-container .actions .action.disabled {
+          background: #bbb; }
+          .UpdateAction .update-container .actions-container .actions .action.disabled:hover {
+            background: #999; }

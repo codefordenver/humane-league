@@ -84,8 +84,9 @@ export class UpdateAction extends Component {
 
   render() {
     const actions = this.state[this.state.actionType].map((action, i) => {
+      const actionClass = action.enabled ? 'action' : 'action disabled';
       return (
-        <li key={`li-${i}`} className='action'>
+        <li key={`li-${i}`} className={actionClass}>
           <p data-id={action.id} onClick={this.handleActionClick}>{`${action.title}`}</p>
         </li>
       );
@@ -117,20 +118,6 @@ export class UpdateAction extends Component {
                 submitPatch={this.submitPatch}
               />
             </div>
-          // <div className='update-action'>
-          //   <p>{`TITLE: ${this.state.action.title}`}</p>
-          //   <p>{`DESCRIPTION: ${this.state.action.description}`}</p>
-          //   <div className='update-form'>  
-          //     <span id='toggle'>
-          //       <input onChange={() => this.setState({ actionEnabled: !this.state.actionEnabled })} checked={this.state.actionEnabled} ref={(elem) => { this.toggle = elem; }} type='checkbox'/>
-          //       <label 
-          //         data-on='enabled' 
-          //         data-off='disabled'>
-          //       </label>
-          //     </span>
-          //     <button onClick={this.submitPatch} className='update-action'>Save Update</button>
-          //   </div> 
-          // </div>
           }
           <div className='actions-container'>
             <h3>Click an action to see or change status</h3>

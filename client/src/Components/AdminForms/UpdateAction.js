@@ -93,14 +93,14 @@ export class UpdateAction extends Component {
   render() {
     let actions = this.state[this.state.actionType].filter(action => {
       if (this.state.sortBy === 'all') {
-        return action
+        return action;
       } else if (this.state.sortBy === 'enabled') {
-        return action.enabled
+        return action.enabled;
       } else if (this.state.sortBy === 'disabled') {
-        return !action.enabled
+        return !action.enabled;
       }
     });
-    
+
     actions = actions.map((action, i) => {
       const actionClass = action.enabled ? 'action' : 'action disabled';
       return (

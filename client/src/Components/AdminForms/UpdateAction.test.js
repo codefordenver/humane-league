@@ -19,6 +19,7 @@ describe('UpdateAction component tests', () => {
       actionType: 'facebook',
       action: {},
       showForm: false,
+      sortBy: 'all',
       facebook: [],
       twitter: [],
       email: [],

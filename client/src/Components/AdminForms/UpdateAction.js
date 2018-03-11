@@ -103,14 +103,22 @@ export class UpdateAction extends Component {
         <div className='update-container'>
           <div className='update-controls'>
             <label htmlFor='action-types'>Select Action Type:
-            <select onChange={this.handleChange} ref={(elem) => { this.updateActionTypes = elem; }} name='action-types' id='action-types'>
-              <option value='facebook'>Facebook</option>
-              <option value='twitter'>Twitter</option>
-              <option value='email'>Email</option>
-              <option value='phone'>Phone</option>
-            </select>
+              <select onChange={this.handleChange} ref={(elem) => { this.updateActionTypes = elem; }} name='action-types' id='action-types'>
+                <option value='facebook'>Facebook</option>
+                <option value='twitter'>Twitter</option>
+                <option value='email'>Email</option>
+                <option value='phone'>Phone</option>
+              </select>
             </label>
+            <div className='sort-by'>
+              <p>Sort by:</p>
+              
+              <label htmlFor='all'><input type='radio' name='all'/>All</label>
 
+              <label htmlFor='enabled'><input type='radio' name='enabled'/>Enabled</label>
+
+              <label htmlFor='disabled'><input type='radio' name='disabled'/>Disabled</label>
+            </div>
           </div>
           {
             this.state.showForm &&
@@ -122,7 +130,7 @@ export class UpdateAction extends Component {
                 submitPatch={this.submitPatch}
               />
             </div>
-          }
+          } 
           <div className='actions-container'>
             <h3>Click an action to see or change status</h3>
             <ul className='actions'>

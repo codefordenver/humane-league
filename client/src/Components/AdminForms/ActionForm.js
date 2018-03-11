@@ -156,20 +156,20 @@ class ActionForm extends Component {
   }
 
   renderPreviewCard = () => {
-    const type = this.props.form;
+    const form = this.props.form;
+    const type = (form === 'facebook' || form === 'twitter')
+      ? 'social'
+      :  form;
+      
     const action = Object.assign({}, this.createAction(type), { content: 'test content' });
-    // const emptyAction = { 
-    //   title: '',
-    //   description: '', 
-    //   target: '',
-    // }
-    if (type === 'facebook') {
+    
+    if (form === 'facebook') {
       return <FacebookCard action={action} user={{ preview: true }}/>
-    } else if (type === 'twitter') {
+    } else if (form === 'twitter') {
       return <TwitterCard action={action} user={{ preview: true }}/>
-    } else if (type === 'email') {
+    } else if (form === 'email') {
       return <EmailCard action={action} user={{ preview: true }}/>
-    } else if (type === 'phone') {
+    } else if (form === 'phone') {
       return <PhoneCard action={action} user={{ preview: true }}/>      
     }
   }

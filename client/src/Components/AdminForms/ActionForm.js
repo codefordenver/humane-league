@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TwitterCard from '../ActionCard/TwitterCard';
+import FacebookCard from '../ActionCard/FacebookCard';
+import EmailCard from '../ActionCard/EmailCard';
+import PhoneCard from '../ActionCard/PhoneCard';
 import './AdminForms.css';
 
 class ActionForm extends Component {
@@ -8,7 +12,8 @@ class ActionForm extends Component {
 
     this.state = {
       actionEnabled: true,
-      actionBodies: []
+      actionBodies: [],
+      preview: false
     };
   }
 
@@ -144,7 +149,30 @@ class ActionForm extends Component {
     this.setState({ actionBodies });
   }
 
-  previewAction =
+  previewAction = (event) => {
+    event.preventDefault();
+    console.log('preview')
+    this.setState({ preview: true });
+  }
+
+  renderPreviewCard = () => {
+    const type = this.props.form;
+    const action = Object.assign({}, this.createAction(type), { content: 'test content' });
+    // const emptyAction = { 
+    //   title: '',
+    //   description: '', 
+    //   target: '',
+    // }
+    if (type === 'facebook') {
+      return <FacebookCard action={action} user={{ preview: true }}/>
+    } else if (type === 'twitter') {
+      return <TwitterCard action={action} user={{ preview: true }}/>
+    } else if (type === 'email') {
+      return <EmailCard action={action} user={{ preview: true }}/>
+    } else if (type === 'phone') {
+      return <PhoneCard action={action} user={{ preview: true }}/>      
+    }
+  }
 
   renderTextAreas = () => {
     return this.state.actionBodies.map((body, i) => {
@@ -197,6 +225,10 @@ class ActionForm extends Component {
 
     return (
       <section className='create-action-form'>
+      {
+        this.state.preview && 
+        this.renderPreviewCard()
+      }
         <form>
           <input type='text' ref={(elem) => { this.actionTitle = elem; }} placeholder='Action Title' />
           <input type='text' ref={(elem) => { this.actionDescription = elem; }} placeholder='Action Description' />

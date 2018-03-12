@@ -69,7 +69,7 @@ class ActionForm extends Component {
     } else if (event.target.name === 'create') {
       const success = await this.props.handleSubmit(action, actionBodies);
       
-      if (success) {
+      if (success && !this.props.action) {
         this.resetForm(type);
       }
     }

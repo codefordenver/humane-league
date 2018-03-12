@@ -84,9 +84,9 @@ export class UpdateAction extends Component {
 
   handleSubmit = async (action, actionBodies) => {
     const postResult = await this.actionPost(action, actionBodies, this.state.actionType);
-
+    const updatedActions = [...this.state[this.state.actionType], action]
     if (postResult) {
-      this.setState({ success: 'ACTION CREATED!' });
+      this.setState({ success: 'ACTION CREATED!', showForm: false, [this.state.actionType]: updatedActions });
       setTimeout(() => {
         this.setState({ success: false });
       }, 5000);

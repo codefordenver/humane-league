@@ -13,12 +13,21 @@
       justify-content: center;
       position: absolute;
       top: -95px;
-      left: -60px;
+      left: -80px;
       margin: 20px;
-      padding: 40px 20px;
+      padding: 50px 20px;
       background: #fff;
       border-radius: 2px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+      .card-wrapper {
+        border-radius: 2px;
+        background: #aaa;
+        padding: 20px;
+        margin: 20px 0 40px;
+        h3 {
+          text-align: center;
+        }
+      }
       button.preview-btn {
         width: 94%;
         margin: 15px 0;

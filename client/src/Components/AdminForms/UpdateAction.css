@@ -39,17 +39,14 @@
       background-color: #fff;
       border-radius: 2px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
-      .UpdateAction .update-container .edit-action-form .card-wrapper {
-        border-radius: 2px;
-        background: #aaa; }
-        .UpdateAction .update-container .edit-action-form .card-wrapper h3.edit-title {
-          width: 100%;
-          text-align: center;
-          background: #aaa;
-          padding: 20px; }
-          .UpdateAction .update-container .edit-action-form .card-wrapper h3.edit-title span {
-            font-size: 16pt;
-            color: #fff; }
+      .UpdateAction .update-container .edit-action-form h3.edit-title {
+        width: 100%;
+        text-align: center;
+        background: #aaa;
+        padding: 20px; }
+        .UpdateAction .update-container .edit-action-form h3.edit-title span {
+          font-size: 16pt;
+          color: #fff; }
       .UpdateAction .update-container .edit-action-form button.cancel {
         margin: 0 auto;
         font-size: 14pt;

@@ -12,12 +12,19 @@
       justify-content: center;
       position: absolute;
       top: -95px;
-      left: -60px;
+      left: -80px;
       margin: 20px;
-      padding: 40px 20px;
+      padding: 50px 20px;
       background: #fff;
       border-radius: 2px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
+      .create-action-form form .preview .card-wrapper {
+        border-radius: 2px;
+        background: #aaa;
+        padding: 20px;
+        margin: 20px 0 40px; }
+        .create-action-form form .preview .card-wrapper h3 {
+          text-align: center; }
       .create-action-form form .preview button.preview-btn {
         width: 94%;
         margin: 15px 0; }

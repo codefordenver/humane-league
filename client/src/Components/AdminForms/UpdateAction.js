@@ -180,24 +180,25 @@ export class UpdateAction extends Component {
               <label><input type='radio' name='sort-by' value='disabled' onChange={this.handleSort} checked={this.state.sortBy === 'disabled'}/>Disabled</label>
             </div>
           </div>
-          {
-            this.state.showForm &&
-            <div className='edit-action-form'>
-              <button className='cancel' onClick={() => this.setState({ showForm: false })}>Cancel Editing</button>
-              <ActionForm 
-                form={this.state.actionType} 
-                action={this.state.action}
-                submitPatch={this.submitPatch}
-                handleSubmit={this.handleSubmit}
-              />
-            </div>
-          } 
           <div className='actions-container'>
             <h3>Click an action to see or change status</h3>
             <ul className='actions'>
               {actions}
             </ul>
           </div>    
+          {
+            this.state.showForm &&
+            <div className='edit-action-form'>
+              <h3>Change any field to edit this action...</h3>
+              <ActionForm 
+                form={this.state.actionType} 
+                action={this.state.action}
+                submitPatch={this.submitPatch}
+                handleSubmit={this.handleSubmit}
+              />
+              <button className='cancel' onClick={() => this.setState({ showForm: false })}>Cancel Editing</button>
+            </div>
+          } 
         </div>
       </div>
     );

@@ -42,16 +42,21 @@
       top: -35px;
       left: -75px;
       margin: 20px;
-      padding: 70px 20px;
+      padding: 40px 20px;
       background-color: #ffffffe3;
       border-radius: 2px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+      h3 {
+        text-align: center;
+        background: #aaa;
+        padding: 10px;
+      }
       button.cancel {
         margin: 0 auto;
         font-size: 14pt;
         padding: 10px;
-        background: #1CB841;
-        color: #000;
+        color: white;
+        background: #666;
         cursor: pointer;
         text-decoration: none;
         width: 94%;
@@ -60,8 +65,8 @@
         justify-content: center;
         transition: 0.3s;
         &:hover {
-          color: white;
-          background: #009639;
+          color: #000;
+          background: #aaa;
         }
       }
     }

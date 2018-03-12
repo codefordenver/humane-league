@@ -46,20 +46,16 @@
       background-color: #fff;
       border-radius: 2px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
-      // .card-wrapper {
-      //   border-radius: 2px;
-      //   background: #aaa;
-        h3.edit-title {
-          width: 100%;
-          text-align: center;
-          background: #aaa;
-          padding: 20px;
-          span {
-            font-size: 16pt;
-            color: #fff;
-          }
+      h3.edit-title {
+        width: 100%;
+        text-align: center;
+        background: #aaa;
+        padding: 20px;
+        span {
+          font-size: 16pt;
+          color: #fff;
         }
-      // }
+      }
       button.cancel {
         margin: 0 auto;
         font-size: 14pt;

@@ -23,8 +23,14 @@
         background: #aaa;
         padding: 20px;
         margin: 20px 0 40px; }
-        .create-action-form form .preview .card-wrapper h3 {
-          text-align: center; }
+        .create-action-form form .preview .card-wrapper h3.edit-title {
+          width: 100%;
+          text-align: center;
+          background: #aaa;
+          padding: 20px; }
+          .create-action-form form .preview .card-wrapper h3.edit-title span {
+            font-size: 16pt;
+            color: #fff; }
       .create-action-form form .preview button.preview-btn {
         width: 94%;
         margin: 15px 0; }

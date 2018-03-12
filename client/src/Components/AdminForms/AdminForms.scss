@@ -24,8 +24,15 @@
         background: #aaa;
         padding: 20px;
         margin: 20px 0 40px;
-        h3 {
+        h3.edit-title {
+          width: 100%;
           text-align: center;
+          background: #aaa;
+          padding: 20px;
+          span {
+            font-size: 16pt;
+            color: #fff;
+          }
         }
       }
       button.preview-btn {

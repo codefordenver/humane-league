@@ -236,7 +236,6 @@ ShallowWrapper {
                             </label>
               </div>
 </div>,
-            false,
             <div
               className="actions-container"
 >
@@ -249,6 +248,7 @@ ShallowWrapper {
                             
               </ul>
 </div>,
+            false,
           ],
           "className": "update-container",
         },
@@ -631,7 +631,6 @@ ShallowWrapper {
             ],
             "type": "div",
           },
-          false,
           Object {
             "instance": null,
             "key": undefined,
@@ -677,6 +676,7 @@ ShallowWrapper {
             ],
             "type": "div",
           },
+          false,
         ],
         "type": "div",
       },
@@ -901,7 +901,6 @@ ShallowWrapper {
                                 </label>
                 </div>
 </div>,
-              false,
               <div
                 className="actions-container"
 >
@@ -914,6 +913,7 @@ ShallowWrapper {
                                 
                 </ul>
 </div>,
+              false,
             ],
             "className": "update-container",
           },
@@ -1296,7 +1296,6 @@ ShallowWrapper {
               ],
               "type": "div",
             },
-            false,
             Object {
               "instance": null,
               "key": undefined,
@@ -1342,6 +1341,7 @@ ShallowWrapper {
               ],
               "type": "div",
             },
+            false,
           ],
           "type": "div",
         },

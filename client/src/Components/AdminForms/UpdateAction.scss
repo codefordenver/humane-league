@@ -43,10 +43,11 @@
       left: -75px;
       margin: 20px;
       padding: 40px 20px;
-      background-color: #ffffffe3;
+      background-color: #fff;
       border-radius: 2px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
       .card-wrapper {
+        border-radius: 2px;
         background: #aaa;
         h3.edit-title {
           width: 100%;

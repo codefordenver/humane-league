@@ -15,7 +15,7 @@
       left: -60px;
       margin: 20px;
       padding: 40px 20px;
-      background-color: #ffffffe3;
+      background: #fff;
       border-radius: 2px;
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
       .create-action-form form .preview button.preview-btn {

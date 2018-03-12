@@ -26,7 +26,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <h1>
-          Enable and Disable 
+          Update and Edit 
           <span>
                     FACEBOOK
           </span>
@@ -132,7 +132,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            "Enable and Disable ",
+            "Update and Edit ",
             <span>
               FACEBOOK
 </span>,
@@ -141,7 +141,7 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
-          "Enable and Disable ",
+          "Update and Edit ",
           Object {
             "instance": null,
             "key": undefined,
@@ -691,7 +691,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <h1>
-            Enable and Disable 
+            Update and Edit 
             <span>
                         FACEBOOK
             </span>
@@ -797,7 +797,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              "Enable and Disable ",
+              "Update and Edit ",
               <span>
                 FACEBOOK
 </span>,
@@ -806,7 +806,7 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            "Enable and Disable ",
+            "Update and Edit ",
             Object {
               "instance": null,
               "key": undefined,

@@ -84,7 +84,7 @@ export class UpdateAction extends Component {
 
   handleSubmit = async (action, actionBodies) => {
     const postResult = await this.actionPost(action, actionBodies, this.state.actionType);
-    const updatedActions = [...this.state[this.state.actionType], action]
+    const updatedActions = [...this.state[this.state.actionType], action];
     if (postResult) {
       this.setState({ success: 'ACTION CREATED!', showForm: false, [this.state.actionType]: updatedActions });
       setTimeout(() => {
@@ -152,19 +152,6 @@ export class UpdateAction extends Component {
         </li>
       );
     });
-
-    const actionList = 
-      <div className='actions-container'>
-        <h3>Click an action to see or change status</h3>
-        <ul className='actions'>
-          {actions}
-        </ul>
-      </div>;
-    const actionForm = 
-      <div>
-        <button onClick={() => this.setState({ showForm: false })}>Cancel</button>
-        <ActionForm form={this.state.actionType} action={this.state.action}submitPatch={this.submitPatch} />
-      </div>;
 
     return (
       <div className='UpdateAction'>

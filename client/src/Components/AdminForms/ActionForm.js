@@ -169,15 +169,15 @@ class ActionForm extends Component {
       :  form;
 
     const action = Object.assign({}, this.createAction(type), { content: this.state.actionBodies[0].content });
-    
+
     if (form === 'facebook') {
-      return <FacebookCard action={action} user={{ preview: true }}/>
+      return <FacebookCard action={action} user={{ preview: true }} />;
     } else if (form === 'twitter') {
-      return <TwitterCard action={action} user={{ preview: true }}/>
+      return <TwitterCard action={action} user={{ preview: true }} />;
     } else if (form === 'email') {
-      return <EmailCard action={action} user={{ preview: true }}/>
+      return <EmailCard action={action} user={{ preview: true }} />;
     } else if (form === 'phone') {
-      return <PhoneCard action={action} user={{ preview: true }}/>      
+      return <PhoneCard action={action} user={{ preview: true }} />;      
     }
   }
 

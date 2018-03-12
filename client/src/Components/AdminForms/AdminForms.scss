@@ -21,7 +21,17 @@
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
       button.preview-btn {
         width: 94%;
-        margin: 30px 0;
+        margin: 15px 0;
+      }
+      button.preview-btn.close {
+        padding: 10px;
+        height: auto;
+        background: #666;
+        color: #fff;
+        &:hover {
+          color: #000;
+          background: #aaa;
+        }
       }
     }
     input,

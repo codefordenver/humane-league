@@ -209,6 +209,7 @@ class ActionForm extends Component {
   }
 
   render() {
+    const enabled = this.state.actionEnabled ? 'ENABLED' : 'DISABLED';
     const editButton = this.props.action ? <button className='preview-btn' name='update' onClick={this.submitAction}>Update Existing Action</button> : null;
     const socialMediaTarget = {
       targetUrl: <input type='text' ref={(elem) => { this.targetUrl = elem; }} placeholder='Target Url' />
@@ -264,8 +265,12 @@ class ActionForm extends Component {
           {
             this.state.preview && 
             <div className='preview'>
-              {this.renderPreviewCard()}
-              <button className='preview-btn' onClick={this.closePreview}>Continue Editing</button>
+              <div className='card-wrapper'>
+                <h3 className='edit-title'>Action Preview:</h3>
+                {this.renderPreviewCard()}
+                <h3 className='edit-title'>This action will be saved as <span>{enabled}</span></h3>
+              </div>
+              <button className='preview-btn close' onClick={this.closePreview}>Continue Editing</button>
               <button className='preview-btn' name='create' onClick={this.submitAction}>Create New Action</button>
               {editButton}
             </div>

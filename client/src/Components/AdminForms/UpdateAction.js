@@ -189,7 +189,7 @@ export class UpdateAction extends Component {
           {
             this.state.showForm &&
             <div className='edit-action-form'>
-              <h3>Change any field to edit this action...</h3>
+              <h3 className='edit-title'>Change any field to edit this action...</h3>
               <ActionForm 
                 form={this.state.actionType} 
                 action={this.state.action}

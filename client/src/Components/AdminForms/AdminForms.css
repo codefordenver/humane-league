@@ -20,7 +20,15 @@
       box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
       .create-action-form form .preview button.preview-btn {
         width: 94%;
-        margin: 30px 0; }
+        margin: 15px 0; }
+      .create-action-form form .preview button.preview-btn.close {
+        padding: 10px;
+        height: auto;
+        background: #666;
+        color: #fff; }
+        .create-action-form form .preview button.preview-btn.close:hover {
+          color: #000;
+          background: #aaa; }
     .create-action-form form input,
     .create-action-form form textarea,
     .create-action-form form button {

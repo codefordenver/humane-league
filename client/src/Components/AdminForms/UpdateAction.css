@@ -5,6 +5,7 @@
   .UpdateAction .update-container {
     margin: 20px;
     padding: 20px;
+    position: relative;
     background-color: #ffffffe3;
     border-radius: 2px;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
@@ -29,6 +30,31 @@
       .UpdateAction .update-container .sort-by label,
       .UpdateAction .update-container .sort-by input {
         margin: 0 15px; }
+    .UpdateAction .update-container .edit-action-form {
+      position: absolute;
+      top: -35px;
+      left: -75px;
+      margin: 20px;
+      padding: 70px 20px;
+      background-color: #ffffffe3;
+      border-radius: 2px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
+      .UpdateAction .update-container .edit-action-form button.cancel {
+        margin: 0 auto;
+        font-size: 14pt;
+        padding: 10px;
+        background: #1CB841;
+        color: #000;
+        cursor: pointer;
+        text-decoration: none;
+        width: 94%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.3s; }
+        .UpdateAction .update-container .edit-action-form button.cancel:hover {
+          color: white;
+          background: #009639; }
     .UpdateAction .update-container .actions-container {
       margin: 20px; }
       .UpdateAction .update-container .actions-container h3 {

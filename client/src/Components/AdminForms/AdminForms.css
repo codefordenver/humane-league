@@ -58,6 +58,7 @@
       width: 200px;
       align-self: center; }
     .create-action-form form #toggle {
+      border: 1px solid darkgray;
       background-color: #fff;
       text-align: left;
       align-self: center;

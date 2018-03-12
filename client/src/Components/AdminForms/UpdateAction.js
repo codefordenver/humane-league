@@ -13,7 +13,8 @@ import {
   getPhoneActions,
   patchAction,
   patchActionContent,
-  postActionContent } from '../../utils/apiCalls';
+  postActionContent,
+  postAction } from '../../utils/apiCalls';
 
 export class UpdateAction extends Component {
   constructor() {
@@ -51,6 +52,48 @@ export class UpdateAction extends Component {
 
     this.setState({ showForm: true, action });
     window.scrollTo(0, 0);
+  }
+
+  actionPost = async (action, actionBodies, type) => {
+    const token = this.props.user.id_token;
+
+    const actionID = await postAction(action, type, token);
+
+    if (actionID.id) {
+      for (let i = 0; i < actionBodies.length; i++) {
+        let content = actionBodies[i].content;
+        const contentID = await postActionContent(type, actionID, token, content);
+        
+        if (contentID.error) {
+          this.setState({ error: `Could not create action content: ${contentID.error}`});
+          setTimeout(() => {
+            this.setState({ error: false });
+          }, 5000);
+        } else if (contentID.id) {
+          return contentID;
+        }
+      }
+
+    } else if (actionID.error) {
+      this.setState({ error: `Could not create action: ${actionID.error}`});
+      setTimeout(() => {
+        this.setState({ error: false });
+      }, 5000);
+    }
+  }
+
+  handleSubmit = async (action, actionBodies) => {
+    const postResult = await this.actionPost(action, actionBodies, this.state.actionType);
+
+    if (postResult) {
+      this.setState({ success: 'ACTION CREATED!' });
+      setTimeout(() => {
+        this.setState({ success: false });
+      }, 5000);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   submitPatch = async (action, actionBodies) => {
@@ -123,11 +166,9 @@ export class UpdateAction extends Component {
         <ActionForm form={this.state.actionType} action={this.state.action}submitPatch={this.submitPatch} />
       </div>;
 
-    const toDisplay = !this.state.showForm ? actionList : actionForm;
-
     return (
       <div className='UpdateAction'>
-        <h1>Enable and Disable <span>{this.state.actionType.toUpperCase()}</span> Actions</h1>
+        <h1>Update and Edit <span>{this.state.actionType.toUpperCase()}</span> Actions</h1>
         {
           this.state.success && 
           <p>{this.state.success}</p>
@@ -152,7 +193,24 @@ export class UpdateAction extends Component {
               <label><input type='radio' name='sort-by' value='disabled' onChange={this.handleSort} checked={this.state.sortBy === 'disabled'}/>Disabled</label>
             </div>
           </div>
-          {toDisplay}
+          {
+            this.state.showForm &&
+            <div className='edit-action-form'>
+              <button className='cancel' onClick={() => this.setState({ showForm: false })}>Cancel Editing</button>
+              <ActionForm 
+                form={this.state.actionType} 
+                action={this.state.action}
+                submitPatch={this.submitPatch}
+                handleSubmit={this.handleSubmit}
+              />
+            </div>
+          } 
+          <div className='actions-container'>
+            <h3>Click an action to see or change status</h3>
+            <ul className='actions'>
+              {actions}
+            </ul>
+          </div>    
         </div>
       </div>
     );

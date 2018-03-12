@@ -56,6 +56,7 @@ class ActionForm extends Component {
 
   submitAction = async (event) => {
     event.preventDefault();
+    console.log(event.target.name)
     this.setState({ preview: false });
     const type = (this.props.form === 'facebook' || this.state.form === 'twitter')
       ? 'social'
@@ -63,9 +64,9 @@ class ActionForm extends Component {
     const action = this.createAction(type);
     const actionBodies = [...this.state.actionBodies];
 
-    if (this.props.action) {
+    if (event.target.name === 'update') {
       this.props.submitPatch(action, actionBodies);
-    } else {
+    } else if (event.target.name === 'create') {
       const success = await this.props.handleSubmit(action, actionBodies);
       
       if (success) {
@@ -209,6 +210,7 @@ class ActionForm extends Component {
   }
 
   render() {
+    const editButton = this.props.action ? <button className='preview-btn' name='update' onClick={this.submitAction}>Update Existing Action</button> : null;
     const socialMediaTarget = {
       targetUrl: <input type='text' ref={(elem) => { this.targetUrl = elem; }} placeholder='Target Url' />
     };  
@@ -265,7 +267,8 @@ class ActionForm extends Component {
             <div className='preview'>
               {this.renderPreviewCard()}
               <button className='preview-btn' onClick={this.closePreview}>Continue Editing</button>
-              <button className='preview-btn' onClick={this.submitAction}>Create Action</button>
+              <button className='preview-btn' name='create' onClick={this.submitAction}>Create New Action</button>
+              {editButton}
             </div>
           }
           <button onClick={this.previewAction}>Preview and Save Action</button>  

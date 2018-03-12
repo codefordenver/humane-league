@@ -56,7 +56,6 @@ class ActionForm extends Component {
 
   submitAction = async (event) => {
     event.preventDefault();
-    console.log(event.target.name)
     this.setState({ preview: false });
     const type = (this.props.form === 'facebook' || this.state.form === 'twitter')
       ? 'social'
@@ -153,13 +152,13 @@ class ActionForm extends Component {
 
   previewAction = (event) => {
     event.preventDefault();
-    console.log('preview')
+    // console.log('preview')
     this.setState({ preview: true });
   }
 
   closePreview = (event) => {
     event.preventDefault();
-    console.log('close preview')
+    // console.log('close preview')
     this.setState({ preview: false });
   }
 
@@ -170,7 +169,7 @@ class ActionForm extends Component {
       :  form;
 
     const action = Object.assign({}, this.createAction(type), { content: this.state.actionBodies[0].content });
-    console.log(action)
+    
     if (form === 'facebook') {
       return <FacebookCard action={action} user={{ preview: true }}/>
     } else if (form === 'twitter') {

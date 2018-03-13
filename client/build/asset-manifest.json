@@ -1,12 +1,13 @@
 {
-  "main.css": "static/css/main.86b5e39f.css",
-  "main.css.map": "static/css/main.86b5e39f.css.map",
-  "main.js": "static/js/main.1d7d3d2e.js",
-  "main.js.map": "static/js/main.1d7d3d2e.js.map",
+  "main.css": "static/css/main.8d5ee2e4.css",
+  "main.css.map": "static/css/main.8d5ee2e4.css.map",
+  "main.js": "static/js/main.354e1814.js",
+  "main.js.map": "static/js/main.354e1814.js.map",
   "static/media/fan-logo.png": "static/media/fan-logo.466008ee.png",
   "static/media/fan.eot?41674780": "static/media/fan.42fc9fab.eot",
   "static/media/fan.svg?41674780": "static/media/fan.3f5a6943.svg",
   "static/media/fan.ttf?41674780": "static/media/fan.720b56a5.ttf",
   "static/media/fan.woff2?41674780": "static/media/fan.3b11ea40.woff2",
-  "static/media/fan.woff?41674780": "static/media/fan.e62b91a2.woff"
+  "static/media/fan.woff?41674780": "static/media/fan.e62b91a2.woff",
+  "static/media/grass-bg.jpg": "static/media/grass-bg.59a2254a.jpg"
 }

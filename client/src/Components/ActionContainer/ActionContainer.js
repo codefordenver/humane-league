@@ -58,7 +58,7 @@ export class ActionContainer extends Component {
   removeCompleted = (actionType, action) => {
     const index = this.state[actionType].indexOf(action);
     const actions = this.state[actionType];
-    actions[index] = { id: action.id, completed: true, title: 'Thank You!', description: `For taking action: ${action.title}`};
+    actions[index] = { id: action.id, completed: true, title: 'Thank You!', description: `🎉  For taking action: ${action.title}  🎉`};
     setTimeout(() => this.setState({ [actionType]: actions }), 1000);
   }
 

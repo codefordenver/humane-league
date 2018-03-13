@@ -84,7 +84,7 @@ export class CreateNewAction extends Component {
           }
           {
             this.state.success &&
-              <h1>{this.state.success}</h1>
+              <h1 className="success">{this.state.success}</h1>
           }
           </label>
 

@@ -6,6 +6,8 @@
     font-size: 24pt;
     text-align: center;
     margin: 20px; }
+    .create-new-action-container h1.success {
+      color: black; }
     .create-new-action-container h1 span {
       font-size: 28pt;
       margin: 0 5px; }

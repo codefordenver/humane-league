@@ -6,6 +6,9 @@
     font-size: 24pt;
     text-align: center;
     margin: 20px;
+    &.success {
+      color: black;
+    }
     span {
       font-size: 28pt;
       margin: 0 5px;

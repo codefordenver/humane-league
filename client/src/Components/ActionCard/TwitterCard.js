@@ -50,8 +50,14 @@ class TwitterCard extends Component {
 
   render() {
     const { title, description, target } = this.props.action;
+    console.log(this.props.user);
 
     let buttonText = 'TWEET';
+
+    if (this.props.user.admin) {
+      buttonText = `${this.state.actionCount} people have taken this action!`;
+    }
+    
     let buttonOnClick = this.setActionBody;
     let targetLink = null;
     let cancelButton = null;
@@ -69,10 +75,6 @@ class TwitterCard extends Component {
 
     if (this.props.action.completed) {
       button = null;
-    }
-
-    if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (

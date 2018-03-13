@@ -51,6 +51,11 @@ class PhoneCard extends Component {
     const { title, description, phone_number } = this.props.action;
 
     let buttonText = 'CALL';
+
+    if (this.props.user.admin) {
+      buttonText = `${this.state.actionCount} people have taken this action!`;
+    }
+    
     let buttonOnClick = this.setActionBody;
     let phoneNumber = null;
     let textArea = null;
@@ -70,10 +75,6 @@ class PhoneCard extends Component {
     
     if (this.props.action.completed) {
       button = null;
-    }
-
-    if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (

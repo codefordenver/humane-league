@@ -8,7 +8,16 @@
     border-radius: 2px;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
     font-size: 20px;
-    padding: 50px 25px; }
+    max-width: 500px;
+    padding: 25px; }
+    .ActionContainer .no-actions p {
+      text-align: center;
+      margin: 20px 0; }
+      .ActionContainer .no-actions p .thl-twitter-link {
+        color: #00aced;
+        fontweight: bold; }
+        .ActionContainer .no-actions p .thl-twitter-link:hover {
+          color: #0fbfff; }
 
 h1 {
   color: white;

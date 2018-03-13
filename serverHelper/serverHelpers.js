@@ -64,7 +64,7 @@ const deleteHelper = async (request, response, database, table) => {
     .catch(error => {
       return response.status(500).json({ error });
     });
-}
+};
 
 
 
@@ -72,5 +72,6 @@ module.exports = {
   getAllHelper,
   getOneHelper,
   postHelper,
-  patchHelper
+  patchHelper,
+  deleteHelper
 };

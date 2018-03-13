@@ -123,6 +123,19 @@ export const patchActionContent = async (type, actionId, token, content) => {
   }
 };
 
+export const deleteActionContent = async (type, contentId, token) => {
+  try {
+    return await fetch(`/api/v1/${type}_contents/${contentId}?token=${token}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  } catch (error) {
+    return error;
+  }
+}
+
 export const getActionLog = async () => {
   try {
     const actionLogFetch = await fetch('/api/v1/actions');

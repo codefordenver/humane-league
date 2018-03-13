@@ -13,6 +13,7 @@ class ActionForm extends Component {
     this.state = {
       actionEnabled: true,
       actionBodies: [],
+      bodiesToDelete: [],
       preview: false
     };
   }
@@ -62,9 +63,10 @@ class ActionForm extends Component {
       :  this.props.form;
     const action = this.createAction(type);
     const actionBodies = [...this.state.actionBodies];
+    const bodiesToDelete = [...this.state.bodiesToDelete];
 
     if (event.target.name === 'update') {
-      this.props.submitPatch(action, actionBodies);
+      this.props.submitPatch(action, actionBodies, bodiesToDelete);
     } else if (event.target.name === 'create') {
       const success = await this.props.handleSubmit(action, actionBodies);
       
@@ -123,7 +125,7 @@ class ActionForm extends Component {
 
     const emptyBody = { id: 0, content: '' };
 
-    this.setState({ actionEnabled: true, actionBodies: [emptyBody], preview: false });
+    this.setState({ actionEnabled: true, actionBodies: [emptyBody], bodiesToDelete: [], preview: false });
   }
 
   addTextArea = (event) => {
@@ -138,9 +140,13 @@ class ActionForm extends Component {
   deleteBody = (event) => {
     event.preventDefault();
     let actionBodies = [...this.state.actionBodies];
-    actionBodies = actionBodies.filter((body) => parseInt(body.id, 10) !== parseInt(event.target.dataset.id, 10));
+    let bodiesToDelete = [...this.state.bodiesToDelete];
+    const deletedBody = actionBodies.find( body => parseInt(body.id, 10) === parseInt(event.target.dataset.id, 10));
+    bodiesToDelete.push(deletedBody);
+    // actionBodies = actionBodies.filter( body => parseInt(body.id, 10) !== parseInt(event.target.dataset.id, 10));
+    actionBodies = actionBodies.filter( body => body !== deletedBody);
 
-    this.setState({ actionBodies });
+    this.setState({ actionBodies, bodiesToDelete });
   }
 
   handleTextArea = (i, event) => {
@@ -208,6 +214,9 @@ class ActionForm extends Component {
   }
 
   render() {
+    console.log(this.state.actionBodies)
+    console.log(this.state.bodiesToDelete)
+
     const enabled = this.state.actionEnabled ? 'ENABLED' : 'DISABLED';
     const editButton = this.props.action ? <button className='preview-btn' name='update' onClick={this.submitAction}>Update Existing Action</button> : null;
     const socialMediaTarget = {

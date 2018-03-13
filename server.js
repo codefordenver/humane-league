@@ -167,8 +167,8 @@ endpoints.filter(endpoint => endpoint.reqParams === params.content).map( endpoin
   const {table, one, reqParams} = endpoint;
   return app.delete(one, validateAdmin, (req, res) => {
     return routes.deleteHelper(req, res, database, table, reqParams);
-  })
-})
+  });
+});
 
 //restricted user endpoint
 app.patch(endpoints[endpoints.length - 1].one, patchValidation, (req, res) => {

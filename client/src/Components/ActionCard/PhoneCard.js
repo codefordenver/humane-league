@@ -4,12 +4,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import logAction from '../../utils/logAction';
 import fetchActionBody from '../../utils/fetchActionBody';
+import Clipboard from '../../Clipboard.png';
 
 class PhoneCard extends Component {
   constructor () {
     super();
     this.state = {
-      actionBody: null
+      actionBody: null,
+      copyText: 'Copy'      
     };
     this.fetchActionBody = fetchActionBody.bind(this);
   }
@@ -47,6 +49,19 @@ class PhoneCard extends Component {
     logAction('phone_actions', this.props.user, this.props.action);
   }
 
+
+  copyText = () => {
+    this.textarea.select();
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+
+    this.setState({ copyText: 'Copied Text ✓'});
+
+    return setTimeout(() => {
+      this.setState({ copyText: 'Copy'});
+    }, 1000);
+  }
+
   render () {
     const { title, description, phone_number } = this.props.action;
 
@@ -69,7 +84,14 @@ class PhoneCard extends Component {
       phoneNumber = <p className="phone-number">{`Call ${phone_number}, and then click completed!`}</p>;
       textArea = <textarea className="body-text feedback-textarea" placeholder="How did this call go for you? Please leave your feedback here!" ref={(input) => this.feedbackTextArea = input }></textarea>;
       cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
-      script = <textarea className="script body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea>;
+      script = <div className="bTextContainer">
+        <textarea
+          className="body-text" 
+          onChange={(event) => this.resetBody(event.target.value)} 
+          ref={(textarea => this.textarea = textarea)}
+          value={this.state.actionBody}></textarea>
+        <div onClick={this.copyText} className="copySection"><img onDragStart={(event) => event.preventDefault()} src={Clipboard} alt="copy"/><span className="copy">{this.state.copyText}</span></div>
+      </div>;
       button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-phone"></i></button>;
     }
     

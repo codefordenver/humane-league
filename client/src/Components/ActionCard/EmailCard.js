@@ -5,12 +5,14 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import logAction from '../../utils/logAction';
 import fetchActionBody from '../../utils/fetchActionBody';
+import Clipboard from '../../Clipboard.png';
 
 class EmailCard extends Component {
   constructor () {
     super();
     this.state = {
       actionBody: null,
+      copyText: 'Copy',      
       showContent: false
     };
     this.fetchActionBody = fetchActionBody.bind(this);
@@ -50,6 +52,18 @@ class EmailCard extends Component {
     await this.setState({ actionCount });
   }
 
+  copyText = () => {
+    this.textarea.select();
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges();
+
+    this.setState({ copyText: 'Copied Text ✓'});
+
+    return setTimeout(() => {
+      this.setState({ copyText: 'Copy'});
+    }, 1000);
+  }
+
   render () {
     const { title, description, to, cc, bcc, subject } = this.props.action;
 
@@ -73,7 +87,14 @@ class EmailCard extends Component {
       targetLink = `mailto:${to}?subject=${subject}&body=${this.state.actionBody}`;
       cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
       showContentButton = <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button>;
-      textArea = <textarea className="body-text" onChange={(event) => this.resetBody(event.target.value)} value={this.state.actionBody}></textarea>;
+      textArea = <div className="bTextContainer">
+        <textarea
+          className="body-text" 
+          onChange={(event) => this.resetBody(event.target.value)} 
+          ref={(textarea => this.textarea = textarea)}
+          value={this.state.actionBody}></textarea>
+        <div onClick={this.copyText} className="copySection"><img onDragStart={(event) => event.preventDefault()} src={Clipboard} alt="copy"/><span className="copy">{this.state.copyText}</span></div>
+      </div>;
       button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-mail"></i></button>;
     }
 

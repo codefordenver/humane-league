@@ -17,7 +17,8 @@ describe('TwitterCard component tests', () => {
     mockUser = {};
     renderedTwitterCard = shallow( <TwitterCard action={mockAction} user={mockUser}/> );
     defaultState = {
-      actionBody: null
+      actionBody: null,
+      copyText: "Copy"      
     }
   })
   it('renders without crashing', () => {
@@ -40,7 +41,8 @@ describe('FacebookCard component tests', () => {
     mockUser = {};
     renderedFacebookCard = shallow( <FacebookCard action={mockAction} user={mockUser}/> );
     defaultState = {
-      actionBody: null
+      actionBody: null,
+      copyText: "Copy"
     };
   })
   it('renders without crashing', () => {
@@ -64,7 +66,8 @@ describe('EmailCard component tests', () => {
     renderedEmailCard = shallow( <EmailCard action={mockAction} user={mockUser}/> );
     defaultState = {
       actionBody: null,
-      showContent: false
+      showContent: false,
+      copyText: "Copy"      
     };
   });
   it('renders without crashing', () => {
@@ -87,7 +90,8 @@ describe('PhoneCard component tests', () => {
     mockUser = {};
     renderedPhoneCard = shallow( <PhoneCard action={mockAction} user={mockUser}/> );
     defaultState = {
-      actionBody: null
+      actionBody: null,
+      copyText: "Copy"      
     };
   });
   it('renders without crashing', () => {

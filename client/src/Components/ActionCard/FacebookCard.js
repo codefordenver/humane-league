@@ -88,7 +88,7 @@ class FacebookCard extends Component {
           onChange={(event) => this.resetBody(event.target.value)} 
           ref={(textarea => this.textarea = textarea)}
           value={this.state.actionBody}></textarea>
-        <div onClick={this.copyText} className="copySection"><img onDragStart={(e) => e.preventDefault()} src={Clipboard} alt="copy"/><span className="copy">{this.state.copyText}</span></div>
+        <div onClick={this.copyText} className="copySection"><img onDragStart={(event) => event.preventDefault()} src={Clipboard} alt="copy"/><span className="copy">{this.state.copyText}</span></div>
       </div>;
       button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-facebook"></i></button>;
     }

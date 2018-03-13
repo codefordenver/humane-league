@@ -15,6 +15,7 @@ describe('ActionContainer component tests', () => {
       userPreferences: {
         ...mockUser
       },
+      loading: true,
       twitter_actions: [],
       facebook_actions: [],
       email_actions: [],

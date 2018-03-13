@@ -57,10 +57,15 @@ export class ActionContainer extends Component {
   }
 
   removeCompleted = (actionType, action) => {
-    const index = this.state[actionType].indexOf(action);
-    const actions = this.state[actionType];
-    actions[index] = { id: action.id, completed: true, title: 'Thank You!', description: `🎉  For taking action: ${action.title}  🎉`};
-    setTimeout(() => this.setState({ [actionType]: actions }), 1000);
+    if (action.title === "🎉  Thank You!  🎉") {
+      const actions = this.state[actionType].filter(act => act.id !== action.id);
+      this.setState({ [actionType]: actions });
+    } else {
+      const index = this.state[actionType].indexOf(action);
+      const actions = this.state[actionType];
+      actions[index] = { id: action.id, completed: true, title: '🎉  Thank You!  🎉', description: `For taking action: ${action.title}`};
+      setTimeout(() => this.setState({ [actionType]: actions }), 1000);
+    }
   }
 
   render() {
@@ -73,7 +78,7 @@ export class ActionContainer extends Component {
     const phone = phone_actions.length ? <PhoneCard action={phone_actions[0]} user={user} removeCompleted={this.removeCompleted}/> : null;
 
     const noActions = twitter_actions.length === 0 && facebook_actions.length === 0 && email_actions.length === 0 && phone_actions.length === 0 && !this.state.loading;
-    const noActionsMessage = noActions ? <div className="no-actions"><p>You have completed all of our actions!</p><p>🎉  Great job!  🎉</p><p> Please check back again soon for new actions. In the meantime, check out <a className="thl-twitter-link" href="https://twitter.com/thehumaneleague" target="_blank" rel="noopener noreferrer">our Twitter feed</a> to see what we're up to.</p></div> : null;
+    const noActionsMessage = noActions ? <div className="no-actions"><p>You have completed all of our actions!</p><p>🎉  Great job!  🎉</p><p> Please check back again soon for new actions. In the meantime, check out <a className="thl-twitter-link" href="https://twitter.com/thehumaneleague" target="_blank" rel="noopener noreferrer">our Twitter feed</a> to see what we&apos;re up to.</p></div> : null;
     const loadingMessage = this.state.loading ? <p className="no-actions">Loading...</p> : null;
 
 

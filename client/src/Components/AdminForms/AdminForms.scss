@@ -5,6 +5,52 @@
   form {
     display: flex;
     flex-direction: column;
+    position: relative;
+    .preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 10;
+      top: -95px;
+      left: -80px;
+      margin: 20px;
+      padding: 50px 20px;
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6);
+      .card-wrapper {
+        border-radius: 2px;
+        background: #aaa;
+        padding: 20px;
+        margin: 20px 0 40px;
+        h3.edit-title {
+          width: 100%;
+          text-align: center;
+          background: #aaa;
+          padding: 20px;
+          span {
+            font-size: 16pt;
+            color: #fff;
+          }
+        }
+      }
+      button.preview-btn {
+        width: 94%;
+        margin: 15px 0;
+      }
+      button.preview-btn.close {
+        padding: 10px;
+        height: auto;
+        background: #666;
+        color: #fff;
+        &:hover {
+          color: #000;
+          background: #aaa;
+        }
+      }
+    }
     input,
     textarea,
     button {
@@ -49,6 +95,7 @@
       align-self: center;
     }
     #toggle {
+      border: 1px solid darkgray;
       background-color: #fff;
       text-align: left;
       align-self: center;

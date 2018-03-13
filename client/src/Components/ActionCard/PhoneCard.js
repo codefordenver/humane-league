@@ -20,8 +20,14 @@ class PhoneCard extends Component {
     }
   }
 
-  setActionBody = async () => {
-    const actionBody = await this.fetchActionBody('twitter_contents', this.props.action);
+  setActionBody = async (event) => {
+    event.preventDefault();
+    let actionBody;
+    if (this.props.user.preview) {
+      actionBody = this.props.action.content;
+    } else {
+      actionBody = await this.fetchActionBody('phone_contents', this.props.action);
+    }
     this.setState({ actionBody });
   }
 
@@ -45,6 +51,11 @@ class PhoneCard extends Component {
     const { title, description, phone_number } = this.props.action;
 
     let buttonText = 'CALL';
+
+    if (this.props.user.admin) {
+      buttonText = `${this.state.actionCount} people have taken this action!`;
+    }
+    
     let buttonOnClick = this.setActionBody;
     let phoneNumber = null;
     let textArea = null;
@@ -64,10 +75,6 @@ class PhoneCard extends Component {
     
     if (this.props.action.completed) {
       button = null;
-    }
-
-    if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (

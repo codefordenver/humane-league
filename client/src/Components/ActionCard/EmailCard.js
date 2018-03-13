@@ -22,8 +22,15 @@ class EmailCard extends Component {
     }
   }
 
-  setActionBody = async () => {
-    const actionBody = await this.fetchActionBody('email_contents', this.props.action);
+  setActionBody = async (event) => {
+    event.preventDefault();
+    let actionBody;
+    if (this.props.user.preview) {
+      actionBody = this.props.action.content;
+    } else {
+      actionBody = await this.fetchActionBody('email_contents', this.props.action);
+    }
+
     this.setState({ actionBody });
   }
 
@@ -47,6 +54,11 @@ class EmailCard extends Component {
     const { title, description, to, cc, bcc, subject } = this.props.action;
 
     let buttonText = 'EMAIL';
+        
+    if (this.props.user.admin) {
+      buttonText = `${this.state.actionCount} people have taken this action!`;
+    }
+    
     let buttonOnClick = this.setActionBody;
     let targetLink = null;
     let cancelButton = null;
@@ -75,10 +87,6 @@ class EmailCard extends Component {
 
     if (this.props.action.completed) {
       button = null;
-    }
-    
-    if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (

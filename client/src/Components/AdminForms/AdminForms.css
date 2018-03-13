@@ -3,7 +3,46 @@
   margin: 10px; }
   .create-action-form form {
     display: flex;
-    flex-direction: column; }
+    flex-direction: column;
+    position: relative; }
+    .create-action-form form .preview {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 10;
+      top: -95px;
+      left: -80px;
+      margin: 20px;
+      padding: 50px 20px;
+      background: #fff;
+      border-radius: 2px;
+      box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.6); }
+      .create-action-form form .preview .card-wrapper {
+        border-radius: 2px;
+        background: #aaa;
+        padding: 20px;
+        margin: 20px 0 40px; }
+        .create-action-form form .preview .card-wrapper h3.edit-title {
+          width: 100%;
+          text-align: center;
+          background: #aaa;
+          padding: 20px; }
+          .create-action-form form .preview .card-wrapper h3.edit-title span {
+            font-size: 16pt;
+            color: #fff; }
+      .create-action-form form .preview button.preview-btn {
+        width: 94%;
+        margin: 15px 0; }
+      .create-action-form form .preview button.preview-btn.close {
+        padding: 10px;
+        height: auto;
+        background: #666;
+        color: #fff; }
+        .create-action-form form .preview button.preview-btn.close:hover {
+          color: #000;
+          background: #aaa; }
     .create-action-form form input,
     .create-action-form form textarea,
     .create-action-form form button {
@@ -41,6 +80,7 @@
       width: 200px;
       align-self: center; }
     .create-action-form form #toggle {
+      border: 1px solid darkgray;
       background-color: #fff;
       text-align: left;
       align-self: center;

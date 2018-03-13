@@ -20,8 +20,15 @@ class FacebookCard extends Component {
     }
   }
 
-  setActionBody = async () => {
-    const actionBody = await this.fetchActionBody('facebook_contents', this.props.action);
+  setActionBody = async (event) => {
+    event.preventDefault();
+    let actionBody;
+    if (this.props.user.preview) {
+      actionBody = this.props.action.content;
+    } else {
+      actionBody = await this.fetchActionBody('facebook_contents', this.props.action);
+    }
+
     this.setState({ actionBody });
   }
 
@@ -45,6 +52,11 @@ class FacebookCard extends Component {
     const { title, description, target } = this.props.action;
 
     let buttonText = 'FACEBOOK';
+
+    if (this.props.user.admin) {
+      buttonText = `${this.state.actionCount} people have taken this action!`;
+    }
+    
     let buttonOnClick = this.setActionBody;
     let targetLink = null;
     let cancelButton = null;
@@ -62,10 +74,6 @@ class FacebookCard extends Component {
 
     if (this.props.action.completed) {
       button = null;
-    }
-
-    if (this.props.user.admin) {
-      buttonText = `${this.state.actionCount} people have taken this action!`;
     }
 
     return (

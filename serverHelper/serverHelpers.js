@@ -25,7 +25,7 @@ const getOneHelper = (request, response, database, table) => {
 
 const postHelper = (request, response, database, table, reqParams) => {
   for (let reqParam of reqParams) {
-    if (!request.body.hasOwnProperty(reqParam)) {
+    if (!request.body.hasOwnProperty(reqParam) || (request.body[reqParam] === "") || (request.body[reqParam] === null)) {
       return response.status(422).json({ error: `You are missing the required parameter ${reqParam}.` });
     }
   }

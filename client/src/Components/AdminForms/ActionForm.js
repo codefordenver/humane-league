@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TwitterCard from '../ActionCard/TwitterCard';
+import FacebookCard from '../ActionCard/FacebookCard';
+import EmailCard from '../ActionCard/EmailCard';
+import PhoneCard from '../ActionCard/PhoneCard';
 import './AdminForms.css';
 
 class ActionForm extends Component {
@@ -8,7 +12,8 @@ class ActionForm extends Component {
 
     this.state = {
       actionEnabled: true,
-      actionBodies: []
+      actionBodies: [],
+      preview: false
     };
   }
 
@@ -51,18 +56,19 @@ class ActionForm extends Component {
 
   submitAction = async (event) => {
     event.preventDefault();
+    this.setState({ preview: false });
     const type = (this.props.form === 'facebook' || this.state.form === 'twitter')
       ? 'social'
       :  this.props.form;
     const action = this.createAction(type);
     const actionBodies = [...this.state.actionBodies];
 
-    if (this.props.action) {
+    if (event.target.name === 'update') {
       this.props.submitPatch(action, actionBodies);
-    } else {
+    } else if (event.target.name === 'create') {
       const success = await this.props.handleSubmit(action, actionBodies);
       
-      if (success) {
+      if (success && !this.props.action) {
         this.resetForm(type);
       }
     }
@@ -117,7 +123,7 @@ class ActionForm extends Component {
 
     const emptyBody = { id: 0, content: '' };
 
-    this.setState({ actionEnabled: true, actionBodies: [emptyBody] });
+    this.setState({ actionEnabled: true, actionBodies: [emptyBody], preview: false });
   }
 
   addTextArea = (event) => {
@@ -132,7 +138,7 @@ class ActionForm extends Component {
   deleteBody = (event) => {
     event.preventDefault();
     let actionBodies = [...this.state.actionBodies];
-    actionBodies = actionBodies.filter((body) => parseInt(body.id) !== parseInt(event.target.dataset.id));
+    actionBodies = actionBodies.filter((body) => parseInt(body.id, 10) !== parseInt(event.target.dataset.id, 10));
 
     this.setState({ actionBodies });
   }
@@ -142,6 +148,36 @@ class ActionForm extends Component {
     actionBodies[i].content = event.target.value;
 
     this.setState({ actionBodies });
+  }
+
+  previewAction = (event) => {
+    event.preventDefault();
+    // console.log('preview')
+    this.setState({ preview: true });
+  }
+
+  closePreview = (event) => {
+    event.preventDefault();
+    // console.log('close preview')
+    this.setState({ preview: false });
+  }
+
+  renderPreviewCard = () => {
+    const form = this.props.form;
+    const type = (form === 'facebook' || form === 'twitter')
+      ? 'social'
+      :  form;
+
+    const action = Object.assign({}, this.createAction(type), { content: this.state.actionBodies[0].content });
+
+    const cards = {
+      facebook: <FacebookCard action={action} user={{ preview: true }} />,
+      twitter: <TwitterCard action={action} user={{ preview: true }} />,
+      email: <EmailCard action={action} user={{ preview: true }} />,
+      phone: <PhoneCard action={action} user={{ preview: true }} />
+    };
+
+    return cards[form];
   }
 
   renderTextAreas = () => {
@@ -172,6 +208,8 @@ class ActionForm extends Component {
   }
 
   render() {
+    const enabled = this.state.actionEnabled ? 'ENABLED' : 'DISABLED';
+    const editButton = this.props.action ? <button className='preview-btn' name='update' onClick={this.submitAction}>Update Existing Action</button> : null;
     const socialMediaTarget = {
       targetUrl: <input type='text' ref={(elem) => { this.targetUrl = elem; }} placeholder='Target Url' />
     };  
@@ -222,8 +260,21 @@ class ActionForm extends Component {
               data-on='enabled' 
               data-off='disabled'>
             </label>
-          </span>    
-          <button onClick={this.submitAction}>SAVE ACTION</button>
+          </span>  
+          {
+            this.state.preview && 
+            <div className='preview'>
+              <div className='card-wrapper'>
+                <h3 className='edit-title'>Action Preview:</h3>
+                {this.renderPreviewCard()}
+                <h3 className='edit-title'>This action will be saved as <span>{enabled}</span></h3>
+              </div>
+              <button className='preview-btn close' onClick={this.closePreview}>Continue Editing</button>
+              <button className='preview-btn' name='create' onClick={this.submitAction}>Create New Action</button>
+              {editButton}
+            </div>
+          }
+          <button onClick={this.previewAction}>Preview and Save Action</button>  
         </form>
       </section>
     );

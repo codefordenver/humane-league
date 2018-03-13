@@ -51,7 +51,7 @@ export const getPhoneActions = async () => {
   }
 };
 
-export const getCompletedActions = async(id, token) => {
+export const getCompletedActions = async (id, token) => {
   try {
     const completedFetch = await fetch(`/api/v1/users/actions/${id}?token=${token}`);
     const completedActions = await completedFetch.json();
@@ -72,7 +72,6 @@ export const postAction = async (action, type, token) => {
       body: JSON.stringify(action)
     });
     const actionID = await actionPost.json();
-  
     return actionID;
   } catch (error) {
     return error;

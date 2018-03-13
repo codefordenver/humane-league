@@ -50,7 +50,6 @@ class TwitterCard extends Component {
 
   render() {
     const { title, description, target } = this.props.action;
-    console.log(this.props.user);
 
     let buttonText = 'TWEET';
 

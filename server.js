@@ -162,6 +162,14 @@ endpoints.filter(endpoint => !endpoint.updateSecurity).map( endpoint => {
   });
 });
 
+// delete action contents endpoint
+endpoints.filter(endpoint => endpoint.reqParams === params.content).map( endpoint => {
+  const {table, one, reqParams} = endpoint;
+  return app.delete(one, validateAdmin, (req, res) => {
+    return routes.deleteHelper(req, res, database, table, reqParams);
+  })
+})
+
 //restricted user endpoint
 app.patch(endpoints[endpoints.length - 1].one, patchValidation, (req, res) => {
   return routes.patchHelper(req, res, database, 'users', endpoints[endpoints.length-1].params);
@@ -222,5 +230,6 @@ app.get('/api/v1/users/actions/:id', patchValidation, (request, response) => {
       return response.status(500).json({ error: err });
     });
 });
+
 
 module.exports = app;

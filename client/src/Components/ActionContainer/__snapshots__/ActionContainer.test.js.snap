@@ -37,8 +37,9 @@ ShallowWrapper {
         <p
           className="no-actions"
 >
-          There are no actions to take at this time. Please check back again soon!
+          Loading...
 </p>,
+        null,
       ],
       "className": "ActionContainer",
     },
@@ -64,13 +65,14 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "There are no actions to take at this time. Please check back again soon!",
+          "children": "Loading...",
           "className": "no-actions",
         },
         "ref": null,
-        "rendered": "There are no actions to take at this time. Please check back again soon!",
+        "rendered": "Loading...",
         "type": "p",
       },
+      null,
     ],
     "type": "div",
   },
@@ -91,8 +93,9 @@ ShallowWrapper {
           <p
             className="no-actions"
 >
-            There are no actions to take at this time. Please check back again soon!
+            Loading...
 </p>,
+          null,
         ],
         "className": "ActionContainer",
       },
@@ -118,13 +121,14 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "There are no actions to take at this time. Please check back again soon!",
+            "children": "Loading...",
             "className": "no-actions",
           },
           "ref": null,
-          "rendered": "There are no actions to take at this time. Please check back again soon!",
+          "rendered": "Loading...",
           "type": "p",
         },
+        null,
       ],
       "type": "div",
     },

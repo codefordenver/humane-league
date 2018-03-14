@@ -109,14 +109,14 @@ export const patchAction = async (type, actionId, token, action) => {
   }
 };
 
-export const patchActionContent = async (type, actionId, token, content) => {
+export const patchActionContent = async (type, contentId, token, content) => {
   try {
-    return await fetch(`/api/v1/${type}_contents/${actionId}?token=${token}`, {
+    return await fetch(`/api/v1/${type}_contents/${contentId}?token=${token}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ action_id: actionId, content })
+      body: JSON.stringify({ content })
     });
   } catch (error) {
     return error;

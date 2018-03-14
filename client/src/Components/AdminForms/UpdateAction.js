@@ -109,7 +109,7 @@ export class UpdateAction extends Component {
       for (let i = 0; i < actionBodies.length; i++) {
         let content = actionBodies[i];
         if (content.action_id) {
-          const contentID = await patchActionContent(type, actionId, token, content.content);
+          const contentID = await patchActionContent(type, content.id, token, content.content);
           console.log('patch:', contentID);
         } else {
           const contentID = await postActionContent(type, {id: actionId}, token, content.content);

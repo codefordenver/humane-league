@@ -54,6 +54,7 @@ class EmailCard extends Component {
     const { title, description, to, cc, bcc, subject } = this.props.action;
 
     let buttonText = 'EMAIL';
+    let noMoreActions = null;
         
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
@@ -85,8 +86,16 @@ class EmailCard extends Component {
         </div>;
     }
 
-    if (this.props.action.completed) {
+    if (this.props.action.completed && this.props.length >= 1) {
+      buttonText = "Next Email Action";
+      buttonOnClick = () => this.props.removeCompleted('email_actions', this.props.action);
+      button = <button onClick={buttonOnClick}>{buttonText}<i className="icon-email"></i></button>;
+      targetLink = null;
+    }
+
+    if (this.props.action.completed && this.props.length <= 1) {
       button = null;
+      noMoreActions = <p className="no-more-actions">No More Email Actions Today</p>;
     }
 
     return (
@@ -104,6 +113,7 @@ class EmailCard extends Component {
           </a> 
           {cancelButton}
         </div>
+        {noMoreActions}
       </div>
     );
   }

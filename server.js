@@ -200,6 +200,7 @@ const findUser = (token) => {
 
 const handleNewUser = (request, response) => {
   const { token, email, name } = request.query;
+  console.log(token, email, name);
   const user = { 
     id_token: token, 
     email, 
@@ -212,7 +213,7 @@ const handleNewUser = (request, response) => {
     super_admin: false
   };
 
-  return database('users').returning(['id', 'twitter_actions', 'facebook_actions', 'email_actions', 'phone_actions', 'admin', 'name', 'id_token']).insert(user)
+  return database('users').returning(['id', 'twitter_actions', 'facebook_actions', 'email_actions', 'phone_actions', 'email', 'super_admin', 'admin', 'name', 'id_token']).insert(user)
     .then(newUser => {
       return response.status(200).json({user: newUser[0]});
     })

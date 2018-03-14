@@ -6,6 +6,11 @@
 a {
   text-decoration: none; }
 
+.no-more-actions {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold; }
+
 .ActionCard {
   align-items: center;
   background-color: white;
@@ -24,11 +29,34 @@ a {
     font-size: 20px;
     margin: 20px 0;
     text-align: center; }
-  .ActionCard .body-text {
-    font-size: 18px;
-    height: 150px;
-    padding: 10px;
+  .ActionCard textarea {
     width: 80%; }
+  .ActionCard .bTextContainer {
+    width: 80%;
+    display: flex;
+    position: relative; }
+    .ActionCard .bTextContainer .body-text {
+      font-size: 18px;
+      height: 150px;
+      padding: 10px;
+      width: 100%;
+      outline: none; }
+    .ActionCard .bTextContainer .copySection {
+      position: absolute;
+      cursor: pointer;
+      bottom: 5px;
+      right: 5px; }
+      .ActionCard .bTextContainer .copySection:hover .copy {
+        visibility: initial; }
+      .ActionCard .bTextContainer .copySection .copy {
+        visibility: hidden;
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        padding: 5px 10px;
+        background: rgba(48, 208, 54, 0.8); }
+      .ActionCard .bTextContainer .copySection img {
+        width: 30px; }
   .ActionCard .button-holder {
     align-self: center;
     display: flex;
@@ -53,8 +81,14 @@ a {
 .twitter-card .button-holder button {
   background-color: #00aced; }
 
+.twitter-card .no-more-actions {
+  color: #00aced; }
+
 .facebook-card .button-holder button {
   background-color: #284E92; }
+
+.facebook-card .no-more-actions {
+  color: #284E92; }
 
 .email-card .button-holder button,
 .email-card button {
@@ -75,6 +109,9 @@ a {
   margin-bottom: 10px;
   padding: 10px 5px; }
 
+.email-card .no-more-actions {
+  color: #db3236; }
+
 .phone-card .button-holder button {
   background-color: #3cba54; }
 
@@ -83,6 +120,9 @@ a {
 
 .phone-card .feedback-textarea {
   margin-top: 10px; }
+
+.phone-card .no-more-actions {
+  color: #3cba54; }
 
 @media screen and (max-width: 850px) {
   .ActionCard {

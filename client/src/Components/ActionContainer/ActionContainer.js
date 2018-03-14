@@ -20,6 +20,7 @@ export class ActionContainer extends Component {
   constructor() {
     super();
     this.state = {
+      loading: true,
       userPreferences: {},
       twitter_actions: [],
       facebook_actions: [],
@@ -31,7 +32,7 @@ export class ActionContainer extends Component {
     const { twitter_actions, facebook_actions, email_actions, phone_actions, id, id_token} = this.props.user;
     await this.setState({ userPreferences: { twitter_actions, facebook_actions, email_actions, phone_actions} });
 
-    const completedActions = await getCompletedActions(id, id_token);
+    const completedActions = await getCompletedActions(id, id_token) || [];
     const actions = {
       twitter_actions: this.state.userPreferences.twitter_actions ? 
         await getTwitterActions() : [],
@@ -51,28 +52,35 @@ export class ActionContainer extends Component {
       actions[actionType] = actions[actionType].filter(action => action.enabled === true);
       actions[actionType].sort((a, b) => a.created_at > b.created_at);
     });
-
-    await this.setState(actions);
+    
+    await this.setState(Object.assign(actions, { loading: false }));
   }
 
   removeCompleted = (actionType, action) => {
-    const index = this.state[actionType].indexOf(action);
-    const actions = this.state[actionType];
-    actions[index] = { id: action.id, completed: true, title: 'Thank You!', description: `🎉  For taking action: ${action.title}  🎉`};
-    setTimeout(() => this.setState({ [actionType]: actions }), 1000);
+    if (action.completed) {
+      const actions = this.state[actionType].filter(act => act.id !== action.id);
+      setTimeout(() => this.setState({ [actionType]: actions }), 1000);
+    } else {
+      const index = this.state[actionType].indexOf(action);
+      const actions = this.state[actionType];
+      actions[index] = { id: action.id, completed: true, title: '🎉  Thank You!  🎉', description: `For taking action: ${action.title}`};
+      setTimeout(() => this.setState({ [actionType]: actions }), 1000);
+    }
   }
 
   render() {
     const { twitter_actions, facebook_actions, email_actions, phone_actions } = this.state;
     const { user } = this.props;
 
-    const twitter = twitter_actions.length ? <TwitterCard action={twitter_actions[0]} user={user} removeCompleted={this.removeCompleted}/> : null;
-    const facebook = facebook_actions.length ? <FacebookCard action={facebook_actions[0]} user={user} removeCompleted={this.removeCompleted}/> : null;
-    const email = email_actions.length ? <EmailCard action={email_actions[0]} user={user} removeCompleted={this.removeCompleted}/> : null;
-    const phone = phone_actions.length ? <PhoneCard action={phone_actions[0]} user={user} removeCompleted={this.removeCompleted}/> : null;
+    const twitter = twitter_actions.length ? <TwitterCard action={twitter_actions[0]} user={user} removeCompleted={this.removeCompleted} length={twitter_actions.length}/> : null;
+    const facebook = facebook_actions.length ? <FacebookCard action={facebook_actions[0]} user={user} removeCompleted={this.removeCompleted} length={facebook_actions.length}/> : null;
+    const email = email_actions.length ? <EmailCard action={email_actions[0]} user={user} removeCompleted={this.removeCompleted} length={email_actions.length}/> : null;
+    const phone = phone_actions.length ? <PhoneCard action={phone_actions[0]} user={user} removeCompleted={this.removeCompleted} length={phone_actions.length}/> : null;
 
-    const noActions = twitter_actions.length === 0 && facebook_actions.length === 0 && email_actions.length === 0 && phone_actions.length === 0;
-    const noActionsMessage = noActions ? <p className="no-actions">There are no actions to take at this time. Please check back again soon!</p> : null;
+    const noActions = twitter_actions.length === 0 && facebook_actions.length === 0 && email_actions.length === 0 && phone_actions.length === 0 && !this.state.loading;
+    const noActionsMessage = noActions ? <div className="no-actions"><p>You have completed all of our actions!</p><p>🎉  Great job!  🎉</p><p> Please check back again soon for new actions. In the meantime, check out <a className="thl-twitter-link" href="https://twitter.com/thehumaneleague" target="_blank" rel="noopener noreferrer">our Twitter feed</a> to see what we&apos;re up to.</p></div> : null;
+    const loadingMessage = this.state.loading ? <p className="no-actions">Loading...</p> : null;
+
 
     return (
       <div className="ActionContainer">
@@ -81,6 +89,7 @@ export class ActionContainer extends Component {
         {facebook}
         {email}
         {phone}
+        {loadingMessage}
         {noActionsMessage}
       </div>
     );

@@ -8,6 +8,12 @@ a {
   text-decoration: none;
 }
 
+.no-more-actions {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+}
+
 .ActionCard {
   align-items: center;
   background-color: white;
@@ -31,11 +37,46 @@ a {
     text-align: center;
   }
 
-  .body-text {
-    font-size: 18px;
-    height: 150px;
-    padding: 10px;
+  textarea {
     width: 80%;
+  }
+
+  .bTextContainer {
+    width: 80%;
+    display: flex;
+    position: relative;
+    .body-text {
+      font-size: 18px;
+      height: 150px;
+      padding: 10px;
+      width: 100%;
+      outline: none;
+  
+    }
+
+    .copySection {
+      position: absolute;
+      cursor: pointer;
+      bottom: 5px;
+      right: 5px;   
+
+      &:hover {
+        .copy {
+          visibility: initial;
+        }
+      }
+      .copy {
+        visibility: hidden;
+        position: absolute;
+        top: -30px;
+        right: -30px;
+        padding: 5px 10px;
+        background: rgba(48, 208, 54, 0.800);
+      }
+      img {
+        width: 30px;
+      }
+    }
   }
 
   .button-holder {
@@ -73,11 +114,19 @@ a {
   .button-holder button {
     background-color: #00aced;
   }
+
+  .no-more-actions {
+    color: #00aced;
+  }
 }
 
 .facebook-card {
   .button-holder button {
     background-color: #284E92;
+  }
+
+  .no-more-actions {
+    color: #284E92;
   }
 }
 
@@ -104,6 +153,10 @@ a {
     margin-bottom: 10px;
     padding: 10px 5px;
   }
+  
+  .no-more-actions {
+    color: #db3236;
+  }
 }
 
 .phone-card {
@@ -117,6 +170,10 @@ a {
 
   .feedback-textarea {
     margin-top: 10px;
+  }
+
+  .no-more-actions {
+    color: #3cba54;
   }
 }
 

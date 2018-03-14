@@ -52,11 +52,13 @@ class TwitterCard extends Component {
     const { title, description, target } = this.props.action;
 
     let buttonText = 'TWEET';
+    let noMoreActions = null;
 
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
     }
-    
+    console.log(this.props.length);
+
     let buttonOnClick = this.setActionBody;
     let targetLink = null;
     let cancelButton = null;
@@ -72,8 +74,18 @@ class TwitterCard extends Component {
       button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-twitter"></i></button>;  
     }
 
-    if (this.props.action.completed) {
+    if (this.props.action.completed && this.props.length >= 1) {
+      buttonText = "Next Twitter Action";
+      buttonOnClick = () => this.props.removeCompleted('twitter_actions', this.props.action);
+      button = <button onClick={buttonOnClick}>{buttonText}<i className="icon-twitter"></i></button>;
+      targetLink = null;
+    }
+    
+    console.log('targetLink', targetLink);
+
+    if (this.props.action.completed && this.props.length <= 1) {
       button = null;
+      noMoreActions = <p>No More Twitter Actions Today</p>;
     }
 
     return (
@@ -81,13 +93,13 @@ class TwitterCard extends Component {
         <h3>{title}</h3>
         <p className="action-description">{description}</p>
         {textArea}
-
         <div className="button-holder">
           <a href={targetLink} target="_blank">
             {button}
           </a>
           {cancelButton}
         </div>
+        {noMoreActions}
       </div>
     );
   }

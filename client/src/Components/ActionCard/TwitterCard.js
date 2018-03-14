@@ -57,7 +57,6 @@ class TwitterCard extends Component {
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
     }
-    console.log(this.props.length);
 
     let buttonOnClick = this.setActionBody;
     let targetLink = null;
@@ -80,12 +79,10 @@ class TwitterCard extends Component {
       button = <button onClick={buttonOnClick}>{buttonText}<i className="icon-twitter"></i></button>;
       targetLink = null;
     }
-    
-    console.log('targetLink', targetLink);
 
     if (this.props.action.completed && this.props.length <= 1) {
       button = null;
-      noMoreActions = <p>No More Twitter Actions Today</p>;
+      noMoreActions = <p className="no-more-actions">No More Twitter Actions Today</p>;
     }
 
     return (

@@ -14,7 +14,8 @@ import {
   patchAction,
   patchActionContent,
   postActionContent,
-  postAction } from '../../utils/apiCalls';
+  postAction,
+  deleteActionContent} from '../../utils/apiCalls';
 
 export class UpdateAction extends Component {
   constructor() {
@@ -96,7 +97,7 @@ export class UpdateAction extends Component {
     }
   }
 
-  submitPatch = async (action, actionBodies) => {
+  submitPatch = async (action, actionBodies, bodiesToDelete) => {
     const actionId = this.state.action.id;
     const type = this.state.actionType;
     const newAction = Object.assign({ ...action }, { id: actionId });
@@ -108,12 +109,15 @@ export class UpdateAction extends Component {
       for (let i = 0; i < actionBodies.length; i++) {
         let content = actionBodies[i];
         if (content.action_id) {
-          const contentID = await patchActionContent(type, actionId, token, content.content);
-          console.log('patch:', contentID);
+          await patchActionContent(type, content.id, token, content.content);
         } else {
-          const contentID = await postActionContent(type, {id: actionId}, token, content.content);
-          console.log('post:', contentID);
+          await postActionContent(type, {id: actionId}, token, content.content);
         }
+      }
+
+      for (let i = 0; i < bodiesToDelete.length; i++) {
+        let contentId = bodiesToDelete[i].id;
+        await deleteActionContent(type, contentId, token);
       }
 
       const updatedActions = this.state[type].map(action => {

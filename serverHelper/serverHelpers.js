@@ -54,11 +54,24 @@ const patchHelper = async (request, response, database, table) => {
     });
 };
 
+const deleteHelper = async (request, response, database, table) => {
+  const { id } = request.params;
+
+  return database(table).where('id', id).del()
+    .then(result => {
+      return response.status(204).json({ result });
+    })
+    .catch(error => {
+      return response.status(500).json({ error });
+    });
+};
+
 
 
 module.exports = {
   getAllHelper,
   getOneHelper,
   postHelper,
-  patchHelper
+  patchHelper,
+  deleteHelper
 };

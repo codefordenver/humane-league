@@ -143,8 +143,7 @@ class ActionForm extends Component {
     let bodiesToDelete = [...this.state.bodiesToDelete];
     const deletedBody = actionBodies.find( body => parseInt(body.id, 10) === parseInt(event.target.dataset.id, 10));
     bodiesToDelete.push(deletedBody);
-    // actionBodies = actionBodies.filter( body => parseInt(body.id, 10) !== parseInt(event.target.dataset.id, 10));
-    actionBodies = actionBodies.filter( body => body !== deletedBody);
+    actionBodies = actionBodies.filter( body => parseInt(body.id, 10) !== parseInt(event.target.dataset.id, 10));
 
     this.setState({ actionBodies, bodiesToDelete });
   }

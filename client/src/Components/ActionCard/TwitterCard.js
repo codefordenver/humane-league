@@ -107,5 +107,6 @@ export default TwitterCard;
 TwitterCard.propTypes = {
   user: PropTypes.object,
   action: PropTypes.object,
-  removeCompleted: PropTypes.func
+  removeCompleted: PropTypes.func,
+  length: PropTypes.number
 };

@@ -213,9 +213,6 @@ class ActionForm extends Component {
   }
 
   render() {
-    console.log(this.state.actionBodies)
-    console.log(this.state.bodiesToDelete)
-
     const enabled = this.state.actionEnabled ? 'ENABLED' : 'DISABLED';
     const editButton = this.props.action ? <button className='preview-btn' name='update' onClick={this.submitAction}>Update Existing Action</button> : null;
     const socialMediaTarget = {

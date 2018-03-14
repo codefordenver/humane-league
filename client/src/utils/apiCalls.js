@@ -134,7 +134,7 @@ export const deleteActionContent = async (type, contentId, token) => {
   } catch (error) {
     return error;
   }
-}
+};
 
 export const getActionLog = async () => {
   try {

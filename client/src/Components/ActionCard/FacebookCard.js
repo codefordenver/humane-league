@@ -66,6 +66,7 @@ class FacebookCard extends Component {
     const { title, description, target } = this.props.action;
 
     let buttonText = 'FACEBOOK';
+    let noMoreActions = null;
 
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
@@ -93,8 +94,16 @@ class FacebookCard extends Component {
       button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-facebook"></i></button>;
     }
 
-    if (this.props.action.completed) {
+    if (this.props.action.completed && this.props.length >= 1) {
+      buttonText = "Next Facebook Action";
+      buttonOnClick = () => this.props.removeCompleted('facebook_actions', this.props.action);
+      button = <button onClick={buttonOnClick}>{buttonText}<i className="icon-facebook"></i></button>;
+      targetLink = null;
+    }
+
+    if (this.props.action.completed && this.props.length <= 1) {
       button = null;
+      noMoreActions = <p className="no-more-actions">No More Facebook Actions Today</p>;
     }
 
     return (
@@ -110,6 +119,7 @@ class FacebookCard extends Component {
           </a> 
           {cancelButton}
         </div>
+        {noMoreActions}
       </div>
     );
   }
@@ -120,5 +130,6 @@ export default FacebookCard;
 FacebookCard.propTypes = {
   user: PropTypes.object,
   action: PropTypes.object,
-  removeCompleted: PropTypes.func  
+  removeCompleted: PropTypes.func,
+  length: PropTypes.number  
 };

@@ -44,6 +44,7 @@ ShallowWrapper {
                     </button>
           </a>
 </div>,
+        null,
       ],
       "className": "ActionCard email-card",
     },
@@ -151,6 +152,7 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      null,
     ],
     "type": "div",
   },
@@ -184,6 +186,7 @@ ShallowWrapper {
                         </button>
             </a>
 </div>,
+          null,
         ],
         "className": "ActionCard email-card",
       },
@@ -291,6 +294,7 @@ ShallowWrapper {
           ],
           "type": "div",
         },
+        null,
       ],
       "type": "div",
     },
@@ -348,6 +352,7 @@ ShallowWrapper {
                     </button>
           </a>
 </div>,
+        null,
       ],
       "className": "ActionCard facebook-card",
     },
@@ -455,6 +460,7 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      null,
     ],
     "type": "div",
   },
@@ -487,6 +493,7 @@ ShallowWrapper {
                         </button>
             </a>
 </div>,
+          null,
         ],
         "className": "ActionCard facebook-card",
       },
@@ -594,6 +601,7 @@ ShallowWrapper {
           ],
           "type": "div",
         },
+        null,
       ],
       "type": "div",
     },
@@ -648,6 +656,7 @@ ShallowWrapper {
                     />
           </button>
 </div>,
+        null,
       ],
       "className": "ActionCard phone-card",
     },
@@ -733,6 +742,7 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      null,
     ],
     "type": "div",
   },
@@ -762,6 +772,7 @@ ShallowWrapper {
                         />
             </button>
 </div>,
+          null,
         ],
         "className": "ActionCard phone-card",
       },
@@ -847,6 +858,7 @@ ShallowWrapper {
           ],
           "type": "div",
         },
+        null,
       ],
       "type": "div",
     },
@@ -904,6 +916,7 @@ ShallowWrapper {
                     </button>
           </a>
 </div>,
+        null,
       ],
       "className": "ActionCard twitter-card",
     },
@@ -1011,6 +1024,7 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      null,
     ],
     "type": "div",
   },
@@ -1043,6 +1057,7 @@ ShallowWrapper {
                         </button>
             </a>
 </div>,
+          null,
         ],
         "className": "ActionCard twitter-card",
       },
@@ -1150,6 +1165,7 @@ ShallowWrapper {
           ],
           "type": "div",
         },
+        null,
       ],
       "type": "div",
     },

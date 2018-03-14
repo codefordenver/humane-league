@@ -66,6 +66,7 @@ class PhoneCard extends Component {
     const { title, description, phone_number } = this.props.action;
 
     let buttonText = 'CALL';
+    let noMoreActions = null;
 
     if (this.props.user.admin) {
       buttonText = `${this.state.actionCount} people have taken this action!`;
@@ -95,8 +96,15 @@ class PhoneCard extends Component {
       button = <button onClick={ buttonOnClick }>{buttonText}<i className="icon-phone"></i></button>;
     }
     
-    if (this.props.action.completed) {
+    if (this.props.action.completed && this.props.length >= 1) {
+      buttonText = "Next Phone Action";
+      buttonOnClick = () => this.props.removeCompleted('phone_actions', this.props.action);
+      button = <button onClick={buttonOnClick}>{buttonText}<i className="icon-phone"></i></button>;
+    }
+
+    if (this.props.action.completed && this.props.length <= 1) {
       button = null;
+      noMoreActions = <p className="no-more-actions">No More Phone Actions Today</p>;
     }
 
     return (
@@ -112,6 +120,7 @@ class PhoneCard extends Component {
           {button}
           {cancelButton}
         </div>
+        {noMoreActions}
       </div>
     );
   }
@@ -122,5 +131,6 @@ export default PhoneCard;
 PhoneCard.propTypes = {
   user: PropTypes.object,
   action: PropTypes.object,
-  removeCompleted: PropTypes.func  
+  removeCompleted: PropTypes.func,
+  length: PropTypes.number
 };

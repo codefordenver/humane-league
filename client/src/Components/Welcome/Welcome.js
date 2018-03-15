@@ -28,11 +28,8 @@ export class Welcome extends Component {
       facebook: new firebase.auth.FacebookAuthProvider(), 
       google: new firebase.auth.GoogleAuthProvider()
     };
-    // const provider = new firebase.auth.GoogleAuthProvider();
 
     firebase.auth().signInWithPopup(providers[prov]).then( async result => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      // const token = result.credential.idToken;
       const user = result.user;
 
       const { displayName, email, uid } = user;
@@ -47,20 +44,8 @@ export class Welcome extends Component {
       } else {
         this.props.history.push('/home');
       }
-
     }).catch(error => {
-      // Handle Errors here.
-      // const errorCode = error.code;
-      const errorMessage = error.message;
-      this.setState({ 
-        errorMessage: <h3>{errorMessage}</h3>
-      });
-
-      setTimeout(() => {
-        this.setState({
-          errorMessage: null
-        });
-      }, 5000);
+      console.error(error);
     });
   }
 

@@ -11,7 +11,9 @@
     "build-css": "node-sass-chokidar client/src/ -o client/src/",
     "watch-css": "npm run build-css && node-sass-chokidar client/src/ -o client/src/ --watch --recursive",
     "eslint": "./node_modules/eslint/bin/eslint.js server.js ./serverHelper/*.js",
-    "stage": "cd client && npm run build cd .."
+    "stage": "cd client && npm run build cd ..",
+    "eslint-client": "cd client && npm run eslint",
+    "test-client": "cd client && npm test"
   },
   "keywords": [],
   "author": "",

@@ -7,6 +7,11 @@
     font-weight: normal;
     font-size: 36px;
     margin-bottom: 10px; }
+  .UserProfile h3 {
+    color: #6cc24a;
+    font-size: 14px;
+    text-align: center;
+    min-height: 16px; }
   .UserProfile .action-count-description {
     color: white;
     font-size: 22px;

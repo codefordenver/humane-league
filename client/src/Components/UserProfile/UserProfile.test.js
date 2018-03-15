@@ -22,7 +22,10 @@ describe('UserProfile component tests', () => {
       twitter_actions: false,
       facebook_actions: false,
       email_actions: false,
-      phone_actions: false
+      phone_actions: false,
+      editProfile: false,
+      updatePrefsConfirmation: null,
+      updateProfConfirmation: null
     };
   });
   it('renders without crashing', () => {

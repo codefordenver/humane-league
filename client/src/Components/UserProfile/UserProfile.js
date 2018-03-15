@@ -76,36 +76,36 @@ export class UserProfile extends Component {
 
           <form className="user-preferences-form">
             <label> Twitter Actions
-              <input 
-                className="checkbox" 
-                type="checkbox" 
-                value="twitter_actions" 
-                checked={this.state.twitter_actions} 
-                onChange={this.changeClick}/>
+            <input 
+              className="checkbox" 
+              type="checkbox" 
+              value="twitter_actions" 
+              checked={this.state.twitter_actions} 
+              onChange={this.changeClick}/>
             </label>
             <label> Facebook Actions
-              <input 
-                className="checkbox" 
-                type="checkbox" 
-                value="facebook_actions" 
-                checked={this.state.facebook_actions} 
-                onChange={this.changeClick}/>
+            <input 
+              className="checkbox" 
+              type="checkbox" 
+              value="facebook_actions" 
+              checked={this.state.facebook_actions} 
+              onChange={this.changeClick}/>
             </label>
             <label> Email Actions
-              <input 
-                className="checkbox" 
-                type="checkbox" 
-                value="email_actions" 
-                checked={this.state.email_actions} 
-                onChange={this.changeClick}/>
+            <input 
+              className="checkbox" 
+              type="checkbox" 
+              value="email_actions" 
+              checked={this.state.email_actions} 
+              onChange={this.changeClick}/>
             </label>
             <label> Phone Actions
-              <input 
-                className="checkbox" 
-                type="checkbox" 
-                value="phone_actions" 
-                checked={this.state.phone_actions} 
-                onChange={this.changeClick}/>
+            <input 
+              className="checkbox" 
+              type="checkbox" 
+              value="phone_actions" 
+              checked={this.state.phone_actions} 
+              onChange={this.changeClick}/>
             </label>
             
             <button onClick={(event) => this.patchPreferences(event, 'prefs')}>SAVE</button>
@@ -117,16 +117,16 @@ export class UserProfile extends Component {
 
           <form className="user-profile-form">
             <label> Name: 
-              <input 
-                className="text-input"  
-                onChange={(event) => this.setState({name: event.target.value})} 
-                value={this.state.name} />
+            <input 
+              className="text-input"  
+              onChange={(event) => this.setState({name: event.target.value})} 
+              value={this.state.name} />
             </label>
             <label> Email: 
-              <input 
-                className="text-input" 
-                onChange={(event) => this.setState({email: event.target.value})} 
-                value={this.state.email} />
+            <input 
+              className="text-input" 
+              onChange={(event) => this.setState({email: event.target.value})} 
+              value={this.state.email} />
             </label>
 
             <button onClick={(event) => this.patchPreferences(event, 'name')}>SAVE</button>

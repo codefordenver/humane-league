@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable no-undef */
+/* eslint-disable no-console */
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';

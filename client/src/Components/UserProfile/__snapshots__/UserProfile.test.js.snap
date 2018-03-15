@@ -92,39 +92,36 @@ ShallowWrapper {
                     >
                               SAVE
                     </button>
+                    <h3 />
           </form>
 </div>,
         <div
           className="user-profile-edit"
 >
           <h2>
-                    Your Profile
+                    Your Information
           </h2>
-          <form
+          <div
                     className="user-profile-form"
           >
                     <label>
-                               Name:
-                              <input
-                                        className="text-input"
-                                        onChange={[Function]}
-                                        value="Julie Hawkins"
-                              />
+                              Name: 
+                              <span>
+                                        Julie Hawkins
+                              </span>
                     </label>
                     <label>
-                               Email:
-                              <input
-                                        className="text-input"
-                                        onChange={[Function]}
-                                        value="Julabi@gmail.com"
-                              />
+                              Email: 
+                              <span>
+                                        Julabi@gmail.com
+                              </span>
                     </label>
                     <button
                               onClick={[Function]}
                     >
-                              SAVE
+                              Edit Profile
                     </button>
-          </form>
+          </div>
 </div>,
       ],
       "className": "UserProfile",
@@ -211,6 +208,7 @@ ShallowWrapper {
               >
                             SAVE
               </button>
+              <h3 />
 </form>,
           ],
           "className": "user-preferences",
@@ -279,6 +277,7 @@ ShallowWrapper {
 >
                   SAVE
 </button>,
+                <h3 />,
               ],
               "className": "user-preferences-form",
             },
@@ -444,6 +443,17 @@ ShallowWrapper {
                 "rendered": "SAVE",
                 "type": "button",
               },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": null,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "h3",
+              },
             ],
             "type": "form",
           },
@@ -457,33 +467,30 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <h2>
-              Your Profile
+              Your Information
 </h2>,
-            <form
+            <div
               className="user-profile-form"
 >
               <label>
-                             Name:
-                            <input
-                                          className="text-input"
-                                          onChange={[Function]}
-                                          value="Julie Hawkins"
-                            />
+                            Name: 
+                            <span>
+                                          Julie Hawkins
+                            </span>
               </label>
               <label>
-                             Email:
-                            <input
-                                          className="text-input"
-                                          onChange={[Function]}
-                                          value="Julabi@gmail.com"
-                            />
+                            Email: 
+                            <span>
+                                          Julabi@gmail.com
+                            </span>
               </label>
               <button
                             onClick={[Function]}
               >
-                            SAVE
+                            Edit Profile
               </button>
-</form>,
+</div>,
+            false,
           ],
           "className": "user-profile-edit",
         },
@@ -494,10 +501,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Your Profile",
+              "children": "Your Information",
             },
             "ref": null,
-            "rendered": "Your Profile",
+            "rendered": "Your Information",
             "type": "h2",
           },
           Object {
@@ -507,25 +514,21 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <label>
-                   Name:
-                  <input
-                                    className="text-input"
-                                    onChange={[Function]}
-                                    value="Julie Hawkins"
-                  />
+                  Name: 
+                  <span>
+                                    Julie Hawkins
+                  </span>
 </label>,
                 <label>
-                   Email:
-                  <input
-                                    className="text-input"
-                                    onChange={[Function]}
-                                    value="Julabi@gmail.com"
-                  />
+                  Email: 
+                  <span>
+                                    Julabi@gmail.com
+                  </span>
 </label>,
                 <button
                   onClick={[Function]}
 >
-                  SAVE
+                  Edit Profile
 </button>,
               ],
               "className": "user-profile-form",
@@ -538,29 +541,25 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    " Name:",
-                    <input
-                      className="text-input"
-                      onChange={[Function]}
-                      value="Julie Hawkins"
-/>,
+                    "Name: ",
+                    <span>
+                      Julie Hawkins
+</span>,
                   ],
                 },
                 "ref": null,
                 "rendered": Array [
-                  " Name:",
+                  "Name: ",
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "className": "text-input",
-                      "onChange": [Function],
-                      "value": "Julie Hawkins",
+                      "children": "Julie Hawkins",
                     },
                     "ref": null,
-                    "rendered": null,
-                    "type": "input",
+                    "rendered": "Julie Hawkins",
+                    "type": "span",
                   },
                 ],
                 "type": "label",
@@ -571,29 +570,25 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    " Email:",
-                    <input
-                      className="text-input"
-                      onChange={[Function]}
-                      value="Julabi@gmail.com"
-/>,
+                    "Email: ",
+                    <span>
+                      Julabi@gmail.com
+</span>,
                   ],
                 },
                 "ref": null,
                 "rendered": Array [
-                  " Email:",
+                  "Email: ",
                   Object {
                     "instance": null,
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "className": "text-input",
-                      "onChange": [Function],
-                      "value": "Julabi@gmail.com",
+                      "children": "Julabi@gmail.com",
                     },
                     "ref": null,
-                    "rendered": null,
-                    "type": "input",
+                    "rendered": "Julabi@gmail.com",
+                    "type": "span",
                   },
                 ],
                 "type": "label",
@@ -603,16 +598,17 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "SAVE",
+                  "children": "Edit Profile",
                   "onClick": [Function],
                 },
                 "ref": null,
-                "rendered": "SAVE",
+                "rendered": "Edit Profile",
                 "type": "button",
               },
             ],
-            "type": "form",
+            "type": "div",
           },
+          false,
         ],
         "type": "div",
       },
@@ -688,39 +684,36 @@ ShallowWrapper {
                         >
                                     SAVE
                         </button>
+                        <h3 />
             </form>
 </div>,
           <div
             className="user-profile-edit"
 >
             <h2>
-                        Your Profile
+                        Your Information
             </h2>
-            <form
+            <div
                         className="user-profile-form"
             >
                         <label>
-                                     Name:
-                                    <input
-                                                className="text-input"
-                                                onChange={[Function]}
-                                                value="Julie Hawkins"
-                                    />
+                                    Name: 
+                                    <span>
+                                                Julie Hawkins
+                                    </span>
                         </label>
                         <label>
-                                     Email:
-                                    <input
-                                                className="text-input"
-                                                onChange={[Function]}
-                                                value="Julabi@gmail.com"
-                                    />
+                                    Email: 
+                                    <span>
+                                                Julabi@gmail.com
+                                    </span>
                         </label>
                         <button
                                     onClick={[Function]}
                         >
-                                    SAVE
+                                    Edit Profile
                         </button>
-            </form>
+            </div>
 </div>,
         ],
         "className": "UserProfile",
@@ -807,6 +800,7 @@ ShallowWrapper {
                 >
                                 SAVE
                 </button>
+                <h3 />
 </form>,
             ],
             "className": "user-preferences",
@@ -875,6 +869,7 @@ ShallowWrapper {
 >
                     SAVE
 </button>,
+                  <h3 />,
                 ],
                 "className": "user-preferences-form",
               },
@@ -1040,6 +1035,17 @@ ShallowWrapper {
                   "rendered": "SAVE",
                   "type": "button",
                 },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": null,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "h3",
+                },
               ],
               "type": "form",
             },
@@ -1053,33 +1059,30 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <h2>
-                Your Profile
+                Your Information
 </h2>,
-              <form
+              <div
                 className="user-profile-form"
 >
                 <label>
-                                 Name:
-                                <input
-                                                className="text-input"
-                                                onChange={[Function]}
-                                                value="Julie Hawkins"
-                                />
+                                Name: 
+                                <span>
+                                                Julie Hawkins
+                                </span>
                 </label>
                 <label>
-                                 Email:
-                                <input
-                                                className="text-input"
-                                                onChange={[Function]}
-                                                value="Julabi@gmail.com"
-                                />
+                                Email: 
+                                <span>
+                                                Julabi@gmail.com
+                                </span>
                 </label>
                 <button
                                 onClick={[Function]}
                 >
-                                SAVE
+                                Edit Profile
                 </button>
-</form>,
+</div>,
+              false,
             ],
             "className": "user-profile-edit",
           },
@@ -1090,10 +1093,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Your Profile",
+                "children": "Your Information",
               },
               "ref": null,
-              "rendered": "Your Profile",
+              "rendered": "Your Information",
               "type": "h2",
             },
             Object {
@@ -1103,25 +1106,21 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   <label>
-                     Name:
-                    <input
-                                        className="text-input"
-                                        onChange={[Function]}
-                                        value="Julie Hawkins"
-                    />
+                    Name: 
+                    <span>
+                                        Julie Hawkins
+                    </span>
 </label>,
                   <label>
-                     Email:
-                    <input
-                                        className="text-input"
-                                        onChange={[Function]}
-                                        value="Julabi@gmail.com"
-                    />
+                    Email: 
+                    <span>
+                                        Julabi@gmail.com
+                    </span>
 </label>,
                   <button
                     onClick={[Function]}
 >
-                    SAVE
+                    Edit Profile
 </button>,
                 ],
                 "className": "user-profile-form",
@@ -1134,29 +1133,25 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
-                      " Name:",
-                      <input
-                        className="text-input"
-                        onChange={[Function]}
-                        value="Julie Hawkins"
-/>,
+                      "Name: ",
+                      <span>
+                        Julie Hawkins
+</span>,
                     ],
                   },
                   "ref": null,
                   "rendered": Array [
-                    " Name:",
+                    "Name: ",
                     Object {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "className": "text-input",
-                        "onChange": [Function],
-                        "value": "Julie Hawkins",
+                        "children": "Julie Hawkins",
                       },
                       "ref": null,
-                      "rendered": null,
-                      "type": "input",
+                      "rendered": "Julie Hawkins",
+                      "type": "span",
                     },
                   ],
                   "type": "label",
@@ -1167,29 +1162,25 @@ ShallowWrapper {
                   "nodeType": "host",
                   "props": Object {
                     "children": Array [
-                      " Email:",
-                      <input
-                        className="text-input"
-                        onChange={[Function]}
-                        value="Julabi@gmail.com"
-/>,
+                      "Email: ",
+                      <span>
+                        Julabi@gmail.com
+</span>,
                     ],
                   },
                   "ref": null,
                   "rendered": Array [
-                    " Email:",
+                    "Email: ",
                     Object {
                       "instance": null,
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "className": "text-input",
-                        "onChange": [Function],
-                        "value": "Julabi@gmail.com",
+                        "children": "Julabi@gmail.com",
                       },
                       "ref": null,
-                      "rendered": null,
-                      "type": "input",
+                      "rendered": "Julabi@gmail.com",
+                      "type": "span",
                     },
                   ],
                   "type": "label",
@@ -1199,16 +1190,17 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "SAVE",
+                    "children": "Edit Profile",
                     "onClick": [Function],
                   },
                   "ref": null,
-                  "rendered": "SAVE",
+                  "rendered": "Edit Profile",
                   "type": "button",
                 },
               ],
-              "type": "form",
+              "type": "div",
             },
+            false,
           ],
           "type": "div",
         },

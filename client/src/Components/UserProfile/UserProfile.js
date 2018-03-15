@@ -18,7 +18,10 @@ export class UserProfile extends Component {
       twitter_actions: true,
       facebook_actions: true,
       email_actions: true,
-      phone_actions: true
+      phone_actions: true,
+      editProfile: false,
+      updatePrefsConfirmation: null,
+      updateProfConfirmation: null
     };
   }
 
@@ -55,6 +58,24 @@ export class UserProfile extends Component {
     if (preferencePath.status === 204) {
       this.updateLocal(updates);
       this.props.updatePrefs(updates);
+
+      if (param === 'prefs') {
+        this.setState({
+          updatePrefsConfirmation: 'Successfully updated your Preferences!'
+        });
+      } else {
+        this.setState({
+          updateProfConfirmation: 'Successfully updated your Profile!'
+        });
+      }
+
+      return setTimeout(() => {
+        this.setState({
+          updatePrefsConfirmation: null,
+          updateProfConfirmation: null,
+          editProfile: false
+        });
+      }, 2000);
     }
   };
 
@@ -76,61 +97,76 @@ export class UserProfile extends Component {
 
           <form className="user-preferences-form">
             <label> Twitter Actions
-              <input 
-                className="checkbox" 
-                type="checkbox" 
-                value="twitter_actions" 
-                checked={this.state.twitter_actions} 
-                onChange={this.changeClick}/>
+            <input 
+              className="checkbox" 
+              type="checkbox" 
+              value="twitter_actions" 
+              checked={this.state.twitter_actions} 
+              onChange={this.changeClick}/>
             </label>
             <label> Facebook Actions
-              <input 
-                className="checkbox" 
-                type="checkbox" 
-                value="facebook_actions" 
-                checked={this.state.facebook_actions} 
-                onChange={this.changeClick}/>
+            <input 
+              className="checkbox" 
+              type="checkbox" 
+              value="facebook_actions" 
+              checked={this.state.facebook_actions} 
+              onChange={this.changeClick}/>
             </label>
             <label> Email Actions
-              <input 
-                className="checkbox" 
-                type="checkbox" 
-                value="email_actions" 
-                checked={this.state.email_actions} 
-                onChange={this.changeClick}/>
+            <input 
+              className="checkbox" 
+              type="checkbox" 
+              value="email_actions" 
+              checked={this.state.email_actions} 
+              onChange={this.changeClick}/>
             </label>
             <label> Phone Actions
-              <input 
-                className="checkbox" 
-                type="checkbox" 
-                value="phone_actions" 
-                checked={this.state.phone_actions} 
-                onChange={this.changeClick}/>
+            <input 
+              className="checkbox" 
+              type="checkbox" 
+              value="phone_actions" 
+              checked={this.state.phone_actions} 
+              onChange={this.changeClick}/>
             </label>
             
             <button onClick={(event) => this.patchPreferences(event, 'prefs')}>SAVE</button>
+            <h3>{this.state.updatePrefsConfirmation}</h3>
           </form>
         </div>
 
         <div className="user-profile-edit">
-          <h2>Your Profile</h2>
+          <h2>Your Information</h2>
 
-          <form className="user-profile-form">
-            <label> Name: 
+          { !this.state.editProfile && 
+            <div className="user-profile-form">
+              <label>Name: <span>{this.state.name}</span></label>
+              <label>Email: <span>{this.state.email}</span></label>
+              <button onClick={() => this.setState({ editProfile: true })}>Edit Profile</button>
+            </div>
+        
+          }
+
+          { this.state.editProfile &&
+            <form className="user-profile-form">
+              <label> Name: 
               <input 
                 className="text-input"  
                 onChange={(event) => this.setState({name: event.target.value})} 
                 value={this.state.name} />
-            </label>
-            <label> Email: 
+              </label>
+              <label> Email: 
               <input 
                 className="text-input" 
                 onChange={(event) => this.setState({email: event.target.value})} 
                 value={this.state.email} />
-            </label>
+              </label>
 
-            <button onClick={(event) => this.patchPreferences(event, 'name')}>SAVE</button>
-          </form>
+              <button onClick={(event) => this.patchPreferences(event, 'name')}>SAVE</button>
+              <h3>{this.state.updateProfConfirmation}</h3>
+            </form>
+          }
+
+          
         </div>
       </div>
     );

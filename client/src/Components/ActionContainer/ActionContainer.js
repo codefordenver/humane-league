@@ -7,6 +7,7 @@ import TwitterCard from '../ActionCard/TwitterCard';
 import FacebookCard from '../ActionCard/FacebookCard';
 import EmailCard from '../ActionCard/EmailCard';
 import PhoneCard from '../ActionCard/PhoneCard';
+import BaseCard from '../ActionCard/BaseCard';
 import './ActionContainer.css';
 import '../ActionCard/ActionCard.css';
 import { 
@@ -68,19 +69,72 @@ export class ActionContainer extends Component {
     }
   }
 
-  render() {
+  renderCards() {
     const { twitter_actions, facebook_actions, email_actions, phone_actions } = this.state;
     const { user } = this.props;
 
-    const twitter = twitter_actions.length ? <TwitterCard action={twitter_actions[0]} user={user} removeCompleted={this.removeCompleted} length={twitter_actions.length}/> : null;
-    const facebook = facebook_actions.length ? <FacebookCard action={facebook_actions[0]} user={user} removeCompleted={this.removeCompleted} length={facebook_actions.length}/> : null;
-    const email = email_actions.length ? <EmailCard action={email_actions[0]} user={user} removeCompleted={this.removeCompleted} length={email_actions.length}/> : null;
-    const phone = phone_actions.length ? <PhoneCard action={phone_actions[0]} user={user} removeCompleted={this.removeCompleted} length={phone_actions.length}/> : null;
+    const twitter = twitter_actions.length ?
+      <BaseCard 
+        // cardSpecific={<TwitterCard />}
+        action={twitter_actions[0]}
+        icon="icon-twitter"
+        buttonText="TWEET" 
+        cardType="twitter-card"
+        actionTable="twitter_actions"
+        contentsTable="twitter_contents"
+        user={user} 
+        removeCompleted={this.removeCompleted} 
+        length={twitter_actions.length}/> 
+      : null;
+    const facebook = facebook_actions.length ?
+      <BaseCard 
+        // cardSpecific={<FacebookCard />}
+        action={facebook_actions[0]}
+        icon="icon-facebook"
+        buttonText="FACEBOOK" 
+        cardType="facebook-card"
+        actionTable="facebook_actions"
+        contentsTable="facebook_contents"
+        user={user} 
+        removeCompleted={this.removeCompleted} 
+        length={facebook_actions.length}/> 
+      : null;
+    const email = email_actions.length ?
+      <BaseCard 
+        // cardSpecific={<EmailCard />}
+        action={email_actions[0]}
+        icon="icon-mail"
+        buttonText="EMAIL" 
+        cardType="email-card"
+        actionTable="email_actions"
+        contentsTable="email_contents"
+        user={user} 
+        removeCompleted={this.removeCompleted} 
+        length={email_actions.length}/> 
+      : null;
+    const phone = phone_actions.length ?
+      <BaseCard 
+        // cardSpecific={<PhoneCard />}
+        action={phone_actions[0]}
+        icon="icon-phone"
+        buttonText="CALL" 
+        cardType="phone-card"
+        actionTable="phone_actions"
+        contentsTable="phone_contents"
+        user={user} 
+        removeCompleted={this.removeCompleted} 
+        length={phone_actions.length}/> 
+      : null;
 
     const noActions = twitter_actions.length === 0 && facebook_actions.length === 0 && email_actions.length === 0 && phone_actions.length === 0 && !this.state.loading;
     const noActionsMessage = noActions ? <div className="no-actions"><p>You have completed all of our actions!</p><p>🎉  Great job!  🎉</p><p> Please check back again soon for new actions. In the meantime, check out <a className="thl-twitter-link" href="https://twitter.com/thehumaneleague" target="_blank" rel="noopener noreferrer">our Twitter feed</a> to see what we&apos;re up to.</p></div> : null;
     const loadingMessage = this.state.loading ? <p className="no-actions">Loading...</p> : null;
 
+    return { twitter, facebook, email, phone, loadingMessage, noActionsMessage };
+  }
+
+  render() {
+    const { twitter, facebook, email, phone, loadingMessage, noActionsMessage } = this.renderCards();
 
     return (
       <div className="ActionContainer">

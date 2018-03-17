@@ -58,7 +58,7 @@ class ActionForm extends Component {
   submitAction = async (event) => {
     event.preventDefault();
     this.setState({ preview: false });
-    const type = (this.props.form === 'facebook' || this.state.form === 'twitter')
+    const type = (this.props.form === 'facebook' || this.props.form === 'twitter')
       ? 'social'
       :  this.props.form;
     const action = this.createAction(type);
@@ -82,9 +82,9 @@ class ActionForm extends Component {
       description: this.actionDescription.value
     };
 
+
     if (type === 'social') {
       const target = this.targetUrl.value;
-
       return Object.assign({ enabled: this.state.actionEnabled }, baseAction, { target });
     } else if (type === 'email') {
       const email = {

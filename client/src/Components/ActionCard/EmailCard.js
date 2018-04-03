@@ -87,7 +87,7 @@ class EmailCard extends Component {
       buttonOnClick = this.completeAction;
       targetLink = `mailto:${to}?subject=${subject}&body=${this.state.actionBody}`;
       cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
-      showContentButton = <button onClick={() => this.setState({ showContent: !this.state.showContent })}>VIEW EMAIL DETAILS</button>;
+      
       textArea = <div className="bTextContainer">
         <textarea
           className="body-text" 

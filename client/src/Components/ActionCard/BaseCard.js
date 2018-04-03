@@ -115,6 +115,7 @@ class BaseCard extends Component {
 
   render() {
     const {title, description, textArea, targetLink, button, cancelButton, noMoreActions } = this.conditionalCardRendering();
+    console.log(this.props.action);
 
     return (
       <div className={`ActionCard ${this.props.cardType}`}>

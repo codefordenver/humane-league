@@ -5,13 +5,51 @@ import logAction from '../../utils/logAction';
 import fetchActionBody from '../../utils/fetchActionBody';
 
 class BaseCard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       actionBody: null,
       copyText: 'Copy'
     };
     this.fetchActionBody = fetchActionBody.bind(this);
+    this.cardSpecificInformation = {
+      twitter: {
+        icon: "icon-twitter",
+        buttonText: "TWEET",
+        takeActionText: "GO",
+        cardType: "twitter-card",
+        actionTable: "twitter_actions",
+        contentsTable: "twitter_contents",
+        target: props.action.target
+      },
+      facebook: {
+        icon: "icon-facebook",
+        buttonText: "FACEBOOK",
+        takeActionText: "GO",
+        cardType: "facebook-card",
+        actionTable: "facebook_actions",
+        contentsTable: "facebook_contents",
+        target: props.action.target        
+      },
+      email: {
+        icon: "icon-mail",
+        buttonText: "EMAIL",
+        takeActionText: "SEND",
+        cardType: "email-card",
+        actionTable: "email_actions",
+        contentsTable: "email_contents",
+        target: props.action.target
+      },
+      phone: {
+        icon: "icon-phone",
+        buttonText: "CALL",
+        takeActionText: "COMPLETED",
+        cardType: "phone-card",
+        actionTable: "phone_actions",
+        contentsTable: "phone_contents",
+        target: props.action.target
+      }
+    };
   }
 
   copyText = () => {
@@ -33,7 +71,8 @@ class BaseCard extends Component {
 
   conditionalCardRendering () {
     const { title, description, target } = this.props.action;
-    let { buttonText, icon }  = this.props;
+    let { buttonText, takeActionText, icon, actionTable, targetLink }  = this.cardSpecificInformation[this.props.actionType];
+
     let noMoreActions = null;
 
     if (this.props.user.admin) {
@@ -41,15 +80,14 @@ class BaseCard extends Component {
     }
 
     let buttonOnClick = this.setActionBody;
-    let targetLink = null;
     let cancelButton = null;
     let textArea = null;
     let button = <button onClick={ buttonOnClick }>{buttonText}<i className={icon}></i></button>;
 
     if (this.state.actionBody !== null && !this.props.action.completed) {
-      buttonText = 'GO';
+      buttonText = takeActionText;
       buttonOnClick = this.completeAction;
-      targetLink = `https://twitter.com/intent/tweet?text=${target} ${this.state.actionBody}`;
+      targetLink = target;
       cancelButton = <button onClick={() => this.resetBody(null)}>CANCEL</button>;
       textArea = <div className="bTextContainer">
         <textarea
@@ -64,7 +102,7 @@ class BaseCard extends Component {
 
     if (this.props.action.completed && this.props.length >= 1) {
       buttonText = "Next Twitter Action";
-      buttonOnClick = () => this.props.removeCompleted('twitter_actions', this.props.action);
+      buttonOnClick = () => this.props.removeCompleted(actionTable, this.props.action);
       button = <button onClick={buttonOnClick}>{buttonText}<i className={icon}></i></button>;
       targetLink = null;
     }
@@ -85,7 +123,7 @@ class BaseCard extends Component {
 
   setActionBody = async (event) => {
     event.preventDefault();
-    const { contentsTable} = this.props;
+    const { contentsTable } = this.cardSpecificInformation[this.props.actionType];
     let actionBody;
     if (this.props.user.preview) {
       actionBody = this.props.action.content;
@@ -108,9 +146,9 @@ class BaseCard extends Component {
   }
 
   completeAction = () => {
-    const { actionsTable } = this.props;    
-    this.props.removeCompleted(actionsTable, this.props.action);
-    logAction(actionsTable, this.props.user, this.props.action);
+    const { actionTable } = this.props;    
+    this.props.removeCompleted(actionTable, this.props.action);
+    logAction(actionTable, this.props.user, this.props.action);
   }
 
   render() {
@@ -118,7 +156,7 @@ class BaseCard extends Component {
     console.log(this.props.action);
 
     return (
-      <div className={`ActionCard ${this.props.cardType}`}>
+      <div className={`ActionCard ${this.cardSpecificInformation[this.props.actionType].cardType}`}>
         <h3>{title}</h3>
         <p className="action-description">{description}</p>
         {this.props.cardSpecific}

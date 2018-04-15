@@ -75,26 +75,16 @@ export class ActionContainer extends Component {
 
     const twitter = twitter_actions.length ?
       <BaseCard 
-        // cardSpecific={<TwitterCard />}
         action={twitter_actions[0]}
-        icon="icon-twitter"
-        buttonText="TWEET" 
-        cardType="twitter-card"
-        actionTable="twitter_actions"
-        contentsTable="twitter_contents"
+        actionType="twitter"
         user={user} 
         removeCompleted={this.removeCompleted} 
         length={twitter_actions.length}/> 
       : null;
     const facebook = facebook_actions.length ?
       <BaseCard 
-        // cardSpecific={<FacebookCard />}
         action={facebook_actions[0]}
-        icon="icon-facebook"
-        buttonText="FACEBOOK" 
-        cardType="facebook-card"
-        actionTable="facebook_actions"
-        contentsTable="facebook_contents"
+        actionType="facebook"
         user={user} 
         removeCompleted={this.removeCompleted} 
         length={facebook_actions.length}/> 
@@ -103,11 +93,7 @@ export class ActionContainer extends Component {
       <BaseCard 
         // cardSpecific={<EmailCard />}
         action={email_actions[0]}
-        icon="icon-mail"
-        buttonText="EMAIL" 
-        cardType="email-card"
-        actionTable="email_actions"
-        contentsTable="email_contents"
+        actionType="email"
         user={user} 
         removeCompleted={this.removeCompleted} 
         length={email_actions.length}/> 
@@ -116,11 +102,7 @@ export class ActionContainer extends Component {
       <BaseCard 
         // cardSpecific={<PhoneCard />}
         action={phone_actions[0]}
-        icon="icon-phone"
-        buttonText="CALL" 
-        cardType="phone-card"
-        actionTable="phone_actions"
-        contentsTable="phone_contents"
+        actionType="phone"
         user={user} 
         removeCompleted={this.removeCompleted} 
         length={phone_actions.length}/> 

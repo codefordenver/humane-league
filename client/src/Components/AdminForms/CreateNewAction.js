@@ -69,8 +69,9 @@ export class CreateNewAction extends Component {
   render() {
     return (
       <div className='create-new-action-container'>
-        <h1>CREATE A NEW <span>{this.state.form.toUpperCase()}</span> ACTION</h1>
         <section className='select-action-container'>
+          <div className="close-Modal" onClick={() => this.props.history.push('/admin')}></div>
+          <h1>CREATE A NEW <span>{this.state.form.toUpperCase()}</span> ACTION</h1>
           <label htmlFor='action-types'>Select Action Type:
           <select onChange={() => this.handleChange()} ref={(elem) => { this.actionTypes = elem; }} name='action-types' id='action-types'>
             <option value='facebook'>Facebook</option>

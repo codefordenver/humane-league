@@ -5,8 +5,10 @@
 .AdminDashboard {
   display: flex;
   flex-direction: column;
-  align-items: center; }
+  align-items: center;
+  height: 100%; }
   .AdminDashboard .admin-greeting {
+    padding-top: 60px;
     align-self: center;
     color: #fff;
     font-size: 30pt;

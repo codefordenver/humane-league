@@ -1,11 +1,11 @@
 // ACTION FORM
 .create-action-form {
-  width: 600px;
   margin: 10px;
   form {
     display: flex;
     flex-direction: column;
     position: relative;
+    margin: 0px auto;
     .preview {
       display: flex;
       flex-direction: column;

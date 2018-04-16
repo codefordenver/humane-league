@@ -10,12 +10,12 @@
   /*background: #D5D5D5;*/
   background-image: url("../../assets/grass-bg.jpg");
   background-size: cover;
-  padding-top: 80px; }
+  padding-top: 60px; }
   .App header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.9);
     position: fixed;
     top: 0;
     height: 60px;
@@ -40,11 +40,14 @@
         border-right: 2px solid transparent;
         text-decoration: none; }
         .App header nav .nav-btn:hover {
-          background-color: black; }
+          border-left: 2px solid white;
+          border-right: 2px solid white; }
         .App header nav .nav-btn.active {
-          background-color: black;
+          background-color: rgba(255, 255, 255, 0.804);
           border-left: 2px solid gray;
           border-right: 2px solid gray; }
+          .App header nav .nav-btn.active p {
+            color: black; }
 
 @media screen and (max-width: 850px) {
   .App {
